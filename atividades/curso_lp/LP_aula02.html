@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução à Lógica de Programação</title>
+    <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <div class="intro-slide">
+                <h1>🐍 Introdução à Lógica de Programação</h1>
+                <h2 style="color: white; border: none; font-size: 1.5em; margin: 20px 0;">
+                    Aula 02 - Estruturas Condicionais
+                </h2>
+                <p style="font-size: 1.2em; margin-top: 10px;">
+                    Tome decisões inteligentes em seus algoritmos!
+                </p>
+                <div style="margin-top: 10px;">
+                    <div style="background: rgba(255,255,255,0.2); border-radius: 10px; padding: 10px; display: inline-block;">
+                        <p style="margin: 0;">
+                            <strong>📚 Parte 1:</strong> Conceitos Teóricos
+                        </p>
+                        <p style="margin: 0;">
+                            <strong>💻 Parte 2:</strong> Exercícios Práticos
+                        </p>
+                        <p style="margin: 0;">
+                            <strong>🚀 Parte 3:</strong> Projeto Incremental
+                        </p>
+                    </div>
+                    <br><br>
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: O que são condicionais -->
+        <div class="slide">
+            <h1>🤔 O que são Condicionais?</h1>
+            
+            <div class="example-box">
+                <h3>Definição</h3>
+                <p>Condicionais são estruturas de controle que permitem que um programa tome decisões baseadas em condições específicas.</p>
+            </div>
+
+            <h2>Por que são importantes?</h2>
+            <ul>
+                <li><strong>Tomada de Decisão:</strong> Permitem que programas respondam de forma diferente a situações diferentes</li>
+                <li><strong>Controle de Fluxo:</strong> Determinam qual código será executado</li>
+                <li><strong>Lógica de Negócio:</strong> Implementam regras e validações</li>
+                <li><strong>Interatividade:</strong> Criam programas que respondem às ações do usuário</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3>💡 Exemplo do Dia a Dia</h3>
+                <p><em>"Se está chovendo, então levo guarda-chuva, senão saio sem guarda-chuva"</em></p>
+                <p>Esta é uma decisão condicional que fazemos naturalmente!</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Estrutura IF -->
+        <div class="slide">
+            <h1>🔀 Estrutura Condicional IF</h1>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>Sintaxe Básica</h2>
+                    <div class="code-block">
+<pre>
+if condição:
+    # código a ser executado
+    # se a condição for verdadeira
+</pre>
+                    </div>
+
+                    <h3>Características:</h3>
+                    <ul>
+                        <li>Sempre termina com <span class="code-inline">:</span></li>
+                        <li>Código indentado (4 espaços)</li>
+                        <li>Executa apenas se condição for True</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2>Exemplo Prático</h2>
+                    <div class="code-block">idade = 18
+<pre>
+if idade >= 18:
+    print("Você é maior de idade")
+    print("Pode dirigir!")
+</pre>
+                    </div>                    
+                    <div class="example-box">
+                        <p><strong>Resultado:</strong> Como idade = 18 e 18 >= 18 é True, as duas mensagens serão exibidas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Estrutura IF-ELSE -->
+        <div class="slide">
+            <h1>⚖️ Estrutura IF-ELSE</h1>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>Sintaxe</h2>
+                    <div class="code-block">
+<pre>
+if condição:
+    # código se TRUE
+else:
+    # código se FALSE
+</pre>
+                    </div>
+
+                    <h3>Quando usar:</h3>
+                    <ul>
+                        <li>Quando há duas opções mutuamente exclusivas</li>
+                        <li>Para garantir que sempre uma ação seja executada</li>
+                        <li>Situações de "ou isso ou aquilo"</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2>Exemplo</h2>
+                    <div class="code-block">
+<pre>
+temperatura = 25
+
+if temperatura > 30:
+    print("Está muito quente!")
+    print("Vou ligar o ar condicionado")
+else:
+    print("Temperatura agradável")
+    print("Não preciso de ar condicionado")
+</pre>
+                    </div>
+
+                    <div class="example-box">
+                        <p><strong>Resultado:</strong> Como 25 não é > 30, executa o bloco else.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Estrutura ELIF -->
+        <div class="slide">
+            <h1>🎯 Estrutura ELIF (Else If)</h1>
+            
+            <h2>Sintaxe Completa</h2>
+            <div class="code-block">
+<pre>
+if primeira_condição:
+    # código para primeira condição
+elif segunda_condição:
+    # código para segunda condição
+elif terceira_condição:
+    # código para terceira condição
+else:
+    # código se nenhuma condição for verdadeira
+</pre>
+            </div>
+
+            <div class="example-box">
+                <h2>Exemplo: Sistema de Notas</h2>
+                <div class="code-block">
+<pre>
+nota = 85
+
+if nota >= 90:
+    print("Conceito A - Excelente!")
+elif nota >= 80:
+    print("Conceito B - Muito Bom!")
+elif nota >= 70:
+    print("Conceito C - Bom")
+elif nota >= 60:
+    print("Conceito D - Regular")
+else:
+    print("Conceito F - Insuficiente")
+</pre>
+                </div>
+                <p><strong>Resultado:</strong> "Conceito B - Muito Bom!" (pois 85 >= 80)</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Operadores de Comparação -->
+        <div class="slide">
+            <h1>⚖️ Operadores de Comparação</h1>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>Lista Completa</h2>
+                    <ul>
+                        <li><span class="code-inline">==</span> Igual a</li>
+                        <li><span class="code-inline">!=</span> Diferente de</li>
+                        <li><span class="code-inline">&lt;</span> Menor que</li>
+                        <li><span class="code-inline">&gt;</span> Maior que</li>
+                        <li><span class="code-inline">&lt;=</span> Menor ou igual</li>
+                        <li><span class="code-inline">&gt;=</span> Maior ou igual</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2>Exemplos</h2>
+                    <div class="code-block">
+<pre>
+# Comparações numéricas
+print(5 == 5)    # True
+print(5 != 3)    # True
+print(10 > 7)    # True
+print(4 <= 4)    # True
+
+# Comparações de strings
+nome = "Ana"
+print(nome == "Ana")     # True
+print(nome != "João")    # True
+</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>⚠️ Cuidado!</h3>
+                <p>Use <span class="code-inline">==</span> para comparar (não <span class="code-inline">=</span>)</p>
+                <p><span class="code-inline">=</span> é para atribuir valores!</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Operadores Lógicos -->
+        <div class="slide">
+            <h1>🧠 Operadores Lógicos</h1>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>AND - E lógico</h2>
+                    <p>Ambas condições devem ser verdadeiras</p>
+                    <div class="code-block">
+<pre>
+idade = 20
+renda = 3000
+
+if idade >= 18 and renda >= 2000:
+    print("Aprovado para empréstimo")
+</pre>
+            </div>
+                    <h2>OR - OU lógico</h2>
+                    <p>Pelo menos uma condição deve ser verdadeira</p>
+                    <div class="code-block">
+<pre>
+dia = "sábado"
+
+if dia == "sábado" or dia == "domingo":
+    print("É final de semana!")
+</pre>
+            </div>
+
+                <div>
+                    <h2>NOT - NÃO lógico</h2>
+                    <p>Inverte o valor da condição</p>
+                    <div class="code-block">
+<pre>
+chuva = False
+
+if not chuva:
+    print("Vou sair sem guarda-chuva")
+</pre>
+                    </div>
+                </div>
+
+                    <h2>Combinações</h2>
+                    <div class="code-block">
+<pre>
+idade = 25
+estudante = True
+renda = 1500
+
+if (idade >= 18 and renda >= 2000) or estudante:
+    print("Elegível para desconto")
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Aninhamento -->
+        <div class="slide">
+            <h1>🪆 Aninhamento de Condicionais</h1>
+            
+            <div class="highlight-box">
+                <h2>O que é Aninhamento?</h2>
+                <p>É colocar uma estrutura condicional dentro de outra, criando decisões mais complexas.</p>
+            </div>
+
+            <h2>Exemplo: Sistema de Acesso</h2>
+            <div class="code-block">
+<pre>
+usuario_valido = True
+senha_correta = True
+conta_ativa = True
+
+if usuario_valido:
+    print("Usuário encontrado")
+    
+    if senha_correta:
+        print("Senha correta")
+        
+        if conta_ativa:
+            print("Acesso liberado!")
+            print("Bem-vindo ao sistema")
+        else:
+            print("Conta inativa. Contate o suporte")
+    else:
+        print("Senha incorreta")
+        print("Tente novamente")
+else:
+    print("Usuário não encontrado")
+</pre>
+            </div>
+
+            <div class="example-box">
+                <h3>💡 Dica</h3>
+                <p>Use aninhamento quando a segunda condição só faz sentido se a primeira for verdadeira.</p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Exercício 1 -->
+        <div class="slide">
+            <div class="exercise-box">
+                <h1>🏃‍♂️ Exercício 1: Par ou Ímpar</h1>
+                <h3>Objetivo:</h3>
+                <p>Criar um programa que verifica se um número é par ou ímpar</p>
+            </div>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>💡 Conceito</h2>
+                    <p>Um número é <strong>par</strong> quando é divisível por 2 (resto da divisão = 0)</p>
+                    <p>Usamos o operador <span class="code-inline">%</span> (módulo) para encontrar o resto</p>
+                    
+                    <div class="example-box">
+                        <h3>Exemplos:</h3>
+                        <ul>
+                            <li>8 % 2 = 0 (par)</li>
+                            <li>7 % 2 = 1 (ímpar)</li>
+                            <li>10 % 2 = 0 (par)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2>💻 Solução</h2>
+                    <div class="code-block">
+<pre>
+numero = int(input("Digite um número: "))
+
+if numero % 2 == 0:
+    print(f"{numero} é PAR")
+else:
+    print(f"{numero} é ÍMPAR")
+</pre>
+                    </div>
+                    <div class="example-box">
+                        <h3>Teste:</h3>
+                        <p><strong>Entrada:</strong> 15</p>
+                        <p><strong>Saída:</strong> "15 é ÍMPAR"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Exercício 2 -->
+        <div class="slide">
+            <div class="exercise-box">
+                <h1>🗳️ Exercício 2: Verificar Idade para Votar</h1>
+                <h3>Objetivo:</h3>
+                <p>Verificar se uma pessoa pode votar baseado na idade (>= 16 anos no Brasil)</p>
+            </div>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>📋 Regras no Brasil</h2>
+                    <ul>
+                        <li><strong>16-17 anos:</strong> Voto facultativo</li>
+                        <li><strong>18-69 anos:</strong> Voto obrigatório</li>
+                        <li><strong>70+ anos:</strong> Voto facultativo</li>
+                        <li><strong>< 16 anos:</strong> Não pode votar</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2>💻 Solução</h2>
+                    <div class="code-block">
+<pre>
+idade = int(input("Digite sua idade: "))
+
+if idade < 16:
+    print("Não pode votar")
+elif idade < 18:
+    print("Voto facultativo")
+elif idade < 70:
+    print("Voto obrigatório")
+else:
+    print("Voto facultativo")
+</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>🧪 Testes</h3>
+                <p><strong>Idade 15:</strong> "Não pode votar"</p>
+                <p><strong>Idade 17:</strong> "Voto facultativo"</p>
+                <p><strong>Idade 25:</strong> "Voto obrigatório"</p>
+                <p><strong>Idade 75:</strong> "Voto facultativo"</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Exercício 3 Parte 1 -->
+        <div class="slide">
+            <div class="exercise-box">
+                <h1>📐 Exercício 3: Classificar Triângulos (Parte 1)</h1>
+                <h3>Objetivo:</h3>
+                <p>Verificar se três lados podem formar um triângulo</p>
+            </div>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>📏 Regra Fundamental</h2>
+                    <p>Para três lados formarem um triângulo:</p>
+                    <ul>
+                        <li>A soma de dois lados deve ser maior que o terceiro</li>
+                        <li>Isso deve ser válido para todas as combinações</li>
+                    </ul>
+                    
+                    <div class="example-box">
+                        <h3>Exemplo:</h3>
+                        <p>Lados: 3, 4, 5</p>
+                        <ul>
+                            <li>3 + 4 = 7 > 5 ✓</li>
+                            <li>3 + 5 = 8 > 4 ✓</li>
+                            <li>4 + 5 = 9 > 3 ✓</li>
+                        </ul>
+                        <p><strong>Resultado:</strong> É um triângulo!</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2>💻 Verificação</h2>
+                    <div class="code-block">
+<pre>
+a = float(input("Lado A: "))
+b = float(input("Lado B: "))
+c = float(input("Lado C: "))
+
+if (a + b > c) and (a + c > b) and (b + c > a):
+    print("Os lados formam um triângulo!")
+    # Próximo slide: classificar tipo
+else:
+    print("Os lados NÃO formam um triângulo")
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Exercício 3 Parte 2 -->
+        <div class="slide">
+            <div class="exercise-box">
+                <h1>📐 Exercício 3: Tipos de Triângulo (Parte 2)</h1>
+                <h3>Se formar um triângulo, qual o tipo?</h3>
+            </div>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>📚 Classificação</h2>
+                    <ul>
+                        <li><strong>Equilátero:</strong> 3 lados iguais</li>
+                        <li><strong>Isósceles:</strong> 2 lados iguais</li>
+                        <li><strong>Escaleno:</strong> 3 lados diferentes</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2>💻 Solução Completa</h2>
+                    <div class="code-block">
+<pre>
+a = float(input("Lado A: "))
+b = float(input("Lado B: "))
+c = float(input("Lado C: "))
+
+if (a + b > c) and (a + c > b) and (b + c > a):
+    print("✓ Forma um triângulo!")
+    
+    if a == b == c:
+        print("Tipo: EQUILÁTERO")
+    elif a == b or a == c or b == c:
+        print("Tipo: ISÓSCELES")
+    else:
+        print("Tipo: ESCALENO")
+else:
+    print("✗ NÃO forma um triângulo")
+</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>🧪 Teste</h3>
+                <p><strong>Entrada:</strong> 3, 3, 4</p>
+                <p><strong>Saída:</strong> "✓ Forma um triângulo!" e "Tipo: ISÓSCELES"</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Desafio -->
+        <div class="slide">
+            <div class="challenge-box">
+                <h1>🚀 DESAFIO: Sistema de Login</h1>
+                <h3>Implemente um sistema de login simples que verifique usuário e senha</h3>
+            </div>
+            
+            <div class="two-columns">
+                <div>
+                    <h2>📋 Requisitos</h2>
+                    <ul>
+                        <li>Usuário válido predefinido</li>
+                        <li>Verificar usuário existe</li>
+                        <li>Verificar senha correta</li>
+                        <li>Mensagens informativas</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2>💻 Solução</h2>
+                    <div class="code-block">
+usuario_correto = "admin"
+<pre>
+senha_correta = "123456"
+
+usuario = input("Usuário: ")
+senha = input("Senha: ")
+
+if usuario == usuario_correto:
+    if senha == senha_correta:
+        print(f"Login realizado com sucesso!")
+        print(f"Bem-vindo, {usuario}!")
+        break
+    else:
+        print("Senha incorreta")
+else:
+    print("Usuário incorreto")
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Parte 3 - Projeto -->
+        <div class="slide">
+            <h1>🚀 Parte 3: Projeto Incremental</h1>
+            <div class="project-section">
+                <h2 style="color: white; border-color: white;">📋 Projeto - Sistema de Gerenciamento de Tarefas Simples (Parte 2):</h2>
+                <p>Modifique o programa da Aula 1 para permitir que o usuário marque uma tarefa como concluída ou não concluída.</p>
+            </div>
+
+            <h2>🎯 Objetivos do Projeto</h2>
+            <ul>
+                    <li>Peça ao usuário para inserir o nome da tarefa.</li>
+                    <li>Após adicionar a tarefa, pergunte se a tarefa está concluída (S/N).</li>
+                    <li>Armazene essa informação e exiba o status junto com o nome da tarefa.</li>  
+            </ul>
+            <p>Exemplo de saída: Tarefa: Estudar Python - Status: Pendente</p>
+            <h2>📝 Versão Anterior</h2>
+            <div class="code-block">
+                    <pre>
+# Sistema de Gerenciamento de Tarefas
+print("=== SISTEMA DE TAREFAS ===")
+
+# Solicitar nome da tarefa
+nome_tarefa = input("Digite o nome da tarefa: ")
+
+# Confirmar adição da tarefa
+print(f"Tarefa '{nome_tarefa}' adicionada com sucesso!")
+                    </pre>
+            </div>
+        </div>
+
+        <!-- Slide 16: Implementação do Projeto -->
+        <div class="slide">
+            <h1>💻 Implementação do Projeto</h1>
+            
+            <h2>📝 Versão Atualizada</h2>
+            <div class="code-block">
+                    <pre>
+# Sistema de Gerenciamento de Tarefas - Versão Atualizada
+print("=== SISTEMA DE TAREFAS ===")
+
+# Solicitar nome da tarefa
+nome_tarefa = input("Digite o nome da tarefa: ")
+
+# Solicitar status da tarefa
+status_tarefa = input("A tarefa está concluída? (S/N): ")
+
+# Teste para verificar se a tarefa foi concluida
+if status_tarefa.upper() == "S":
+    status_tarefa_verificada = "Concluída"
+else:
+    status_tarefa = "Pendente"
+
+# Confirmar adição da tarefa
+print(f"Tarefa '{nome_tarefa}' adicionada com sucesso!")
+print(f"Status: {status_tarefa_verificada}")
+                    </pre>
+            </div>
+        </div>
+
+        <!-- Slide 17: Conclusão -->
+        <div class="slide">
+            <h1>🎯 Conclusão e Próximos Passos</h1>
+            
+            <div class="highlight-box">
+                <h2>✅ O que aprendemos hoje:</h2>
+                <ul>
+                    <li>Estruturas condicionais: if, else, elif</li>
+                    <li>Operadores de comparação e lógicos</li>
+                    <li>Aninhamento de condicionais</li>
+                    <li>Aplicação prática em exercícios reais</li>
+                </ul>
+            </div>
+
+            <div class="two-columns">
+                <div>
+                    <h2>🚀 Próximos Passos</h2>
+                    <ul>
+                        <li>Estruturas de repetição (loops)</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2>💡 Dicas Importantes</h2>
+                    <ul>
+                        <li>Pratique com exercícios diversos</li>
+                        <li>Use indentação correta</li>
+                        <li>Teste todos os casos possíveis</li>
+                        <li>Mantenha código limpo e legível</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h2>🎓 Obrigado pela atenção!</h2>
+                <p style="text-align: center; font-size: 1.2em;">
+                    <strong>Continue praticando e explorando o mundo da programação Python! 🐍</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="navigation">
+            <button class="nav-button" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="nav-button" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+    </div>
+
+    <script src="./aula.js"></script>
+</body>
+</html>

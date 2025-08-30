@@ -6,8 +6,26 @@
 }
 body {
     height: 100vh;
+    /*
     background: linear-gradient(160deg, rgba(5,0,90,1) 30%, rgba(107,117,117,1) 70%);
+    */
+    background: linear-gradient(245deg,#420375,#323faa,#023557,#035a20);
+    background-size: 240% 240%;
+    animation: gradient-animation 6s ease infinite;
 }
+
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
 header {
     display: flex;
     flex-direction: row;
@@ -85,7 +103,7 @@ section {
     font-weight: bold;
     text-align: center;
     margin: 5px;
-    width: 220px;
+    width: 300px;
     height: fit-content;
     padding: 10px;
     border-radius: 10px;
@@ -107,20 +125,42 @@ section {
     text-align: left;
     color: rgb(1, 1, 65);
 }
-#chamada {
+#atividade {
     flex-direction: column;
 }
-#chamada div{
+#atividade div{
     border: 1px solid white;
     border-radius: 10px;
     margin: 10px;
     padding: 15px;
-    font-size: xx-large;
-    text-align: center;
+    font-size: large;
 }
 select, option, input {
     color: rgb(1, 1, 65);
     font-size: large;
     font-weight: bold;
     padding: 4px;
+}
+.aula {
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(192, 195, 197);
+    align-items: center;
+}
+.aula .icone {
+    width: 30px;
+    margin: 3px;
+}
+.aula a {
+    text-align: left;
+    color: rgb(1, 1, 65);
+    font-size: large;
+    font-weight: bold;
+}
+.aula a:hover {
+    color: rgb(255, 0, 0);
 }

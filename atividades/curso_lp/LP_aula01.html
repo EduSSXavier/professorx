@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução à Lógica de Programação</title>
+    <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <div class="intro-slide">
+                <h1>🐍 Introdução à Lógica de Programação</h1>
+                <h2 style="color: white; border: none; font-size: 1.5em; margin: 20px 0;">
+                    Aula 01 - Fundamentos em Python
+                </h2>
+                <p style="font-size: 1.2em; margin-top: 10px;">
+                    Uma jornada através dos conceitos fundamentais da programação
+                </p>
+                <div style="margin-top: 10px;">
+                    <div style="background: rgba(255,255,255,0.2); border-radius: 10px; padding: 10px; display: inline-block;">
+                        <p style="margin: 0;">
+                            <strong>📚 Parte 1:</strong> Conceitos Teóricos
+                        </p>
+                        <p style="margin: 0;">
+                            <strong>💻 Parte 2:</strong> Exercícios Práticos
+                        </p>
+                        <p style="margin: 0;">
+                            <strong>🚀 Parte 3:</strong> Projeto Incremental
+                        </p>
+                    </div>
+                    <br><br>
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Parte 1 - Introdução -->
+        <div class="slide">
+            <h1>📖 Parte 1: Conceitos Teóricos e Fundamentos</h1>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3>🧠 Lógica de Programação</h3>
+                    <p>Pensamento estruturado e computacional</p>
+                </div>
+                <div class="topic-card">
+                    <h3>⚙️ Algoritmos</h3>
+                    <p>Sequência lógica de passos</p>
+                </div>
+                <div class="topic-card">
+                    <h3>📤 Comando print()</h3>
+                    <p>Exibição de informações</p>
+                </div>
+                <div class="topic-card">
+                    <h3>📥 Comando input()</h3>
+                    <p>Leitura de dados do usuário</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>Objetivo:</strong> Compreender os fundamentos que sustentam toda a programação moderna!
+            </div>
+        </div>
+
+        <!-- Slide 3: O que é Lógica -->
+        <div class="slide">
+            <h1>🧠 O que é Lógica de Programação?</h1>
+            
+            <h2>Definição</h2>
+            <p><strong>Lógica de Programação</strong> é a capacidade de organizar pensamentos e instruções de forma sequencial e estruturada para resolver problemas computacionais.</p>
+
+            <h2>Pensamento Computacional</h2>
+            <ul>
+                <li><strong>Decomposição:</strong> Quebrar problemas complexos em partes menores</li>
+                <li><strong>Reconhecimento de Padrões:</strong> Identificar similaridades e tendências</li>
+                <li><strong>Abstração:</strong> Focar nos aspectos essenciais, ignorando detalhes desnecessários</li>
+                <li><strong>Algoritmos:</strong> Criar sequências de instruções para resolver problemas</li>
+            </ul>
+
+            <div class="example">
+                <h3>📋 Exemplo do Dia a Dia: Fazer um Sanduíche</h3>
+                <p><strong>Problema:</strong> Preparar um sanduíche</p>
+                <p><strong>Decomposição:</strong> Separar ingredientes → Preparar pão → Montar → Finalizar</p>
+                <p><strong>Sequência lógica:</strong> Cada passo deve ser executado em ordem específica!</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Algoritmos -->
+        <div class="slide">
+            <h1>⚙️ Algoritmos</h1>
+            
+            <h2>Definição</h2>
+            <p>Um <strong>algoritmo</strong> é uma sequência finita e bem definida de instruções para resolver um problema ou executar uma tarefa.</p>
+
+            <h2>Características dos Algoritmos</h2>
+            <ul>
+                <li><strong>Finitude:</strong> Deve ter um fim</li>
+                <li><strong>Clareza:</strong> Cada instrução deve ser clara e sem ambiguidade</li>
+                <li><strong>Efetividade:</strong> Deve resolver o problema proposto</li>
+                <li><strong>Entrada:</strong> Pode ter zero ou mais dados de entrada</li>
+                <li><strong>Saída:</strong> Produz pelo menos um resultado</li>
+            </ul>
+
+            <div class="flowchart">
+                <h3>🔄 Exemplo de Fluxograma Simples</h3>
+                <div class="flowchart-step">INÍCIO</div>
+                <div class="arrow">↓</div>
+                <div class="flowchart-step">Ler nome do usuário</div>
+                <div class="arrow">↓</div>
+                <div class="flowchart-step">Exibir "Olá, [nome]!"</div>
+                <div class="arrow">↓</div>
+                <div class="flowchart-step">FIM</div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Pseudocódigo -->
+        <div class="slide">
+            <h1>📝 Representação: Pseudocódigo</h1>
+            
+            <h2>O que é Pseudocódigo?</h2>
+            <p>É uma forma de representar algoritmos usando linguagem natural estruturada, antes de convertê-los para uma linguagem de programação específica.</p>
+
+            <div class="example">
+                <h3>Exemplo: Calcular área de um retângulo</h3>
+                <div class="code-block">
+                    <pre>
+ALGORITMO CalcularAreaRetangulo
+INÍCIO
+    ESCREVER "Digite a largura:"
+    LER largura
+    ESCREVER "Digite a altura:"
+    LER altura
+    area ← largura * altura
+    ESCREVER "A área é:", area
+FIM
+                    </pre>
+                </div>
+            </div>
+
+            <h2>Vantagens do Pseudocódigo</h2>
+            <ul>
+                <li>Independente de linguagem de programação</li>
+                <li>Focado na lógica, não na sintaxe</li>
+                <li>Fácil de entender e modificar</li>
+                <li>Facilita a comunicação entre programadores</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: Comando print() -->
+        <div class="slide">
+            <h1>📤 Comando print()</h1>
+            
+            <h2>Função do print()</h2>
+            <p>O comando <code>print()</code> é usado para <strong>exibir informações no console</strong>, permitindo que o programa se comunique com o usuário mostrando resultados, mensagens e dados processados.</p>
+
+            <h2>Sintaxe Básica</h2>
+            <div class="code-block">
+                    <pre>
+print("Sua mensagem aqui")
+print(variavel)
+print("Texto", variavel, "mais texto")
+                    </pre>
+            </div>
+
+            <h2>Exemplos Práticos</h2>
+            <div class="code-block">
+                    <pre>
+# Exibir texto simples
+print("Olá, mundo!")
+
+# Exibir variáveis
+nome = "Maria"
+idade = 25
+print("Nome:", nome)
+print("Idade:", idade)
+
+# Exibir múltiplos valores
+print("Olá", nome, "! Você tem", idade, "anos.")
+
+# Formatação com f-strings (Python 3.6+)
+print(f"Olá {nome}! Você tem {idade} anos.")
+                    </pre>
+            </div>
+
+            <div class="highlight">
+                <strong>Dica:</strong> O print() é sua principal ferramenta para debug e comunicação com o usuário!
+            </div>
+        </div>
+
+        <!-- Slide 7: Comando input() -->
+        <div class="slide">
+            <h1>📥 Comando input()</h1>
+            
+            <h2>Função do input()</h2>
+            <p>O comando <code>input()</code> é usado para <strong>ler dados do usuário via console</strong>, permitindo que o programa receba informações e as processe.</p>
+
+            <h2>Sintaxe e Características</h2>
+            <div class="code-block">
+                    <pre>
+# Sintaxe básica
+variavel = input("Mensagem para o usuário: ")
+
+# O input() SEMPRE retorna uma string (texto)
+nome = input("Digite seu nome: ")  # Retorna string
+print(f"Olá, {nome}!")
+                    </pre>
+            </div>
+
+            <h2>Conversão de Tipos (Casting)</h2>
+            <div class="code-block">
+                    <pre>
+# Para números inteiros
+idade = int(input("Digite sua idade: "))
+
+# Para números decimais
+altura = float(input("Digite sua altura: "))
+
+# Exemplo completo
+nome = input("Digite seu nome: ")
+idade = int(input("Digite sua idade: "))
+altura = float(input("Digite sua altura (em metros): "))
+
+print(f"Nome: {nome}")
+print(f"Idade: {idade} anos")
+print(f"Altura: {altura}m")
+                    </pre>
+            </div>
+
+            <div class="highlight">
+                <strong>Importante:</strong> Sempre converta os dados para o tipo correto antes de fazer cálculos matemáticos!
+            </div>
+        </div>
+
+        <!-- Slide 8: Parte 2 - Exercícios -->
+        <div class="slide">
+            <h1>💻 Parte 2: Exercícios Práticos Guiados</h1>
+            
+            <p>Agora vamos aplicar os conceitos aprendidos através de exercícios práticos progressivos!</p>
+
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3>📝 Exercício 1</h3>
+                    <p>Mensagem de boas-vindas</p>
+                </div>
+                <div class="topic-card">
+                    <h3>➕ Exercício 2</h3>
+                    <p>Soma de dois números</p>
+                </div>
+                <div class="topic-card">
+                    <h3>📊 Exercício 3</h3>
+                    <p>Média de três notas</p>
+                </div>
+                <div class="topic-card">
+                    <h3>🌡️ Exercício 4</h3>
+                    <p>Conversão de temperatura</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>🏆 Desafio Final:</strong> Calcular idade baseada no ano de nascimento!
+            </div>
+        </div>
+
+        <!-- Slide 9: Exercício 1 -->
+        <div class="slide">
+            <h1>📝 Exercício 1: Boas-vindas</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Objetivo</div>
+                <p>Crie um programa que solicite o nome do usuário e exiba uma mensagem de boas-vindas personalizada.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1>📝 Exercício 1: Boas-vindas</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Objetivo</div>
+                <p>Crie um programa que solicite o nome do usuário e exiba uma mensagem de boas-vindas personalizada.</p>
+            </div>
+            <h2>💡 Solução Passo a Passo</h2>
+            <div class="code-block">
+                    <pre>
+# Passo 1: Solicitar o nome do usuário
+nome = input("Digite seu nome: ")
+
+# Passo 2: Exibir mensagem de boas-vindas
+print(f"Seja bem-vindo(a), {nome}!")
+print("É um prazer tê-lo(a) aqui!")
+                    </pre>
+            </div>
+
+            <h2>🎨 Versão Mais Elaborada</h2>
+            <div class="code-block">
+                    <pre>
+# Versão com mais interatividade
+nome = input("Por favor, digite seu nome: ")
+
+# Múltiplas formas de exibir a mensagem
+print("=" * 30)
+print(f"🎉 BEM-VINDO(A), {nome.upper()}! 🎉")
+print("=" * 30)
+print("Que bom ter você aqui conosco!")
+print("Vamos começar nossa jornada na programação!")
+                    </pre>
+            </div>
+
+            <div class="example">
+                <h3>📤 Exemplo de Execução</h3>
+                <p><strong>Entrada:</strong> João<br>
+                <strong>Saída:</strong> Seja bem-vindo(a), João!</p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Exercício 2 -->
+        <div class="slide">
+            <h1>➕ Exercício 2: Soma de Dois Números</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Objetivo</div>
+                <p>Desenvolva um programa que peça dois números, realize a soma e exiba o resultado.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1>➕ Exercício 2: Soma de Dois Números</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Objetivo</div>
+                <p>Desenvolva um programa que peça dois números, realize a soma e exiba o resultado.</p>
+            </div>
+            <h2>💡 Solução Passo a Passo</h2>
+            <div class="code-block">
+                    <pre>
+# Passo 1: Solicitar o primeiro número
+numero1 = float(input("Digite o primeiro número: "))
+
+# Passo 2: Solicitar o segundo número
+numero2 = float(input("Digite o segundo número: "))
+
+# Passo 3: Realizar a soma
+soma = numero1 + numero2
+
+# Passo 4: Exibir o resultado
+print(f"A soma de {numero1} + {numero2} = {soma}")
+                    </pre>
+            </div>
+
+            <h2>🎨 Versão com Mais Detalhes</h2>
+            <div class="code-block">
+                    <pre>
+print("=== CALCULADORA DE SOMA ===")
+
+# Entrada de dados
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
+
+# Processamento
+resultado = num1 + num2
+
+# Saída formatada
+print("-" * 25)
+print(f"Número 1: {num1}")
+print(f"Número 2: {num2}")
+print(f"Soma: {num1} + {num2} = {resultado}")
+print("-" * 25)
+                    </pre>
+            </div>
+
+            <div class="example">
+                <h3>📤 Exemplo de Execução</h3>
+                <p><strong>Entrada:</strong> 15 e 7<br>
+                <strong>Saída:</strong> A soma de 15.0 + 7.0 = 22.0</p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Exercício 3 -->
+        <div class="slide">
+            <h1>📊 Exercício 3: Média de Três Notas</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Objetivo</div>
+                <p>Calcule a média de três notas informadas pelo usuário e exiba o resultado.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1>📊 Exercício 3: Média de Três Notas</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Objetivo</div>
+                <p>Calcule a média de três notas informadas pelo usuário e exiba o resultado.</p>
+            </div>
+            <h2>💡 Solução Passo a Passo</h2>
+            <div class="code-block">
+                    <pre>
+# Passo 1: Solicitar as três notas
+nota1 = float(input("Digite a primeira nota: "))
+nota2 = float(input("Digite a segunda nota: "))
+nota3 = float(input("Digite a terceira nota: "))
+
+# Passo 2: Calcular a média
+media = (nota1 + nota2 + nota3) / 3
+
+# Passo 3: Exibir o resultado
+print(f"Média das notas: {media:.2f}")
+                    </pre>
+            </div>
+        </div>
+
+        <!-- Slide 12: Exercício 4 -->
+        <div class="slide">
+            <h1>🌡️ Exercício 4: Conversão de Temperatura</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Objetivo</div>
+                <p>Converta uma temperatura de Celsius para Fahrenheit usando a fórmula: F = (C × 9/5) + 32</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1>🌡️ Exercício 4: Conversão de Temperatura</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Objetivo</div>
+                <p>Converta uma temperatura de Celsius para Fahrenheit usando a fórmula: F = (C × 9/5) + 32</p>
+            </div>
+            <h2>💡 Solução Passo a Passo</h2>
+            <div class="code-block">
+                    <pre>
+# Passo 1: Solicitar temperatura em Celsius
+celsius = float(input("Digite a temperatura em Celsius: "))
+
+# Passo 2: Aplicar a fórmula de conversão
+fahrenheit = (celsius * 9/5) + 32
+
+# Passo 3: Exibir o resultado
+print(f"{celsius}°C equivale a {fahrenheit}°F")
+                    </pre>
+            </div>
+
+        </div>
+
+        <!-- Slide 13: Desafio -->
+        <div class="slide">
+            <h1>🏆 Desafio: Calcular Idade</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Desafio</div>
+                <p>Crie um programa que solicite o ano de nascimento do usuário e calcule sua idade atual (considere o ano atual como 2024).</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1>🏆 Desafio: Calcular Idade</h1>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">🎯 Desafio</div>
+                <p>Crie um programa que solicite o ano de nascimento do usuário e calcule sua idade atual (considere o ano atual como 2024).</p>
+            </div>
+            <h2>💡 Solução do Desafio</h2>
+            <div class="code-block">
+                    <pre>
+# Definir o ano atual
+ano_atual = 2024
+
+# Solicitar ano de nascimento
+ano_nascimento = int(input("Digite seu ano de nascimento: "))
+
+# Calcular a idade
+idade = ano_atual - ano_nascimento
+
+# Exibir resultado
+print(f"Você tem {idade} anos em {ano_atual}!")
+                    </pre>
+            </div>
+
+        </div>
+
+        <!-- Slide 14: Parte 3 - Projeto -->
+        <div class="slide">
+            <h1>🚀 Parte 3: Projeto Incremental</h1>
+            
+            <div class="project-section">
+                <h2 style="color: white; border-color: white;">📋 Sistema de Gerenciamento de Tarefas Simples</h2>
+                <p>Vamos criar nosso primeiro projeto prático aplicando todos os conceitos aprendidos!</p>
+            </div>
+
+            <h2>🎯 Objetivos do Projeto</h2>
+            <ul>
+                <li>Solicitar o nome de uma tarefa do usuário</li>
+                <li>Armazenar a tarefa em uma variável</li>
+                <li>Exibir confirmação da tarefa adicionada</li>
+                <li>Aplicar formatação profissional na saída</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>🌟 Este é o primeiro passo para um sistema mais complexo!</strong><br>
+                Em projetos futuros, expandiremos funcionalidades como: listar tarefas, marcar como concluídas, remover tarefas, etc.
+            </div>
+        </div>
+
+        <!-- Slide 15: Implementação do Projeto -->
+        <div class="slide">
+            <h1>💻 Implementação do Projeto</h1>
+            
+            <h2>📝 Versão Básica</h2>
+            <div class="code-block">
+                    <pre>
+# Sistema de Gerenciamento de Tarefas - Versão Básica
+print("=== SISTEMA DE TAREFAS ===")
+
+# Solicitar nome da tarefa
+nome_tarefa = input("Digite o nome da tarefa: ")
+
+# Confirmar adição da tarefa
+print(f"Tarefa '{nome_tarefa}' adicionada com sucesso!")
+                    </pre>
+            </div>
+
+        </div>
+
+        <!-- Slide 16: Parabéns -->
+        <div class="slide">
+            <div class="highlight">
+                <strong>🎯 Parabéns!</strong> Você criou seu primeiro sistema funcional usando os conceitos de lógica de programação!
+            </div>
+        </div>
+
+        <!-- Slide 17: Resumo e Próximos Passos -->
+        <div class="slide">
+            <h1>🎓 Resumo da Apresentação</h1>
+            
+            <h2>📚 O que Aprendemos</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3>🧠 Lógica</h3>
+                    <p>Pensamento estruturado e computacional</p>
+                </div>
+                <div class="topic-card">
+                    <h3>⚙️ Algoritmos</h3>
+                    <p>Sequências de instruções organizadas</p>
+                </div>
+                <div class="topic-card">
+                    <h3>📤 print()</h3>
+                    <p>Exibição de dados no console</p>
+                </div>
+                <div class="topic-card">
+                    <h3>📥 input()</h3>
+                    <p>Leitura e conversão de dados</p>
+                </div>
+            </div>
+
+            <h2>💪 Habilidades Desenvolvidas</h2>
+            <ul>
+                <li>✅ Análise e decomposição de problemas</li>
+                <li>✅ Criação de algoritmos básicos</li>
+                <li>✅ Manipulação de entrada e saída de dados</li>
+                <li>✅ Conversão entre tipos de dados</li>
+                <li>✅ Desenvolvimento de um projeto prático</li>
+            </ul>
+        </div>
+
+        <!-- Slide 18: Obrigado -->
+        <div class="slide">
+            <div class="intro-slide">
+                <h1>🎉 Parabéns!</h1>
+                <h2 style="color: white; border: none; font-size: 1.8em; margin: 30px 0;">Você completou a introdução à Lógica de Programação!</h2>
+                
+                <div style="margin: 40px 0;">
+                    <div style="background: rgba(255,255,255,0.2); border-radius: 15px; padding: 30px;">
+                        <h3 style="color: white; border: none; margin-bottom: 20px;">🏆 Conquistas Desbloqueadas:</h3>
+                        <p style="margin: 10px 0; font-size: 1.1em;">✨ Compreensão dos fundamentos da programação</p>
+                        <p style="margin: 10px 0; font-size: 1.1em;">💻 Primeiro programa funcional criado</p>
+                        <p style="margin: 10px 0; font-size: 1.1em;">🧠 Desenvolvimento do pensamento lógico</p>
+                        <p style="margin: 10px 0; font-size: 1.1em;">🚀 Base sólida para projetos maiores</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 50px; font-size: 1.2em;">
+                    <p><strong>Continue praticando e explorando!</strong></p>
+                    <p>A programação é uma jornada de aprendizado constante! 🌟</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="navigation">
+            <button class="nav-button" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="nav-button" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+    </div>
+
+    <script src="./aula.js"></script>
+</body>
+</html>

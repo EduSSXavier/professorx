@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pessoal - Eduardo xavier</title>
+    <link rel="stylesheet" href="../../../xavier.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="../../../imagens/eu_ink.png">
+            Prof. Xavier<br>Chamada Online
+        </div>
+        <nav>
+            <button onclick="window.location.assign('../../../index.html')">INÍCIO</button>
+        </nav>
+    </header>
+    <section id="atividade">
+        <div>
+            Turma:<br>
+            <select id="turma">
+                <option value="scssegnot">SCS - SEGUNDA / NOTURNA</option>
+                <option value="scstermat">SCS - TERÇA / MATUTINA</option>
+                <option value="scsternot">SCS - TERÇA / NOTURNA</option>
+                <option value="sdmquinot">SDM - QUINTA / NOTURNA</option>
+            </select>
+            <br><br>
+            Matrícula:<br>
+            <input id="matricula">
+            <br><br>
+            Palavra-chave:<br>
+            <input id="chave">
+            <br><br>
+            <button onclick="registrar()">Registrar Presença</button>
+        </div>
+        <div id="resposta">
+        </section>
+
+
+    <script>
+         function registrar() {
+            let tur = document.getElementById('turma').value;
+            let mat = document.getElementById('matricula').value;
+            let chv = document.getElementById('chave').value;
+            let mensagem = {turma:tur, matricula:mat, chave:chv};
+            let url = "https://apichamada.eduardoxavier3.repl.co/registrar"
+            const options = { 
+                     method: "POST",
+                     mode: "cors",
+                     headers: {
+                     'content-type': 'application/json;charset=utf-8',
+                     },
+                     body: JSON.stringify(mensagem),
+                  };
+
+            fetch (url,options)
+                .then(resp => resp.json())
+                .then(dados => {
+                        result = "<h3>Resposta:</h3>";
+                        result += "<table>";
+                        for (let info of Object.entries(dados)) {
+                           result += "<tr>"+
+                                     "<td>"+info[0]+"</td>"+
+                                     "<td>"+info[1].nome+"</td>"+
+                                     "<td>"+info[1].idade+"</td>"+
+                                     "</tr>";
+                        }
+                        result += "</table>";
+                        document.getElementById("info").innerHTML = result;
+                     })
+                .catch(err => console.log(err));
+         } 
+    </script>
+</body>
+</html>
