@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao JavaScript</title>
+    <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <div class="intro-slide">
+                <h1>Introdução ao JavaScript</h1>
+                <h2 style="color: white; border: none; font-size: 1.5em; margin: 20px 0;">
+                    Aula 01 - Fundamentos da Linguagem
+                </h2>
+                <p style="font-size: 1.2em; margin-top: 10px;">
+                    Uma linguagem de programação essencial para desenvolvimento web
+                </p>
+                <div style="margin-top: 10px;">
+                    <div style="background: rgba(255,255,255,0.2); border-radius: 10px; padding: 10px; display: inline-block;">
+                        <p style="margin: 0;">
+                            <strong>📚 Parte 1:</strong> Conceitos Teóricos
+                        </p>
+                        <p style="margin: 0;">
+                            <strong>💻 Parte 2:</strong> Exercícios Práticos
+                        </p>
+                    </div>
+                    <br><br>
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <h1>Introdução ao JavaScript</h1>
+            <h2>A Linguagem da Web</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p><strong>JavaScript</strong> é uma linguagem de programação dinâmica 
+                        e interpretada, criada em 1995 por Brendan Eich. É amplamente 
+                        utilizada para:</p>
+                <ul>
+                    <li><strong>Desenvolvimento Web Frontend:</strong> Interatividade em páginas web</li>
+                    <li><strong>Desenvolvimento Backend:</strong> Servidores com Node.js</li>
+                    <li><strong>Aplicações Mobile:</strong> React Native, Ionic</li>
+                    <li><strong>Aplicações Desktop:</strong> Electron</li>
+                </ul>
+                <p>É uma linguagem <strong>orientada a objetos</strong>, <strong>funcional</strong> e 
+                    <strong>fracamente tipada</strong>.</p>
+                <p>JavaScript é uma linguagem de programação amplamente utilizada
+                    para desenvolvimento web. É uma das três principais tecnologias
+                    da web, juntamente com HTML e CSS.</p>
+                <div class="example">
+                    <h3>💡 Exemplo</h3>                 
+                    <div class="code-block">
+                        <pre>
+// Primeiro programa em JavaScript
+console.log("Olá, mundo!");
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Abra o console do navegador 
+                        (F12) e digite: <code>alert("Meu primeiro JavaScript!")</code></p>
+                    <p><strong>Objetivo:</strong> Familiarizar-se com a execução 
+                        de código JavaScript no navegador.</p>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <h1>Como Adicionar JavaScript no Documento HTML?</h1>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>Existem duas maneiras de adicionar JavaScript no HTML 
+                    e fazê-las trabalhar juntas:</p>
+                <ul>
+                    <li><strong>Dentro do próprio dicumento HTML</strong></li>
+                    <li><strong>Itilizando um documento externo</strong></li>
+                </ul>
+                <div class="example">
+                        <h3>💡 Exemplo 1</h3>                 
+                        <div class="code-block">
+                            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en-US"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;script&gt;JAVASCRIPT PODE SER COLOCADO AQUI&lt;/script&gt;
+        &lt;title&gt;Págia de Teste&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script&gt;JAVASCRIPT PODE TAMBÉM SER COLOCADO AQUI&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                            </pre>
+                        </div>
+                </div>
+                <div class="example">
+                    <h3>💡 Exemplo 2</h3>                 
+                    <div class="code-block">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en-US"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;title&gt;Págia de Teste&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script src="meuscript.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p>Crie um documento HTML e adicione um script externo que 
+                        exiba a mensagem "Eu gosto de programar em JavaScript!".</p>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <h1>ALERT()</h1>
+            <h2>Comando para exibir mensagens de alerta</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>O comando <code>alert()</code> é uma função global que exibe 
+                    uma caixa de diálogo modal com uma mensagem e um botão "OK".</p>
+                <ul>
+                    <li><strong>Sintaxe:</strong> <code>alert(mensagem)</code></li>
+                    <li><strong>Parâmetro:</strong> String com a mensagem a ser exibida</li>
+                    <li><strong>Comportamento:</strong> Bloqueia a execução até o usuário clicar "OK"</li>
+                    <li><strong>Uso:</strong> Avisos, notificações simples, debugging básico</li>
+                </ul>
+                <div class="example">
+                        <h3>💡 Exemplo</h3>                 
+                        <div class="code-block">
+                            <pre>
+// Exemplo básico
+alert("Bem-vindo ao sistema!");
+
+// Com variável
+var nome = "João";
+alert("Olá, " + nome + "!");
+
+// Com quebra de linha
+alert("Primeira linha\nSegunda linha");
+                            </pre>
+                        </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Crie três alertas em sequência:</p>
+                    <ul>
+                        <li>1º: "Iniciando o programa"</li>
+                        <li>2º: "Processando dados..."</li>
+                        <li>3º: "Programa finalizado!"</li>
+                    </ul>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>CONSOLE.LOG()</h1>
+            <h2>Comando para exibir mensagens no console do navegador</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>O <code>console.log()</code> é o método mais usado para debugging e exibição 
+                    de informações no console do desenvolvedor.</p>
+                <ul>
+                    <li><strong>Vantagens:</strong> Não interrompe o fluxo, aceita múltiplos parâmetros</li>
+                    <li><strong>Variações:</strong> console.error(), console.warn(), console.info()</li>
+                    <li><strong>Uso profissional:</strong> Debugging, monitoramento, logs de desenvolvimento</li>
+                    <li><strong>Acesso:</strong> F12 → Console (na maioria dos navegadores) ou Ctrl + Shift + J</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>💡 Exemplo</h3>                 
+                <div class="code-block">
+                    <pre>
+// Exemplo básico
+console.log("Mensagem no console");
+
+// Múltiplos valores
+console.log("Nome:", "Maria", "Idade:", 25);
+
+// Com variável
+var nome = "Maria";
+console.log("Olá, " + nome + "!");
+
+// Diferentes tipos de log
+console.error("Erro encontrado!");
+console.warn("Atenção: operação demorada");
+console.info("Informação: dados carregados");
+                    </pre>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>🎯 Exercício</h3>
+                <p><strong>Desafio:</strong> Use console.log para exibir:</p>
+                <ul>
+                    <li>Seu nome e idade</li>
+                    <li>O resultado de 10 + 15</li>
+                    <li>Uma mensagem de erro simulada</li>
+                    <li>Suas 3 cores favoritas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>PROMPT()</h1>
+            <h2>Entrada de dados do usuário</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>O <code>prompt()</code> exibe uma caixa de diálogo que solicita entrada do usuário.</p>
+                <ul>
+                    <li><strong>Sintaxe:</strong> <code>prompt(mensagem, valorPadrao)</code></li>
+                    <li><strong>Retorno:</strong> String com o valor digitado ou null se cancelado</li>
+                    <li><strong>Conversão:</strong> Sempre retorna string, necessário converter para números</li>
+                    <li><strong>Limitação:</strong> Interface básica, não recomendado para aplicações modernas</li>
+                </ul>
+                <div class="example">
+                        <h3>💡 Exemplo</h3>                 
+                        <div class="code-block">
+                            <pre>
+// Exemplo básico
+var nome = prompt("Digite seu nome:");
+console.log("Olá, " + nome);
+
+// Com valor padrão
+var idade = prompt("Digite sua idade:", "18");
+
+// Convertendo para número
+var numero = parseInt(prompt("Digite um número:"));
+var resultado = numero * 2;
+console.log("O dobro é:", resultado);
+                            </pre>
+                        </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Crie um programa que:</p>
+                    <ul>
+                        <li>Peça o nome do usuário</li>
+                        <li>Peça a idade (converta para número)</li>
+                        <li>Calcule o ano de nascimento (2024 - idade)</li>
+                        <li>Exiba: "Olá [nome], você nasceu em [ano]"</li>
+                    </ul>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>DOCUMENT.WRITELN()</h1>
+            <h2>Escrita direta no documento HTML</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>O <code>document.writeln()</code> escreve conteúdo diretamente no documento HTML seguido de uma quebra de linha.</p>
+                <ul>
+                    <li><strong>Uso histórico:</strong> Muito usado no início do JavaScript</li>
+                    <li><strong>Limitações:</strong> Sobrescreve conteúdo se usado após carregamento</li>
+                    <li><strong>Alternativa moderna (que veremos futuramente):</strong> innerHTML, createElement, appendChild</li>
+                    <li><strong>Diferença:</strong> writeln() adiciona quebra de linha, write() não</li>
+                </ul>
+                <div class="example">
+                        <h3>💡 Exemplo</h3>                 
+                        <div class="code-block">
+                            <pre>
+// Exemplo básico
+document.writeln("&lt;h1&gt;Título da Página&lt;/h1&gt;");
+document.writeln("&lt;p&gt;Este parágrafo foi criado com JavaScript&lt;/p&gt;");
+
+// Com variáveis
+var data = new Date();
+document.writeln("&lt;p&gt;Data atual: " + data + "&lt;/p&gt;");
+
+// Criando lista
+document.writeln("&lt;ul&gt;");
+document.writeln("&lt;li&gt;Laranja (primeiro item)&lt;/li&gt;");
+document.writeln("&lt;li&gt;Maçã (segundo item)&lt;/li&gt;");
+document.writeln("&lt;li&gt;Banana (terceiro item)&lt;/li&gt;");
+document.writeln("&lt;/ul&gt;");
+
+// Alternativa moderna (recomendada)
+document.getElementById("conteudo").innerHTML = "&lt;p&gt;Conteúdo dinâmico&lt;/p&gt;";
+                            </pre>
+                        </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Use document.writeln() para criar:</p>
+                    <ul>
+                        <li>Um título "Minha Página Dinâmica"</li>
+                        <li>Um parágrafo com a data/hora atual</li>
+                        <li>Uma lista com seus 3 hobbies favoritos</li>
+                        <li>Um link para seu site favorito</li>
+                    </ul>                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>Variáveis</h1>
+            <h2>Armazenamento de dados na memória</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>Variáveis são contêineres para armazenar dados. JavaScript possui três formas de declará-las:</p>
+                <ul>
+                    <li><strong>var:</strong> Escopo global/função, permite redeclaração</li>
+                    <li><strong>let:</strong> Escopo de bloco, não permite redeclaração no mesmo escopo</li>
+                    <li><strong>const:</strong> Escopo de bloco, valor constante (não pode ser reatribuído)</li>
+                </ul>
+                <p><strong>Regras de nomenclatura:</strong> Iniciar com letra, $, ou _; sensível a maiúsculas e minúsculas.</p>
+                <div class="example">
+                        <h3>💡 Exemplo</h3>                 
+                        <div class="code-block">
+                            <pre>
+// Declaração com var
+var nome = "Maria";
+var idade = 25;
+
+// Declaração com let
+let cidade = "São Paulo";
+let salario = 5000.50;
+
+// Declaração com const
+const PI = 3.14159;
+const EMPRESA = "Tech Solutions";
+
+// Múltiplas declarações
+var x = 10, y = 20, z = 30;
+
+// Variável sem valor inicial
+var resultado;
+console.log(resultado); // undefined
+
+// Reatribuição
+nome = "João"; // OK
+cidade = "Rio de Janeiro"; // OK
+// PI = 3.14; // ERRO! const não pode ser reatribuído
+                            </pre>
+                        </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Declare variáveis para:</p>
+                    <ul>
+                        <li>Seu nome completo (const)</li>
+                        <li>Sua idade atual (let)</li>
+                        <li>Sua cidade (var)</li>
+                        <li>Se você é estudante (let, boolean)</li>
+                        <li>Exiba todas no console ou no documento HTML</li>
+                    </ul>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>Tipos de Dados</h1>
+            <h2>Diferentes categorias de informação</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>JavaScript é dinamicamente tipado. Os tipos principais são:</p>
+                <ul>
+                    <li><strong>Number:</strong> Números inteiros e decimais (1, 3.14, -5)</li>
+                    <li><strong>String:</strong> Texto entre aspas ("João", 'Maria', `Template`)</li>
+                    <li><strong>Boolean:</strong> Verdadeiro ou falso (true, false)</li>
+                    <li><strong>Undefined:</strong> Variável declarada sem valor</li>
+                    <li><strong>Null:</strong> Valor nulo intencionalmente definido</li>
+                    <li><strong>Object:</strong> Coleção de propriedades {nome: "João"}</li>
+                </ul>
+                <div class="example">
+                    <h3>💡 Exemplo</h3>                 
+                    <div class="code-block">
+                        <pre>
+// Number
+let idade = 25;
+let altura = 1.75;
+let temperatura = -10;
+
+// String
+let nome = "Ana";
+let sobrenome = 'Silva';
+let frase = `Olá, ${nome}!`; // Template literal
+
+// Boolean
+let ativo = true;
+let concluido = false;
+
+// Undefined e Null
+let indefinido;
+let nulo = null;
+
+// Object
+let pessoa = {
+    nome: "Carlos",
+    idade: 30,
+    ativo: true
+};
+
+// Verificando tipos
+console.log(typeof idade);     // "number"
+console.log(typeof nome);      // "string"
+console.log(typeof ativo);     // "boolean"
+console.log(typeof indefinido); // "undefined"
+console.log(typeof pessoa);    // "object"
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Crie variáveis de cada tipo e use typeof para verificar:</p>
+                    <ul>
+                        <li>Um número decimal (sua altura)</li>
+                        <li>Uma string (seu filme favorito)</li>
+                        <li>Um boolean (se você gosta de programar)</li>
+                        <li>Um objeto (dados de um livro: título, autor, páginas)</li>
+                    </ul>                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>Operadores Aritméticos</h1>
+            <h2>Realizando cálculos matemáticos</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>JavaScript oferece operadores para operações matemáticas:</p>
+                <ul>
+                    <li><strong>+ (Adição):</strong> Soma valores ou concatena strings</li>
+                    <li><strong>- (Subtração):</strong> Subtrai o segundo valor do primeiro</li>
+                    <li><strong>* (Multiplicação):</strong> Multiplica dois valores</li>
+                    <li><strong>/ (Divisão):</strong> Divide o primeiro pelo segundo valor</li>
+                    <li><strong>% (Módulo):</strong> Resto da divisão inteira</li>
+                    <li><strong>** (Exponenciação):</strong> Eleva à potência (ES2016+)</li>
+                </ul>
+                <div class="example">
+                    <h3>💡 Exemplo</h3>                 
+                    <div class="code-block">
+                        <pre>
+// Operações básicas
+let a = 10, b = 3;
+
+console.log("Adição:", a + b);        // 13
+console.log("Subtração:", a - b);     // 7
+console.log("Multiplicação:", a * b); // 30
+console.log("Divisão:", a / b);       // 3.333...
+console.log("Módulo:", a % b);        // 1
+console.log("Potência:", a ** b);     // 1000
+
+// Precedência dos operadores
+let resultado = 2 + 3 * 4;  // 14 (não 20)
+let comParenteses = (2 + 3) * 4; // 20
+
+// Cuidado com strings
+console.log("10" + 5);    // "105" (concatenação)
+console.log("10" - 5);    // 5 (conversão automática)
+console.log("10" * 2);    // 20 (conversão automática)
+
+// Operações com decimais
+let preco = 19.99;
+let desconto = 0.1; // 10%
+let valorFinal = preco - (preco * desconto);
+console.log("Preço final:", valorFinal.toFixed(2));
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Calculadora de IMC:</p>
+                    <ul>
+                        <li>Peça peso em kg</li>
+                        <li>Peça altura em metros</li>
+                        <li>Calcule índice de massa corporal: IMC = peso / (altura²) </li>
+                        <li>Exiba o resultado com 2 casas decimais</li>
+                    </ul>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>Operadores de Atribuição</h1>
+            <h2>Atribuindo e modificando valores</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>Operadores que atribuem valores às variáveis, alguns também fazem operações:</p>
+                <ul>
+                    <li><strong>= (Atribuição simples):</strong> Atribui valor à variável</li>
+                    <li><strong>+= (Adição e atribuição):</strong> x += 5 → x = x + 5</li>
+                    <li><strong>-= (Subtração e atribuição):</strong> x -= 3 → x = x - 3</li>
+                    <li><strong>*= (Multiplicação e atribuição):</strong> x *= 2 → x = x * 2</li>
+                    <li><strong>/= (Divisão e atribuição):</strong> x /= 4 → x = x / 4</li>
+                    <li><strong>%= (Módulo e atribuição):</strong> x %= 5 → x = x % 5</li>
+                    <li><strong>**= (Exponenciação e atribuição):</strong> x **= 2 → x = x ** 2</li>
+                </ul>
+                <div class="example">
+                    <h3>💡 Exemplo</h3>                 
+                    <div class="code-block">
+                        <pre>
+// Atribuição simples
+let contador = 0;
+let nome = "JavaScript";
+
+// Operadores de atribuição compostos
+contador += 1;    // contador = contador + 1 (agora é 1)
+contador += 5;    // contador = contador + 5 (agora é 6)
+contador -= 2;    // contador = contador - 2 (agora é 4)
+contador *= 3;    // contador = contador * 3 (agora é 12)
+contador /= 4;    // contador = contador / 4 (agora é 3)
+contador %= 2;    // contador = contador % 2 (agora é 1)
+
+// Com strings
+let mensagem = "Olá";
+mensagem += " mundo";  // "Olá mundo"
+mensagem += "!";       // "Olá mundo!"
+
+// Incremento e decremento
+let x = 10;
+x++;  // x = x + 1 (pós-incremento)
+++x;  // x = x + 1 (pré-incremento)
+x--;  // x = x - 1 (pós-decremento)
+--x;  // x = x - 1 (pré-decremento)
+
+// Exemplo prático: sistema de pontos
+let pontos = 100;
+pontos += 50;    // Ganhou pontos
+pontos -= 20;    // Perdeu pontos
+pontos *= 1.5;   // Bônus de 50%
+console.log("Pontos finais:", pontos);
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Vamos implementar um sistema 
+                        simplificado de conta bancária:</p>
+                    <ul>
+                        <li>Saldo inicial: R$ 1000</li>
+                        <li>Adicione um depósito de R$ 500 (use +=)</li>
+                        <li>Faça uma retirada de R$ 200 (use -=)</li>
+                        <li>Aplique juros de 2% (use *=)</li>
+                        <li>Exiba o saldo final formatado</li>
+                    </ul>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Slide FINAL -->
+        <div class="slide">
+            <h1>🎉 PARABÉNS!</h1>
+            <h2>Você concluiu a aula de introdução ao JavaScript</h2>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <div class="exercise">
+                    <h3>🚀 Conceitos Aprendidos:</h3>
+                    <ul>
+                            <li>✅ Introdução ao JavaScript</li>
+                            <li>✅ Comandos Iniciais (alert, console.log, prompt, writeln)</li>
+                            <li>✅ Variáveis (var, let, const)</li>
+                            <li>✅ Tipos de Dados</li>
+                            <li>✅ Entrada de Dados</li>
+                            <li>✅ Operadores Aritméticos</li>
+                            <li>✅ Operadores de Atribuição</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h3>🚀 Próximos Passos:</h3>
+                    <ul>
+                        <li>Estruturas condicionais (if, else, switch)</li>
+                        <li>Estruturas de repetição (for, while, do-while)</li>
+                        <li>Funções e parâmetros</li>
+                        <li>Arrays e objetos</li>
+                        <li>Manipulação do DOM</li>
+                        <li>Eventos em JavaScript</li>
+                    </ul>
+                </div>
+                <div class="exercise">
+                        <p>Continue praticando e explorando o mundo do JavaScript!</p>
+                        <p style="color: #080695;">💻 Happy Coding! 💻</p>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="navigation">
+            <button class="nav-button" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="nav-button" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+    </div>
+
+    <script src="./aula.js"></script>
+</body>
+</html>
