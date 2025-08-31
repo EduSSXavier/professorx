@@ -16,7 +16,7 @@
                     Aula 03 - Estruturas de Repetição (loops) - Parte I
                 </h2>
                 <p style="font-size: 1.2em; margin-top: 10px;">
-                    Repetir, repetir e repetir.
+                    O <strong>Comando WHILE</strong> em Python.
                 </p>
                 <div style="margin-top: 10px;">
                     <div style="background: rgba(255,255,255,0.2); border-radius: 10px; padding: 10px; display: inline-block;">
@@ -26,9 +26,6 @@
                         <p style="margin: 0;">
                             <strong>💻 Parte 2:</strong> Exercícios Práticos
                         </p>
-                        <p style="margin: 0;">
-                            <strong>🚀 Parte 3:</strong> Projeto Incremental
-                        </p>
                     </div>
                     <br><br>
                     <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
@@ -36,9 +33,562 @@
             </div>
         </div>
 
-        <!-- Slide 3: O que são condicionais -->
+        <!-- Slide 2: Agenda -->
         <div class="slide">
-            <h1>🤔 A ser desenvolvido</h1>
+            <h1>Agenda da Aula</h1>
+            <div class="highlight">
+                <h3>📚 Parte 1: Conceitos Teóricos e Fundamentos</h3>
+                <ul>
+                    <li>Loops (Laços de Repetição)</li>
+                    <li>Loop while: Sintaxe e funcionamento</li>
+                    <li>Contadores e Acumuladores</li>
+                    <li>Loops Infinitos</li>
+                    <li>Comandos break e continue</li>
+                </ul>
+            </div>
+            <div class="highlight">
+                <h3>💻 Parte 2: Exercícios Práticos Guiados</h3>
+                <p>5 exercícios progressivos + 1 desafio</p>
+            </div>
+            <div class="highlight">
+                <h3>🚀 Parte 3: Projeto Incremental</h3>
+                <p>Sistema de Gerenciamento de Tarefas - Parte 3</p>
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>O que são Loops?</h1>
+            <div class="topic-card">
+                <h3>Definição</h3>
+                <p><strong>Loops (Laços de Repetição)</strong> são estruturas que permitem executar um bloco de código repetidamente enquanto uma condição for verdadeira.</p>
+            </div>
+            
+            <h3>Importância da Repetição em Algoritmos</h3>
+            <ul>
+                <li><strong>Eficiência:</strong> Evita escrever o mesmo código várias vezes</li>
+                <li><strong>Flexibilidade:</strong> Permite processar quantidades variáveis de dados</li>
+                <li><strong>Automatização:</strong> Executa tarefas repetitivas automaticamente</li>
+                <li><strong>Escalabilidade:</strong> Funciona com 10 ou 10.000 itens</li>
+            </ul>
+
+            <div class="highlight">
+                <h3>Exemplo Prático</h3>
+                <p>Imagine que você precisa imprimir "Olá!" 100 vezes. 
+                    Sem usar loops, você precisaria escrever 100 linhas de 
+                    código. Usando loops, apenas 3 linhas!</p>
+            </div>
+        </div>
+
+        <!-- Slide: Loop While - Sintaxe -->
+        <div class="slide">
+            <h1>Loop While: Sintaxe e Funcionamento</h1>
+            
+            <h3>Sintaxe</h3>
+            <div class="code-block">
+                <pre>
+while condição:
+# bloco de código
+# que será repetido
+                </pre>
+            </div>
+            <div class="highlight">
+                <h3>Como Funciona</h3>
+                <ul>
+                    <li>Avalia a condição</li>
+                    <li>Se verdadeira: executa o bloco e volta para o passo 1</li>
+                    <li>Se falsa: sai do loop</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Exemplo Simples</h3>
+                <div class="code-block">
+                    <pre>
+contador = 1
+while contador <= 5:
+    print(f"Contagem: {contador}")
+    contador = contador + 1
+print("Fim!")
+                    </pre>
+                </div>
+                
+                <h4>Saída:</h4>
+                <div class="code-block">
+                    <pre>
+Contagem: 1
+Contagem: 2
+Contagem: 3
+Contagem: 4
+Contagem: 5
+Fim!
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Condição de Parada -->
+        <div class="slide">
+            <h1>Condição de Parada</h1>
+            
+            <div class="topic-card">
+                <h3>O que é?</h3>
+                <p>A <strong>condição de parada</strong> é a expressão booleana 
+                    que determina quando o loop deve terminar.</p>
+            </div>
+
+            <h3>Características Importantes</h3>
+            <ul>
+                <li>Deve ser uma expressão que retorna True ou False</li>
+                <li>Deve eventualmente se tornar False (senão o loop será infinito)</li>
+                <li>É verificada ANTES de cada execução do bloco</li>
+            </ul>
+
+            <h3>Exemplos de Condições</h3>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div class="code-block">
+                    <pre>
+# Contador
+while contador < 10:
+    # código
+    contador += 1
+                    </pre>
+                </div>
+                <div class="code-block">
+                    <pre>
+# Entrada do usuário
+resposta = ""
+while resposta != "sair":
+    # código
+    resposta = input("Digite: ")
+                    </pre>
+                </div>
+                    
+                <div class="code-block">
+                    <pre>
+# Condição complexa
+while x > 0 and y < 100:
+    # código
+    x -= 1
+    y += 5
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Contadores e Acumuladores -->
+        <div class="slide">
+            <h1>Contadores e Acumuladores</h1> 
+           
+            <div class="topic-card">
+                <h3>Contadores</h3>
+                <p>Variáveis que <strong>contam</strong> quantas vezes 
+                    algo aconteceu.</p>
+            </div>
+            <div>
+                <h3>Exemplo Simples</h3>
+                <div class="code-block">
+                    <pre>
+contador = 0
+while contador < 5:
+    print("Executando...")
+    contador += 1  # Incrementa
+print(f"Executou {contador} vezes")
+                    </pre>
+                </div>
+            </div>
+                    
+            <div>
+                <h4>Padrões Comuns</h4>
+                <ul>
+                    <li><span class="code-inline">contador += 1</span> (incrementa)</li>
+                    <li><span class="code-inline">contador -= 1</span> (decrementa)</li>
+                    <li><span class="code-inline">contador += 2</span> (pula de 2 em 2)</li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Acumuladores</h3>
+                <p>Variáveis que <strong>acumulam</strong> valores ao longo das iterações.</p>
+            </div>
+            <div>
+                <h3>Exemplo Simples</h3>
+                <div class="code-block">
+                    <pre>
+soma = 0
+numero = 1
+while numero <= 100:
+    soma += numero  # Acumula
+    numero += 1
+    
+print(f"Soma: {soma}")
+                    </pre>
+                </div>
+            </div>
+            <div>
+                <h4>Tipos de Acumuladores</h4>
+                <ul>
+                    <li><strong>Soma:</strong> <span class="code-inline">soma += valor</span></li>
+                    <li><strong>Produto:</strong> <span class="code-inline">produto *= valor</span></li>
+                    <li><strong>Concatenação:</strong> <span class="code-inline">texto += palavra</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide: Loops Infinitos -->
+        <div class="slide">
+            <h1>Loops Infinitos</h1>
+           
+            <div class="topic-card">
+                <h3>Loop Infinito</h3> 
+                <p>Quando a condição nunca se torna False, o programa fica "preso" executando o loop eternamente.</p>
+            </div>
+
+            <h3>❌ Como Identificar</h3>
+            <div class="code-block">
+                <pre>
+# ERRO: condição nunca muda
+contador = 1
+while contador <= 5:
+    print(contador)
+    # Esqueceu de incrementar!
+    
+# ERRO: condição nunca se torna False
+while True:
+    print("Infinito...")
+    # Sem break ou mudança na condição
+                </pre>
+            </div>
+
+            <h3>✅ Como Evitar</h3>
+            <div class="code-block">
+                <pre>
+# CORRETO: modifica a condição
+contador = 1
+while contador <= 5:
+    print(contador)
+    contador += 1  # Incrementa!
+    
+# CORRETO: usa break quando necessário
+while True:
+    entrada = input("Digite algo: ")
+    if entrada == "sair":
+        break  # Sai do loop
+                </pre>
+            </div>
+            <div class="highlight">
+                <h4>Dica Importante</h4>
+                <p>Sempre verifique se a variável da condição está sendo modificada dentro do loop!</p>
+            </div>
+        </div>
+
+        <!-- Slide: Break e Continue -->
+        <div class="slide">
+            <h1>Comandos Break e Continue</h1>
+            
+            <div class="topic-card">
+                <h3>Definição</h3>
+                <p>Comandos especiais que alteram o fluxo de execução dentro de loops.</p>
+            </div>
+
+            <h3>Exemplos</h3>
+            <br><br>
+
+            <h4>🛑 Break</h4>
+            <p>Interrompe completamente a execução do loop.</p>
+            <div class="code-block">
+                <pre>
+contador = 1
+while contador <= 10:
+    if contador == 6:
+        break  # Sai do loop
+    print(contador)
+    contador += 1
+print("Fim")
+
+# Saída: 1, 2, 3, 4, 5, Fim
+                </pre>
+            </div>
+            <br><br>
+            <h4>⏭️ Continue</h4>
+            <p>Pula para a próxima iteração, ignorando o resto do código.</p>
+            <div class="code-block">
+                <pre>
+contador = 0
+while contador < 5:
+    contador += 1
+    if contador == 3:
+        continue  # Pula para próxima
+    print(contador)
+
+# Saída: 1, 2, 4, 5
+                </pre>
+            </div>
+            <br><br>
+            <h3>Exemplo Prático: Validação de Entrada</h3>
+            <div class="code-block">
+                <pre>
+while True:
+    idade = input("Digite sua idade (ou 'sair' para terminar): ")
+    
+    if idade == 'sair':
+        break  # Sai do programa
+    
+    if not idade.isdigit():
+        print("Por favor, digite apenas números!")
+        continue  # Volta para o início
+    
+    idade = int(idade)
+    print(f"Você tem {idade} anos.")
+    break  # Entrada válida, sai do loop
+                </pre>
+            </div>
+        </div>
+
+        <!-- Slide: Exercício 1 -->
+        <div class="slide">
+            <h1>Exercício 1: Números de 1 a 10</h1>
+
+            <div class="example">
+                <h4>🎯 Desafio</h4>
+                <p>Crie um programa que imprima os números de 1 a 10 usando o comando while.</p>
+            </div>
+
+            <h3>Passo a Passo</h3>
+                <ol>
+                    <li>Inicializar uma variável contador</li>
+                    <li>Definir a condição do while</li>
+                    <li>Imprimir o número atual</li>
+                    <li>Incrementar o contador</li>
+                </ol>
+                    
+            <h3>Dicas</h3>
+            <ul>
+                <li>Comece o contador em 1</li>
+                <li>Continue enquanto <= 10</li>
+                <li>Não esqueça de incrementar!</li>
+            </ul>
+                
+            <h3>💡 Solução</h3>
+            <div class="code-block">
+                <pre>
+contador = 1
+while contador <= 10:
+    print(contador)
+    contador += 1
+                </pre>
+            </div>
+
+            <h4>Saída Esperada:</h4>
+            <div class="code-block">
+                <pre>
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+                </pre>
+            </div>
+        </div>
+
+        <!-- Slide: Exercício 2 -->
+        <div class="slide">
+            <h1>Exercício 2: Soma de 1 a N</h1>
+
+            <div class="example">
+                <h4>🎯 Desafio</h4>
+                <p>Calcule a soma dos números de 1 a N, onde N é fornecido pelo usuário.</p>
+            </div>
+
+
+            <h3>Análise do Problema</h3>
+            <ul>
+                <li>Precisamos de um <strong>acumulador</strong> para a soma</li>
+                <li>Precisamos de um <strong>contador</strong> para os números</li>
+                <li>A entrada N define até onde contar</li>
+            </ul>
+            
+            <h3>Variáveis Necessárias</h3>
+            <ul>
+                <li><span class="code-inline">n</span>: número fornecido pelo usuário</li>
+                <li><span class="code-inline">soma</span>: acumulador (inicia em 0)</li>
+                <li><span class="code-inline">numero</span>: contador (inicia em 1)</li>
+            </ul>
+
+            <h3>💡 Solução</h3>
+            <div class="code-block">
+                <pre>
+n = int(input("Digite um número: "))
+soma = 0
+numero = 1
+
+while numero <= n:
+    soma += numero
+    numero += 1
+
+print(f"A soma dos números de 1 a {n} é {soma}.")
+                </pre>
+            </div>
+
+            <h4>Exemplo de Execução:</h4>
+            <div class="code-block">
+                <pre>
+Digite um número: 5
+A soma de 1 a 5 é: 15
+                </pre>
+            </div>
+            <p><small>1 + 2 + 3 + 4 + 5 = 15</small></p>
+        </div>
+
+        <!-- Slide: Exercício 2 -->
+        <div class="slide">
+            <h1>Exercício 3: Jogo de Adivinhação</h1>
+
+            <div class="example">
+                <h4>🎯 Desafio</h4>
+                <p>Implemente um jogo onde o usuário tenta adivinhar um número secreto.</p>
+            </div>
+
+            <h3>💡 Solução Completa</h3>
+            <div class="code-block">
+                <pre>
+import random
+
+# Gerar número secreto
+numero_secreto = random.randint(1, 100)
+tentativas = 0
+
+print("=== JOGO DE ADIVINHAÇÃO ===")
+print("Tente adivinhar o número entre 1 e 100!")
+
+while True:
+    # Receber palpite do usuário
+    palpite = int(input("Digite seu palpite: "))
+    tentativas += 1
+    
+    # Verificar palpite
+    if palpite == numero_secreto:
+        print(f"🎉 Parabéns! Você acertou em {tentativas} tentativas!")
+        break
+    elif palpite < numero_secreto:
+        print("📈 Muito baixo! Tente um número maior.")
+    else:
+        print("📉 Muito alto! Tente um número menor.")
+
+print("Obrigado por jogar!")
+                </pre>
+            </div>
+
+            <div class="highlight">
+                <h4>Conceitos Utilizados</h4>
+                <ul>
+                    <li><strong>Loop infinito</strong> com break</li>
+                    <li><strong>Contador</strong> de tentativas</li>
+                    <li><strong>Condicionais</strong> aninhadas</li>
+                    <li><strong>Módulo random</strong> para gerar números</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide: Exercício 4 -->
+        <div class="slide">
+            <h1>Exercício 4: Soma até Digitar 0</h1>
+
+            <div class="example">
+                <h4>🎯 Desafio</h4>
+                <p>Peça números ao usuário até que ele digite 0, então exiba a soma de todos.</p>
+            </div>
+
+            <h3>Estratégia</h3>
+            <ol>
+                <li>Inicializar soma = 0</li>
+                <li>Loop infinito</li>
+                <li>Pedir número ao usuário</li>
+                <li>Se 0: quebrar o loop</li>
+                <li>Senão: somar ao total</li>
+                <li>Exibir resultado</li>
+            </ol>
+            
+            <h3>💡 Solução</h3>
+            <div class="code-block">
+                <pre>
+soma = 0
+print("Digite números para somar.")
+print("Digite 0 para terminar.")
+
+while True:
+    numero = float(input("Número: "))
+    
+    if numero == 0:
+        break
+    
+    soma += numero
+
+print(f"Soma total: {soma}")
+                </pre>
+            </div>
+
+            <h4>Exemplo de Execução:</h4>
+            <div class="code-block">
+                <pre>
+Digite números para somar.
+Digite 0 para terminar.
+Número: 10
+Número: 5
+Número: 3
+Número: 0
+Soma total: 18.0
+                </pre>
+            </div>
+        </div>
+
+        <!-- Slide: Desafio - Menu Interativo -->
+        <div class="slide">
+            <h1>Exercício 5:<br>Calculadora com Menu Interativo</h1>
+
+            <div class="example">
+                <h4>🎯 Desafio</h4>
+                <p>Crie um menu interativo onde o usuário escolhe opções até decidir sair.</p>
+            </div>
+
+            <div class="code-block">
+                <pre>
+while True:
+    print("\n=== CALCULADORA SIMPLES ===")
+    print("1. Somar")
+    print("2. Subtrair") 
+    print("3. Multiplicar")
+    print("4. Dividir")
+    print("0. Sair")
+    
+    opcao = input("Escolha uma opção: ")
+    
+    if opcao == "0":
+        print("Obrigado por usar a calculadora!")
+        break
+    else:    
+        a = float(input("Primeiro número: "))
+        b = float(input("Segundo número: "))
+        
+        if opcao == "1":
+            print(f"Resultado: {a + b}")
+        elif opcao == "2":
+            print(f"Resultado: {a - b}")
+        elif opcao == "3":
+            print(f"Resultado: {a * b}")
+        elif opcao == "4":
+            if b != 0:
+                print(f"Resultado: {a / b}")
+            else:
+                print("Erro: Divisão por zero!")
+        else:
+            print("Opção inválida!")
+                </pre>
+            </div>
         </div>
 
         <!-- Navegação -->
