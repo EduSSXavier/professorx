@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introdução à Lógica de Programação</title>
+    <title>Programação JavaScript</title>
     <link rel="stylesheet" href="./aula.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
                     Linguagem Javascript
                 </h1>
                 <h2 style="color: white; border: none; font-size: 1.5em; margin: 20px 0;">
-                    Aula 02 - Estruturas Condicionais
+                    Aula 02 - Estruturas de Controle Condicional
                 </h2>
                 <p style="font-size: 1.2em; margin-top: 10px;">
                     Vamos tomar decisões!.
@@ -30,9 +30,6 @@
                         <p style="margin: 0;">
                             <strong>💻 Parte 2:</strong> Exercícios Práticos
                         </p>
-                        <p style="margin: 0;">
-                            <strong>🚀 Parte 3:</strong> Projeto Incremental
-                        </p>
                     </div>
                     <br><br>
                     <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
@@ -40,9 +37,779 @@
             </div>
         </div>
 
-        <!-- Slide 3: O que são condicionais -->
+        <!-- Novo Slide -->
         <div class="slide">
-            <h1>🤔 A ser desenvolvido</h1>
+            <h1>📊 Operadores Lógicos</h1>
+            <!-- CONTEÙDO do SLIDE -->
+            <h3>📚 Teoria</h3>
+            <p>Os operadores lógicos são usados para combinar ou modificar 
+            expressões booleanas (verdadeiro/falso). São fundamentais para 
+            criar condições complexas.</p>
+            <div class="exercise">
+                <table>
+                    <tr>
+                        <th>Operador</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Resultado</th>
+                    </tr>
+                    <tr>
+                        <td><strong>&&</strong></td>
+                        <td>AND (E)</td>
+                        <td>Verdadeiro se ambas as condições forem verdadeiras</td>
+                        <td>true && true = true</td>
+                    </tr>
+                    <tr>
+                        <td><strong>||</strong></td>
+                        <td>OR (OU)</td>
+                        <td>Verdadeiro se pelo menos uma condição for verdadeira</td>
+                        <td>false || true = true</td>
+                    </tr>
+                    <tr>
+                        <td><strong>!</strong></td>
+                        <td>NOT (NÃO)</td>
+                        <td>Inverte o valor booleano</td>
+                        <td>!true = false</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="example">
+                <h3>💡 Exemplo</h3>                 
+                <div class="code-block">
+                    <pre>
+let idade = 25;
+let temCarteira = true;
+let temDinheiro = false;
+
+// AND (&&) - Todas as condições devem ser verdadeiras
+console.log("Pode dirigir: ", idade >= 18 && temCarteira); // true
+
+// OR (||) - Pelo menos uma condição deve ser verdadeira
+console.log("Pode comprar: ", temDinheiro || temCarteira); // true
+
+// NOT (!) - Inverte o valor
+console.log("Não tem dinheiro: ", !naoTemDinheiro);
+                    </pre>
+                </div>
+            </div>
+            <div class="exercise">
+                <h3>💪 Exercício de Fixação</h3>
+                <p><strong>Desafio:</strong> Crie variáveis para um sistema de login que verifica se o usuário tem mais de 16 anos E possui email válido, OU se é administrador.</p>
+                <div class="code-block" style="color: #2c3e50;">
+                    <pre>
+// Suas variáveis aqui:
+let idade = 20;
+let emailValido = true;
+let isAdmin = false;
+
+// Complete a condição:
+console.log("Pode fazer login:", (idade > 16 && emailValido) || isAdmin);
+                    </pre>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>⚖️ Operadores de Comparação</h1>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>Os operadores de comparação são usados para comparar dois 
+                    valores e retornar um valor booleano (true ou false). São 
+                    essenciais para tomada de decisões no código.</p>
+                <div class="exercise">
+                    <table>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Exemplo</th>
+                        </tr>
+                        <tr>
+                            <td><strong>==</strong></td>
+                            <td>Igualdade</td>
+                            <td>Compara valores (com conversão de tipo)</td>
+                            <td>5 == "5" → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>===</strong></td>
+                            <td>Igualdade Estrita</td>
+                            <td>Compara valor e tipo</td>
+                            <td>5 === "5" → false</td>
+                        </tr>
+                        <tr>
+                            <td><strong>!=</strong></td>
+                            <td>Diferença</td>
+                            <td>Valores diferentes (com conversão)</td>
+                            <td>5 != "3" → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>!==</strong></td>
+                            <td>Diferença Estrita</td>
+                            <td>Valor ou tipo diferentes</td>
+                            <td>5 !== "5" → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>></strong></td>
+                            <td>Maior que</td>
+                            <td>Primeiro valor maior</td>
+                            <td>10 > 5 → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong><</strong></td>
+                            <td>Menor que</td>
+                            <td>Primeiro valor menor</td>
+                            <td>3 < 7 → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>>=</strong></td>
+                            <td>Maior ou igual</td>
+                            <td>Maior ou igual ao segundo</td>
+                            <td>5 >= 5 → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong><=</strong></td>
+                            <td>Menor ou igual</td>
+                            <td>Menor ou igual ao segundo</td>
+                            <td>4 <= 6 → true</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="example">
+                    <h3>💡 Exemplo</h3>                 
+                    <div class="code-block">
+                        <pre>
+let a = 5;
+let b = 10;
+
+console.log("a é igual a b:", a == b);
+console.log("a é diferente de b:", a &excl;= b);
+console.log("a é maior que b:", a &gt; b);
+console.log("a é menor que b:", a &lt; b);
+console.log("a é maior ou igual a b:", a &ge;= b);
+console.log("a é menor ou igual a b:", a &le;= b);
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Crie um sistema que verifica se um produto está em promoção baseado no preço e na categoria.</p>
+                    <div class="code-block" style="color: #2c3e50;">
+                        <pre>
+let preco = 50;
+let categoria = "eletrônicos";
+let precoPromocao = 100;
+
+// Complete as condições:
+let precoMenor = preco &lt; precoPromocao;
+let categoriaEletronicos = categoria === "eletrônicos";
+let emPromocao = precoMenor && categoriaEletronicos;
+
+console.log("Em promoção:", emPromocao);
+                        </pre>  
+                    </div>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>🔀 Comando IF</h1>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>O comando <span class="highlight">if</span> é a estrutura condicional mais básica em JavaScript. Ele executa um bloco de código apenas se uma condição for verdadeira (true).</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="code-block">
+                    <pre>
+if (condição) {
+    // código executado se a condição for verdadeira
+}
+                    </pre>
+                </div>
+                <ul>
+                    <li>A condição deve retornar um valor booleano</li>
+                    <li>Se a condição for true, o código dentro das chaves é executado</li>
+                    <li>Se a condição for false, o código é ignorado</li>
+                </ul>
+
+                <div class="example">
+                    <h3>💡 Exemplo Prático</h3>                 
+                    <div class="code-block">
+                        <pre>
+let temperatura = 30;
+let idade = 17;
+let dinheiro = 50;
+
+// Exemplo 1: Verificar temperatura
+if (temperatura > 25) {
+    console.log("Está calor! Use roupas leves.");
+}
+
+// Exemplo 2: Verificar maioridade
+if (idade >= 18) {
+    console.log("Você é maior de idade.");
+}
+
+// Exemplo 3: Verificar se pode comprar
+if (dinheiro >= 30) {
+    console.log("Você pode comprar o produto!");
+    dinheiro -= 30; // Subtraindo o valor da compra
+}
+
+console.log("Dinheiro restante: R$" + dinheiro);
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Crie um sistema que verifica 
+                        diferentes situações de um estudante e dá feedback 
+                        apropriado.</p>                 
+                    <div class="code-block" style="color: #2c3e50;">
+                        <pre>
+
+let nota = 85;
+let frequencia = 90; // em porcentagem
+let entregouTrabalho = true;
+
+// Complete os IFs:
+if (nota >= 90) {
+    console.log("Excelente! Você tirou uma nota muito alta!");
+}
+
+if (frequencia >= 75) {
+    console.log("Boa frequência nas aulas!");
+}
+
+if (entregouTrabalho) {
+    console.log("Trabalho entregue em dia. Parabéns!");
+}
+                        </pre>
+                    </div>  
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>🔗 Comando IF/ELSE IF/ELSE</h1>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>O comando <span class="highlight">if/else if/else</span> permite testar múltiplas condições em sequência. É útil quando você tem mais de duas possibilidades.</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="example">
+                    <h3>💡 Exemplo</h3>                 
+                    <div class="code-block">
+                        <pre>
+if (condição1) {
+    // código executado se condição1 for verdadeira
+} else if (condição2) {
+    // código executado se condição2 for verdadeira
+} else {
+    // código executado se nenhuma das condições anteriores for verdadeira
+}
+                        </pre>
+                    </div>
+                </div>
+                <ul>
+                    <li>As condições são testadas em ordem</li>
+                    <li>Apenas o primeiro bloco verdadeiro é executado</li>
+                    <li>O else final é opcional, mas recomendado</li>
+                </ul>
+
+                <div class="example">
+                    <h3>💡 Exemplo Prático</h3>                 
+                    <div class="code-block">
+                        <pre>
+let nota = 85;
+let temperatura = 22;
+
+// Exemplo 1: Sistema de conceitos
+if (nota >= 90) {
+    console.log("Conceito A - Excelente!");
+} else if (nota >= 80) {
+    console.log("Conceito B - Muito bom!");
+} else if (nota >= 70) {
+    console.log("Conceito C - Bom!");
+} else if (nota >= 60) {
+    console.log("Conceito D - Regular.");
+} else {
+    console.log("Conceito F - Reprovado.");
+}
+
+ // Exemplo 2: Sugestão de roupa por temperatura
+if (temperatura >= 30) {
+    console.log("Use roupas bem leves e beba água!");
+} else if (temperatura >= 25) {
+    console.log("Use roupas leves.");
+} else if (temperatura >= 15) {
+    console.log("Use uma blusa ou casaco leve.");
+} else if (temperatura >= 5) {
+    console.log("Use casaco e agasalho!");
+} else {
+    console.log("Muito frio! Use roupas bem quentes!");
+}
+                        </pre>
+                    </div>  
+                </div>
+
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Crie um sistema de classificação de IMC (Índice de Massa Corporal).</p>
+                    <div class="code-block" style="color: #2c3e50;">
+                        <pre>
+let peso = 70; // em kg
+let altura = 1.75; // em metros
+let imc = peso / (altura * altura);
+
+console.log("Seu IMC é:" + imc.toFixed(2));
+
+/ Complete a classificação:/
+if (imc < 18.5) {
+    console.log("Classificação: Abaixo do peso");
+} else if (imc < 25) {
+    console.log("Classificação: Peso normal");
+} else if (imc < 30) {
+    console.log("Classificação: Sobrepeso");
+} else if (imc < 35) {
+    console.log("Classificação: Obesidade grau I");
+} else if (imc < 40) {
+    console.log("Classificação: Obesidade grau II");
+} else {
+    console.log("Classificação: Obesidade grau III");
+}
+                        </pre>
+                    </div>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>❓ Ternários Condicionais</h1>
+
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>O operador ternário é uma forma concisa de escrever uma 
+                    estrutura if/else simples. É útil para atribuições 
+                    condicionais ou expressões curtas.</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="code-block">
+                    <pre>
+condição ? valorSeVerdadeiro : valorSeFalso
+                    </pre>
+                </div>
+                <p><strong>Como funciona:</strong></p>
+                <ul>
+                    <li>Se a condição for true, retorna o primeiro valor</li>
+                    <li>Se a condição for false, retorna o segundo valor</li>
+                    <li>Muito útil para atribuições simples</li>
+                    <li>Pode ser aninhado, mas cuidado com a legibilidade</li>
+                </ul>
+                <div class="example">
+                    <h3>💡 Exemplo Prático</h3>                 
+                    <div class="code-block">
+                        <pre>
+let idade = 20;
+let nota = 75;
+let chuva = true;
+
+// Exemplo 1: Verificar maioridade
+let status = idade >= 18 ? "maior de idade" : "menor de idade";
+console.log("Você é "+ status);
+
+// Exemplo 2: Resultado da prova
+let resultado = nota >= 60 ? "Aprovado" : "Reprovado";
+console.log("Resultado: " + resultado);
+
+// Exemplo 3: Atividade baseada no clima
+let atividade = chuva ? "ficar em casa" : "sair para passear";
+console.log("Hoje vou " + atividade);
+
+// Exemplo 4: Ternário aninhado (cuidado!)
+let conceito = nota >= 90 ? "A" :
+               nota >= 80 ? "B" :
+               nota >= 70 ? "C" : "D";
+console.log("Conceito: " + conceito);
+
+// Exemplo 5: Uso em função
+function verificarDesconto(valor) {
+    return valor > 100 ? valor * 0.9 : valor; // 10% de desconto
+}
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>🎯 Exercício</h3>
+                    <p><strong>Desafio:</strong> Use operadores ternários para 
+                        criar um sistema de mensagens dinâmicas.</p>               
+                    <p>A partir de variáveis contendo uma temperatura, um valor 
+                        em dinheiro, um preço de produto e uma idade, emita 
+                        mensagens personalizadas sobre o clima ("Está quente!" ou 
+                        "Está frio!"), a capacidade de compra("Pode comprar" ou 
+                        "Dinheiro insuficiente") e a categoria da pessoa pela 
+                        idade ("De menor" ou "De maior"). Em seguida, apresente o 
+                        preço final do produto, aplicando um desconto de 20% se a 
+                        pessoa for menor de idade.</p>
+                    <div class="code-block" style="color: #2c3e50;">
+                        <pre>
+let temperatura = 28;
+let dinheiro = 45;
+let idade = 17;
+let precoProduto = 40;
+
+// Complete com operadores ternários:
+
+// 1. Mensagem sobre o clima
+let climaMsg = temperatura > 25 ? "Está quente!" : "Está frio!";
+console.log(climaMsg);
+
+// 2. Verificar se pode comprar (produto custa R$ 40)
+let podeComprar = dinheiro >= precoProduto ? "Pode comprar" : 
+                                             "Dinheiro insuficiente";
+console.log(podeComprar);
+
+// 3. Categoria por idade
+let categoria = idade &lt; 18 ? "De menor" : "De maior";
+console.log("Categoria:" + categoria);
+
+// 4. Desconto baseado na idade (menor de idade ganha 20%)
+let precoFinal = idade &lt; 18 ? precoProduto * 0.8 : precoProduto;
+console.log("Preço final: R$" + precoFinal);
+                        </pre>
+                    </div>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>🎯 Comando SWITCH</h1>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>📚 Teoria</h3>
+                <p>O comando <span class="highlight">switch</span> é usado 
+                    quando você precisa comparar uma variável com múltiplos 
+                    valores específicos. É uma alternativa mais limpa ao 
+                    if/else if quando você tem muitas opções.</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="code-block">
+                    <pre>
+switch (variável) {
+    case valor1:
+        // código para valor1
+        break;
+    case valor2:
+        // código para valor2
+        break;
+    case valor3:
+        // código para valor3
+        break;
+    default:
+        // código padrão
+}
+                    </pre>
+                </div>
+                <ul>
+                    <li><strong>case:</strong> cada possível valor da variável</li>
+                    <li><strong>break:</strong> evita que o código continue executando</li>
+                    <li><strong>default:</strong> executado se nenhum case corresponder</li>
+                    <li>Comparação usa igualdade estrita (===)</li>
+                </ul>
+
+                <div class="example">
+                    <h3>💡 Exemplo Prático</h3>                 
+                    <div class="code-block">
+                        <pre>
+let diaSemana = 5; // 1=Domingo, 2=Segunda, ..., 7=Sábado
+let mes = "janeiro";
+
+// Exemplo 1: Dias da semana
+switch (diaSemana) {
+    case 1:
+        console.log("Domingo - Dia de descanso!");
+        break;
+    case 2:
+        console.log("Segunda-feira - Começou a semana!");
+        break;
+    case 3:
+        console.log("Terça-feira - Vamos com tudo!");
+        break;
+    case 4:
+        console.log("Quarta-feira - Meio da semana!");
+        break;
+    case 5:
+        console.log("Quinta-feira - Quase lá!");
+        break;
+    case 6:
+        console.log("Sexta-feira - SEXTOU!");
+        break;
+    case 7:
+        console.log("Sábado - Final de semana!");
+        break;
+    default:
+        console.log("Dia inválido!");
+}
+
+ // Exemplo 2: Meses e estações
+switch (mes.toLowerCase()) {
+    case "dezembro":
+    case "janeiro":
+    case "fevereiro":
+        console.log("Estação: Verão");
+        break;
+    case "março":
+    case "abril":
+    case "maio":
+        console.log("Estação: Outono");
+        break;
+    case "junho":
+    case "julho":
+    case "agosto":
+        console.log("Estação: Inverno");
+        break;
+    default:
+        console.log("Estação: Primavera");
+}
+                        </pre>
+                    </div>
+                </div>
+                <div class="exercise">
+                    <h3>💪 Exercício de Fixação</h3>
+                    <p><strong>Desafio:</strong> Crie uma calculadora simples 
+                        usando switch para as quatro operações básicas.</p>
+                    <div class="code-block" style="color: #2c3e50;">
+                        <pre>
+let num1 = 10;
+let num2 = 5;
+let operacao = "+"; // pode ser +, -, * ou /
+let resultado;
+
+// Complete o switch:
+switch (operacao) {
+    case "+":
+        resultado = num1 + num2;
+        console.log(`${num1} + ${num2} = ${resultado}`);
+        break;
+    case "-":
+        resultado = num1 - num2;
+        console.log(`${num1} - ${num2} = ${resultado}`);
+        break;
+    case "*":
+        resultado = num1 * num2;
+        console.log(`${num1} * ${num2} = ${resultado}`);
+        break;
+    case "/":
+        if (num2 !== 0) {
+            resultado = num1 / num2;
+            console.log(`${num1} / ${num2} = ${resultado}`);
+        } else {
+            console.log("Erro: Divisão por zero!");
+        }
+        break;
+    default:
+        console.log("Operação inválida! Use +, -, * ou /");
+}
+                        </pre>
+                    </div>
+                </div>
+            <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>📊 Resumo e Comparação</h1>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <h3>💡 Quando usar cada estrutura?</h3>
+                <div class="exercise">
+                    <table>
+                        <tr>
+                            <th>Estrutura</th>
+                            <th>Quando Usar</th>
+                            <th>Vantagens</th>
+                            <th>Exemplo de Uso</th>
+                        </tr>
+                        <tr>
+                            <td><strong>IF</strong></td>
+                            <td>Condição simples, uma ação</td>
+                            <td>Simples e direto</td>
+                            <td>Validar entrada de dados</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IF/ELSE</strong></td>
+                            <td>Duas opções mutuamente exclusivas</td>
+                            <td>Garante que uma ação aconteça</td>
+                            <td>Aprovar/Reprovar aluno</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IF/ELSE IF/ELSE</strong></td>
+                            <td>Múltiplas condições em sequência</td>
+                            <td>Flexível para condições complexas</td>
+                            <td>Sistema de notas A, B, C, D, F</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ternário</strong></td>
+                            <td>Atribuição simples com condição</td>
+                            <td>Código conciso em uma linha</td>
+                            <td>Definir status com base em idade</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SWITCH</strong></td>
+                            <td>Comparar uma variável com valores específicos</td>
+                            <td>Código limpo para muitos casos</td>
+                            <td>Menu de opções, dias da semana</td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>🎯 Exercícios</h1>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <div class="exercise">
+                    <h3>🌱 Exercício 1</h3>
+                    <h4>🎮 Sistema de Classificação Etária para Jogos</h4>
+                    <p>Você precisa criar um sistema que classifica jogos 
+                        de acordo com a classificação etária da idade do usuário 
+                        e no tipo de conteúdo do jogo.</p>
+                    
+                    <div class="example">
+                        <p><strong>📋 Requisitos::</strong></p>
+                        <ul>
+                            <li>Receba a idade do usuário e o tipo de jogo 
+                                ("aventura", "acao", "puzzle")</li>
+                            <li>Use IF/ELSE para verificar se pode jogar 
+                                (idade >= 13 para "acao", >= 10 para "aventura", 
+                                sem restrição para "puzzle")</li>
+                            <li>Use operador ternário para definir uma mensagem 
+                                de recomendação</li>
+                            <li>Use SWITCH para dar dicas específicas sobre cada 
+                                tipo de jogo</li>
+                            <li>Combine operadores lógicos para verificar se é 
+                                "jogador experiente" (idade > 16 E jogo de ação)</li>
+                        </ul>
+                    </div>
+
+                    <h4>🧪 Casos de Teste:</h4>
+                    <div class="highlight">
+                        idade: 15, tipoJogo: "acao"<br>
+                        Pode jogar ✓ | Recomendado | Dicas de ação | Experiente ✗
+                    </div>
+                    <div class="highlight">
+                        idade: 8, tipoJogo: "puzzle"<br>
+                        Pode jogar ✓ | Ideal para idade | Dicas de puzzle | Experiente ✗
+                    </div>
+                    <div class="highlight">
+                        idade: 18, tipoJogo: "acao"<br>
+                        Pode jogar ✓ | Recomendado | Dicas de ação | Experiente ✓
+                    </div>
+                    <div class="highlight">
+                        idade: 12, tipoJogo: "aventura"<br>
+                        Pode jogar ✗ | Recomendado | Dicas de aventura | Experiente ✗
+                    </div>
+
+                    <div class="example">
+                        <h4>💡 Dicas para este exercício:</h4>
+                        <ul>
+                            <li>Combine múltiplas condições com && e || de forma estratégica</li>
+                            <li>Use parênteses para deixar a lógica mais clara</li>
+                            <li>Ternários aninhados podem ficar complexos - teste cada parte</li>
+                            <li>Switch com variável calculada é muito útil para faixas</li>
+                            <li>Sempre teste os casos extremos (valores limite)</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
+        </div>
+
+        <!-- Novo Slide -->
+        <div class="slide">
+            <h1>🎯 Exercícios</h1>
+            <div class="slide-content">
+                <!-- CONTEÙDO do SLIDE -->
+                <div class="exercise">
+                    <h3>🌱 Exercício 2</h3>
+                    <h4>🏦 Sistema Inteligente de Empréstimo Bancário</h4>
+                    <p>Você precisa criar um sistema que analisa múltiplos 
+                        fatores para aprovar empréstimos e calcular taxas de 
+                        juros personalizadas.</p>
+
+                    <div class="example">
+                        <p><strong>📋 Requisitos::</strong></p>
+                        <ul>
+                            <li>Analise: renda mensal, idade, score de crédito, 
+                                histórico bancário (anos), tem fiador</li>
+                            <li>Regras de aprovação (use operadores lógicos):</li>
+                            <ul>
+                                <li>Score >= 700 E renda >= 3000: Aprovado automaticamente</li>
+                                <li>Score >= 600 E (renda >= 2000 OU tem fiador): Pré-aprovado</li>
+                                <li>Score >= 500 E renda >= 1500 E histórico >= 2 anos: Análise manual</li>
+                                <li>Outros casos: Negado</li>
+                            </ul>
+                            <li>Taxa de juros (use if/else if aninhados):</li>
+                            <ul>
+                                <li>Score 800+: 0.8% ao mês</li>
+                                <li>Score 700-799: 1.2% ao mês</li>
+                                <li>Score 600-699: 1.8% ao mês</li>
+                                <li>Score 500-599: 2.5% ao mês</li>
+                            </ul>
+                            <li>Limite de crédito (use ternários aninhados):</li>
+                            <ul>
+                                <li>Baseado em: renda × multiplicador 
+                                    (idade > 30 ? 5 : idade > 25 ? 4 : 3)</li>
+                                <li>Bônus de 20% se tem fiador</li>
+                            </ul>
+                            <li>Tipo de conta recomendada (use switch): baseado 
+                                na faixa de renda</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>🧪 Casos de Teste:</h4>
+                    <div class="highlight">
+                        Renda: 4500 | Idade: 28 | Score: 720 | 
+                        Histórico: 3 anos | Fiador: Sim<br>
+                        Status: Aprovado automaticamente | Taxa: 0.8% | 
+                        Limite: R$ 45.000 | Conta: Premium
+                    </div>
+                    <div class="highlight">
+                        Renda: 3000 | Idade: 30 | Score: 700 | 
+                        Histórico: 2 anos | Fiador: Sim<br>
+                        Status: Aprovado | Taxa: 1.2% | 
+                        Limite: R$ 21.600 | Conta: Premium
+                    </div>
+                    <div class="highlight">
+                        Renda: 2200 | Idade: 35 | Score: 650 | 
+                        Histórico: 1 ano | Fiador: Não<br>
+                        Status: Pré-aprovado | Taxa: 1.8% | 
+                        Limite: R$ 11.000 | Conta: Padrão
+                    </div>
+                    <div class="highlight">
+                        Renda: 1200 | Idade: 22 | Score: 480 | 
+                        Histórico: 0 anos | Fiador: Não<br>
+                        Status: Negado | Taxa: N/A | 
+                        Limite: N/A | Conta: Básica
+                    </div>
+                </div>
+                <!-- FIM do CONTEÙDO do SLIDE -->
+            </div>
         </div>
 
         <!-- Navegação -->
