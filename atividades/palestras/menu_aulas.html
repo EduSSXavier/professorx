@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pessoal - Eduardo xavier</title>
+    <link rel="stylesheet" href="../../xavier.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="../../imagens/eu_pixar3d.png">
+            Prof. Xavier
+        </div>
+        <nav>
+            <button onclick="window.location.assign('../../index.html')">INÍCIO</button>
+        </nav>
+    </header>
+    <section id="atividade">
+        <div class="titulo">
+            <h1>Palestras e Mini-Cursos</h1>
+        </div>
+        <div class="aula">
+            <img src="../../imagens/icone_prof.png" class="icone">            
+            <a href="./P01_Business Analytics e Big Data (MBA).pdf">Business Analytics e Big Data</a>
+        </div>
+        <div class="aula">
+            <img src="../../imagens/icone_prof.png" class="icone">            
+            <a href="./P02_Robotica e Nanotecnologia Inovando o Futuro.pdf">Robótica e Nanotecnologia: Inovando o Futuro</a>
+        </div>
+    </section>
+
+    <script>
+         function registrar() {
+            let tur = document.getElementById('turma').value;
+            let mat = document.getElementById('matricula').value;
+            let chv = document.getElementById('chave').value;
+            let mensagem = {turma:tur, matricula:mat, chave:chv};
+            let url = "https://apichamada.eduardoxavier3.repl.co/registrar"
+            const options = { 
+                     method: "POST",
+                     mode: "cors",
+                     headers: {
+                     'content-type': 'application/json;charset=utf-8',
+                     },
+                     body: JSON.stringify(mensagem),
+                  };
+
+            fetch (url,options)
+                .then(resp => resp.json())
+                .then(dados => {
+                        result = "<h3>Resposta:</h3>";
+                        result += "<table>";
+                        for (let info of Object.entries(dados)) {
+                           result += "<tr>"+
+                                     "<td>"+info[0]+"</td>"+
+                                     "<td>"+info[1].nome+"</td>"+
+                                     "<td>"+info[1].idade+"</td>"+
+                                     "</tr>";
+                        }
+                        result += "</table>";
+                        document.getElementById("info").innerHTML = result;
+                     })
+                .catch(err => console.log(err));
+         } 
+    </script>
+</body>
+</html>
