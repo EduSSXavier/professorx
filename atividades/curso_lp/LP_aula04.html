@@ -36,10 +36,456 @@
             </div>
         </div>
 
-        <!-- Slide 3: O que são condicionais -->
+        <!-- Slide Novo -->
         <div class="slide">
-            <h1>🤔 A ser desenvolvido</h1>
+            <h1>📚 Parte 1: Conceitos Teóricos e Fundamentos</h1>
+           
+            <h1>O Comando FOR</h1> 
+            <p>O laço `for` em Python é uma estrutura de repetição 
+                que permite iterar sobre sequências (listas, strings, 
+                ranges, etc.). Sua sintaxe básica é:</p>
+
+            <h3>✅ Estrutura do Comando</h3>
+            <div class="code-block">
+                <pre>
+for variavel in sequencia:
+    # código a ser executado
+    pass
+                </pre>
+            </div>
+
+            <h4>Características principais:</h4>
+            <ul>
+                <li>A variável assume cada valor da sequência a cada iteração</li>
+                <li>O bloco de código é executado para cada elemento</li>
+                <li>A indentação define o escopo do laço</li>
+            </ul>
+
+            <h3>✅ Exemplo Básico</h3>
+            <div class="code-block">
+                <pre>
+# Iterando sobre uma string
+for letra in "Python":
+    print(letra)
+
+# Saída: P, y, t, h, o, n (cada letra em uma linha)
+                </pre>
+            </div>
         </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>Uso da Função range() para Laços Controlados</h1> 
+            <p>A função `range()` é fundamental para criar sequências 
+                numéricas controladas:</p>
+
+            <h3>✅ Sintaxes do range():</h3>
+            <div class="code-block">
+                <pre>
+range(stop)               # De 0 até stop-1
+range(start, stop)        # De start até stop-1
+range(start, stop, step)  # De start até stop-1, com passo step
+                </pre>
+            </div>
+
+            <h3>✅ Exemplo práticos</h3>
+            <div class="code-block">
+                <pre>
+# range(5) → 0, 1, 2, 3, 4
+for i in range(5):
+    print(i)
+
+# range(2, 8) → 2, 3, 4, 5, 6, 7
+for i in range(2, 8):
+    print(i)
+
+# range(0, 10, 2) → 0, 2, 4, 6, 8
+for i in range(0, 10, 2):
+    print(i)
+                </pre>
+            </div>
+        </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>Iteração sobre Strings e Sequências Numéricas</h1> 
+            <p>A função `range()` é fundamental para criar sequências 
+                numéricas controladas:</p>
+
+            <h3>✅ Iteração sobre strings:</h3>
+            <div class="code-block">
+                <pre>
+nome = "Maria"
+for caractere in nome:
+    print(f"Letra: {caractere}")
+                </pre>
+            </div>
+
+            <h3>✅ Iteração sobre sequências numéricas:</h3>
+            <div class="code-block">
+                <pre>
+listaDeNumeros = [10, 20, 30, 40, 50]
+for numero in listaDeNumeros:
+    print(f"Número: {numero}")
+
+# Somando todos os números
+soma = 0
+for numero in listaDeNumeros
+    soma += numero
+print(f"Soma total: {soma}")
+                </pre>
+            </div>
+        </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>Comparação entre WHILE e FOR</h1> 
+            <h2>Tabela de Comparação</h2>
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>WHILE</th>
+                    <th>FOR</th>
+                </tr>
+                <tr>
+                    <td>Uso principal</td>
+                    <td>Repetição com condição</td>
+                    <td>Iteração sobre sequências</td>
+                </tr>
+                <tr>
+                    <td>Controle</td>
+                    <td>Manual (contador próprio)</td>
+                    <td>Automático</td>
+                </tr>
+                <tr>
+                    <td>Sintaxe</td>
+                    <td>Mais verbosa</td>
+                    <td>Mais concisa</td>
+                </tr>
+                <tr>
+                    <td>Risco</td>
+                    <td>Loop infinito se mal usado</td>
+                    <td>Mais seguro</td>
+                </tr>
+                <tr>
+                    <td>Conclusão</td>
+                    <td>Repetição com condição.</td>
+                    <td>Mais direto para iterar sobre coleções ou intervalos.</td>
+                </tr>
+            </table>
+
+            <h3>✅ Exemplo comparativo - Contar de 1 a 5:</h3>
+            <div class="code-block">
+                <pre>
+# Com WHILE
+contador = 1
+while contador &lt;= 5:
+    print(contador)
+    contador += 1
+
+# Com FOR (mais simples)
+for contador in range(1, 6):
+    print(contador)
+                </pre>
+            </div>
+
+            <div class="highlight">
+                <h4>Quando usar cada um:</h4>
+                <ul>
+                    <li>WHILE: Quando a condição de parada for desconhecida.</li>
+                    <li>FOR: Quando a condição de parada for conhecida.</li>
+                </ul>               
+            </div>
+        </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>Manipulação de Dados em Coleções</h1>
+
+            <h3>📚 Listas em Python</g3>
+            <p>Listas são coleções ordenadas e mutáveis, 
+                permitindo armazenar múltiplos itens em uma única variável.</p>
+
+            <h3>✅ Conceitos fundamentais para listas:</h3>
+            <div class="code-block">
+                <pre>
+# Criando uma lista vazia
+lista_nomes = []
+
+# Adicionando elementos
+lista_nomes.append("João")
+lista_nomes.append("Maria")
+
+# Iterando sobre a lista
+for nome in lista_nomes:
+    print(f"Nome cadastrado: {nome}")
+
+# Acessando elementos por índice
+for i in range(len(lista_nomes)):
+    print(f"Posição {i}: {lista_nomes[i]}")
+                </pre>
+            </div>
+
+            <h3>✅ Operações básicas com FOR e listas:</h3>
+            <div class="code-block">
+                <pre>
+# Preenchendo uma lista com FOR
+numeros = []
+for i in range(1, 6):
+    numeros.append(i * 2)
+print(numeros)  # [2, 4, 6, 8, 10]
+
+# Processando dados de uma lista
+vendas = [100, 250, 180, 300, 90]
+total = 0
+for venda in vendas:
+    total += venda
+media = total / len(vendas)
+print(f"Média de vendas: {media}")
+                </pre>
+            </div>
+            <div class="highlight">
+                <h4>Importante:</h4>
+                <p>Listas são coleções mutáveis, permitindo adição, remoção e 
+                    modificação de elementos, oferecendo inclusive mais de uma 
+                    maneira de farealizar essas operações.</p>
+                <p>Porém, neste módulo, nosso foco é apenas a manipulação de 
+                    dados usando o comando FOR. Por isso estamos mostrando apenas
+                    o uso básico de listas.</p>
+                <p>Em aulas futuras, no módulo de programação de linguagem Python, 
+                    abordaremos outros aspectos das listas e todo o seu potencial.</p>
+            </div>
+
+        </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>💻 Parte 2: Exercícios Práticos Guiados e Desafios</h1>
+ 
+            <h1>Exercício 1: Tabuada</h1>
+
+            <div class="exercise">
+                <div class="exercise-card">
+                    <div class="exercise-title">🎯 Objetivo</div>
+                    <p>Criar um programa que exiba a tabuada de um número 
+                    inteiro fornecido pelo usuário.</p>
+                </div>
+            </div>
+            
+            <h3>💡 Solução:</h3>
+            <div class="code-block">
+                <pre>
+# Solução do Exercício 1
+numero = int(input("Digite um número para ver sua tabuada: "))
+
+print(f"\n--- Tabuada do {numero} ---")
+for i in range(1, 11):
+    resultado = numero * i
+    print(f"{numero} x {i:2} = {resultado:2}")
+
+print("-" * 20)
+                </pre>
+            </div>
+            
+            <h4>💡 Explicação do Código:</h4>
+
+            <ul>
+                <li>O código solicita ao usuário um número e, em seguida, utiliza 
+                um laço `for` para calcular e exibir a tabuada desse número 
+                de 1 a 10.</li>
+                <li>O `f-string` é usado para formatar a saída, garantindo que os 
+                números estejam alinhados corretamente. Os trechos `{i:2}` e 
+                `{resultado:2}` formatam com 2 espaços para alinhamento</li>
+            </ul>
+        </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>Exercício 2: Contador Regressivo</h1>
+
+            <div class="exercise">
+                <div class="exercise-card">
+                    <div class="exercise-title">🎯 Objetivo</div>
+                    <p>Criar um contador regressivo para o lançamento de um foguete
+                        de 10 até 1 usando FOR.</p>
+                </div>
+            </div>
+            <h3>💡 Dica:</h3>
+            <p>Utilize a função <code>range()</code> para criar a contagem regressiva.</p>
+            <h3>💡 Solução:</h3>
+            <div class="code-block" style="color: #2c3e50;">
+                <pre>
+# Solução do Exercício 2
+print("Contador regressivo iniciando...")
+print()
+
+for numero in range(10, 0, -1):
+print(f"Contagem: {numero}")
+
+print("LANÇAR FOGUETE!")
+                </pre>
+            </div>
+        </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>Exercício 3: Cadastro de Nomes</h1>
+
+            <div class="exercise">
+                <div class="exercise-card">
+                    <div class="exercise-title">🎯 Objetivo</div>
+                    <p>Criar uma entrada de dados que armazena nomes em uma 
+                        lista.</p>
+                </div>
+            </div>
+            <h3>💡 Dica:</h3>
+            <p>Utilize um laço <code>for</code> para iterar e coletar os nomes.</p>
+            <h3>💡 Solução:</h3>
+            <div class="code-block" style="color: #2c3e50;">
+                <pre>
+# Solução do Exercício 3
+cadastro_nomes = []  # Lista vazia para armazenar nomes
+
+print("=== CADASTRO DE NOMES ===")
+print("Digite os nomes (digite 'fim' para encerrar)")
+print()
+
+# Loop para coletar nomes
+while True:
+    nome = input(f"Nome {contador}: ")
+    
+    if nome.lower() == 'fim':
+        break
+    
+    if nome:  # Verifica se não está vazio
+        cadastro_nomes.append(nome)
+    else:
+        print("Nome não pode estar vazio!")
+
+# Exibindo todos os nomes cadastrados
+print("\n" + "="*30)
+print("NOMES CADASTRADOS:")
+print("="*30)
+
+for nome in cadastro_nomes:
+    print(f"{i:2}. {nome}")
+
+print(f"\nTotal de nomes cadastrados: {len(cadastro_nomes)}")
+                </pre>
+            </div>
+        </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>Exercício 4: Desafio<br>Cadastro de Notas e Média</h1>
+
+            <div class="exercise">
+                <div class="exercise-card">
+                    <div class="exercise-title">🎯 Objetivo</div>
+                    <p>Cadastrar notas em uma lista e calcular a 
+                        média aritmética e indicar qual a maior e
+                        qual a menor nota informadas.</p>
+                </div>
+            </div>
+            <h3>💡 Dica:</h3>
+            <p>Utilize um laço <code>for</code> para iterar e coletar as notas.</p>
+            <h3>💡 Solução:</h3>
+            <div class="code-block" style="color: #2c3e50;">
+                <pre>
+# Solução do Exercício 4 (Desafio)
+cadastro_notas = []
+
+print("=== CADASTRO DE NOTAS ===")
+print("Digite as notas (0 a 10) ou 'fim' para encerrar")
+print()
+
+# Coletando as notas
+while True:
+    entrada = input(f"Nota: ")
+    
+    if entrada.lower() == 'fim':
+        break
+    
+    nota = float(entrada)
+    if 0 <= nota <= 10:
+        cadastro_notas.append(nota)
+    else:
+        print("Nota deve estar entre 0 e 10!")
+
+# Calculando e exibindo resultados
+print("\n" + "="*40)
+print("RELATÓRIO DE NOTAS")
+print("="*40)
+
+soma_notas = sum(cadastro_notas) # Aqui poderíamos fazer um loop para somar, 
+                                 # mas a função sum() é mais prática
+
+media = soma / len(cadastro_notas)
+nota_maxima = max(cadastro_notas)   # Este cálculo poderia ser feito usando loop
+nota_minima = min(cadastro_notas)   # Este cálculo poderia ser feito usando loop
+
+print(f"\nEstatísticas:")
+print(f"  Quantidade de notas: {len(cadastro_notas)}")
+print(f"  Soma das notas: {soma:.1f}")
+print(f"  Média aritmética: {media:.2f}")
+print(f"  Maior nota: {nota_maxima:.1f}")
+print(f"  Menor nota: {nota_minima:.1f}")
+                </pre>
+            </div>  
+        </div>
+
+        <!-- Slide Novo -->
+        <div class="slide">
+            <h1>🚀 Parte 3: Desenvolvimento do Projeto Incremental</h1>
+
+             <div class="project-section">
+                <h2 style="color: white; border-color: white;">
+                    📋 Projeto - Sistema de Gerenciamento de Tarefas Simples 
+                    (Final):
+                </h2>
+                <p>Vamos retomar nosso projeto. Modifique o programa da Aula 2 
+                    e crie uma aplicação completa que gerencia tarefas com 
+                    descrição e status.</p>
+            </div>
+
+            <h3>📋 O Que Já Foi Feito Nas Aulas Anteriores:</h3>
+            <div class="code-block">
+                <pre>
+# Sistema de Gerenciamento de Tarefas - Versão Atualizada
+print("=== SISTEMA DE TAREFAS ===")
+
+# Solicitar nome da tarefa
+nome_tarefa = input("Digite o nome da tarefa: ")
+
+# Solicitar status da tarefa
+status_tarefa = input("A tarefa está concluída? (S/N): ")
+
+# Teste para verificar se a tarefa foi concluida
+if status_tarefa.upper() == "S":
+    status_tarefa_verificada = "Concluída"
+else:
+    status_tarefa = "Pendente"
+
+# Confirmar adição da tarefa
+print(f"Tarefa '{nome_tarefa}' adicionada com sucesso!")
+print(f"Status: {status_tarefa_verificada}")
+                    </pre>
+            </div>
+
+            <h3>💻 Agora Vamos Implementar o projeto completo</h3>
+
+            <ul>
+                <li>Guarde as tarefas e os status em listas.</li>
+                <li>Implemente um menu para adicionar, excluir e visualizar 
+                    as tarefas.</li>
+                <li>Implemente uma opção para sair do programa.</li>
+            </ul>
+
+            <h2>🚀  Mãos à Obra!</h2>
+           
+        </div>
+
+
 
         <!-- Navegação -->
         <div class="navigation">
