@@ -320,7 +320,7 @@ print("Contador regressivo iniciando...")
 print()
 
 for numero in range(10, 0, -1):
-print(f"Contagem: {numero}")
+    print(f"Contagem: {numero}")
 
 print("LANÇAR FOGUETE!")
                 </pre>
@@ -339,7 +339,7 @@ print("LANÇAR FOGUETE!")
                 </div>
             </div>
             <h3>💡 Dica:</h3>
-            <p>Utilize um laço <code>for</code> para iterar e coletar os nomes.</p>
+            <p>Utilize um laço <code>while</code> para coletar os nomes e um laço <code>for</code> para exibir os nomes.</p>
             <h3>💡 Solução:</h3>
             <div class="code-block" style="color: #2c3e50;">
                 <pre>
@@ -350,7 +350,7 @@ print("=== CADASTRO DE NOMES ===")
 print("Digite os nomes (digite 'fim' para encerrar)")
 print()
 
-# Loop para coletar nomes
+# Loop para coletar nomes (usando WHILE)
 while True:
     nome = input(f"Nome {contador}: ")
     
@@ -388,19 +388,64 @@ print(f"\nTotal de nomes cadastrados: {len(cadastro_nomes)}")
                 </div>
             </div>
             <h3>💡 Dica:</h3>
-            <p>Utilize um laço <code>for</code> para iterar e coletar as notas.</p>
-            <h3>💡 Solução:</h3>
+            <p>Utilize um laço <code>while</code> ou <code>for</code> para iterar e coletar as notas.</p>
+            <h3>💡 Solução 1: Usando WHILE</h3>
             <div class="code-block" style="color: #2c3e50;">
                 <pre>
-# Solução do Exercício 4 (Desafio)
+# Solução do Exercício 4 (Usando WHILE)
 cadastro_notas = []
 
 print("=== CADASTRO DE NOTAS ===")
 print("Digite as notas (0 a 10) ou 'fim' para encerrar")
 print()
 
-# Coletando as notas
+# Coletando as notas usando WHILE
 while True:
+    entrada = input(f"Nota: ")
+    
+    if entrada.lower() == 'fim':
+        break
+    
+    nota = float(entrada)
+    if 0 <= nota <= 10:
+        cadastro_notas.append(nota)
+    else:
+        print("Nota deve estar entre 0 e 10!")
+
+# Calculando e exibindo resultados
+print("\n" + "="*40)
+print("RELATÓRIO DE NOTAS")
+print("="*40)
+
+soma_notas = sum(cadastro_notas) # Aqui poderíamos fazer um loop para somar, 
+                                 # mas a função sum() é mais prática
+
+media = soma / len(cadastro_notas)
+nota_maxima = max(cadastro_notas)   # Este cálculo poderia ser feito usando loop
+nota_minima = min(cadastro_notas)   # Este cálculo poderia ser feito usando loop
+
+print(f"\nEstatísticas:")
+print(f"  Quantidade de notas: {len(cadastro_notas)}")
+print(f"  Soma das notas: {soma:.1f}")
+print(f"  Média aritmética: {media:.2f}")
+print(f"  Maior nota: {nota_maxima:.1f}")
+print(f"  Menor nota: {nota_minima:.1f}")
+                </pre>
+            </div>  
+            <h3>💡 Solução 2: Usando FOR</h3>
+            <div class="code-block" style="color: #2c3e50;">
+                <pre>
+# Solução do Exercício 4 (Usando FOR)
+cadastro_notas = []
+
+print("=== CADASTRO DE NOTAS ===")
+quantidade = input(f"Quantas notas serão informadas? ")
+print()
+print(f"Digite as ${quantidade} notas (0 a 10) ou 'fim' para encerrar")
+print()
+
+# Coletando as notas usando WHILE
+for contador in range(quantidade):
     entrada = input(f"Nota: ")
     
     if entrada.lower() == 'fim':
@@ -487,8 +532,6 @@ print(f"Status: {status_tarefa_verificada}")
             <h2>🚀  Mãos à Obra!</h2>
            
         </div>
-
-
 
         <!-- Navegação -->
         <div class="navigation">
