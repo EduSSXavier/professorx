@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação JavaScript</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./../../imagens/eu_pixar3d.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                    alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Programação JavaScript</h1>
+                <h2>Aula 05<br>Laços de Repetição: FOR</h2>
+                <p>
+                    Repetições controladas e varredura de coleções .
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        <strong>Parte 1:</strong> Conceitos
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">exercise</span>
+                        <strong>Parte 2:</strong> Exercícios de Fixação
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        <strong>Parte 3:</strong> Projeto Prático
+                    </p>
+                </div>
+                <br>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Parte 1: Conceitos
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Comando FOR</h1>
+                <h2>Apresentando o conceito de loops usando FOR</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>O laço <strong>FOR</strong> é uma das estruturas de repetição mais 
+                    utilizadas em JavaScript. Ele permite executar um bloco de código 
+                    um número específico de vezes de forma controlada e eficiente.</p>
+                <h4>Repetições Controladas</h4>
+                <p>O laço <strong>FOR</strong> é ideal quando você sabe exatamente quantas 
+                    vezes deseja repetir uma operação.</p>
+                <h4>Sintaxe:</h4>
+                <div class="codigo">
+                    <pre>
+for (inicialização; condição; incremento) {
+    // código a ser repetido
+}
+                    </pre>
+                </div>
+                <h4>Características:</h4>
+                <ul>
+                    <li><strong>Inicialização:</strong> Define uma variável de controle (executada 
+                        apenas uma vez)</li>
+                    <li><strong>Condição:</strong> Testada antes de cada iteração (se verdadeira, 
+                        executa o bloco)</li>
+                    <li><strong>Incremento:</strong> Executado depois de cada iteração (modifica a 
+                        variável de controle)</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo</h3>
+                <div class="codigo">
+                    <pre>
+// Imprime números de 1 a 5
+
+for (let i = 1; i <= 5; i++) {
+    console.log("Número: " + i);
+}
+
+// Saída prevista:
+
+Número: 1
+Número: 2
+Número: 3
+Número: 4
+Número: 5
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Contadores Usando FOR</h1>
+                <h2>Desenvolvendo uma lógica de contagem</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>Os contadores são variáveis que controlam o número de iterações do 
+                    laço. Eles podem:</p>
+                <ul>
+                    <li>Crescer (i++, i += 2)</li>
+                    <li>Decrescer (i--, i -= 3)</li>
+                    <li>Usar diferentes valores iniciais e finais</li>
+                    <li>Ter incrementos/decrementos personalizados</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo</h3>
+                <div class="codigo">
+                    <pre>
+// Contador regressivo de 10 a 1
+
+for (let contador = 10; contador >= 1; contador--) {
+    console.log("Contagem regressiva: " + contador);
+}
+
+console.log("Fim!");
+
+// Exemplo com incremento de 2 em 2
+for (let i = 0; i <= 10; i += 2) {
+    console.log("Número par: " + i);
+}
+
+// Saída: 0, 2, 4, 6, 8, 10
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Estratégias de Uso para o Comando FOR</h1>
+                <h2>Combinando o Comando FOR e Estruturas Condicionais</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>O laço for pode ser combinado com estruturas condicionais ( if 
+                    , else if , else ) para criar algoritmos mais complexos. Isso 
+                    permite processar dados de forma seletiva durante as iterações.</p>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo</h3>
+                <div class="codigo">
+                    <pre>
+/ Conta números pares e ímpares de 1 a 10
+
+let pares = 0;
+let impares = 0;
+
+for (let i = 1; i <= 10; i++) {
+    if (i % 2 === 0) {
+        pares++;
+        console.log(i + " é par");
+    } else {
+        impares++;
+        console.log(i + " é ímpar");
+    }
+}
+
+console.log("Total de pares: " + pares);
+console.log("Total de ímpares: " + impares);
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Comando FOR ... IN</h1>
+                <h2>Executando varredura em objetos</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>O comando FOR ... IN é uma estrutura de repetição que permite 
+                    iterar sobre as propriedades de um objeto. Veremos futuramente 
+                    mais detalhes sobre objetos e como eles podem ser manipulados, 
+                    mas neste momento, vamos apenas descrever um objeto como um 
+                    conjunto de um ou mais pares chave-valor e usar o comando FOR 
+                    ... IN para percorrer os elementos desse conjunto, acessar este 
+                    objeto e exibir as suas propriedades.</p>
+                <h4>Sintaxe:</h4>
+                <div class="codigo">
+                    <pre>
+for (chave in objeto) {
+    // código a ser repetido
+}
+                    </pre>
+                </div>
+                <h4>Características:</h4>
+                <ul>
+                    <li><strong>Chave:</strong> Uma variável que recebe o nome de cada chave 
+                        do objeto ao ser percorrido</li>
+                    <li><strong>Objeto:</strong> O objeto que será percorrido</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo</h3>
+                <div class="codigo">
+                    <pre>
+let pessoa = {nome:"João", sobrenome:"Silva", idade:25};
+let texto = "";
+
+for (let nomeChave in pessoa) {
+  texto += pessoa[nomeChave];
+}
+
+console.log("Valores concatenados das chaves do objeto: " + texto);
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Comando FOR ... OF</h1>
+                <h2>Executando varredura em coleções iteráveis</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>O comando FOR ... OF é uma estrutura de repetição que permite 
+                    iterar sobre estruturas de dados como Arrays, Strings e outras 
+                    coleções iteráveis. Isso permite criar algoritmos mais complexos.</p>
+                <h4>Sintaxe:</h4>
+                <div class="codigo">
+                    <pre>
+for (variável of iterável) {
+    // código a ser repetido
+}
+                    </pre>
+                </div>
+                <h4>Características:</h4>
+                <ul>
+                    <li><strong>Variável:</strong> Uma variável que recebe elemento da coleção percorrida</li>
+                    <li><strong>Iterável:</strong> O objeto iterável que será percorrido</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo 1 - Varrendo Arrays</h3>
+                <div class="codigo">
+                    <pre>
+const listaDeCarros = ["BMW", "Volvo", "Mini"];
+
+for (let carro of listaDeCarros) {
+  console.log(carro);
+}
+                    </pre>
+                </div>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo 2 - Varrendo Strings</h3>
+                <div class="codigo">
+                    <pre>
+const linguagem = "JavaScript";
+
+for (let letra of listaDeCarros) {
+  console.log(letra);
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Parte 2: Exercícios
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 1</h1>
+                <h2>Nível Básico</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Crie um programa que imprima todos os números 
+                    inteiros pares de 2 a 20 usando FOR.</p>
+                <div class="codigo" style="color: black;">
+                    <pre>
+for (let contador = 2; contador &lt;= 20; contador += 2) {
+    console.log(contador);
+}
+                    </pre>
+                </div>
+                <div class="destaque">
+                    Para ver a solução do exercício selecione o conteúdo 
+                    que está oculto no quadro acima.
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 2</h1>
+                <h2>Nível Básico/Intermediário</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Calcule a soma de todos os números 
+                    de 1 a 50.</p>
+                <div class="codigo" style="color: black;">
+                    <pre>
+let soma = 0;
+
+for (let i = 1; i &lt;= 50; i++) {
+    soma += i   // é o mesmo que soma = soma + i;
+}
+
+console.log("A soma dos números de 1 a 50 é: " + soma);
+                    </pre>
+                </div>
+                <div class="destaque">
+                    Para ver a solução do exercício selecione o conteúdo 
+                    que está oculto no quadro acima.
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 3</h1>
+                <h2>Nível Intermediário</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Conte quantos números entre 1 e 100 são 
+                    divisíveis por 3 e por 5 simultaneamente.</p>
+                <div class="codigo" style="color: black;">
+                    <pre>
+let contador = 0;
+
+for (let i = 1; i &lt;= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        contador++;
+        console.log(i + " é divisível por 3 e 5");
+    }
+}
+
+console.log("Total de números: " + contador);
+                    </pre>
+                </div>
+                <div class="destaque">
+                    Para ver a solução do exercício selecione o conteúdo 
+                    que está oculto no quadro acima.
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 4</h1>
+                <h2>Nível Intermediário/Avançado</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Encontre e imprima todos os números primos 
+                    entre 2 e 30. <br>Um número primo é aquele que é divisível apenas por 
+                    1 e por ele mesmo.</p>
+                <div class="codigo" style="color: black;">
+                    <pre>
+for (let numero = 2; numero &lt;= 30; numero++) {
+    let ehPrimo = true;
+    for (let divisor = 2; divisor &lt; numero; divisor++) {
+        if (numero % divisor === 0) {
+            ehPrimo = false;
+            break;
+        }
+    }
+    if (ehPrimo) {
+        console.log(numero + " é primo");
+    }
+}
+                    </pre>
+                </div>
+                <div class="destaque">
+                    Para ver a solução do exercício selecione o conteúdo 
+                    que está oculto no quadro acima.
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 5</h1>
+                <h2>Nível Avançado</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Calcule o fatorial de um número N 
+                    (exemplo: N = 6). <br>O fatorial de 6 é 6! = 6 × 5 × 4 × 3 × 2 × 1 = 720.</p>
+                <div class="codigo" style="color: black;">
+                    <pre>
+let n = parseInt(prompt("Digite um número:")); // número para calcular o fatorial
+let fatorial = 1;
+
+if (n === 0) {
+    fatorial = 1;
+} else {
+    for (let i = 1; i &lt;= n; i++) {
+        fatorial *= i;
+        i++;
+    }
+}
+
+console.log("O fatorial de " + n + " é: " + fatorial);
+                    </pre>
+                </div>
+                <div class="destaque">
+                    Para ver a solução do exercício selecione o conteúdo 
+                    que está oculto no quadro acima.
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+        
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Parte 3: Projeto Prático
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Projeto Prático</h1>
+                <h2>Adivinhe a senha - Segunda Versão</h2>
+            </div>
+
+                <div class="destaque">
+                    Recrie o projeto de adivinhar a senha numérica da aula anterior 
+                    (que foi feito com o comando WHILE), agora usando o comando FOR.
+                    <h4>Vamos relembrar o enunciado do jogo novamente.</h4>
+                </div>
+
+                <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Jogo de Adivinhação de Senha Numérica</h3>
+                <p><strong>Descrição do Desafio:</strong> Criar um jogo onde o jogador 
+                    deve adivinhar uma senha numérica de 3 dígitos. A cada tentativa, 
+                    o programa deve informar:</p>
+                <ul>
+                    <li>Quantos dígitos estão nas posições corretas</li>
+                    <li>Quantos dígitos fazem parte da senha mas estão em posições erradas</li>
+                    <li>Quantos dígitos não fazem parte da senha</li>
+                </ul>
+
+                <h4>Como funciona o jogo:</h4>
+                <ol>
+                    <li>1. Inicialização: Define uma senha secreta de 3 dígitos</li>
+                    <li>2. Loop principal: Usa DO WHILE <strong>(lembre-se de mudar 
+                        isso)</strong> para garantir pelo menos uma tentativa</li>
+                    <li>3. Análise da tentativa: Para cada dígito da tentativa:</li>
+                    <ul>
+                        <li>Verifica se está na posição correta</li>
+                        <li>Se não estiver, verifica se existe na senha em outra posição</li>
+                        <li>Se não existir, conta como dígito inexistente</li>
+                    </ul>
+                    <li>4. Feedback: Informa ao jogador os resultados da análise</li>
+                    <li>5. Condições de parada: O jogo para quando o jogador acerta ou atinge 
+                        o limite de 10 tentativas</li>
+                </ol>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 4</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Conceitos Aprendidos:</h3>
+                <ul>
+                    <li>Estruturas de repetição FOR, FOR...IN e FOR...OF</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Arrays: Criando e Acessando Listas</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>
