@@ -16,13 +16,14 @@
         <!-- Slide Inicial ----------------------------------------------->
         <div class="slide ativo">
             <div class="caixa_intro">
+                <br>
                 <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin8-EZFTd9XQyCOGn3Rx3a3fC3wfhIKn6iu2f68gwNqokzm3ZxqCue1y31QgxPQEjIrs" 
                     alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
                     Python + Banco de Dados
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5L1o6fnsZF1my1qkyrzxNfSJOtAp--RitQ&s" 
                     alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">    
                 </h1>
-                <h2>Aula 1 - Revisão de Lógica, Listas e Tuplas</h2>
+                <h2>Aula 1 - Revisão de Lógica,<br>Listas e Tuplas</h2>
 
                 <p>
                     Revisão dos principais fundamentos da lógica de programação, seguida da 
@@ -52,7 +53,6 @@
                     </p>
                     -->
                 </div>
-                <br>
                 <div class="link-externo">
                     <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
                 </div>
@@ -412,7 +412,7 @@ for letra in "Brasil":
   print(let)
 
 # -----  sequência é uma lista de elementos -----
-frutas = ["banana", "maca", "laranja", "pera"]
+frutas = ["banana", "morango", "laranja", "pera"]
 for f in frutas:
     print(f)
                         </pre>
@@ -428,17 +428,17 @@ for f in frutas:
                     <div class="codigo">
                         <pre>
 # Exemplo while com break
-i = 1
+i = 0
 while i &lt; 50:
+    i += 1
     if i == 20:
         break
     if i%2 == 0:
         continue
     print(i)
-    i += 1
 
 # Exemplo for com continue
-for i in range(50):
+for i in range(1,50):
     if i%2 == 0:
         continue
     print(i)
@@ -603,12 +603,16 @@ print(listaNumeros.count(4))
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Crie uma lista com o nome de 5 pessoas e, 
                     em seguida, execute as seguintes operações:</p>
+                <br><br>
                 <ul>
                     <li>Exibir o primeiro e o ultimo elemento da lista.</li>
                     <li>Exibir todos os elementos da lista.</li>
                     <li>Exibir a quantidade de elementos da lista.</li>
                 </ul>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
                     <pre>
 # Crie uma lista com o nome de 5 pessoas
 pessoas = ["Joaquim", "Maria", "Joaquina", "Jose", "Joao"]
@@ -631,10 +635,6 @@ for i in range(len(pessoas)):       # també mpodemos usar while
 # Exibir a quantidade de elementos da lista
 print(len(pessoas))
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -680,7 +680,7 @@ tuplaFrutas = ("banana", "uva", "laranja")
 
 tuplaVazia = ()
 
-tuplaComUmElemento = ("banana",)    # note o uso da virgula OBRIGATORIA
+tuplaComUmElemento = ("banana",)    # note o uso da virgula OBRIGATÓRIA
 
 tuplaComTiposDiversos = (1, "banana", 3.14, False)
                         </pre>
@@ -696,7 +696,7 @@ tuplaComTiposDiversos = (1, "banana", 3.14, False)
 
                 <div class="exemplo">
                     <h3><span class="material-symbols-outlined">visibility</span>
-                        Manipuações possíbeis em tuplas</h3>                 
+                        Manipuações possíveis em tuplas</h3>                 
                     <div class="codigo">
                         <pre>
 tuplaCarros = ("Fiat", "Honda", "Ford", "Honda")
@@ -704,14 +704,14 @@ tuplaCarros = ("Fiat", "Honda", "Ford", "Honda")
 print(tuplaCarros[0])           # Fiat
 print(tuplaCarros[1])           # Honda
 print(tuplaCarros[2])           # Ford
-print(tuplaCarros[-1])          # Ford
-print(tuplaCarros[-2])          # Honda
+print(tuplaCarros[-1])          # Honda
+print(tuplaCarros[-2])          # Ford
 
-print(len(tuplaCarros))         # 3
+print(len(tuplaCarros))         # 4
 
-print(tuplaCarros.count("Fiat")) # 1
+print(tuplaCarros.count("Honda")) # 2
 
-print(tuplaCarros.index("Honda")) # 2
+print(tuplaCarros.index("Honda")) # 1
                         </pre>
                     </div>
                 </div>
@@ -730,15 +730,20 @@ print(tuplaCarros.index("Honda")) # 2
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Crie uma tupla com o nome de 5 cidades e, 
                     em seguida, execute as seguintes operações:</p>
+                <br><br>
                 <ul>
                     <li>Exibir o primeiro e o ultimo elemento da tupla</li>
                     <li>Exibir todos os elementos da tupla</li>
                     <li>Exibir a quantidade de elementos da tupla</li>
-                    <li>Descibrir se um item existe na tupla</li>
+                    <li>Descobrir se um item existe na tupla</li>
                 </ul>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
                     <pre>
-cidades = ("Rio de Janeiro", "São Paulo", "Belo Horizonte", "Curitiba", "Florianópolis")
+cidades = ("Rio de Janeiro", "São Paulo", "Belo Horizonte", 
+            "Curitiba", "Florianópolis")
 
 # Exibir o primeiro e o ultimo elemento da tupla
 print(cidades[0])
@@ -754,10 +759,6 @@ print(len(cidades))
 # Descibrir se um item existe na tupla
 print("Belo Horizonte" in cidades)
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -796,11 +797,20 @@ print("Belo Horizonte" in cidades)
                         </ul>
                         e guarde os dados dele em uma tupla.
                     </li>
-                    <li>O loop deve continuar até que o usuário digite "fim" no nomme do animal</li>
+                    <li>O loop deve continuar até que o usuário digite "fim" no nome do animal</li>
                     <li>As tuplas de animais devem ser armazenadas em uma lista</li>
                     <li>Ao final do cadastramento, deve-se exibir os dados de todos os animais 
                         cadastrados antes de encerrar o programa.</li>
                 </ul>
+            </div>
+            <div class="destaque">
+                <p>Este desafio combina todos os conceitos aprendidos: loops WHILE e DO WHILE,
+                    estruturas condicionais, manipulação de strings e lógica de programação 
+                    complexa!</p>
+                <br>
+                <p>Quer ver uma solução pronta? Clique 
+                    <a href="./JS_aula01_projeto.html" target="_blank">AQUI</a>
+                </p>                
             </div>
         </div>
         <!-- Fim do Slide ------------------------------------------------->

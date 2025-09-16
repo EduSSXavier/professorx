@@ -45,11 +45,22 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Inicializar apresentação
-showSlide(0);
-
 // Contador de progresso
 function updateProgress() {
     const progress = ((currentSlideIndex + 1) / totalSlides) * 100;
     // Você pode adicionar uma barra de progresso aqui se desejar
 }
+
+// Exibir exercício oculto
+function exibirRespostaExercicio(idExercicio) {
+    // Exibe resposta oculta de um exercício
+    let exercicio = document.getElementById(idExercicio);
+    if (exercicio.style.display === 'none') {
+        exercicio.style.display = 'block';
+    } else {
+        exercicio.style.display = 'none';    
+    }    
+}
+// Inicializar apresentação
+showSlide(0);
+
