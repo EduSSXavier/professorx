@@ -14,7 +14,7 @@ body {
 }
 
 h3, h4 {
-    margin: 5px 5px 10px 5px;
+    margin: 10px 5px 10px 5px;
 }
 
 ul, ol {
@@ -55,6 +55,11 @@ tr:hover {
     background: #a4d2e5;
 }
 
+img {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(55, 63, 67, 0.3);
+    margin: 0px 10px 0px 10px;
+}
 
 .container_apresentacao {
     width: 95%;
@@ -136,8 +141,11 @@ tr:hover {
     background: black;
     color: white;
     border-radius: 15px;
-    margin-top: 15px;
-    padding: 20px;
+    margin: 15px 10px 15px 10px;
+    padding: 10px 20px 0px 20px;
+}
+.slide .oculto {
+    display: none;
 }
 .slide .destaque {
     background: lightyellow;
@@ -146,6 +154,25 @@ tr:hover {
     border-radius: 15px;
     margin-top: 15px;
     padding: 20px;
+}
+.slide .botao_exercicio {
+    background: linear-gradient(45deg, #5ebf84, #01813b);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(55, 63, 67, 0.3);
+}
+
+.slide .duas-colunas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 /* 
@@ -182,7 +209,7 @@ tr:hover {
     font-size: 1.2em; margin: 10px;
 }
 .caixa_intro .card {
-    width: 60%;    margin-top: 20px;
+    width: 70%;    margin-top: 20px;
     background: rgba(255,255,255,0.2); 
     border-radius: 10px; 
     margin: 40px auto;

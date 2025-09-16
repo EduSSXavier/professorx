@@ -236,7 +236,10 @@ console.log("a é menor ou igual a b:", a &le;= b);
                     Exercício</h3>
                 <p><strong>Desafio:</strong> Crie um sistema que verifica se um 
                     produto está em promoção baseado no preço e na categoria.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
                     <pre>
 let preco = 50;
 let categoria = "eletrônicos";
@@ -249,10 +252,6 @@ let emPromocao = precoMenor && categoriaEletronicos;
 
 console.log("Em promoção:", emPromocao);
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -330,8 +329,11 @@ console.log("Dinheiro restante: R$" + dinheiro);
                         "Boa frequência nas aulas!"</li>
                     <li>Se o trabalho foi entregue em dia, imprima 
                         "Trabalho entregue em dia. Parabéns!"</li>
-                </ul>               
-                <div class="codigo" style="color: black;">
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
                     <pre>
 let nota = 85;
 let frequencia = 90; // em porcentagem
@@ -350,10 +352,6 @@ if (entregouTrabalho) {
     console.log("Trabalho entregue em dia. Parabéns!");
 }
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -447,8 +445,11 @@ if (temperatura >= 30) {
                         imprima "Obesidade grau II"</li>
                     <li>Se o IMC for maior ou igual a 40, imprima   
                         "Obesidade grau III"</li>    
-                </ul>       
-                <div class="codigo" style="color: black;">
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
                     <pre>
 let peso = 70; // em kg
 let altura = 1.75; // em metros
@@ -471,10 +472,6 @@ if (imc < 18.5) {
     console.log("Classificação: Obesidade grau III");
 }
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -553,7 +550,10 @@ function verificarDesconto(valor) {
                     idade ("De menor" ou "De maior"). Em seguida, apresente o 
                     preço final do produto, aplicando um desconto de 20% se a 
                     pessoa for menor de idade.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio4');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio4">
                     <pre>
 let temperatura = 28;
 let dinheiro = 45;
@@ -579,10 +579,6 @@ console.log("Categoria:" + categoria);
 let precoFinal = idade &lt; 18 ? precoProduto * 0.8 : precoProduto;
 console.log("Preço final: R$" + precoFinal);
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -697,7 +693,10 @@ switch (mes.toLowerCase()) {
                     <li>Use um default para lidar com operações inválidas</li>
                     <li>Imprima o resultado na tela</li>
                 </ul>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
                     <pre>
 let num1 = 10;
 let num2 = 5;
@@ -730,10 +729,6 @@ switch (operacao) {
         console.log("Operação inválida! Use +, -, * ou /");
 }
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -824,29 +819,39 @@ switch (operacao) {
                             (idade >= 13 para "acao", >= 10 para "aventura", 
                             sem restrição para "puzzle")</li>
                         <li>Use operador ternário para definir uma mensagem 
-                            de recomendação</li>
+                            de recomendação ("Recomendado" ou "Não Recomendado"
+                            dependendo do resultado de poder ou naõ jogar)</li>
                         <li>Use SWITCH para dar dicas específicas sobre cada 
-                            tipo de jogo</li>
+                            tipo de jogo
+                            <ul>
+                                <li>"aventura": "Procure passagens secrtas"</li>
+                                <li>"acao": "Agilidade é importante"</li>
+                                <li>"puzzle": "Atenção aos detalhes"</li>
+                            </ul>
+                        </li>
                         <li>Combine operadores lógicos para verificar se é 
-                            "jogador experiente" (idade > 16 E jogo de ação)</li>
+                            "Experiente" (idade > 16 E jogo de ação), 
+                            "Intermediário" (idade > 12 E jogo de aventura) ou 
+                            "Comum" (outra situações)</li>
+                        </li>
                     </ul>
                 </div>
                 <p><strong>Casos de Teste:</strong></p>
                 <div class="destaque">
                     idade: 15, tipoJogo: "acao"<br>
-                    Pode jogar ✓ | Recomendado | Dicas de ação | Experiente ✗
+                    Pode jogar | Recomendado | Agilidade é importante | Comum
                 </div>
                 <div class="destaque">
                     idade: 8, tipoJogo: "puzzle"<br>
-                    Pode jogar ✓ | Ideal para idade | Dicas de puzzle | Experiente ✗
+                    Pode jogar | Recomendado | Atenção aos detalhes | Comum
                 </div>
                 <div class="destaque">
                     idade: 18, tipoJogo: "acao"<br>
-                    Pode jogar ✓ | Recomendado | Dicas de ação | Experiente ✓
+                    Pode jogar | Recomendado | Agilidade é importante | Experiente
                 </div>
                 <div class="destaque">
-                    idade: 12, tipoJogo: "aventura"<br>
-                    Pode jogar ✗ | Recomendado | Dicas de aventura | Experiente ✗
+                    idade: 9, tipoJogo: "aventura"<br>
+                    Não pode jogar | Não recomendado | Procure passagens secrtas | Comum
                 </div>
 
                 <div class="exemplo">

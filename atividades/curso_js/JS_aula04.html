@@ -16,6 +16,7 @@
         <!-- Slide Inicial ----------------------------------------------->
         <div class="slide ativo">
             <div class="caixa_intro">
+                <br>
                 <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
                     alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
                     Programação JavaScript</h1>
@@ -327,17 +328,16 @@ for (let letra of listaDeCarros) {
                 <h3><span class="material-symbols-outlined">exercise</span>
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Crie um programa que imprima todos os números 
-                    inteiros pares de 2 a 20 usando FOR.</p>
-                <div class="codigo" style="color: black;">
+                    inteiros pares de 2 a 20 usando FOR.</p>    
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
                     <pre>
 for (let contador = 2; contador &lt;= 20; contador += 2) {
     console.log(contador);
 }
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
                 <br><br><br>
             </div>
@@ -354,8 +354,11 @@ for (let contador = 2; contador &lt;= 20; contador += 2) {
                 <h3><span class="material-symbols-outlined">exercise</span>
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Calcule a soma de todos os números 
-                    de 1 a 50.</p>
-                <div class="codigo" style="color: black;">
+                    de 1 a 50.</p>   
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
                     <pre>
 let soma = 0;
 
@@ -365,10 +368,6 @@ for (let i = 1; i &lt;= 50; i++) {
 
 console.log("A soma dos números de 1 a 50 é: " + soma);
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -385,7 +384,10 @@ console.log("A soma dos números de 1 a 50 é: " + soma);
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Conte quantos números entre 1 e 100 são 
                     divisíveis por 3 e por 5 simultaneamente.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
                     <pre>
 let contador = 0;
 
@@ -398,10 +400,6 @@ for (let i = 1; i &lt;= 100; i++) {
 
 console.log("Total de números: " + contador);
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -419,7 +417,10 @@ console.log("Total de números: " + contador);
                 <p><strong>Objetivo:</strong> Encontre e imprima todos os números primos 
                     entre 2 e 30. <br>Um número primo é aquele que é divisível apenas por 
                     1 e por ele mesmo.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio4');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio4">
                     <pre>
 for (let numero = 2; numero &lt;= 30; numero++) {
     let ehPrimo = true;
@@ -434,10 +435,6 @@ for (let numero = 2; numero &lt;= 30; numero++) {
     }
 }
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -454,7 +451,10 @@ for (let numero = 2; numero &lt;= 30; numero++) {
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Calcule o fatorial de um número N 
                     (exemplo: N = 6). <br>O fatorial de 6 é 6! = 6 × 5 × 4 × 3 × 2 × 1 = 720.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio5');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio5">
                     <pre>
 let n = parseInt(prompt("Digite um número:")); // número para calcular o fatorial
 let fatorial = 1;
@@ -470,10 +470,6 @@ if (n === 0) {
 
 console.log("O fatorial de " + n + " é: " + fatorial);
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>

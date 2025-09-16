@@ -16,6 +16,7 @@
         <!-- Slide Inicial ----------------------------------------------->
         <div class="slide ativo">
             <div class="caixa_intro">
+                <br>
                 <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
                     alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
                     Programação JavaScript</h1>
@@ -358,7 +359,10 @@ console.log("Acesso concedido!");
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Criar um contador regressivo de 10 até 1 
                     usando WHILE.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
                     <pre>
 let contador = 10;
 
@@ -369,10 +373,6 @@ while (contador >= 1) {
 
 console.log("Decolagem!");
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -389,7 +389,10 @@ console.log("Decolagem!");
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Criar um programa que soma todos os números 
                     pares de 2 até 20 usando DO WHILE.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
                     <pre>
 let numero = 2;
 let soma = 0;
@@ -403,10 +406,6 @@ do {
 
 console.log("A soma dos números pares de 2 a 20 é: " + soma);
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -423,7 +422,10 @@ console.log("A soma dos números pares de 2 a 20 é: " + soma);
                     Exercício</h3>
                 <p><strong>Objetivo:</strong> Criar um programa que encontre o primeiro 
                     número maior que 100 que seja divisível por 7 usando WHILE.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
                     <pre>
 let numero = 101;
 
@@ -433,10 +435,6 @@ while (numero % 7 !== 0) {
 
 console.log("O primeiro número maior que 100 divisível por 7 é: " + numero);
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
             </div>
         </div>
@@ -454,7 +452,10 @@ console.log("O primeiro número maior que 100 divisível por 7 é: " + numero);
                 <p><strong>Objetivo:</strong> Criar um simulador de caixa eletrônico 
                     que pergunta o valor do saque e verifica se há saldo suficiente. 
                     Use DO WHILE para repetir até o usuário digitar 0.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio4');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio4">
                     <pre>
 let saldo = 1000;
 let valorSaque;
@@ -478,10 +479,6 @@ do {
 
 console.log("Obrigado por usar nosso caixa eletrônico!");
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
                 </div>
                 <div class="exemplo">
                     Pergunta: Você consegue modificar o programa para:
@@ -508,7 +505,10 @@ console.log("Obrigado por usar nosso caixa eletrônico!");
                     que 1000 usando DO WHILE. Em caso afirmativo, fala sucessivas divisões 
                     do fatorial por 10 até que este seja menor ou igual a 1000 e informe 
                     quantas divisões foram necessárias para conseguir isso.</p>
-                <div class="codigo" style="color: black;">
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio5');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio5">
                     <pre>
 let numero = 5;
 let fatorial = 1;
@@ -535,17 +535,6 @@ do {
 
 console.log("Foram necessárias " + divisoes + " divisões por 10 para ficar &lt;= 1000");
                     </pre>
-                </div>
-                <div class="destaque">
-                    Para ver a solução do exercício selecione o conteúdo 
-                    que está oculto no quadro acima.
-                </div>
-                <div class="exemplo">
-                    Pergunta: Você consegue modificar o programa para:
-                    <ul>
-                        <li>Impedir que o usuário fique com o saldo negativo?</li>
-                        <li>Permitir que o usuário faça depósitos na conta?</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -597,16 +586,93 @@ console.log("Foram necessárias " + divisoes + " divisões por 10 para ficar &lt
                     <li>5. Condições de parada: O jogo para quando o jogador acerta ou atinge 
                         o limite de 10 tentativas</li>
                 </ol>
-            </div>
 
-            <div class="destaque">
-                <p>Este desafio combina todos os conceitos aprendidos: loops WHILE e DO WHILE,
-                    estruturas condicionais, manipulação de strings e lógica de programação 
-                    complexa!</p>
-                <br>
-                <p>Quer ver uma solução pronta? Clique 
-                    <a href="./JS_aula03_projeto.html" target="_blank">AQUI</a>
-                </p>                
+                <div class="destaque">
+                    <p>Este desafio combina todos os conceitos aprendidos: loops WHILE e DO WHILE,
+                        estruturas condicionais, manipulação de strings e lógica de programação 
+                        complexa!</p>
+                </div>
+                    
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('projeto');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="projeto">
+                    <pre>
+// Senha secreta (3 dígitos)
+let senhaCorreta = "248";
+let tentativa;
+let numeroTentativas = 0;
+let acertou = false;
+let contadorPosicaoCorreta = 0;
+let contadorDigitoExiste = 0;
+let contadorDigitoNaoExiste = 0;
+
+console.log("=== JOGO DE ADIVINHAÇÃO DE SENHA ===");
+console.log("Adivinhe a senha numérica de 3 dígitos!");
+
+do {
+    numeroTentativas++;
+
+    tentativa = propmpt("Tentativa " + numeroTentativas + ":");
+
+    if (tentativa === senhaCorreta) {
+        acertou = true;
+        console.log("PARABÉNS! Você acertou a senha!");
+    } else {
+        // Análise da tentativa
+
+        // Verificar cada posição
+        let i = 0;
+        while (i &lt; 3) {
+            let digitoTentativa = tentativa[i];
+            let digitoSenha = senhaCorreta[i];
+            if (digitoTentativa === digitoSenha) {
+                // Posição correta
+                contadorPosicaoCorreta++;
+            } else {
+                // Verificar se o dígito existe na senha em outra posição
+                let j = 0;
+                let encontrou = false;
+
+                while (j lt; 3 && !encontrou) {
+                    if (digitoTentativa === senhaCorreta[j] && j !== i) {
+                        encontrou = true;
+                    }
+                    j++;
+                }
+
+                if (encontrou) {
+                    digitoExiste++;
+                } else {
+                    digitoNaoExiste++;
+                }
+            }
+    
+            i++;
+        }
+
+        // Feedback para o jogador - Resultados da análise
+        console.log("Resultado da análise:");
+        console.log("Dígitos na posição correta: " + posicaoCorreta);
+        console.log("Dígitos corretos em posição errada: " + digitoExiste);
+        console.log("Dígitos que não existem na senha: " + digitoNaoExiste);
+        if (numeroTentativas &gt;= 10) {
+            console.log("Você atingiu o limite de tentativas!");
+            console.log("A senha correta era: " + senhaCorreta);
+            break;
+        }
+    }
+} while (!(acertou && (numeroTentativas &lt; 10)));
+
+if (acertou) {
+    console.log("Você completou o desafio em " + numeroTentativas + " tentativas!");
+} else {
+console.log("Tente novamente na próxima vez!");
+}
+
+console.log("\n=== FIM DO JOGO ===");
+                    </pre>
+                </div>
             </div>
         </div>
         <!-- Fim do Slide ------------------------------------------------->
