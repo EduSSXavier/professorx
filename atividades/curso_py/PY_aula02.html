@@ -39,11 +39,11 @@
                         Sets
                     </p>
                     <!-- Projeto Incremental 
+                    -->
                     <p>
                         <span class="material-symbols-outlined">engineering</span>
-                        <strong>Parte 4:</strong> Projeto Prático
+                        Mini-Projeto Prático
                     </p>
-                    -->
                 </div>
                 <div class="link-externo">
                     <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
@@ -58,7 +58,7 @@
                 <div class="card"">
                     <h1>
                         <span class="material-symbols-outlined">book_2</span>
-                        Parte 1:<br>Dicionários
+                        Dicionários
                     </h1>
                 </div>
             </div>
@@ -161,24 +161,24 @@ if "notebook" in estoque:
         <!-- Slide -------------------------------------------------------->
         <div class="slide">
             <div class="cabecalho">
-                <h1>Dicionários - Exercícios</h1>
-                <h2>Vamos praticar um pouco?</h2>
+                <h1>Dicionários - Exercício</h1>
+                <h2>Vamos praticar?</h2>
             </div>
             <div class="exercicio">
                 <h3><span class="material-symbols-outlined">exercise</span>
-                    Exercício 1: Armazenando dados</h3>
+                    Exercício 1: Armazenando dados em um dicionário</h3>
                 <p><strong>Objetivo:</strong> Vamos criar dois dicionários: pessoa e deposito,
                     O dicionário "pessoa" vai conter o nome, o email e o telefone de uma pessoa 
                     e o dicionário "deposito" vai conter o número de uma sala e uma lista de 
                     objetos que estão na sala.</p>
-                <p>Depois de criar os dicionários, execute as segiontes tarefas:</p>
+                <p>Depois de criar os dicionários, vamos executar as seguintes tarefas:</p>
                 <ul>
-                    <li>Inclua o nome da cidade que a pessoa mora</li>
-                    <li>Altere o email da pessoa</li>
-                    <li>Remova o telefone da pessoa</li>
-                    <li>Adicione dois novos objetos à sala</li>
-                    <li>Adicione uma nova sala sem objetos</li>
-                    <li>Acrescebte um objeto à nova sala</li>
+                    <li>Incluir o nome da cidade que a pessoa mora</li>
+                    <li>Alterar o email da pessoa</li>
+                    <li>Removar o telefone da pessoa</li>
+                    <li>Adicionar dois novos objetos à sala</li>
+                    <li>Adicionar uma nova sala sem objetos</li>
+                    <li>Acrescentar um objeto à nova sala</li>
                 </ul>
                 <br><br>
                 <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
@@ -229,32 +229,135 @@ deposito[2].append("caderno")
         <!-- Slide -------------------------------------------------------->
         <div class="slide">
             <div class="cabecalho">
+                <h1>Dicionários</h1>
+                <h2>Alguns métodos úteis</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Métodos</h3>
+                <p>Eis aqui alguns métodos úteis para trabalhar com dicionários:</p>
+
+                <table>
+                    <tr>
+                        <th>Método</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tr>
+                        <td>copy()</td>
+                        <td>Devolve uma cópia do dicionário</td>
+                    </tr>
+                    <tr>
+                        <td>get()</td>
+                        <td>Devolve o valor de uma determinada chave</td>
+                    </tr>    
+                    <tr>
+                        <td>items()</td>
+                        <td>Devolve uma lista contendo tuplas de chaves e valores</td>
+                    </tr>    
+                    <tr>
+                        <td>keys()</td>
+                        <td>Devolve uma lista contendo as chaves do dicionário</td>
+                    </tr>    
+                    <tr>
+                        <td>values()</td>
+                        <td>Devolve uma lista contendo os valores do dicionário</td>
+                    </tr>    
+                    <tr>
+                        <td>pop()</td>
+                        <td>Remove o elemento com a chave informada do dicionário, mas
+                            devolve o valor</td>
+                    </tr>
+                    <tr>
+                        <td>clear()</td>
+                        <td>Remove todos os elementos do dicionário</td>    
+                    </tr>    
+                </table>
+                <br>
+                
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>                 
+                    <div class="codigo">
+                        <pre>
+# Dicionário de exemplo ----------------------------
+
+dicionario = {'fruta': 'banana', 'animal': 'gato', 'numero': 2, 'status': True}
+
+# Exemplo de uso dos métodos -----------------------
+
+# copy()
+
+dicionario_copia = dicionario.copy()
+print(dicionario_copia)  # {'fruta': 'banana', 'animal': 'gato', 'numero': 2, 'status': True}
+
+# get()
+
+valor = dicionario.get('fruta')
+print(valor)  # banana
+
+# items()
+
+itens = dicionario.items()
+print(itens)  # dict_items([('fruta', 'banana'), ('animal', 'gato'), ('numero', 2), ('status', True)])
+
+# keys()
+
+chaves = dicionario.keys()
+print(chaves)  # dict_keys(['fruta', 'animal', 'numero', 'status'])
+
+# values()
+
+valores = dicionario.values()
+print(valores)  # dict_values(['banana', 'gato', 2, True])
+
+# pop()
+
+elemento = dicionario.pop('fruta')
+print(elemento)  # banana
+print(dicionario)  # {'animal': 'gato', 'numero': 2, 'status': True}
+
+# clear()
+
+dicionario.clear()
+print(dicionario)  # {}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
                 <h1>Dicionários - Exercícios</h1>
-                <h2>Vamos praticar um pouco?</h2>
+                <h2>Vamos praticar mais um pouco?</h2>
             </div>
             <div class="exercicio">
                 <h3><span class="material-symbols-outlined">exercise</span>
-                    Exercício 1: Cadastro de Músicas</h3>
-                <p><strong>Objetivo:</strong> Vamos criar um sistema de cadastro de músicas 
-                    usando dicionários.</p>                
-                <br><br>
-                <p><strong>Requisitos da aplicação:</strong></p>
+                    Exercício 2: Cadastro de Alunos</h3>
+                <p><strong>Objetivo:</strong> Vamos criar um cadastro de alunos
+                    e notas para uma escola.</p>                
+                <br>
+                <p><strong>Requisitos:</strong></p>
                 <ul>
-                    <li>Exibir um menu simples com as opções
-                        <ul>
-                            <li>1 - Cadastrar uma nova música</li>
-                            <li>2 - Exibir todas as músicas cadastradas</li>
-                            <li>3 - Pesquisar uma musica pelo titulo</li>
-                            <li>4 - Sair</li>
-                        </ul>
+                    <li>Os alunos devem ser armazenados em um dicionário</li>
+                    <li>Cada aluno deve ter seu nome como chave e um lista com 3 notas como valor</li>
+                    <li>Exemplo:
+                        <strong>
+                            <pre>
+{
+    "Fulano": [9, 8, 7],
+    "Beltrano": [8, 5, 3]
+}
+                            </pre>
+                        </strong>
                     </li>
-                    <li>As chaves do dicionário devem ser os títulos das músicas</li>
-                    <li>Os valores correspondentes aos títulos das músicas devem ser 
-                        dicionários com as seguintes informações:
-                        <ul>
-                            <li>Intérprete</li>
-                            <li>Ano de Lançamento</li>
-                        </ul>
+                    <li>Usando um loop WHILE, cadastre 4 ou mais alunos diferentes</li>
+                    <li>Ao final do cadastramento, exiba os nomes de todos os alunos 
+                        cadastrados e indique, ao lado de cada um, sua média de notas 
+                        e sua avaliação de desempenho (Aprovado: média &ge; 7; 
+                        Reprovado: média &lt; 7)
                     </li>
                 </ul>
                 <br><br>
@@ -262,58 +365,35 @@ deposito[2].append("caderno")
                         Exibir/Ocultar Solução</button>
                 <div class="codigo oculto" id="exercicio2">
                     <pre>
-# Sistema de Cadastro de Músicas
+# Cadastro de Alunos
 
-cadastro_musicas = {}
+cadastro = {}  # Dicionário vazio para armazenar os alunos
 
 while True:
-    print("\n=== CADASTRO DE MÚSICAS ===")
-    print("1. Adicionar música")
-    print("2. Listar músicas")
-    print("3. Buscar música")
-    print("4. Sair")
-    
-    opcao =  input("Escolha uma opção: ")
+    # Solicitando informações de um aluno
+    nome = input("Digite o nome do aluno (ou 'fim' para encerrar): ")
 
-    if opcao == "1":
-        # Solicitando informações
-        titulo = input("Digite o título da música: ")
-        interprete = input("Digite o intérprete: ")
-        ano = int(input("Digite o ano de lançamento: "))
-
-        # Usando o título como chave única
-        cadastro_musicas[titulo] =  {
-            "interprete": interprete, 
-            "ano": ano
-        }
-
-        # Exibindo mensagem
-        print(f"Música '{titulo}' adicionada com sucesso!"))
-    elif opcao == "2":
-        # Exibindo o catálogo
-        print("\n=== CATÁLOGO DE MÚSICAS ===")
-        for titulo, info in cadastro_musicas.items():
-            print(f"Título: {titulo}")
-            print(f"Intérprete: {info['interprete']}")
-            print(f"Ano: {info['ano']}")
-            print("-" * 30)
-    elif opcao == "3":
-        # Buscando uma musica
-        titulo =  input("Digite o título da música para buscar: ")
-        if titulo in cadastro_musicas:
-            info = cadastro_musicas[titulo]
-            print(f"\nMúsica encontrada:")
-            print(f"Título: {titulo}")
-            print(f"Intérprete: {info['interprete']}")
-            print(f"Ano: {info['ano']}")
-        else:
-            print("Música não encontrada.")
-    elif opcao == "4":
-        # Saindo da aplicação
-        print("Encerrando aplicação.")
+    if nome == "fim":
         break
-    else:
-        print("Opção inválida! Tente novamente.")
+
+    nota1 = float(input("Digite a primeira nota: "))
+    nota2 = float(input("Digite a segunda nota: "))
+    nota3 = float(input("Digite a terceira nota: "))
+
+    # Armazenando o aluno no dicionário
+    cadastro[nome] = [nota1, nota2, nota3]
+
+# Exibindo o catálogo de alunos
+print("\n=== CADASTRO DE ALUNOS ===")
+for chave in cadastro:
+    print(f"Nome: {chave}")
+    media = sum(cadastro[chave]) / 3
+    if media >= 7:
+        situacao = "Aprovado"
+    else:       
+        situacao = "Reprovado"
+    print(f"Média: {media} - Situação: {situacao}")
+    print("-" * 30)
                     </pre>
                 </div>
             </div>
@@ -326,7 +406,7 @@ while True:
                 <div class="card"">
                     <h1>
                         <span class="material-symbols-outlined">book_2</span>
-                        Parte 2:<br>Sets
+                        Sets
                     </h1>
                 </div>
             </div>
@@ -417,12 +497,12 @@ print(f"Frutas só do João: {frutas_so_joao}")
         <div class="slide">
             <div class="cabecalho">
                 <h1>Sets - Exercícios</h1>
-                <h2>Vamos praticar um pouco?</h2>
+                <h2>Vamos praticar?</h2>
             </div>
             <div class="exercicio">
                 <h3><span class="material-symbols-outlined">exercise</span>
                     Exercício 2: Controle de Recados</h3>
-                <p><strong>Objetivo:</strong> amos criar um sistema de recados 
+                <p><strong>Objetivo:</strong> Vamos criar um aplicação de cadastro de recados 
                     usando listas e sets.</p>                
                 <br><br>
                 <p><strong>Requisitos da aplicação:</strong></p>
@@ -431,16 +511,20 @@ print(f"Frutas só do João: {frutas_so_joao}")
                         <ul>
                             <li>1 - Cadastrar um novo recado</li>
                             <li>2 - Exibir os recados cadastrados para uma pessoa</li>
-                            <li>3 - Sair</li>
+                            <li>3 - Sair da aplicação</li>
                         </ul>
                     </li>
                     <li>Cada recado deve ser armazenado em um set contendo as seguintes 
                         informações:
                         <ul>
-                            <li>Remetente</li>
-                            <li>Destinatário</li>
-                            <li>Data</li>
-                            <li>Mensagem</li>
+                            <li>Remetente<br>
+                                (deve ser uma string no formato: "de NOME_do_REMETENTE")</li>
+                            <li>Destinatário<br>
+                                (deve ser uma string no formato: "para NOME_do_DESTINATARIO")</li>
+                            <li>Data<br>
+                                (deve ser uma string no formato: "dia/mes/ano")</li>
+                            <li>Mensagem<br>
+                                (deve ser uma string contendo o recado deixado pelo remetente)</li>
                         </ul>
                     </li>
                 </ul>
@@ -473,7 +557,8 @@ while True:
         # Adicionando o recado na lista
         lista_recados.append(recado)
 
-        print("\nRecado cadastrado com sucesso!")   
+        print("\nRecado cadastrado com sucesso!")
+
     elif opcao == "2":
         # Exibindo os recados para uma pessoa
 
@@ -486,10 +571,12 @@ while True:
                 print(f"Recado: {recado}")
         
         print(f"---Fim dos recados para {destinatario_busca}")
+
     elif opcao == "3":
         # Saindo da aplicação
         print("Encerrando aplicação.")
         break
+        
     else:
         print("Opção inválida! Tente novamente.")
                     </pre>
@@ -504,7 +591,7 @@ while True:
                 <div class="card"">
                     <h1>
                         <span class="material-symbols-outlined">book_2</span>
-                        Parte 4: Mini-projeto
+                        Mini-projeto
                     </h1>
                 </div>
             </div>
@@ -519,24 +606,20 @@ while True:
             </div>
             <div class="exercicio">
                 <h3><span class="material-symbols-outlined">exercise</span>
-                    Sistema de Cadastro de Alunos</h3>
-                <p><strong>Objetivo:</strong> Crie um programa que cadastre alunos e 
-                    suas notas usando sicionários e sets.</p>
+                    Controle de acessos</h3>
+                <p><strong>Objetivo:</strong> Crie um programa que controla o 
+                    acesso de usuários a um sistema qualquer.</p>
                 <p><strong>Requisitos:</strong></p>
-                <ul>
-                    <li>Usando um loop, cadastre cada aluno informando:
-                        <ul>   
-                            <li>Nome do auno</li> 
-                            <li>3 notas que o aluno tirou em avaliações</li>
-                        </ul>
-                    </li>
-                    <li>O loop deve continuar até que o usuário digite "fim" no nome do aluno</li>
-                    <li>Os alunos devem ser armazenados em um dicionário</li>
-                    <li>As notas devem ser armazenadas em um set (para cada aluno)</li>
-                    <li>Ao final do cadastramento, deve-se exibir os dados de todos os alunos 
-                        cadastrados antes de encerrar o programa e indicar, ao lado de cada um,
-                        se o mesmo foi aprovado (média de notas &ge; 7) ou reprovado.</li>
-                </ul>
+                <ol>
+                    <li>Crie um dicionário onde estarão definidos os usuários e suas senhas</li>
+                    <li>Crie um loop que solicite o nome de um usuário e a sua senha. O loop 
+                        deve continuar até que um usuário e senha corretos sejam digitados ou 
+                        seja informado "fim" no usuario</li>
+                    <li>Se o usuário e senha forem corretos, exiba uma mensagem dizendo que o 
+                        acesso foi permitido e encerre o programa</li>
+                    <li>Se o usuário e senha forem incorretos, exiba uma mensagem dizendo que o 
+                        acesso foi negado e volte ao inicio do loop para uma nova tentativa</li>
+                </ol>
             </div>
         </div>
         <!-- Fim do Slide ------------------------------------------------->
