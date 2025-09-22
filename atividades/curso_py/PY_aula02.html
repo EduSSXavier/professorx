@@ -26,8 +26,7 @@
                 <h2>Aula 2<br>Dicionários e Sets</h2>
 
                 <p>
-                    Revisão dos principais fundamentos da lógica de programação, seguida da 
-                    introdução às coleções sequenciais.
+                    Mais duas estruturaas de dados que armanezam coleções sequenciais.
                 </p>
                 <div class="card">
                     <p>
@@ -114,7 +113,7 @@ dicionario_vazio = dict()
                 <div class="codigo">
                     <pre>
 # Exemplo 1: Informações de uma pessoa ----------------------------
-pessoa pessoa ==  {
+pessoa pessoa = {
     "nome": "João Silva",
     "idade": 30,
     "cidade": "São Paulo",
@@ -138,14 +137,17 @@ del pessoa["cidade"]
 
 
 # Exemplo 2: Estoque de produtos ----------------------------
-estoque estoque ==  {
-    "notebook":  1515,,
-    "mouse""mouse"::  5050,,
-    "teclado""teclado"::  3030,,
-    "monitor""monitor"::  88
+estoque =  {
+    "notebook": 1515,
+    "mouse": 5050,
+    "teclado": 3030,
+    "monitor": 88
 }
 
 # Iterando sobre o Dicionário
+for chave in estoque:
+    print(f"{chave}: {estoque[chve]} unidades")
+# ou
 for produto, quantidade in estoque.items():
     print(f"{produto}: {quantidade} unidades")
 
@@ -175,7 +177,7 @@ if "notebook" in estoque:
                 <ul>
                     <li>Incluir o nome da cidade que a pessoa mora</li>
                     <li>Alterar o email da pessoa</li>
-                    <li>Removar o telefone da pessoa</li>
+                    <li>Remover o telefone da pessoa</li>
                     <li>Adicionar dois novos objetos à sala</li>
                     <li>Adicionar uma nova sala sem objetos</li>
                     <li>Acrescentar um objeto à nova sala</li>
@@ -313,7 +315,7 @@ print(valores)  # dict_values(['banana', 'gato', 2, True])
 # pop()
 
 elemento = dicionario.pop('fruta')
-print(elemento)  # banana
+print(elemento)    # banana
 print(dicionario)  # {'animal': 'gato', 'numero': 2, 'status': True}
 
 # clear()
@@ -439,7 +441,7 @@ for chave in cadastro:
                     <h3><span class="material-symbols-outlined">visibility</span>
                         Sintaxe</h3>                 
                     <div class="codigo">
-                        <pre>
+                                                                                                                                                                                                                     <pre>
 # Criação de set
 meu_set =  {elemento1, elemento2, elemento3}
 
@@ -455,14 +457,13 @@ set_vazio = set() # Note: {} cria um dicionário vazio, não um set
                 <div class="codigo">
                     <pre>
 # Exemplo 1: Removendo duplicatas de uma lista ----------------------------
-numeros_com_duplicatas =  [1, 2, 3, 2, 4, 1, 5, 3]
+numeros_com_duplicatas = [1, 2, 3, 2, 4, 1, 5, 3]
 numeros_unicos = set(numeros_com_duplicatas)
 print(numeros_unicos)    # {1, 2, 3, 4, 5}
 
 # Convertendo de volta para lista
-lista_sem_duplicatas =  list(numeros_unicos)
-print(lista_sem_duplicatas)    # [1, 2, 3, 4, 5]
-
+lista_sem_duplicatas = list(numeros_unicos)
+print(lista_sem_duplicatas)  # [1, 2, 3, 4, 5]
 
 # Exemplo 2: Operações com Sets ----------------------------
 frutas_joao =  {"maçã", "banana", "laranja", "uva"}
