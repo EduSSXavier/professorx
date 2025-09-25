@@ -52,7 +52,7 @@
                 <div class="card"">
                     <h1>
                         <span class="material-symbols-outlined">book_2</span>
-                        Parte 1: Conceitos
+                        Conceitos
                     </h1>
                 </div>
             </div>
@@ -115,6 +115,32 @@ Número: 5
             </div>
         </div>
         <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 1</h1>
+                <h2>Nível Básico</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Crie um programa que imprima todos os números 
+                    inteiros pares de 2 a 20 usando FOR.</p>    
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
+                    <pre>
+for (let contador = 2; contador &lt;= 20; contador += 2) {
+    console.log(contador);
+}
+                    </pre>
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
 
         <!-- Slide -------------------------------------------------------->
         <div class="slide">
@@ -153,6 +179,35 @@ for (let i = 0; i <= 10; i += 2) {
 }
 
 // Saída: 0, 2, 4, 6, 8, 10
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 2</h1>
+                <h2>Nível Básico/Intermediário</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Calcule a soma de todos os números 
+                    de 1 a 50.</p>   
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <pre>
+let soma = 0;
+
+for (let i = 1; i &lt;= 50; i++) {
+    soma += i   // é o mesmo que soma = soma + i;
+}
+
+console.log("A soma dos números de 1 a 50 é: " + soma);
                     </pre>
                 </div>
             </div>
@@ -203,47 +258,29 @@ console.log("Total de ímpares: " + impares);
         <!-- Slide -------------------------------------------------------->
         <div class="slide">
             <div class="cabecalho">
-                <h1>Comando FOR ... IN</h1>
-                <h2>Executando varredura em objetos</h2>
+                <h1>Exercício 3</h1>
+                <h2>Nível Intermediário</h2>
             </div>
-            <div class="conceito">
-                <h3><span class="material-symbols-outlined">book_2</span>
-                    Conceito</h3>
-                <p>O comando FOR ... IN é uma estrutura de repetição que permite 
-                    iterar sobre as propriedades de um objeto. Veremos futuramente 
-                    mais detalhes sobre objetos e como eles podem ser manipulados, 
-                    mas neste momento, vamos apenas descrever um objeto como um 
-                    conjunto de um ou mais pares chave-valor e usar o comando FOR 
-                    ... IN para percorrer os elementos desse conjunto, acessar este 
-                    objeto e exibir as suas propriedades.</p>
-                <h4>Sintaxe:</h4>
-                <div class="codigo">
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Conte quantos números entre 1 e 100 são 
+                    divisíveis por 3 e por 5 simultaneamente.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
                     <pre>
-for (chave in objeto) {
-    // código a ser repetido
-}
-                    </pre>
-                </div>
-                <h4>Características:</h4>
-                <ul>
-                    <li><strong>Chave:</strong> Uma variável que recebe o nome de cada chave 
-                        do objeto ao ser percorrido</li>
-                    <li><strong>Objeto:</strong> O objeto que será percorrido</li>
-                </ul>
-            </div>
-            <div class="exemplo">
-                <h3><span class="material-symbols-outlined">visibility</span>
-                    Exemplo</h3>
-                <div class="codigo">
-                    <pre>
-let pessoa = {nome:"João", sobrenome:"Silva", idade:25};
-let texto = "";
+let contador = 0;
 
-for (let nomeChave in pessoa) {
-  texto += pessoa[nomeChave];
+for (let i = 1; i &lt;= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        contador++;
+        console.log(i + " é divisível por 3 e 5");
+    }
 }
 
-console.log("Valores concatenados das chaves do objeto: " + texto);
+console.log("Total de números: " + contador);
                     </pre>
                 </div>
             </div>
@@ -307,99 +344,62 @@ for (let letra of listaDeCarros) {
 
         <!-- Slide -------------------------------------------------------->
         <div class="slide">
+            <div class="cabecalho">
+                <h1>Comando FOR ... IN</h1>
+                <h2>Executando varredura em objetos</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>O comando FOR ... IN é uma estrutura de repetição que permite 
+                    iterar sobre as propriedades de um objeto. Veremos futuramente 
+                    mais detalhes sobre objetos e como eles podem ser manipulados, 
+                    mas neste momento, vamos apenas descrever um objeto como um 
+                    conjunto de um ou mais pares chave-valor e usar o comando FOR 
+                    ... IN para percorrer os elementos desse conjunto, acessar este 
+                    objeto e exibir as suas propriedades.</p>
+                <h4>Sintaxe:</h4>
+                <div class="codigo">
+                    <pre>
+for (chave in objeto) {
+    // código a ser repetido
+}
+                    </pre>
+                </div>
+                <h4>Características:</h4>
+                <ul>
+                    <li><strong>Chave:</strong> Uma variável que recebe o nome de cada chave 
+                        do objeto ao ser percorrido</li>
+                    <li><strong>Objeto:</strong> O objeto que será percorrido</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo</h3>
+                <div class="codigo">
+                    <pre>
+let pessoa = {nome:"João", sobrenome:"Silva", idade:25};
+let texto = "";
+
+for (let nomeChave in pessoa) {
+  texto += pessoa[nomeChave];
+}
+
+console.log("Valores concatenados das chaves do objeto: " + texto);
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
             <div class="caixa_intro">
                 <div class="card"">
                     <h1>
                         <span class="material-symbols-outlined">book_2</span>
                         Parte 2: Exercícios
                     </h1>
-                </div>
-            </div>
-        </div>
-        <!-- Fim do Slide ------------------------------------------------->
-
-        <!-- Slide -------------------------------------------------------->
-        <div class="slide">
-            <div class="cabecalho">
-                <h1>Exercício 1</h1>
-                <h2>Nível Básico</h2>
-            </div>
-            <div class="exercicio">
-                <h3><span class="material-symbols-outlined">exercise</span>
-                    Exercício</h3>
-                <p><strong>Objetivo:</strong> Crie um programa que imprima todos os números 
-                    inteiros pares de 2 a 20 usando FOR.</p>    
-                <br><br>
-                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
-                        Exibir/Ocultar Solução</button>
-                <div class="codigo oculto" id="exercicio1">
-                    <pre>
-for (let contador = 2; contador &lt;= 20; contador += 2) {
-    console.log(contador);
-}
-                    </pre>
-                </div>
-                <br><br><br>
-            </div>
-        </div>
-        <!-- Fim do Slide ------------------------------------------------->
-
-        <!-- Slide -------------------------------------------------------->
-        <div class="slide">
-            <div class="cabecalho">
-                <h1>Exercício 2</h1>
-                <h2>Nível Básico/Intermediário</h2>
-            </div>
-            <div class="exercicio">
-                <h3><span class="material-symbols-outlined">exercise</span>
-                    Exercício</h3>
-                <p><strong>Objetivo:</strong> Calcule a soma de todos os números 
-                    de 1 a 50.</p>   
-                <br><br>
-                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
-                        Exibir/Ocultar Solução</button>
-                <div class="codigo oculto" id="exercicio2">
-                    <pre>
-let soma = 0;
-
-for (let i = 1; i &lt;= 50; i++) {
-    soma += i   // é o mesmo que soma = soma + i;
-}
-
-console.log("A soma dos números de 1 a 50 é: " + soma);
-                    </pre>
-                </div>
-            </div>
-        </div>
-        <!-- Fim do Slide ------------------------------------------------->
-
-        <!-- Slide -------------------------------------------------------->
-        <div class="slide">
-            <div class="cabecalho">
-                <h1>Exercício 3</h1>
-                <h2>Nível Intermediário</h2>
-            </div>
-            <div class="exercicio">
-                <h3><span class="material-symbols-outlined">exercise</span>
-                    Exercício</h3>
-                <p><strong>Objetivo:</strong> Conte quantos números entre 1 e 100 são 
-                    divisíveis por 3 e por 5 simultaneamente.</p>
-                <br><br>
-                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
-                        Exibir/Ocultar Solução</button>
-                <div class="codigo oculto" id="exercicio3">
-                    <pre>
-let contador = 0;
-
-for (let i = 1; i &lt;= 100; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-        contador++;
-        console.log(i + " é divisível por 3 e 5");
-    }
-}
-
-console.log("Total de números: " + contador);
-                    </pre>
                 </div>
             </div>
         </div>
