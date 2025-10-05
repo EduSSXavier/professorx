@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python e Banco de Dados</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./../../imagens/eu_pixar3d.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin8-EZFTd9XQyCOGn3Rx3a3fC3wfhIKn6iu2f68gwNqokzm3ZxqCue1y31QgxPQEjIrs" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Python + Banco de Dados
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5L1o6fnsZF1my1qkyrzxNfSJOtAp--RitQ&s" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">    
+                </h1>
+                <h2>Aula 4<br>Funções (Parte 1):
+                    Conceito, Aplicação e Escopos</h2>
+
+                <p>
+                    Introdução ao reuso de código com funções em Python.
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Criação,Parâmetros, Argumentos e Retornos
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Funções Lambda (Anônimas)
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Escopos e Boas Práticas
+                    </p>
+                    <!-- Projeto Incremental 
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Mini-Projeto Prático
+                    </p>
+                    -->
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Conceito e Criação de Funções
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Funções</h1>
+                <h2>Blocos de códigos reutilizáveis</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Definição</h3>
+                        <p>Uma <strong>função</strong> é um bloco de código reutilizável 
+                            que realiza uma tarefa específica. Em Python, definimos funções 
+                            usando o comando def.</p>
+                    </div>
+                    <img src="./imagens/funcao.png" style="width: 400px;">
+                </div>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Sintaxe</h3>                 
+                    <div class="codigo">
+                        <pre>
+def nome_da_funcao( ):
+    # corpo da função
+    print("Olá, mundo!")
+                        </pre>
+                    </div>
+                </div>
+            </div> 
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo</h3>                 
+                <div class="codigo">
+                    <pre>
+# Definindo a função
+def saudacao( ):
+    print("Bem-vindo ao curso de Python!")
+    print("Vamos aprender sobre funções!")
+
+# Chamando a função
+saudacao( )
+                    </pre>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 1:</h3>
+                <p><strong>Objetivo:</strong> Crie uma função chamada "apresentacao" que 
+                    imprima seu nome, idade e cidade onde mora.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
+                    <pre>
+# Definindo a função
+def apresentacao():
+    print("Meu nome é Fulano de Tal!")
+    print("Tenho 30 anos!")
+    print("Moro em São Paulo!")
+
+# Chamando a função
+apresentacao()
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Parâmetros e Argumentos</h1>
+                <h2>Criando funções mais complexas</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Definição</h3>
+                        <p><strong>Parâmetros</strong> são variáveis listadas na definição da 
+                            função, enquanto <strong>argumentos</strong> são os valores passados 
+                            para a função quando ela é chamada.</p>
+                        <p>Imagine os parâmetros como "caixas" que recebem valores,
+                            enquanto argumentos são os valores colocados nessas caixas.</p>
+                    </div>
+                    <img src="./imagens/parametros.jpg" style="width: 400px;">
+                </div>
+            </div> 
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplos</h3>                 
+                <div class="codigo">
+                    <pre>
+# --- Exemplo com um parâmetro:
+
+def saudar_pessoa(nome):
+    print(f"Olá, {nome}! Seja bem-vindo!")
+
+
+saudar_pessoa("João") # "João" é o argumento
+
+
+# --- Exemplo com múltiplos parâmetros:
+
+def calcular_soma(a, b):
+    resultado = a + b
+    print(f"A soma de {a} + {b} = {resultado}")
+
+calcular_soma(5, 3)
+
+# --- Exemplo com parâmetros com valores padrão:
+
+def saudar(nome, saudacao="Olá"):
+    print(f"{saudacao}, {nome}!")
+
+saudar("Maria") # Usa o valor padrão
+saudar("Pedro", "Bom dia") # Substitui o valor padrão
+                    </pre>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 2:</h3>
+                <p><strong>Objetivo:</strong> Crie uma função chamada "calcular_media" 
+                    que receba três notas como parâmetros e imprima a média aritmética 
+                    dessas notas.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <pre>
+# Definindo a função
+def calcular_media(nota1, nota2, nota3):
+    media = (nota1 + nota2 + nota3) / 3
+    print(f"A média é: {media}")
+
+# Chamando a função
+calcular_media(7, 8, 9)
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Return</h1>
+                <h2>Retorno de Valores</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Definição</h3>
+                        <p>A instrução <strong>return</strong> permite que uma função 
+                            devolva um valor ao código que a chamou. Isso torna as 
+                            funções muito mais úteis e versáteis.</p>
+                    </div>
+                    <img src="./imagens/consultar.png" style="width: 400px;">
+                </div>
+            </div> 
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplos</h3>                 
+                <div class="codigo">
+                    <pre>
+# --- Retornando um único valor:
+
+def somar(a, b):
+    return a + b
+
+resultado = somar(10, 5)
+print(f"O resultado é: {resultado}")
+
+# --- Retornando múltiplos valores:
+
+def operacoes(a, b):
+    soma = a + b
+    subtracao = a - b
+    multiplicacao = a * b
+    return soma, subtracao, multiplicacao
+
+resultado1, resultado2, resultado3 = operacoes(10, 5)
+print(f"Soma: {resultado1}, Subtração: {resultado2}, Multiplicação: {resultado3}")
+                    </pre>
+                </div>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Importante:</h3>
+                <p>Para retornar um valor, a função precisa ter um return.</p>
+                <p>Após o return, a função é encerrada.</p>
+                <p>Se a função não tiver um return, ela retornará <strong>None</strong> 
+                    automaticamente por padrão.</p>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 3:</h3>
+                <p><strong>Objetivo:</strong> Crie uma função chamada "converter_temperatura" 
+                    que receba uma temperatura em Celsius e retorne o valor em Fahrenheit.<br>
+                    Fórmula: F = C × 1.8 + 32</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
+                    <pre>
+# Definindo a função
+def converter_temperatura(celsius):
+    fahrenheit = celsius * 1.8 + 32
+    return fahrenheit
+
+# Chamando a função
+resultado = converter_temperatura(25)
+print(f"A temperatura em Fahrenheit é: {resultado}")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Escopos de Variáveis
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Escopo de Variáveis</h1>
+                <!--<h2>Retorno de Valores</h2>-->
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Explicação</h3>
+                        <p>O escopo determina onde uma variável pode ser acessada no código. 
+                            Variáveis definidas dentro de uma função não podem ser acessadas 
+                            fora dela.</p>
+                    </div>
+                    <img src="./imagens/escopo.jpg" style="width: 400px;">
+                </div>
+
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Escopo LOCAL</h3>
+                <p>Variáveis definidas dentro de uma função só existem dentro dela.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>                 
+                    <div class="codigo">
+                        <pre>
+def minha_funcao():
+    variavel_local = 10     # Só existe dentro da função
+    print(variavel_local)   # Isso funciona!
+
+minha_funcao()
+# print(variavel_local) # Isso causaria um erro!
+                        </pre>
+                    </div>
+                </div>
+
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Escopo GLOBAL</h3>
+                <p>Variáveis definidas fora de funções podem ser acessadas em qualquer lugar.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>                 
+                    <div class="codigo">
+                        <pre>
+variavel_global = 20
+
+def mostrar_global():
+    print(variavel_global) # Isso funciona. Acessa a variável global.
+
+mostrar_global()
+print(variavel_global) # Isso também funciona. 
+                        </pre>
+                    </div>
+                </div>
+
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Modificando variáveis globais:</h3>
+                <p>Para modificar uma variável global dentro de uma função, use 
+                    <strong>global</strong>.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>                 
+                    <div class="codigo">
+                        <pre>
+contador = 0
+
+def incrementar( ):
+    global contador
+    contador += 1
+    print(f"Contador: {contador}")
+
+incrementar( )
+incrementar( )
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="destaque">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Boa prática:</h3>
+                    <p>Evite usar variáveis globais quando possível. Prefira passar 
+                        valores como parâmetros e retornar resultados.</p>
+                    <p>Variáveis globais são desaconselháveis em funções Python porque 
+                        tornam o código imprevisível, difícil de depurar e de reutilizar, 
+                        aumentando o risco de conflitos de nome e alterações acidentais 
+                        que podem gerar bugs, afetando a modularidade e a manutenção do 
+                        programa./p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 4:</h3>
+                <p><strong>Objetivo:</strong> Crie um programa com uma variável global 
+                    saldo = 1000. Crie duas funções:</p>
+                <ul>
+                    <li>depositar(valor): adiciona o valor ao saldo</li>
+                    <li>sacar(valor): subtrai o valor do saldo se houver saldo suficiente</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio4');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio4">
+                    <pre>
+# Definindo a variável global
+saldo = 1000
+
+# Definindo as funções
+def depositar(valor):
+    global saldo
+    saldo += valor
+
+def sacar(valor):
+    global saldo
+    if valor &lt;= saldo:
+        saldo -= valor
+    else:
+        print("Saldo insuficiente!")
+
+# Chamando as funções
+depositar(500)
+sacar(200)
+print(f"Saldo atual: {saldo}")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Funções Lambda (Anônimas)
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Funções Lambda</h1>
+                <h2>Como criar funções anônimas</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Conceito</h3>
+                        <p>Funções lambda, ou funções anônimas, são funções definidas sem 
+                            um nome. Elas são úteis para operações simples e podem ser 
+                            criadas em uma única linha.</p>
+                    </div>
+                    <img src="./imagens/lambda.jpg" style="width: 400px;">
+                </div>
+
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Sintaxe:</h3>                 
+                    <div class="codigo">
+                        <pre>
+lambda argumentos: expressão
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>                 
+                    <div class="codigo">
+                        <pre>
+# Função tradicional
+def quadrado(x):
+    return x ** 2
+
+# Função lambda equivalente
+quadrado_lambda = lambda x: x ** 2
+
+print(quadrado(5))
+print(quadrado_lambda(5))
+                        </pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 5:</h3>
+                <p><strong>Objetivo:</strong> Crie uma função lambda que receba dois números 
+                    e retorne o maior deles. Teste com os valores 15 e 23.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio5');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio5">
+                    <pre>
+# Função lambda para encontrar o maior número
+maior = lambda a, b: a if a > b else b
+
+# Chamando a função lambda
+resultado = maior(15, 23)
+print(f"O maior número entre 15 e 23 é: {resultado}")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Boas Práticas
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Boas Práticas</h1>
+                <h2>Criação de funções com boas práticas</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    1.Use nomes descritivos:</h3>
+                <p>Nomes que identificam facilmente o que a função faz facilitam a 
+                    compreensão do código.</p>
+
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+# Ruim
+
+def ornitorrinco(x, y):
+    return x + y
+
+# Bom
+
+def calcular_soma(numero1, numero2):
+return numero1 + numero2
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    2. Funções devem fazer apenas uma coisa:</h3>
+                <p>Uma função deve ter uma única responsabilidade, facilitando a 
+                    manutenção e o entendimento do código.</p>
+
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+# Ruim - faz múltiplas coisas
+
+def processar_dados(dados):
+    # Bloco de código que valida dados, 
+    # transforma, salva e envia email.
+
+# Bom - separe em funções específicas
+
+def validar_dados(dados):
+    # validação
+    pass
+
+def transformar_dados(dados):
+    # transformação
+    pass
+
+def salvar_dados(dados):
+    # salvamento
+    pass
+
+def enviar_email(dados):
+    # envio de email
+    pass
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    3. Use docstrings para documentar:</h3>
+                <p>Uma boa prática para documentar funções, classes e módulos 
+                    é utilizar docstrings.</p>
+
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+def calcular_area_retangulo(largura, altura):
+    """
+    Calcula a área de um retângulo.
+    Args:
+        largura (float): A largura do retângulo
+        altura (float): A altura do retângulo
+    Returns:
+        float: A área do retângulo
+    """
+    return largura * altura
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    4. Evite efeitos colaterais não intencionais:</h3>
+                <p>Uma boa prática para evitar efeitos colaterais não intencionais é
+                    utilizar parâmetros de entrada e saída claros e evitar modificar
+                    variáveis globais.</p>
+
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+# Ruim - modifica lista original
+
+def adicionar_item(lista, item):
+    lista.append(item)
+    return lista
+
+# Bom - retorna nova lista
+
+def adicionar_item(lista, item):
+    nova_lista = lista.copy()
+    nova_lista.append(item)
+    return nova_lista
+                        </pre>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 6:</h3>
+                <p><strong>Objetivo:</strong> Refatore a seguinte função aplicando as 
+                    boas práticas aprendidas:</p>
+                <div class="codigo" id="exercicio6">
+                    <pre>
+def f(a, b, c):
+    x = a + b
+    y = x * c
+    print(y)
+    return y
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Exercícios Práticos
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercícios</h1>
+                <h2>Vamos praticar?</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 7:</h3>
+                <p><strong>Validador de Senha:</strong> Crie uma função validar_senha(senha) 
+                    que retorne True se a senha atender a todos os critérios:</p>
+                <ul>
+                    <li> Mínimo de 8 caracteres</li>
+                    <li> Pelo menos uma letra maiúscula</li>
+                    <li> Pelo menos uma letra minúscula</li>
+                    <li> Pelo menos um número</li>
+                    <li> Pelo menos um caractere especial (!@#$%&*)</li>
+                </ul>
+                <div class="destaque">
+                    <p>Dica: Use métodos de string como any(), isupper(), islower(), isdigit().</p>
+                </div>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio7');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio7">
+                    <pre>
+def validar_senha(senha):
+    tamanhoMinimo = False
+    peloMenosUmaMaiuscula = False
+    peloMenosUmaMinuscula = False
+    peloMenosUmNumero = False
+    peloMenosUmEspecial = False
+
+    if len(senha) >= 8:
+        tamanhoMinimo = True
+
+    for letra in senha:
+        #teste de maiuscula
+        if letra.isupper():
+            peloMenosUmaMaiuscula = True
+        #teste de minuscula
+        if letra.islower():
+            peloMenosUmaMinuscula = True
+        #teste de numero
+        if letra.isdigit():
+            peloMenosUmNumero = True
+        #teste de especial
+        if letra in "!@#$%&*":
+            peloMenosUmEspecial = True
+
+    if tamanhoMinimo and peloMenosUmaMaiuscula and \
+       peloMenosUmaMinuscula and peloMenosUmNumero and \
+       peloMenosUmEspecial:
+        return True
+    return False
+
+print(validar_senha("Senha123!"))
+print(validar_senha("senha123"))
+print(validar_senha("SENHA123"))
+print(validar_senha("Senha!"))
+print(validar_senha("Senha123"))
+print(validar_senha("Senha1234"))
+print(validar_senha("Senha!@#"))
+print(validar_senha("Senha123!@#"))
+                    </pre>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    DESAFIO:</h3>
+                <p><strong>Gerador de Relatório de Vendas:</strong> Crie um 
+                    sistema com as seguintes funções:</p>
+                <ol>
+                    <li> Criar uma lista de vendas vazia</li>
+                    <li> Criar uma função para registrar uma venda</li>
+                    <li> Criar uma função para calcular o total de vendas</li>
+                    <li> Criar uma função para calcular o produto mais vendido</li>
+                    <li> Criar uma função para gerar um relatório formatado
+                        com as seguintes informações:
+                        <ul>
+                            <li> Total de vendas realizadas</li>
+                            <li> Valor total arrecadado</li>
+                            <li> Produto mais vendido</li>
+                            <li> Ticket médio (valor total / número de vendas)</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Estrutura de dados sugerida:</p>
+                <pre>
+vendas = [ ]
+
+# Cada venda é um dicionário: {'produto': str, 'quantidade': int, 'preco': float}
+                </pre>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio8');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio8">
+                    <pre>
+# --- Dados de vendas
+
+vendas = []
+
+# --- Funções
+
+def registrar_venda(produto, quantidade, preco):
+    venda = {'produto': produto, 'quantidade': quantidade, 'preco': preco}
+    vendas.append(venda)
+
+def calcular_total_vendas():
+    total = 0
+    for venda in vendas:
+        total += venda['quantidade'] * venda['preco']
+    return total
+
+def calcular_produto_mais_vendido():
+    mais_vendido = None
+    maior_quantidade = 0
+    for venda in vendas:
+        if venda['quantidade'] > maior_quantidade:
+            mais_vendido = venda['produto']
+            maior_quantidade = venda['quantidade']  
+    return mais_vendido
+
+def gerar_relatorio():
+    total_vendas = calcular_total_vendas()
+    produto_mais_vendido = calcular_produto_mais_vendido()
+    ticket_medio = total_vendas / len(vendas)
+    relatorio = f"Total de vendas: {total_vendas}\n"
+    relatorio += f"Produto mais vendido: {produto_mais_vendido}\n"
+    relatorio += f"Ticket médio: {ticket_medio:.2f}"
+    return relatorio
+
+# --- Exemplo de uso
+
+registrar_venda("Produto A", 3, 10.0)
+registrar_venda("Produto B", 5, 20.0)
+registrar_venda("Produto A", 2, 10.0)
+
+print(gerar_relatorio())
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 1</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    O que aprendemos?</h3>
+                <ul>
+                        <li>Criação, Parâmetros, Argumentos e Retornos de funções</li>
+                        <li>Funções Lambda (Anônimas)</li>
+                        <li>Escopos e Boas Práticas</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Usos avançados de funções</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>
