@@ -78,7 +78,7 @@ section {
     display: none;
 }
 #ini img {
-    max-width: 180px;
+    max-width: 90%;
     border-radius: 20%;
 }
 .titulo {
@@ -114,7 +114,7 @@ section {
     margin: 5px;
 }
 .card img {
-    width: 80%;
+    width: 90%;
     margin: 5px;
     border-radius: 10px;
 }

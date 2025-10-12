@@ -9,7 +9,7 @@
 <body>
     <header>
         <div>
-            <img src="./imagens/eu_pixar3d.png">
+            <img src="./imagens/eu_pixar3d_esq.png">
             <h1>Professor Xavier</h1>
         </div>
         <nav>
@@ -22,14 +22,21 @@
         </nav>
     </header>
     <section id="ini">
-        <div class="telatoda">
-            Bem-vindo.<br><br>
-            Aqui compartilho algumas informações pessoais e profissionais,<br> 
-            links interessantes, tutoriais e materiais a respeito de <br>
-            alguns assuntos que leciono.<br>
-            Divirta-se.<br><br>
-            <img src="./imagens/eu2.jpg"><br>
-            Eduardo Xavier
+        <div class="titulo">
+            <h1>Início</h1>
+        </div>
+        <div class="conteudo">
+            <div class="card">
+                    Bem-vindo.<br><br>
+                    Aqui compartilho algumas informações pessoais e profissionais,<br> 
+                    links interessantes, tutoriais e materiais a respeito de <br>
+                    alguns assuntos que leciono.<br>
+                    Divirta-se.<br><br>
+                    Eduardo Xavier
+            </div>
+            <div class="card">
+                <img src="./imagens/eu2.jpg">
+            </div>
         </div>
     </section>
     <section id="pes">
@@ -40,9 +47,8 @@
             <div class="card">
                 <img src="./imagens/icone_pessoa.svg" class="icone"><br>
                 Parense, nascido em Belém-PA, pertencente a última geração que 
-                foi criança antes da internet tomar o mundo de assalto<br>
-                ("Quando cheguei, isso aqui era tudo mato!")<br>
-                <img src="./imagens/eu.png">
+                foi criança antes da internet tomar o mundo de assalto<br><br>
+                ("Quando cheguei, isso aqui era tudo mato!")
             </div>
             <div class="card">
                 <img src="./imagens/icone_pessoa.svg" class="icone"><br>
@@ -60,8 +66,8 @@
             </div>
             <div class="card">
                 <img src="./imagens/icone_pessoa.svg" class="icone"><br>
-                Foi adotado por quatro gatos.<br>
-                <img src="./imagens/gato_quarteto.png">
+                Foi adotado por três gatos.<br>
+                <img src="./imagens/gatos_trio.png">
             </div>
         </div>
     </section>
@@ -178,11 +184,13 @@
                 Disciplinas/Assuntos<br>
                 <ul>
                     <li>Bancos de Dados</li>
+                    <li>Análise de Dados</li>
                     <li>Sistemas Operacionais</li>
                     <li>Sistemas Distribuídos</li>
                     <li>Interação Humano-Computador</li>
                     <li>Lógica de Programação</li>
                     <li>Estruturas de Dados</li>
+                    <li>Estratégias Empresariais em TI</li>
                 </ul>
             </div>
             <div class="card">
@@ -244,7 +252,8 @@
             } 
         }
 
-        document.getElementById('ini').style.display = 'flex';
+        mudar('ini');
+        //document.getElementById('ini').style.display = 'flex';
 
 </script>
 </body>
