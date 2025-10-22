@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação JavaScript</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                    alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Programação JavaScript</h1>
+                <h2>Aula 09<br>Objetos Literais</h2>
+                <p>
+                    Estrutura e Organização de Dados
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Conceitos
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Exercícios de Fixação
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Projeto Prático
+                    </p>
+                </div>
+                <br>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Introdução</h1>
+                <h2>O que são "Objetos Literais"?</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <div class="duas-colunas">
+                    <div>
+                        <p>Objetos literais são estruturas de dados fundamentais 
+                            em JavaScript que permitem armazenar coleções de pares 
+                            chave-valor. Eles são ideais para representar entidades 
+                            do mundo real com múltiplas propriedades.</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/objetos.png" class="imagem">
+                    </div>
+                </div>
+                <br><br>
+                <h4>Sintaxe / Exemplos:</h4>
+                <div class="codigo">
+                    <pre>
+// Objeto vazio
+const objetoVazio = {};
+
+// Objeto com propriedades
+const pessoa = {
+    nome: "Ana Silva",
+    idade: 28,
+    profissao: "Desenvolvedora",
+    ativo: true
+};
+
+// Propriedades podem ter diferentes tipos de dados
+const produto = {
+    id: 101,
+    nome: "Notebook",
+    preco: 3500.00,
+    emEstoque: true,
+    especificacoes: {
+            marca: "Dell",
+            memoria: "16GB"
+    }
+};
+                    </pre>
+                </div>
+                <br><br>
+                <h4>Características Importantes:</h4>
+                <ul>
+                    <li><strong>Chaves (propriedades):</strong> podem ser strings ou 
+                        símbolos</li>
+                    <li><strong>Valores:</strong> podem ser qualquer tipo de dado 
+                        (strings, números, booleanos, arrays, outros objetos, funções)</li>
+                    <li><strong>Sintaxe:</strong> pares chave: valor separados por 
+                        vírgulas</li>
+                    <li>Objetos podem conter métodos (funções como propriedades)</li>
+                </ul>
+                <div class="codigo">
+                    <pre>
+const calculadora = {
+    valor: 0,
+    somar: function(num) {
+                this.valor += num;
+                return this.valor;
+            },
+    // Sintaxe moderna (ES6+)
+    subtrair(num) {
+                this.valor -= num;
+                return this.valor;
+            }
+};
+                    </pre>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação 1</h3>
+                <p><strong>Objetivo:</strong> Crie um objeto literal chamado "livro" 
+                    com as seguintes propriedades:</p>
+                <ul>
+                    <li>O titulo é "1984"</li>
+                    <li>O autor é "George Orwell"</li>
+                    <li>O ano de publicação é 1949</li>
+                    <li>O genero é "Ficção Distópica"</li>
+                    <li>O número de paginas é 328</li>
+                    <li>O status de leitura ("lido") é falso</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
+                    <pre>
+const livro = {
+    titulo: "1984",
+    autor: "George Orwell",
+    ano: 1949,
+    genero: "Ficção Distópica",
+    paginas: 328,
+    lido: false
+};
+
+console.log(livro);
+// Saída: { titulo: '1984', autor: 'George Orwell', ano: 1949, genero: 'Ficção Distópica', paginas: 328, lido: false }
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Objetos</h1>
+                <h2>Acesso e Modificação de Propriedades</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Acessando Propriedades</h3>
+                <p>Existem duas formas principais de acessar propriedades:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+const usuario = {
+    nome: "Carlos",
+    email: "carlos@email.com",
+    idade: 35
+};
+
+// 1. Notação de ponto (mais comum)
+console.log(usuario.nome);  // "Carlos"
+console.log(usuario.email); // "carlos@email.com"
+
+// 2. Notação de colchetes (útil para propriedades dinâmicas)
+console.log(usuario["idade"]); // 35
+
+// Propriedades dinâmicas
+const propriedade = "email";
+console.log(usuario[propriedade]); // "carlos@email.com"
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Modificando Propriedades</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+const carro = {
+    marca: "Toyota",
+    modelo: "Corolla",
+    ano: 2020,
+    km: 15000
+};
+
+// Modificar propriedade existente
+carro.km = 16000;
+carro["ano"] = 2021;
+
+// Adicionar nova propriedade
+carro.cor = "Prata";
+carro["proprietario"] = "João";
+console.log(carro);
+// { marca: 'Toyota', modelo: 'Corolla', ano: 2021, km: 16000, cor: 'Prata', proprietario: 'João' }
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Deletando Propriedades</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+const produto = {
+    nome: "Mouse",
+    preco: 50,
+    desconto: 10
+};
+
+delete produto.desconto;
+console.log(produto); // { nome: 'Mouse', preco: 50 }
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Verificando Existência de Propriedades</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+const item = {
+    nome: "Teclado",
+    preco: 150
+};
+
+// Operador 'in'
+console.log("nome" in item); // true
+console.log("estoque" in item); // false
+
+// hasOwnProperty
+console.log(item.hasOwnProperty("preco")); // true
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação 2</h3>
+                <p><strong>Objetivo:</strong> Dado o objeto abaixo, realize as seguintes 
+                    operações:</p>
+                <ol>
+                    <li>Acesse e exiba o nome do aluno</li>
+                    <li>Modifique a nota para 9.5</li>
+                    <li>Adicione uma propriedade "aprovado" com valor true</li>
+                    <li>Delete a propriedade "turma"</li>
+                    <li>Verifique se existe a propriedade "matricula"</li>
+                </ol>
+                <div class="codigo">
+                    <pre>
+const aluno = {
+    nome: "Maria Santos",
+    matricula: "2023001",
+    nota: 8.5,
+    turma: "A"
+};
+                    </pre>
+                </div>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <pre>
+const aluno = {
+    nome: "Maria Santos",
+    matricula: "2023001",
+    nota: 8.5,
+    turma: "A"
+};
+
+// 1. Acessar nome
+console.log("Nome:", aluno.nome); // "Maria Santos"
+
+// 2. Modificar nota
+aluno.nota = 9.5;
+console.log("Nova nota:", aluno.nota); // 9.5
+
+// 3. Adicionar propriedade aprovado
+aluno.aprovado = true;
+
+// 4. Deletar turma
+delete aluno.turma;
+
+// 5. Verificar se existe matricula
+console.log("Possui matrícula?", "matricula" in aluno); // true
+
+console.log("Objeto final:", aluno);
+// { nome: 'Maria Santos', matricula: '2023001', nota: 9.5, aprovado: true }
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Objetos</h1>
+                <h2>Objetos dentro de Arrays e Vice-versa</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Arrays de Objetos</h3>
+                <p>Arrays de objetos são extremamente úteis para representar listas 
+                    de entidades similares:</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+const usuarios = [
+    {
+        id: 1,
+        nome: "João Silva",
+        email: "joao@email.com",
+        ativo: true
+    },
+    {
+        id: 2,
+        nome: "Ana Costa",
+        email: "ana@email.com",
+        ativo: false
+    },
+    {
+        id: 3,
+        nome: "Pedro Santos",
+        email: "pedro@email.com",
+        ativo: true
+    }
+];
+
+// Acessando dados
+console.log(usuarios[0].nome); // "João Silva"
+console.log(usuarios[1].email); // "ana@email.com"
+
+// Iterando sobre o array
+usuarios.forEach(usuario => {
+        console.log(`${usuario.nome} - ${usuario.email}`);
+        } );
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Objetos com Arrays como Propriedades</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>
+                    <div class="codigo">
+                        <pre>
+const empresa = {
+    nome: "Tech Solutions",
+    fundacao: 2015,
+    funcionarios: ["Ana", "Carlos", "Beatriz"],
+    departamentos: [
+        { nome: "TI", funcionarios: 15 },
+        { nome: "RH", funcionarios: 5 },
+        { nome: "Vendas", funcionarios: 20 }
+        ],
+    tecnologias: ["JavaScript", "Python", "Java"]
+};
+
+// Acessando arrays dentro de objetos
+console.log(empresa.funcionarios[0]); // "Ana"
+console.log(empresa.departamentos[1].nome); // "RH"
+console.log(empresa.tecnologias.length) // 3
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Arrays</h1>
+                <h2>Manipulação de Elementos</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Tamanho do Array (length)</h3>
+                <p>A propriedade <code>length</code> retorna o número de elementos presentes 
+                    no array.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+let numeros = [10, 20, 30, 40, 50];
+console.log(numeros.length); // 5
+
+let vazio = [];
+console.log(vazio.length); // 0
+
+// Usando length em condições
+if (numeros.length > 0) {
+    console.log("O array contém elementos");
+} else {
+    console.log("O array está vazio");
+}
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Inserção de Elementos</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+// ** Inserindo elementos no final do array (push):**
+
+let numeros = [1, 2, 3];
+
+numeros.push(4);
+console.log(numeros); // [1, 2, 3, 4]
+
+numeros.push(5, 6);
+console.log(numeros); // [1, 2, 3, 4, 5, 6]
+
+// ** Inserindo elementos no início do array (unshift):**
+
+let cores = ["verde", "azul"];
+
+cores.unshift("vermelho");
+console.log(cores); // ["vermelho", "verde", "azul"]
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Remoção de Elementos</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+// ** Removendo elementos do final do array (pop):**
+
+let frutas = ["maçã", "banana", "laranja"];
+
+let removida = frutas.pop();
+console.log(removida);  // "laranja"
+console.log(frutas);    // ["maçã", "banana"]
+
+// ** Removendo elementos do início do array (shift):**
+
+let animais = ["gato", "cachorro", "coelho"];
+
+let primeiro = animais.shift();
+console.log(primeiro); // "gato"
+console.log(animais);  // ["cachorro", "coelho"]
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Objetos</h1>
+                <h2>Manipulação Avançada</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Manipulação Avançada</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+const loja = {
+    nome: "Loja Virtual",
+    produtos: [
+        { id: 1, nome: "Mouse", preco: 50, estoque: 10 },
+        { id: 2, nome: "Teclado", preco: 150, estoque: 5 },
+        { id: 3, nome: "Monitor", preco: 800, estoque: 3 }
+    ]
+};
+
+// Filtrar produtos em estoque
+const produtosDisponiveis = loja.produtos.filter(p => p.estoque > 0);
+
+// Encontrar produto específico
+const teclado = loja.produtos.find(p => p.nome === "Teclado");
+
+// Calcular valor total do estoque
+const valorTotal = loja.produtos.reduce((total, p) => {
+                return total + (p.preco * p.estoque);
+            }, 0);
+console.log("Valor total em estoque: R$", valorTotal); // 2200
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação 3</h3>
+                <p><strong>Objetivo:</strong> Crie um objeto escola que 
+                    contenha:</p>
+                        
+                <ul>
+                    <li>nome da escola</li>
+                    <li>um array de turmas, onde cada turma é um objeto com:
+                        <ul>
+                            <li>nome da turma</li>
+                            <li>ano</li>
+                            <li>array de alunos (apenas nomes)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Em seguida:</p>                            
+                <ol>
+                    <li>Adicione um novo aluno à primeira turma</li>
+                    <li>Exiba todos os alunos da segunda turma</li>
+                    <li>Conte o total de alunos de todas as turmas</li>
+                </ol>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
+                    <pre>
+const escola = {
+    nome: "Colégio Futuro Brilhante",
+    turmas: [
+        {
+            nome: "9º Ano A",
+            ano: 2025,
+            alunos: ["Pedro", "Julia", "Rafael"]
+        },
+        {
+            nome: "9º Ano B",
+            ano: 2025,
+            alunos: ["Camila", "Lucas", "Fernanda", "Bruno"]
+        }
+    ]
+};
+
+// 1. Adicionar novo aluno à primeira turma
+escola.turmas[0].alunos.push("Mariana");
+console.log("Primeira turma atualizada:", escola.turmas[0].alunos);
+
+// 2. Exibir alunos da segunda turma
+console.log("Alunos da segunda turma:");
+escola.turmas[1].alunos.forEach(aluno => {
+            console.log(`- ${aluno}`);
+        } );
+
+// 3. Contar total de alunos
+let totalAlunos = 0;
+escola.turmas.forEach(turma => {
+            totalAlunos += turma.alunos.length;
+        } );
+
+console.log("Total de alunos na escola:", totalAlunos); // 8
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Objetos</h1>
+                <h2>Uso Prático em Modelos de Dados</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Modelo: Sistema de Produtos</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+const sistemaProdutos = {
+    produtos: [
+            {
+                id: 1,
+                nome: "Smartphone XZ",
+                categoria: "Eletrônicos",
+                preco: 1500,
+                estoque: 25,
+                especificacoes: {
+                marca: "TechBrand",
+                memoria: "128GB",
+                cor: "Preto"
+            },
+            avaliacoes: [
+                    { usuario: "João", nota: 5, comentario: "Excelente!" },
+                    { usuario: "Maria", nota: 4, comentario: "Muito bom" }
+                ]
+            },
+            {
+                id: 2,
+                nome: "Fone Bluetooth",
+                categoria: "Áudio",
+                preco: 250,
+                estoque: 50,
+                especificacoes: {
+                marca: "SoundMax",
+                bateria: "20h",
+                cor: "Branco"
+            },
+            avaliacoes: []
+            }
+        ],
+    adicionarProduto(produto) {
+            this.produtos.push(produto);
+        },
+    buscarPorId(id) {
+            return this.produtos.find(p => p.id === id);
+        },
+    atualizarEstoque(id, quantidade) {
+            const produto = this.buscarPorId(id);
+            if (produto) {
+                produto.estoque = quantidade;
+                return true;
+            }
+            return false;
+        }
+    };
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Modelo: Sistema de Usuários</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+const sistemaUsuarios = {
+    usuarios: [
+        {
+            id: 1,
+            nome: "Carlos Oliveira",
+            email: "carlos@email.com",
+            senha: "hash123",
+            perfil: {
+                dataNascimento: "1990-05-15",
+                telefone: "(11) 98765-4321",
+                endereco: {
+                    rua: "Av. Principal",
+                    numero: 100,
+                    cidade: "São Paulo",
+                    estado: "SP"
+                }
+            },
+            permissoes: ["leitura", "escrita"],
+            ativo: true,
+            dataCadastro: "2023-01-10"
+        }
+    ],
+    cadastrar(usuario) {
+        const novoUsuario = {
+                ...usuario,
+                id: this.usuarios.length + 1,
+                dataCadastro: new Date().toISOString().split('T')[0],
+                ativo: true
+            };
+        this.usuarios.push(novoUsuario);
+        return novoUsuario;
+        },
+    buscarPorEmail(email) {
+        return this.usuarios.find(u => u.email === email);
+    },
+    listarAtivos() {
+        return this.usuarios.filter(u => u.ativo);
+    }
+};
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Modelo: Sistema de Tarefas</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+const sistemaTarefas = {
+    tarefas: [
+        {
+            id: 1,
+            titulo: "Estudar JavaScript",
+            descricao: "Revisar objetos literais",
+            prioridade: "alta",
+            status: "em_andamento",
+            dataCriacao: "2025-10-15",
+            dataLimite: "2025-10-20",
+            tags: ["estudos", "programação"],
+            subtarefas: [
+                { id: 1, titulo: "Ler documentação", concluida: true },
+                { id: 2, titulo: "Fazer exercícios", concluida: false }
+            ]
+        },
+        {
+            id: 2,
+            titulo: "Fazer compras",
+            descricao: "Comprar itens do supermercado",
+            prioridade: "media",
+            status: "pendente",
+            dataCriacao: "2025-10-18",
+            dataLimite: "2025-10-21",
+            tags: ["pessoal"],
+            subtarefas: []
+        }
+    ],
+    adicionarTarefa(tarefa) {
+        const novaTarefa = {
+            ...tarefa,
+            id: this.tarefas.length + 1,
+            status: "pendente",
+            dataCriacao: new Date().toISOString().split('T')[0],
+            subtarefas: []
+        };
+        this.tarefas.push(novaTarefa);
+        return novaTarefa;
+    },
+    concluirTarefa(id) {
+        const tarefa = this.tarefas.find(t => t.id === id);
+            if (tarefa) {
+                tarefa.status = "concluida";
+                return true;
+            }
+            return false;
+    },
+    listarPorPrioridade(prioridade) {
+        return this.tarefas.filter(t => t.prioridade === prioridade);
+    },
+    listarPendentes() {
+        return this.tarefas.filter(t => t.status === "pendente");
+    }
+};
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação 4</h3>
+                <p><strong>Objetivo:</strong> Usando o modelo de sistemaTarefas 
+                    criado anteriormente:</p>                 
+                <ol>
+                    <li>Adicione uma nova tarefa com título "Fazer exercícios físicos"</li>
+                    <li>Marque a tarefa de id 2 como concluída</li>
+                    <li>Liste todas as tarefas pendentes</li>
+                    <li>Adicione uma subtarefa à tarefa de id 1</li>
+                </ol>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio4');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio4">
+                    <pre>
+// 1. Adicionar nova tarefa
+const novaTarefa = sistemaTarefas.adicionarTarefa({
+        titulo: "Fazer exercícios físicos",
+        descricao: "Treino de 1 hora na academia",
+        prioridade: "alta",
+        dataLimite: "2025-10-22",
+        tags: ["saúde", "pessoal"]
+    } );
+console.log("Nova tarefa criada:", novaTarefa);
+
+// 2. Marcar tarefa 2 como concluída
+sistemaTarefas.concluirTarefa(2);
+console.log("Tarefa 2:", sistemaTarefas.tarefas.find(t => t.id === 2));
+
+// 3. Listar tarefas pendentes
+const tarefasPendentes = sistemaTarefas.listarPendentes();
+console.log("Tarefas pendentes:");
+tarefasPendentes.forEach(t => {
+        console.log(`- ${t.titulo} (${t.prioridade})`);
+    } );
+
+// 4. Adicionar subtarefa
+const tarefa1 = sistemaTarefas.tarefas.find(t => t.id === 1);
+tarefa1.subtarefas.push({
+        id: 3,
+        titulo: "Criar projeto prático",
+        concluida: false
+    } );
+console.log("Subtarefas da tarefa 1:", tarefa1.subtarefas);
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Miniprojeto: Clinica Veterinária
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Miniprojeto</h1>
+                <h2>Vamos construir algo!</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Clínica Veterinária</h3>
+                <p><strong>Objetivo:</strong> Criar um sistema simplificado para 
+                    gerenciar consultas em uma clínica veterinária, incluindo 
+                    cadastro de pets, tutores e agendamento de consultas.</p>
+                <h4>Requisitos Funcionais</h4>
+                <ul>
+                    <li>Cadastrar tutores e seus pets</li>
+                    <li>Agendar consultas</li>
+                    <li>Listar consultas por data</li>
+                    <li>Listar todos os pets de um tutor</li>
+                    <li>Cancelar consultas</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('clivet');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="clivet">
+                    <pre>
+const clinicaVeterinaria = {
+    nome: "Clínica Pet Vida",
+    endereco: "Rua dos Animais, 123",
+    tutores: [
+        {
+            id: 1,
+            nome: "Roberto Silva",
+            telefone: "(11) 98888-1111",
+            email: "roberto@email.com",
+            pets: [
+                {
+                    id: 1,
+                    nome: "Rex",
+                    especie: "Cachorro",
+                    raca: "Labrador",
+                    idade: 5,
+                    peso: 30
+                },
+                {
+                    id: 2,
+                    nome: "Miau",
+                    especie: "Gato",
+                    raca: "Siamês",
+                    idade: 3,
+                    peso: 4
+                }
+            ]
+        },
+        {
+            id: 2,
+            nome: "Fernanda Costa",
+            telefone: "(11) 97777-2222",
+            email: "fernanda@email.com",
+            pets: [
+                {
+                    id: 3,
+                    nome: "Bolinha",
+                    especie: "Cachorro",
+                    raca: "Poodle",
+                    idade: 2,
+                    peso: 8
+                }
+            ]    
+        }
+    ],
+    consultas: [
+        {
+            id: 1,
+            tutorId: 1,
+            petId: 1,
+            data: "2025-10-22",
+            horario: "10:00",
+            veterinario: "Dra. Ana Paula",
+            motivo: "Consulta de rotina",
+            status: "agendada",
+            observacoes: ""
+        },
+        {
+            id: 2,
+            tutorId: 2,
+            petId: 3,
+            data: "2025-10-22",
+            horario: "14:00",
+            veterinario: "Dr. Carlos Mendes",
+            motivo: "Vacinação",
+            status: "agendada",
+            observacoes: "Trazer carteira de vacinação"
+        }
+    ],
+
+    // Método para cadastrar novo tutor
+    cadastrarTutor(nome, telefone, email) {
+        const novoTutor = {
+            id: this.tutores.length + 1,
+            nome,
+            telefone,
+            email,
+            pets: []
+        };
+        this.tutores.push(novoTutor);
+        return novoTutor;
+    },
+
+    // Método para adicionar pet a um tutor
+    adicionarPet(tutorId, dadosPet) {
+        const tutor = this.tutores.find(t => t.id === tutorId);
+        if (!tutor) {
+            return { erro: "Tutor não encontrado" };
+        }
+        const novoPet = {
+            id: Date.now(), // ID único baseado em timestamp
+            ...dadosPet
+        };
+        tutor.pets.push(novoPet);
+        return novoPet;
+    },
+
+    // Método para agendar consulta
+    agendarConsulta(tutorId, petId, data, horario, veterinario,
+                    motivo, observacoes = "") {
+        const tutor = this.tutores.find(t => t.id === tutorId);
+        if (!tutor) {
+            return { erro: "Tutor não encontrado" };
+        }
+        const pet = tutor.pets.find(p => p.id === petId);
+        if (!pet) {
+            return { erro: "Pet não encontrado" };
+        }
+        const novaConsulta = {
+            id: this.consultas.length + 1,
+            tutorId,
+            petId,
+            data,
+            horario,
+            veterinario,
+            motivo,
+            status: "agendada",
+            observacoes
+        };  
+        this.consultas.push(novaConsulta);
+        return novaConsulta;
+    },
+
+    // Método para listar consultas por data
+    listarConsultasPorData(data) {
+        return this.consultas.filter(c => 
+                        c.data === data && c.status === "agendada")
+                    .map(consulta => {
+                            const tutor = this.tutores.find(t => t.id === consulta.tutorId);
+                            const pet = tutor.pets.find(p => p.id === consulta.petId);
+                            return {
+                                horario: consulta.horario,
+                                tutor: tutor.nome,
+                                pet: pet.nome,
+                                especie: pet.especie,
+                                veterinario: consulta.veterinario,
+                                motivo: consulta.motivo
+                                };
+                            })
+                        .sort((a, b) => 
+                                a.horario.localeCompare(b.horario));
+                    },
+    
+    // Método para listar pets de um tutor
+    listarPetsPorTutor(tutorId) {
+        const tutor = this.tutores.find(t => t.id === tutorId);
+        if (!tutor) {
+            return { erro: "Tutor não encontrado" };
+        }
+        return {
+            tutor: tutor.nome,
+            pets: tutor.pets
+        };
+    },
+
+    // Método para cancelar consulta
+    cancelarConsulta(consultaId) {
+        const consulta = this.consultas.find(c => c.id === consultaId);
+        if (!consulta) {
+            return { erro: "Consulta não encontrada" };
+        }
+        consulta.status = "cancelada";
+        return { 
+            mensagem: "Consulta cancelada com sucesso", consulta 
+        };
+    },
+
+    // Método para buscar próximas consultas de um pet
+    proximasConsultasPet(petId) {
+        const hoje = new Date().toISOString().split('T')[0];
+        return this.consultas
+                    .filter(c => 
+                        c.petId === petId && c.data >= hoje && c.status === "agendada")
+                    .sort((a, b) => {
+                        if (a.data === b.data) {
+                            return a.horario.localeCompare(b.horario);
+                        }
+                        return a.data.localeCompare(b.data);
+                    } );
+    },
+
+    // Método para gerar relatório do dia
+    relatorioDia(data) {
+        const consultasDia = this.listarConsultasPorData(data);
+        return {
+            data,
+            totalConsultas: consultasDia.length,
+            consultas: consultasDia
+        };  
+    }
+}; // fim da aplicação
+
+
+// ===== EXEMPLOS DE USO DO SISTEMA =====
+
+console.log("=== CLÍNICA VETERINÁRIA - SISTEMA DE CONSULTAS ===\n");
+
+// 1. Cadastrar novo tutor
+console.log("1. CADASTRANDO NOVO TUTOR:");
+const novoTutor = clinicaVeterinaria.cadastrarTutor(
+        "Mariana Souza",
+        "(11) 96666-3333",
+        "mariana@email.com"
+    );
+console.log(novoTutor);
+
+// 2. Adicionar pet ao tutor
+console.log("\n2. ADICIONANDO PET AO TUTOR:");
+const novoPet = clinicaVeterinaria.adicionarPet(
+        3, 
+        {
+            nome: "Thor",
+            especie: "Cachorro",
+            raca: "Golden Retriever",
+            idade: 1,
+            peso: 25
+        } 
+    );
+console.log(novoPet);
+
+// 3. Agendar consulta
+console.log("\n3. AGENDANDO CONSULTA:");
+const novaConsulta = clinicaVeterinaria.agendarConsulta(
+        3,
+        novoPet.id,
+        "2025-10-25",
+        "09:00",
+        "Dra. Ana Paula",
+        "Primeira consulta",
+        "Filhote, trazer histórico"
+    );
+console.log(novaConsulta);
+
+// 4. Listar consultas do dia 22/10
+console.log("\n4. CONSULTAS AGENDADAS PARA 22/10/2025:");
+const consultasDia = clinicaVeterinaria.listarConsultasPorData(
+    "2025-10-22");
+consultasDia.forEach(
+    c => {
+        console.log(`${c.horario} - ${c.pet} (${c.especie}) - Tutor: ${c.tutor}`);
+        console.log(` Veterinário: ${c.veterinario} - Motivo: ${c.motivo}`);
+        } 
+    );
+
+// 5. Listar pets de um tutor
+console.log("\n5. PETS DO TUTOR ROBERTO SILVA:");
+const petsRoberto = clinicaVeterinaria.listarPetsPorTutor(1);
+console.log(`Tutor: ${petsRoberto.tutor}`);
+petsRoberto.pets.forEach(
+    pet => {
+        console.log(`- ${pet.nome} (${pet.especie} - ${pet.raca}), ${pet.idade} anos`);
+    } 
+);
+
+// 6. Relatório do dia
+console.log("\n6. RELATÓRIO DO DIA 22/10/2025:");
+const relatorio = clinicaVeterinaria.relatorioDia("2025-10-22");
+console.log(`Data: ${relatorio.data}`);
+console.log(`Total de consultas: ${relatorio.totalConsultas}`);
+
+// 7. Cancelar consulta
+console.log("\n7. CANCELANDO CONSULTA:");
+const cancelamento = clinicaVeterinaria.cancelarConsulta(1);
+console.log(cancelamento.mensagem);
+
+// 8. Verificar consultas após cancelamento
+console.log("\n8. CONSULTAS APÓS CANCELAMENTO:");
+const consultasAtualizadas = clinicaVeterinaria.listarConsultasPorData("2025-10-22");
+console.log(`Total de consultas ativas: ${consultasAtualizadas.length}`);
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 8</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Conceitos Aprendidos:</h3>
+                <ul>
+                    <li>✅ Como criar e manipular objetos literias</li>
+                    <li>✅ Como criar aplicações simples usando o conceito de objetos</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Vamos trabalhar na interface!</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>
