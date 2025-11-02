@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python e Banco de Dados</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin8-EZFTd9XQyCOGn3Rx3a3fC3wfhIKn6iu2f68gwNqokzm3ZxqCue1y31QgxPQEjIrs" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Python + Banco de Dados
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5L1o6fnsZF1my1qkyrzxNfSJOtAp--RitQ&s" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">    
+                </h1>
+                <h2>Aula 8<br>Streamlit<br>
+                    parte 1</h2>
+                <p>
+                    Criando Interfaces com Streamlit
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Instalação do Streamlit
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Elementos básicos de interface
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Mini-Projeto Prático
+                    </p>
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Introdução ao Streamlit
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Introdução</h1>
+                <h2>O que é Streamlit?</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            definição</h3>
+                        <p>Streamlit é uma biblioteca Python de código aberto que 
+                            permite criar aplicações web interativas de forma rápida 
+                            e simples, sem necessidade de conhecimentos avançados em 
+                            desenvolvimento web (HTML, CSS, JavaScript).</p>
+                        <br>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Para que serve?</h3>
+                        <ul>
+                            <li>Criar dashboards e visualizações de dados</li>
+                            <li>Construir interfaces para modelos de Machine Learning</li>
+                            <li>Desenvolver ferramentas internas para equipes</li>
+                            <li>Prototipar aplicações rapidamente</li>
+                            <li>Apresentar análises de dados de forma interativa</li>
+                        </ul>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Principais vantagens:</h3>
+                        <ul>
+                            <li>Fácil de usar: Sintaxe simples e intuitiva</li>                        
+                            <li>Código 100% Python</li>
+                            <li>Atualização automática da interface</li>
+                            <li>Sem necessidade de callbacks complexos</li>
+                            <li>Deploy facilitado</li>
+
+
+                    </div>
+                    <div>
+                        <img src="./imagens/streamlit1.png" style="width: 400px;">
+                        <br><br><br>
+                        <img src="./imagens/streamlit2.jpg" style="width: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Instalação do Streamlit</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Instalação</h3>
+                                
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+pip install streamlit
+                        </pre>
+                    </div>        
+                    <div class="destaque">
+                        <p>Caso já tenha o Streamlit instalado, você pode 
+                            atualizá-lo com:</p>
+                        <pre>
+pip install --upgrade streamlit
+                        </pre>
+                        <br>
+                        <p>Se receber um erro de permissão, tente executar o comando 
+                            com `sudo` (Linux/Mac) ou como administrador (Windows).
+                            Não sendo possível ou desejado, utilize um ambiente virtual,
+                            ('venv') como aprendemos na aula passada.</p>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Criando seu Primeiro App Streamlit</h3>                                
+                <div class="exemplo">
+                    <p>1. Crie um arquivo chamado <strong>app.py</strong>:</p>
+                    <div class="codigo">
+                        <pre>
+import streamlit as st
+
+st.write("Olá, Streamlit!")
+                        </pre>
+                    </div>
+                    <br>
+                    <p>2. Execute o app no terminal:</p>
+                    <div class="codigo">
+                        <pre>
+streamlit run app.py
+                        </pre>
+                    </div>
+                    <br>  
+                    <p>3. Seu navegador abrirá automaticamente na página Streamlit
+                        da aplicação</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um programa usando Streamlit 
+                    exibindo seu nome e o bairro onde você mora.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
+                    <pre>
+import streamlit as st
+
+st.write("Meu nome é Fulano!")
+st.write("Eu moro no bairro XYZ.")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Estrutura Básica
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Estrutura Básica de um App Streamlit</h1>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Execução de um App Streamlit</h3>
+                        <p>Um app Streamlit é executado de cima para baixo, como 
+                            um script Python normal. Sempre que há interação do
+                            usuário, o script é re-executado.</p>
+                    </div>
+                    <img src="./imagens/streamlit3.jpg" style="width: 300px;">
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Estrutura típica:</h3>  
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+import streamlit as st
+
+# 1. Configuração da página (opcional)
+st.set_page_config(page_title="Meu App", 
+                   page_icon=":smiley:", 
+                   layout="centered")
+
+# 2. Título e descrição
+st.title("Meu Aplicativo")
+st.write("Descrição do app")
+
+# 3. Inputs do usuário
+nome = st.text_input("Digite seu nome:")
+
+# 4. Processamento e lógica
+if nome:
+    mensagem = f"Olá, {nome}!"
+
+    # 5. Exibição de resultados
+    st.success(mensagem)
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exibição de Textos</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Funções principais:</h3>
+                <p><strong>st.title()</strong> - Título principal da página</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.title("Meu Aplicativo Streamlit")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.header()</strong> - Cabeçalho de seção</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.header("Seção de Análise")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.subheader()</strong> - Subcabeçalho</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.subheader("Gráficos de Vendas")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.write()</strong> - Função versátil que exibe diversos 
+                    tipos de conteúdo</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.write("Este é um texto simples.")
+st.write("Este é um texto com **negrito**.", unsafe_allow_html=True)
+st.write("Este é um texto com *itálico*.", unsafe_allow_html=True)
+st.write([1, 2, 3, 4])
+st.write({"nome": "Ana", "idade": 25})
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.markdown()</strong> - Texto formatado em Markdown</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.markdown("# Título em Markdown")
+st.markdown("## Subtítulo em Markdown")
+st.markdown("Texto com **negrito** e *itálico*.")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.text()</strong> - Texto monoespaçado 
+                    e sem formatação</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.text("Texto monoespaçado e sem formatação")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+            </div>  
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um app que exiba:</p>
+                <ul>
+                    <li>Um título: "Meu Perfil"</li>
+                    <li>Um cabeçalho: "Informações Pessoais"</li>
+                    <li>Um parágrafo com seu nome e profissão usando st.write()</li>
+                    <li>Um texto em Markdown com seus hobbies</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <pre>
+import streamlit as st
+
+st.title("Meu Perfil")
+st.header("Informações Pessoais")
+st.write("Nome: João Silva - Profissão: Desenvolvedor Python")
+st.markdown("### Meus Hobbies\n- Ler\n- Viajar\n- Programar")
+                    </pre>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um app que exiba uma lista 
+                    de suas 3 linguagens de programação favoritas usando 
+                    diferentes métodos de exibição.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
+                    <pre>
+import streamlit as st
+
+st.title("Minhas Linguagens Favoritas")
+st.header("Lista com write:")
+st.write(["Python", "JavaScript", "Go"])
+st.header("Lista com Markdown:")
+st.markdown("""
+    - **Python**: Para Data Science
+    - **JavaScript**: Para Web
+    - **Go**: Para Backend
+    """)
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Entradas do Usuário</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Funções principais:</h3>
+                <p><strong>st.title()</strong> - Título principal da página</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+nome = st.text_input("Digite seu nome:", value="", max_chars=50)
+
+st.write(f"Nome digitado: {nome}")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.number_input()</strong> - Entrada numérica</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+idade = st.number_input("Digite sua idade:", 
+                        min_value=0, max_value=120, 
+                        value=25, step=1)
+
+st.write(f"Idade: {idade}")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.radio()</strong> - Seleção única (botões de rádio)</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+opcao = st.radio("Escolha uma opção:", ("Opção 1", "Opção 2", "Opção 3"))
+
+st.write(f"Opção escolhida: {opcao}")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.selectbox()</strong> - Menu dropdown para seleção de tipos de conteúdo</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+cidade = st.selectbox("Selecione sua cidade:", 
+                      ["São Paulo", "Rio de Janeiro", "Belo Horizonte"])
+
+st.write(f"Cidade selecionada: {cidade}")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.checkbox()</strong> - Caixa de seleção</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+concordo = st.checkbox("Aceito os termos")
+
+if concordo:
+    st.write("Termos aceitos!")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.button()</strong> - Botão de ação</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+if st.button("Clique aqui"):
+    st.write("Botão clicado!")
+
+# ou...
+
+botao = st.button("Clique aqui 2")
+if botao:
+    st.write("Botão clicado!")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.slider()</strong> - Controle deslizante</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+valor = st.slider("Selecione um valor:", 0, 100, 50)
+
+st.write(f"Valor selecionado: {valor}")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+            </div>  
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um formulário de cadastro que 
+                    capture:</p>
+                <ul>
+                    <li>Nome (text_input)</li>
+                    <li>Idade (number_input)</li>
+                    <li>Cidade (selectbox com 3 cidades)</li>
+                    <li>Aceite dos termos (checkbox)</li>
+                    <li>Botão "Cadastrar"</li>
+                </ul>
+                <p>Quando o botão for clicado e os termos aceitos, exiba todas 
+                    as informações.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio4');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio4">
+                    <pre>
+import streamlit as st
+
+st.title("Formulário de Cadastro")
+nome = st.text_input("Nome completo:")
+idade = st.number_input("Idade:", min_value=0, max_value=120, value=18)
+cidade = st.selectbox("Cidade:", ["São Paulo", "Rio de Janeiro", "Brasília"])
+termos = st.checkbox("Aceito os termos de uso")
+
+if st.button("Cadastrar"):
+    if termos:
+        st.success("Cadastro realizado com sucesso!")
+        st.write(f"**Nome:** {nome}")
+        st.write(f"**Idade:** {idade}")
+        st.write(f"**Cidade:** {cidade}")
+    else:
+        st.error("Você precisa aceitar os termos de uso!")
+                    </pre>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um conversor de temperatura que:</p>
+                <ul>
+                    <li>Permita escolher entre "Celsius para Fahrenheit" ou "Fahrenheit
+                        para Celsius" (radio)</li>
+                    <li>Receba a temperatura (number_input)</li>
+                    <li>Tem um botão "Converter"</li>
+                    <li>Exiba o resultado</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio5');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio5">
+                    <pre>
+import streamlit as st
+
+st.title("Conversor de Temperatura")
+
+conversao = st.radio("Tipo de conversão:",
+                    ["Celsius para Fahrenheit", "Fahrenheit para Celsius"])
+temperatura = st.number_input("Digite a temperatura:", value=0.0, step=0.1)
+
+if st.button("Converter"):
+    if conversao == "Celsius para Fahrenheit":
+        resultado = (temperatura * 9/5) + 32
+        st.success(f"{temperatura}°C = {resultado:.2f}°F")
+    else:
+        resultado = (temperatura - 32) * 5/9
+        st.success(f"{temperatura}°F = {resultado:.2f}°C")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exibição de Resultados</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Funções principais:</h3>
+                <p><strong>st.success()</strong> - Mensagem de sucesso (verde)</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.success("Operação realizada com sucesso!")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.warning()</strong> - Mensagem de aviso (amarelo)</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.warning("Atenção: Verifique os dados informados.")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.error()</strong> - Mensagem de erro (vermelho)</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.error("Erro: Não foi possível processar a solicitação.")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.info()</strong> - Mensagem informativa (azul)</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.info("Informação: O sistema será atualizado em breve.")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.code()</strong> - Exibir código</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.code("""
+        def saudacao(nome):
+            return f"Olá, {nome}!"
+        """, language="python")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p><strong>st.json()</strong> - Exibir JSON</p>
+                <div class="exemplo">          
+                    <div class="codigo">
+                        <pre>
+st.json({"nome": "Maria", "idade": 30, "cidade": "Salvador"})
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+            </div>  
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um validador de senha que:</p>
+                <ul>
+                    <li>Recebe uma senha (text_input com type="password")</li>
+                    <li>Verifica se tem pelo menos 8 caracteres</li>
+                    <li>Exibe mensagem de sucesso se válida, erro se inválida</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio6');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio6">
+                    <pre>
+import streamlit as st
+
+st.title("Validador de Senha")
+senha = st.text_input("Digite uma senha:", type="password")
+
+if st.button("Validar"):
+    if len(senha) >= 8:
+        st.success("Senha válida! Possui 8 ou mais caracteres.")
+    else:
+        st.error("Senha inválida! Deve ter no mínimo 8 caracteres.")
+        st.warning(f"Sua senha tem apenas {len(senha)} caracteres.")
+                    </pre>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um validador de senha que:</p>
+                <ul>
+                    <li>Recebe uma senha (text_input com type="password")</li>
+                    <li>Verifica se tem pelo menos 8 caracteres</li>
+                    <li>Exibe mensagem de sucesso se válida, erro se inválida</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio7');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio7">
+                    <pre>
+import streamlit as st
+
+st.title("Validador de Senha")
+senha = st.text_input("Digite uma senha:", type="password")
+
+if st.button("Validar"):
+    if len(senha) >= 8:
+        st.success("Senha válida! Possui 8 ou mais caracteres.")
+    else:
+        st.error("Senha inválida! Deve ter no mínimo 8 caracteres.")
+        st.warning(f"Sua senha tem apenas {len(senha)} caracteres.")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Organização da Página
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Organização da Página</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    st.sidebar() - Barra lateral</h3>
+                <div class="exemplo">              
+                    <div class="codigo">
+                        <pre>
+# Adicionar elementos na barra lateral
+st.sidebar.title("Menu")
+opcao = st.sidebar.selectbox("Escolha uma opção:", 
+                            ["Home", "Sobre", "Contato"])
+
+# Conteúdo principal
+st.title("Página Principal")
+st.write(f"Você está em: {opcao}")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    st.columns() - Dividir em colunas</h3>
+                <div class="exemplo">              
+                    <div class="codigo">
+                        <pre>
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.header("Coluna 1")
+    st.write("Conteúdo da primeira coluna")
+
+with col2:
+    st.header("Coluna 2")
+    st.write("Conteúdo da segunda coluna")
+
+with col3:
+    st.header("Coluna 3")
+    st.write("Conteúdo da terceira coluna")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    st.divider() - Linha divisória</h3>
+                <div class="exemplo">              
+                    <div class="codigo">
+                        <pre>
+st.write("Seção 1")
+st.divider()
+st.write("Seção 2")
+                        </pre>
+                    </div>
+                </div>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    st.expander() - Seção expansível</h3>
+                <div class="exemplo">              
+                    <div class="codigo">
+                        <pre>
+with st.expander("Clique para ver mais"):
+    st.write("Conteúdo oculto que aparece ao expandir")
+    st.write("Conteúdo oculto que aparece ao expandir")
+    st.write("Conteúdo oculto que aparece ao expandir")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    st.container() - Container de elementos</h3>
+                <div class="exemplo">              
+                    <div class="codigo">
+                        <pre>
+container = st.container(border=True)
+
+container.write("Este conteúdo está em um container")
+container.button("Botão no container")
+                        </pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um dashboard que:</p>
+                <ul>
+                    <li>Use st.sidebar para navegação entre páginas</li>
+                    <li>Na página principal, divida o conteúdo em 3 colunas</li>
+                    <li>Use st.divider para separar seções</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio8');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio8">
+                    <pre>
+import streamlit as st
+
+st.title("Dashboard de Vendas")
+
+# Sidebar
+pagina = st.sidebar.selectbox("Navegação:", ["Home", "Dados", "Sobre"])
+
+if pagina == "Home":
+    st.header("Visão Geral")
+
+    # Métricas em 3 colunas
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric("Vendas Totais", "R$ 45.000", "+12%")
+
+    with col2:
+        st.metric("Clientes", "320", "+8%")
+
+    with col3:
+        st.metric("Produtos", "85", "+3%")
+
+    st.divider()
+    st.subheader("Análise Mensal")
+    st.info("Os dados estão atualizados até hoje.")
+
+elif pagina == "Dados":
+    st.header("Dados Detalhados")
+    st.write("Aqui você pode visualizar os dados completos.")
+
+else:
+    st.header("Sobre")
+    st.write("Este é um dashboard de exemplo criado com Streamlit.")
+                    </pre>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício de Fixação:</h3>
+                <p><strong>Objetivo:</strong> Crie um perfil de usuário que:</p>
+                <ul>
+                    <li>Mostre nome e foto (use um emoji) no topo</li>
+                    <li>Tenha 3 expanders: "Sobre Mim", "Habilidades", "Contato"</li>
+                    <li>Cada expander deve ter conteúdo relevante</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio9');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio9">
+                    <pre>
+import streamlit as st
+
+st.set_page_config(page_title="Perfil de Usuário", 
+                   page_icon="👤", 
+                   layout="centered")
+
+st.title("Perfil de Usuário")
+
+# Cabeçalho com colunas
+col1, col2 = st.columns([1, 3])
+
+with col1:
+    st.image("https://c8.alamy.com/comp/F5038B/london-uk-25th-october-2015-coleen-ling-holds-up-her-chihuahua-ollie-F5038B.jpg", 
+             width=200)
+
+with col2:
+    st.header("Maria Silva")
+    st.write("Desenvolvedora Full Stack")
+
+st.divider()
+
+# Seções expansíveis
+with st.expander("Sobre Mim"):
+    st.write("""
+        Desenvolvedora com 5 anos de experiência em Python e JavaScript.
+        Apaixonada por criar soluções inovadoras e eficientes.
+        """)
+
+with st.expander("Habilidades"):
+    st.write("- Python (Django, Flask, Streamlit)")
+    st.write("- JavaScript (React, Node.js)")
+    st.write("- SQL e NoSQL")
+    st.write("- Machine Learning")
+
+with st.expander("Contato"):
+    st.write("**Email:** maria.silva@example.com")
+    st.write("**LinkedIn:** linkedin.com/in/mariasilva")
+    st.write("**GitHub:** github.com/mariasilva")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 8</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    O que aprendemos?</h3>
+                <ul>
+                        <li>Como instalar e executar aplicações Streamlit</li>
+                        <li>Quais os principais componentes de uma aplicação Streamlit</li>
+                        <li>Quais os tipos de layout disponíveis no Streamlit</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Vamos explorar mais recursos de Streamlit</li>
+                    <li>Vamos criar um projeto prático utilizando Streamlit</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>
