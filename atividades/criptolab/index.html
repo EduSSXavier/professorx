@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CriptoLab – Prática de Criptografia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>CriptoLab</h1>
+      <p>Prática Interativa: César • Vigenère • Enigma • RSA • Hash</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="cesar">Cifra de César</button>
+      <button class="tab-btn" data-tab="vigenere">Vigenère</button>
+      <button class="tab-btn" data-tab="enigma">Enigma</button>
+      <button class="tab-btn" data-tab="rsa">RSA</button>
+      <button class="tab-btn" data-tab="hash">Hash</button>
+    </div>
+
+    <!-- ========== CÉSAR ========== -->
+    <div id="cesar" class="tab-content active">
+      <h2>Cifra de César</h2>
+      <p>Desloque cada letra <input type="number" id="cesar-k" value="11" min="1" max="25"> posições.</p>
+
+      <h3>Exercício 1: Criptografar</h3>
+      <textarea id="cesar-plain">SISTEMAS DE INFORMACAO 2025</textarea>
+      <button onclick="criptografarCesar()">Criptografar</button>
+      <p><strong>Resultado:</strong> <span id="cesar-crypto"></span></p>
+
+      <h3>Exercício 2: Descriptografar</h3>
+      <p>Criptotexto: <code>FRQILGHQFLDO</code></p>
+      <button onclick="forcaBrutaCesar()">Força Bruta (0-25)</button>
+      <div id="cesar-brute"></div>
+    </div>
+
+    <!-- ========== VIGENÈRE ========== -->
+    <div id="vigenere" class="tab-content">
+      <h2>Cifra de Vigenère</h2>
+      <p>Chave: <input type="text" id="vig-key" value="SEGURANCA" /></p>
+
+      <h3>Exercício 1: Criptografar</h3>
+      <textarea id="vig-plain">ATAQUE AS 9 HORAS</textarea>
+      <button onclick="criptografarVigenere()">Criptografar</button>
+      <p><strong>Resultado:</strong> <span id="vig-crypto"></span></p>
+
+      <h3>Exercício 2: Descriptografar</h3>
+      <p>Criptotexto: <code>WEVIFQILG</code> | Chave: <code>CHAVE</code></p>
+      <button onclick="descriptografarVigenere()">Descriptografar</button>
+      <p><strong>Mensagem:</strong> <span id="vig-decrypto"></span></p>
+    </div>
+
+    <!-- ========== ENIGMA ========== -->
+    <div id="enigma" class="tab-content">
+      <h2>Máquina Enigma (Simulada)</h2>
+      <p><small>Simulação JavaScript baseada na Enigma I</small></p>
+
+      <label>Rotores: <select id="rotor1"><option>I</option><option>II</option><option>III</option></select></label>
+      <label>Posição: <input id="pos1" value="A" maxlength="1" size="1"></label>
+
+      <h3>Exercício 1: Criptografar</h3>
+      <textarea id="enigma-plain">ATAQUE AMANHA AS NOVE</textarea>
+      <button onclick="criptografarEnigma()">Processar</button>
+      <p><strong>Saída:</strong> <span id="enigma-crypto"></span></p>
+    </div>
+
+    <!-- ========== RSA ========== -->
+    <div id="rsa" class="tab-content">
+      <h2>RSA (Números Pequenos)</h2>
+      <p>n = 3233, e = 17, d = 2753</p>
+
+      <h3>Exercício 1: Criptografar (SECRET)</h3>
+      <p>Mensagem numérica: [18,4,6,20,11,0]</p>
+      <button onclick="criptografarRSA()">Criptografar</button>
+      <p><strong>Criptotexto:</strong> <span id="rsa-crypto"></span></p>
+
+      <h3>Exercício 2: Descriptografar</h3>
+      <p>Criptotexto: [2870,179,1021,1,2153,179]</p>
+      <button onclick="descriptografarRSA()">Descriptografar</button>
+      <p><strong>Mensagem:</strong> <span id="rsa-decrypto"></span></p>
+    </div>
+
+    <!-- ========== HASH ========== -->
+    <div id="hash" class="tab-content">
+      <h2>Funções Hash (SHA-256)</h2>
+
+      <h3>Exercício 1: Efeito Avalanche</h3>
+      <textarea id="hash1">Seguranca da Informacao</textarea>
+      <textarea id="hash2">Seguranca da informacao</textarea>
+      <button onclick="calcularHash()">Calcular Hashes</button>
+      <p><strong>Hash 1:</strong> <span id="h1"></span></p>
+      <p><strong>Hash 2:</strong> <span id="h2"></span></p>
+      <p><strong>Bits diferentes:</strong> <span id="diff"></span></p>
+
+      <h3>Exercício 2: Integridade de Arquivo</h3>
+      <p><a href="assets/files/arquivo_correto.txt" download>arquivo_correto.txt</a> | 
+         <a href="assets/files/arquivo_tamper.txt" download>arquivo_tamper.txt</a></p>
+      <input type="file" id="file-input" />
+      <button onclick="hashArquivo()">Verificar Hash</button>
+      <p><strong>Hash do arquivo:</strong> <span id="file-hash"></span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
