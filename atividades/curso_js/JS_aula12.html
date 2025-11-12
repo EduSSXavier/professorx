@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação JavaScript</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                    alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Programação JavaScript</h1>
+                <h2>Aula 12<br>DOM - Parte 2</h2>
+                <p>
+                    Entendendo o Conceito de Eventos
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        O que são eventos?
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Ecentos de mouse, formulário, teclado e outros
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Mini projeto Prático
+                    </p>
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Eventos em JavaScript
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Eventos em JavaScript</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    O que são Eventos?</h3>
+                <div class="duas-colunas">
+                    <div>
+                        <p>Eventos são ações ou ocorrências que acontecem no 
+                            navegador e que podem ser detectadas e manipuladas 
+                            pelo JavaScript. Eles são fundamentais para criar 
+                            interatividade em páginas web.</p>
+                        <br>
+                        <h3>Principais Tipos de Eventos</h3>
+                        <h4>Eventos de Mouse</h4>
+                        <ul>
+                            <li>click: Disparado quando o usuário clica em um elemento</li>
+                            <li>dblclick: Disparado em um clique duplo</li>
+                            <li>mouseenter: Quando o mouse entra na área do elemento</li>
+                            <li>mouseleave: Quando o mouse sai da área do elemento</li>
+                            <li>mousemove: Quando o mouse se move sobre o elemento</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="./imagens/evento.png" class="imagem" width="250">
+                    </div>
+                </div>
+                <h4>Eventos de Teclado</h4> 
+                <ul>
+                    <li>keydown: Disparado quando uma tecla do teclado é pressionada</li>
+                    <li>keyup: Disparado quando uma tecla do teclado é solta</li>
+                    <li>keypress: Quando uma tecla é pressionada (descontinuado)</li>
+                </ul>
+                <h4>Eventos de Formulários</h4>
+                <ul>
+                    <li>submit: Disparado quando um formulário é enviado</li>
+                    <li>reset: Disparado quando um formulário é resetado</li>
+                    <li>change: Disparado quando o valor de um input muda</li>
+                    <li>input: Disparado quando o valor de um input muda</li>
+                    <li>focus: Quando um elemento recebe foco</li>
+                    <li>blur: Quando um elemento perde o foco</li>
+                </ul>
+                <h4>Eventos Importantes</h4>
+                <ul>
+                    <li>load: Quando a página ou recurso termina de carregar</li>
+                    <li>scroll: Quando o usuário rola a página</li>
+                    <li>resize: Quando a janela é redimensionada</li>
+                </ul>
+                <div class="exemplo">
+                    <h4>Exemplo:</h4>
+                    <p>Esta página HTML com diferentes elementos e testa a
+                        ocorrência de eventos.</p>
+                    <p>O método de inserir o controle de eventos nas tags HTML
+                        é funcional, porém, pode ser trabalhoso e complica demais
+                        o código. Melhor seria usar o JavaScript para isso.</p>
+                    <div class="codigo">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Exercício 1 - Eventos&lt;/title&gt;
+        &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif; padding: 20px;
+        }
+        .box {
+            width: 200px; height: 100px; background-color: #3498db;
+            color: white; display: flex; align-items: center;
+            justify-content: center; margin: 10px 0; cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px; padding: 10px; background-color: #ecf0f1;
+            min-height: 50px; border-radius: 5px;
+        }
+        input {
+            padding: 8px; margin: 10px 0; width: 200px;
+        }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Testando Eventos&lt;/h1&gt;
+        &lt;div class="box" onclick="registrarEvento('Click na div')"&gt;
+            Clique aqui
+        &lt;/div&gt;
+        &lt;div class="box" ondblclick="registrarEvento('Duplo click na div')"&gt;
+            Duplo clique aqui
+        &lt;/div>
+        &lt;input type="text" placeholder="Digite algo..."
+                oninput="registrarEvento('Input detectado: ' + this.value)">
+        &lt;input type="text" placeholder="Teste o focus"
+                onfocus="registrarEvento('Input recebeu foco')"
+                onblur="registrarEvento('Input perdeu foco')">
+        &lt;div id="resultado"&gt;
+            &lt;strong&gt;Último evento:&lt;/strong&gt; Nenhum ainda
+        &lt;/div&gt;
+        &lt;script&gt;
+            function registrarEvento(mensagem) {
+                const resultado = document.getElementById('resultado');
+                const dataHora = new Date().toLocaleTimeString();
+                resultado.innerHTML = `&lt;strong&gt;Último evento (${dataHora}):&lt;/strong&gt; ${mensagem}`;
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>addEventListener e Funções de Resposta</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Por que usar addEventListener?</h3>
+                <p>O método addEventListener é a forma moderna e recomendada 
+                    de trabalhar com eventos em JavaScript por diversos motivos:</p>
+                <ul>
+                    <li><strong>Separação de responsabilidades:<</strong> Mantém 
+                        HTML e CSS independentes dos JavaScript separados</li>
+                    <li><strong>Múltiplos listeners:</strong> Permite adicionar vários 
+                        ouvintes ao mesmo evento</li>
+                    <li><strong>Remoção de eventos:</strong> Possibilita remover eventos 
+                        quando necessário</li>
+                    <li><strong>Melhor controle:</strong> Oferece opções avançadas de 
+                        configuração</li>
+                </ul>
+                <br><br>
+                <div class="exemplo">
+                    <h3>Sintaxe:</h3>
+                    <div class="codigo">
+                        <pre>
+elemento.addEventListener(tipo, função, opções);
+                        </pre>
+                    </div>
+                    <h4>Onde:</h4>
+                    <ul>
+                        <li>tipo: String com o nome do evento ('click', 
+                            'input', etc.)</li>
+                        <li>função: Função a ser executada quando o 
+                            evento ocorrer</li>
+                        <li>opções: Parâmetro opcional com configurações</li>
+                    </ul>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Formas de Definir Funções de Resposta</h3>
+                <h4>1. Função Nomeada</h4>
+                <p>Definindo uma função com nome:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+function trataClique() {
+    alert('Botão clicado!');
+}
+
+const botao = document.getElementById('botaoExecutar');
+
+botao.addEventListener('click', trataClique);
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h4>2. Função Anônima</h4>
+                <p>Definindo uma função sem nome:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+const botao = document.getElementById('botaoExecutar');
+
+botao.addEventListener('click', 
+                        function() {
+                            alert('Botão clicado!');
+                        } );
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h4>3. Função Arrow</h4>
+                <p>Definindo uma função sem nome:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+const botao = document.getElementById('botaoExecutar');
+
+botao.addEventListener('click', () => {
+                                    alert('Botão clicado!');
+                                } );
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>O Objeto Event</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    O Objeto Event</h3>
+                <p>Quando um evento é disparado, o JavaScript passa automaticamente 
+                    um objeto event para a função de resposta:</p>
+                <br>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+botao.addEventListener('click', 
+            function(event) {
+                console.log('Tipo do evento:', event.type);
+                console.log('Elemento alvo:', event.target);
+                console.log('Coordenadas X:', event.clientX);
+                console.log('Coordenadas Y:', event.clientY);
+            } );
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Propriedades Úteis do Event</h3>
+                <ul>
+                    <li>event.target: O elemento que disparou o evento</li>
+                    <li>event.type: O tipo de evento</li>
+                    <li>event.preventDefault(): Previne o comportamento padrão</li>
+                    <li>event.stopPropagation(): Para a propagação do evento</li>
+                </ul>
+
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Removendo Event Listeners</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+function trataClique() {
+    console.log('Clicou!');
+}
+
+// Adicionar
+botao.addEventListener('click', trataClique);
+
+// Remover
+botao.removeEventListener('click', trataClique);
+                        </pre>
+                    </div>
+                    <div class="destaque">
+                        <p>Para remover um listener, você precisa passar a mesma 
+                            referência da função.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p>Crie um contador que aumenta quando um botão é clicado 
+                    e outro botão que remove o evento do primeiro botão. 
+                    Adicione também um terceiro botão para restaurar o evento.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <textarea rows="100" cols="90" 
+                        style="background-color: black; color: white;">
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 2 - addEventListener</title>
+    </head>
+    <body>
+        <h1>Contador Interativo</h1>
+        <div class="contador" id="contador">0</div>
+        <div>
+            <button id="btnIncrementar">Incrementar Contador</button>
+            <button id="btnRemover">Desativar Incremento</button>
+            <button id="btnRestaurar">Reativar Incremento</button>
+            <button id="btnReset">Resetar Contador</button>
+        </div>
+        <div class="status ativo" id="status">
+            Status: <strong>Evento Ativo</strong>
+        </div>
+        <script>
+            // Variáveis globais
+            let contador = 0;
+            let eventoAtivo = true;
+
+            // Elementos
+            const contadorEl = document.getElementById('contador');
+            const btnIncrementar = document.getElementById('btnIncrementar');
+            const btnRemover = document.getElementById('btnRemover');
+            const btnRestaurar = document.getElementById('btnRestaurar');
+            const btnReset = document.getElementById('btnReset');
+            const statusEl = document.getElementById('status');
+
+            // Função que incrementa o contador
+            function incrementarContador(event) {
+                contador++;
+                contadorEl.textContent = contador;
+                // Log do evento
+                console.log('Contador incrementado!', {
+                    contador: contador,
+                    tipo: event.type,
+                    elemento: event.target
+                } );
+            }
+
+            // Função para atualizar o status visual
+            function atualizarStatus(ativo) {
+                if (ativo) {
+                    statusEl.className = 'status ativo';
+                    statusEl.innerHTML = 'Status: <strong>Evento Ativo</strong>';
+                    btnIncrementar.disabled = false;
+                } else {
+                    statusEl.className = 'status inativo';
+                    statusEl.innerHTML = 'Status: <strong>Evento Inativo</strong>';
+                    btnIncrementar.disabled = true;
+                }
+            }
+
+            // Adicionar o evento inicialmente
+            btnIncrementar.addEventListener('click', incrementarContador);
+
+            // Remover o evento
+            btnRemover.addEventListener('click', () => {
+                if (eventoAtivo) {
+                    btnIncrementar.removeEventListener('click', 
+                                    incrementarContador);
+                    eventoAtivo = false;
+                    atualizarStatus(false);
+                    console.log('Evento removido!');
+                }
+            } );
+
+            // Restaurar o evento
+            btnRestaurar.addEventListener('click', () => {
+                if (!eventoAtivo) {
+                    btnIncrementar.addEventListener('click', 
+                                    incrementarContador);
+                    eventoAtivo = true;
+                    atualizarStatus(true);
+                    console.log('Evento restaurado!');
+                }
+            } );
+
+            // Resetar o contador
+            btnReset.addEventListener('click', () => {
+                contador = 0;
+                contadorEl.textContent = contador;
+                console.log('Contador resetado!');
+            } );
+        </script>
+    </body>
+</html>
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Manipulação de Formulários e Atualização de Elementos</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Trabalhando com Formulários</h3>
+                <p>Formulários são uma das principais formas de interação do 
+                    usuário com a página. O JavaScript permite capturar e
+                    manipular dados de formulários de forma dinâmica.</p>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Prevenindo o Comportamento Padrão</h3>
+                <p>O evento submit de um formulário, por padrão, recarrega 
+                    a página. Para evitar isso:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+formulario.addEventListener('submit', 
+            function(event) {
+                event.preventDefault(); // Previne o recarregamento
+                // Seu código aqui
+            } );
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Acessando Valores de Inputs</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+// Por ID
+const valor = document.getElementById('meuInput').value;
+
+// Por atributo "name" (em formulários)
+const form = document.getElementById('meuForm');
+const valor = form.elements['nomeDoInput'].value;
+
+// Usando querySelector
+const valor = document.querySelector('#meuInput').value;
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h3>Tipos de Inputs e Como Acessá-los</h3>
+                <div class="exemplo">
+                    <h4>Input Text/Email/Number</h4>
+                    <div class="codigo">
+                        <pre>
+const texto = document.getElementById('nome').value;
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Checkbox</h4>
+                    <div class="codigo">
+                        <pre>
+const checkbox = document.getElementById('aceito');
+
+const estaMarcado = checkbox.checked; // true ou false
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Radio Buttons</h4>
+                    <div class="codigo">
+                        <pre>
+const radios = document.getElementsByName('genero');
+let selecionado;
+radios.forEach(radio => {
+    if (radio.checked) {
+        selecionado = radio.value;
+    }
+} );    
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Select (Dropdown)</h4>
+                    <div class="codigo">
+                        <pre>
+const select = document.getElementById('estado');
+
+const valorSelecionado = select.value;
+
+const textoSelecionado = select.options[select.selectedIndex].text;  
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Atualizando Elementos Dinamicamente</h3>
+                <div class="exemplo">
+                    <h4>Alterando Texto</h4>
+                    <div class="codigo">
+                        <pre><code>
+elemento.textContent = 'Novo texto'; // Texto puro
+
+elemento.innerHTML = '&lt;strong&gt;Novo Texto com HTML&lt;/strong&gt;'; // Com HTML
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Alterando Atributos</h4>
+                    <div class="codigo">
+                        <pre><code>
+elemento.setAttribute('class', 'nova-classe');
+elemento.src = 'nova-imagem.jpg';
+elemento.disabled = true;
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Alterando Estilos</h4>
+                    <div class="codigo">
+                        <pre><code>
+elemento.style.color = 'red';
+elemento.style.backgroundColor = 'yellow';
+elemento.style.display = 'none';
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Adicionando/Removendo Classes</h4>
+                    <div class="codigo">
+                        <pre><code>
+elemento.classList.add('classe-nova');
+elemento.classList.remove('classe-antiga');
+elemento.classList.toggle('classe-alternada');
+elemento.classList.contains('classe-verificar'); // retorna true/false
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p>Crie um formulário de cadastro que, ao ser enviado, exibe 
+                    os dados em uma área abaixo sem recarregar a página. O 
+                    formulário deve ter: nome, email, idade e uma lista de 
+                    interesses (checkboxes).</p>
+                <br>
+                <h4>Solução: <a href="JS_aula12_exercicio2.html">Clique Aqui</a></h4>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Validação Simples de Campos usando Eventos</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Importância da Validação</h3>
+                <p>A validação de formulários é essencial para:</p>
+                <ul>
+                    <li>Garantir que os dados estejam corretos</li>
+                    <li>Melhorar a experiência do usuário com feedback imediato</li>
+                    <li>Prevenir erros antes do envio</li>
+                    <li>Reduzir requisições inválidas ao servidor</li>
+                </ul>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Eventos Úteis para Validação</h3>
+                <ul>
+                    <li>input: Valida enquanto o usuário digita</li>
+                    <li>blur: Valida quando o campo perde o foco</li>
+                    <li>submit: Validação final antes do envio</li>
+                </ul>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Técnicas de Validação</h3>
+                <div class="exemplo">
+                    <h4>Validação de Campo Vazio</h4>
+                    <div class="codigo">
+                        <pre>
+if (input.value.trim() === '') {
+    mostrarErro('Campo obrigatório');
+}
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Validação de Tamanho</h4>
+                    <div class="codigo">
+                        <pre>
+if (input.value.length &lt; 3) {
+    mostrarErro('Mínimo de 3 caracteres');
+}
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Validação com Expressões Regulares</h4>
+                    <div class="codigo">
+                        <pre>
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!regexEmail.test(email.value)) {
+    mostrarErro('E-mail inválido');
+}  
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Validação de Números</h4>
+                    <div class="codigo">
+                        <pre>
+const idade = parseInt(input.value);
+
+if (isNaN(idade) || idade &lt; 18 || idade &gt; 100) {
+    mostrarErro('Idade deve estar entre 18 e 100');
+}
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Feedback Visual</h3>
+                <div class="exemplo">
+                    <h4>É importante dar feedback visual ao usuário:</h4>
+                    <div class="codigo">
+                        <pre><code>
+function mostrarErro(input, mensagem) {
+    input.classList.add('erro');
+    const msgErro = document.createElement('span');
+    msgErro.classList.add('mensagem-erro');
+    msgErro.textContent = mensagem;
+    input.parentElement.appendChild(msgErro);
+}
+
+function limparErro(input) {
+    input.classList.remove('erro');
+    const msgErro = input.parentElement.querySelector('.mensagem-erro');
+    if (msgErro) {
+        msgErro.remove();
+    }
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p>Crie um formulário de registro com validação completa 
+                    em tempo real para: nome (mínimo 3 caracteres), email 
+                    (formato válido), senha (mínimo 8 caracteres, deve 
+                    conter letra e número) e confirmação de senha (deve 
+                    ser igual à senha).</p>
+                <br>
+                <h4>Solução: <a href="JS_aula12_exercicio3.html">Clique Aqui</a></h4>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Eventos de Teclado e Outros Eventos Interessantes</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Eventos de Teclado</h3>
+                <p>Os eventos de teclado permitem capturar e responder às 
+                    interações do usuário com o teclado.</p>
+                <h4>Tipos de Eventos de Teclado</h4>
+                <ul>
+                    <li>keydown: Disparado quando uma tecla do teclado é pressionada</li>
+                    <li>keyup: Disparado quando uma tecla do teclado é solta</li>
+                    <li>keypress: Quando uma tecla é pressionada (obsoleto)</li>
+                </ul>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Propriedades Importantes do Evento de Teclado</h3>
+                <div class="exemplo">
+                    <h4>Validação de Campo Vazio</h4>
+                    <div class="codigo">
+                        <pre>
+elemento.addEventListener('keydown', function(event) {
+    // A tecla pressionada ('a', 'Enter', etc.)
+    console.log('Tecla:', event.key);
+
+    // Código físico da tecla ('KeyA', 'Enter')
+    console.log('Código:', event.code);
+    
+    // true se Ctrl estiver pressionado
+    console.log('Ctrl:', event.ctrlKey);
+    
+    // true se Shift estiver pressionado
+    console.log('Shift:', event.shiftKey);
+
+    // true se Alt estiver pressionado
+    console.log('Alt:', event.altKey);
+
+    // Código numérico (obsoleto)
+    console.log('Key Code:', event.keyCode); 
+} );
+
+
+Teclas Especiais:
+----------------
+Enter: event.key === 'Enter'
+Escape: event.key === 'Escape'
+Setas: 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'
+Espaço: event.key === ' ' ou event.code === 'Space'
+Tab: event.key === 'Tab'
+
+
+Combinações de Teclas:
+---------------------
+// Ctrl + S
+if (event.ctrlKey && event.key === 's') {
+    event.preventDefault(); // Previne salvar página
+    salvarDados();
+}
+// Ctrl + Shift + D
+if (event.ctrlKey && event.shiftKey && event.key === 'D') {
+    debugMode();
+}
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Outros Eventos Interessantes</h3>
+                <div class="exemplo">
+                    <h4>Eventos de Scroll</h4>
+                    <div class="codigo">
+                        <pre><code>
+window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY;
+    const scrollPercentage = (scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    console.log('Scroll:', scrollPercentage.toFixed(2) + '%');
+} );
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Eventos de Resize</h4>
+                    <div class="codigo">
+                        <pre><code>
+window.addEventListener('resize', function() {
+    console.log('Largura:', window.innerWidth);
+    console.log('Altura:', window.innerHeight);
+} );
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Evento de Copy/Paste</h4>
+                    <div class="codigo">
+                        <pre><code>
+elemento.addEventListener('copy', function(event) {
+    event.preventDefault();
+    console.log('Tentou copiar!');
+} );
+
+elemento.addEventListener('paste', function(event) {
+    event.preventDefault();
+    const texto = event.clipboardData.getData('text');
+    console.log('Colou:', texto);
+} );
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h4>Evento de ContextMenu (Botão Direito)</h4>
+                    <div class="codigo">
+                        <pre><code>
+elemento.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    console.log('Clicou com botão direito!');
+    // Pode exibir menu personalizado
+} );
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p>Crie uma aplicação interativa que monitore o uso de teclado e 
+                    conte quantas vogais foram digitadas.</p>
+                <br>
+            </div>
+
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 11</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Conceitos Aprendidos:</h3>
+                <ul>
+                    <li>✅ Como manipular elementos da página</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Vamos aprofundar nosso estudo de interface!</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>
