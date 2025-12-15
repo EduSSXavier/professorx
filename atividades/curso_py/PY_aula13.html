@@ -361,18 +361,18 @@ class Produto:
 # ----- Como usar -----
 
 # Criando objeto
-pessoa = Pessoa("João", 25)
+prod = Produto("Caneta", 10.0)
 
 # Acessando como se fossem atributos normais (usando o getter)
-print(pessoa.nome) # João
-print(pessoa.idade) # 25
+print(prod.nome)    # Caneta
+print(prod.preco)   # 10.0
 
 # Modificando com validação automática (usando o setter)
-pessoa.nome = "Maria"
-pessoa.idade = 30
+prod.nome = "Borracha"
+prod.preco = 3.5
 
 # Tentativa de atribuir valor inválido (gera erro)
-pessoa.idade = -5 # Vai gerar erro!
+prod.preco = -5 # Vai gerar erro!
                         </pre>
                     </div>
                 </div>
@@ -424,8 +424,8 @@ pessoa.idade = -5 # Vai gerar erro!
                             Exercício 3: Funcionário</h3>
                         <p><strong>Objetivo:</strong> Crie uma classe Funcionario 
                             usando encapsulamento e métodos getter e setter tradicionais. 
-                            A classe deve ter os atributos nome, cargo e salario . O 
-                            salário mínimo permitido é R$ 1.320,00.</p>
+                            A classe deve ter os atributos nome, cargo e salario . O cargo 
+                            não pode ser vazio.O salário mínimo permitido é R$ 1.320,00.</p>
                     </div>
                     <div>
                         <img src="./imagens/alunos.png" class="imagem">
@@ -441,10 +441,10 @@ pessoa.idade = -5 # Vai gerar erro!
                         <h3><span class="material-symbols-outlined">exercise</span>
                             Exercício 4: Conta Bancária</h3>
                         <p><strong>Objetivo:</strong> Crie uma classe ContaBancaria que 
-                    encapsule os atributos titular e saldo . O saldo não pode ser 
-                    negativo e deve começar com valor zero. Implemente os métodos 
-                    depositar() para depositar dinheiro e sacar() para retirar. 
-                    Não deve haver um método setter para saldo.</p>
+                            encapsule os atributos titular e saldo . O saldo não pode ser 
+                            negativo e deve começar com valor zero. Implemente os métodos 
+                            depositar() para depositar dinheiro e sacar() para retirar. 
+                            Não deve haver um método setter para saldo.</p>
                     </div>
                 </div>
             </div>
@@ -619,6 +619,19 @@ pessoa.exibir_info()
                     <li>Uma Turma pertence a uma Disciplina e tem vários Alunos</li>
                     <li>Um Aluno pode estar matriculado em várias Turmas</li>
                 </ul>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Sugestão:</h3>
+                <p>Além das classes Aluno, Turma e Disciplina, crie uma classe 
+                    SistemaEscolar que areha todas essas classes, além de todos
+                    os métodos necessários para o funcionamento do sistema 
+                    (exemplo: consultar dados de um aluno, matricular um aluno,
+                    etc).</p>
+                <br>
+                <p>Para ganhar tempo, não nos preocuparemos em criar interfaces
+                    gráficas para interagir com o sistema. Basta implementar 
+                    as classes e seus métodos.
+                </p>
                 <br><br>
                 <button class="botao_exercicio" onclick="exibirRespostaExercicio('projeto');">
                         Exibir/Ocultar Exemplo de Solução</button>
