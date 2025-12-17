@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estacionamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .stats div {
+            font-size: 18px;
+        }
+        .form-entry {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .form-entry label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-entry input, .form-entry select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-entry button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-entry button:hover {
+            background-color: #218838;
+        }
+        .parked-vehicles {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        button.exit-btn {
+            padding: 5px 10px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button.exit-btn:hover {
+            background-color: #c82333;
+        }
+        .report {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .report h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Controle de Estacionamento</h1>
+        
+        <div class="stats">
+            <div id="vagas-ocupadas">Vagas Ocupadas: 0</div>
+            <div id="vagas-disponiveis">Vagas Disponíveis: 50</div>
+        </div>
+        
+        <div class="form-entry">
+            <h2>Registrar Entrada de Veículo</h2>
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" placeholder="Ex: ABC-1234">
+            
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" placeholder="Ex: Civic">
+            
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" placeholder="Ex: Honda">
+            
+            <label for="cor">Cor:</label>
+            <input type="text" id="cor" placeholder="Ex: Prata">
+            
+            <label for="tipo">Tipo:</label>
+            <select id="tipo">
+                <option value="Carro">Carro</option>
+                <option value="Moto">Moto</option>
+            </select>
+            
+            <button onclick="registrarEntrada()">Registrar Entrada</button>
+        </div>
+        
+        <div class="parked-vehicles">
+            <h2>Veículos Estacionados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Cor</th>
+                        <th>Tipo</th>
+                        <th>Hora de Entrada</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="veiculos-table"></tbody>
+            </table>
+        </div>
+        
+        <div class="report">
+            <h3>Relatório de Faturamento do Dia</h3>
+            <div id="faturamento">Faturamento: R$ 0.00</div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000';
+        let vagasTotais = 50;
+        let valorHora = 5.00;
+
+        async function carregarConfiguracao() {
+            try {
+                const res = await fetch(`${API_URL}/configuracao`);
+                const data = await res.json();
+                vagasTotais = data.vagasTotais;
+                valorHora = data.valorHora;
+            } catch (error) {
+                console.error('Erro ao carregar configuração:', error);
+            }
+        }
+
+        async function carregarVeiculos() {
+            try {
+                const res = await fetch(`${API_URL}/veiculos`);
+                const veiculos = await res.json();
+                
+                // Veículos estacionados
+                const estacionados = veiculos.filter(v => v.status === 'estacionado');
+                const tbody = document.getElementById('veiculos-table');
+                tbody.innerHTML = '';
+                estacionados.forEach(v => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${v.placa}</td>
+                        <td>${v.modelo}</td>
+                        <td>${v.marca}</td>
+                        <td>${v.cor}</td>
+                        <td>${v.tipo}</td>
+                        <td>${new Date(v.horaEntrada).toLocaleString('pt-BR')}</td>
+                        <td><button class="exit-btn" onclick="registrarSaida(${v.id})">Registrar Saída</button></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+                
+                // Atualizar stats
+                const ocupadas = estacionados.length;
+                document.getElementById('vagas-ocupadas').textContent = `Vagas Ocupadas: ${ocupadas}`;
+                document.getElementById('vagas-disponiveis').textContent = `Vagas Disponíveis: ${vagasTotais - ocupadas}`;
+                
+                // Calcular faturamento do dia
+                const hoje = new Date().toISOString().slice(0, 10);
+                const faturamento = veiculos
+                    .filter(v => v.status === 'finalizado' && v.horaSaida && v.horaSaida.startsWith(hoje))
+                    .reduce((sum, v) => sum + (v.valorPago || 0), 0);
+                document.getElementById('faturamento').textContent = `Faturamento: R$ ${faturamento.toFixed(2)}`;
+            } catch (error) {
+                console.error('Erro ao carregar veículos:', error);
+            }
+        }
+
+        async function registrarEntrada() {
+            const placa = document.getElementById('placa').value.trim();
+            const modelo = document.getElementById('modelo').value.trim();
+            const marca = document.getElementById('marca').value.trim();
+            const cor = document.getElementById('cor').value.trim();
+            const tipo = document.getElementById('tipo').value;
+
+            if (!placa || !modelo || !marca || !cor || !tipo) {
+                alert('Preencha todos os campos!');
+                return;
+            }
+
+            const agora = new Date().toISOString();
+            const veiculo = {
+                placa,
+                modelo,
+                marca,
+                cor,
+                tipo,
+                horaEntrada: agora,
+                horaSaida: null,
+                status: 'estacionado',
+                valorPago: null,
+                tempoPermanencia: null
+            };
+
+            try {
+                await fetch(`${API_URL}/veiculos`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(veiculo)
+                });
+                alert('Entrada registrada com sucesso!');
+                document.getElementById('placa').value = '';
+                document.getElementById('modelo').value = '';
+                document.getElementById('marca').value = '';
+                document.getElementById('cor').value = '';
+                carregarVeiculos();
+            } catch (error) {
+                console.error('Erro ao registrar entrada:', error);
+                alert('Erro ao registrar entrada.');
+            }
+        }
+
+        async function registrarSaida(id) {
+            if (!confirm('Confirmar saída do veículo?')) return;
+
+            try {
+                const res = await fetch(`${API_URL}/veiculos/${id}`);
+                const veiculo = await res.json();
+
+                const entrada = new Date(veiculo.horaEntrada);
+                const saida = new Date();
+                const diffMs = saida - entrada;
+                const diffMin = Math.floor(diffMs / 60000);
+                const hours = Math.floor(diffMin / 60);
+                const min = diffMin % 60;
+                const tempoPermanencia = `${hours}h ${min}min`;
+
+                const fracoes = Math.ceil(diffMs / 3600000);
+                const valorPago = fracoes * valorHora;
+
+                const update = {
+                    horaSaida: saida.toISOString(),
+                    status: 'finalizado',
+                    valorPago,
+                    tempoPermanencia
+                };
+
+                await fetch(`${API_URL}/veiculos/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(update)
+                });
+
+                alert(`Saída registrada!\nTempo: ${tempoPermanencia}\nValor: R$ ${valorPago.toFixed(2)}`);
+                carregarVeiculos();
+            } catch (error) {
+                console.error('Erro ao registrar saída:', error);
+                alert('Erro ao registrar saída.');
+            }
+        }
+
+        // Inicializar
+        async function init() {
+            await carregarConfiguracao();
+            await carregarVeiculos();
+        }
+        init();
+    </script>
+</body>
+</html>
