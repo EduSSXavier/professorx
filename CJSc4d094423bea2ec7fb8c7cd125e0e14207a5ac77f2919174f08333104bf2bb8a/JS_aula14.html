@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação JavaScript</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                    alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Programação JavaScript</h1>
+                <h2>Aula 14<br>Consumo de APIs e Tratamento de Erros</h2>
+
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        O que é uma API?
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Introdução ao fetch() e Promises
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Tratamento de erros
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Criação de API usando Python e Flask
+                    </p>
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Introdução às APIs
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Introdução às APIs</h1>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            O que é uma API?</h3>
+                        <p>API significa Application Programming Interface (Interface 
+                            de Programação de Aplicações). É uma forma de diferentes 
+                            sistemas se comunicarem entre si através de regras bem 
+                            definidas.</p>
+                        <p>APIs são usadas para permitir que aplicações acessem 
+                            funcionalidades ou dados de outras aplicações, serviços ou 
+                            plataformas.</p>
+                        <p>Em resumo, uma API permite que diferentes sistemas se 
+                            comuniquem e compartilhem dados de maneira padronizada.</p>
+                        <p>Imagine que você está em um restaurante:</p>
+                        <ul>
+                            <li><strong>Você</strong>: Aplicação cliente (navegador, app)</li>
+                            <li><strong>Cozinha</strong>: Servidor com os dados</li>
+                            <li><strong>Garçom</strong>: API</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="./imagens/api1.jpg" class="imagem" width="250">
+                    </div>
+                </div>
+                <p>Você não vai até a cozinha pegar sua comida. O garçom (API) leva 
+                    seu pedido, solicita o que você precisa na cozinha e traz para 
+                    você. A API funciona da mesma forma: ela recebe seu pedido de 
+                    dados, processa os dados, busca no servidor e retorna para sua
+                    aplicação.</p>
+                <br>
+                <table>
+                    <tr>
+                        <th>Componente</th>
+                        <th width="70%">No Restaurante / Na Programação</th>
+                    </tr>
+                    <tr>
+                        <td>Você (o Cliente)</td>
+                        <td>O software que precisa de dados (seu código 
+                            JavaScript).</td>
+                    </tr>
+                    <tr>
+                        <td>O Garçom (a API)</td>
+                        <td>O intermediário que recebe seu pedido e o leva 
+                            à cozinha.</tr>
+                    <tr>
+                        <td>A Cozinha (o Servidor)</td>
+                        <td>O software que possui os dados e a 
+                            lógica de negócio.</td>
+                    </tr>
+                    <tr>
+                        <td>O Pedido (a Requisição)</td>
+                        <td>A solicitação que seu código envia 
+                            para a API (ex: "Quero os dados do 
+                            clima de São Paulo").</td>
+                    </tr>
+                    <tr>
+                        <td>O Prato (a Resposta)</td>
+                        <td>Os dados que a API retorna para o seu
+                            código (ex: um arquivo JSON com a 
+                            temperatura e umidade).</td>
+                    </tr>
+                </table>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    E para que servem?</h3>
+                <p>APIs servem para expor funcionalidades e dados de forma 
+                    segura e controlada. Elas permitem que desenvolvedores 
+                    usem serviços complexos (como mapas, pagamentos ou dados 
+                    de redes sociais) sem precisar entender ou acessar o 
+                    código-fonte desses serviços.</p>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Por que usar APIs?</h3>                
+                <ul>
+                    <li><strong>Reutilização de dados</strong> Você não precisa 
+                        ter todos os dados, mas pode reutilizar partes desses 
+                        dados que para requisitar dados de outros serviços</li>
+                    <li><strong>Flexibilidade</strong> As APIs podem ser 
+                        personalizadas para atender aos requisitos da sua 
+                        aplicação</li>
+                    <li><strong>Segurança e privacidade</strong> As APIs podem 
+                        fornecer recursos de segurança e privacidade, como 
+                        autenticação e autorização</li>
+                    <li><strong>Integração facilitada</strong> As APIs permitem 
+                        que diferentes sistemas e aplicações se comuniquem 
+                        facilmente</li>
+                    <li><strong>Especialização</strong>: Cada serviço faz o que 
+                        faz de melhor (previsão do tempo, mapas, dados financeiros)</li>
+                    <li><strong>Atualização em tempo real</strong>: Os dados vêm 
+                        diretamente direto da fonte</li>
+                    <li><strong>Economia de recursos</strong>: Não precisa armazenar 
+                        tudo localmente</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplos práticos:</h3>
+                <ul>
+                    <li>Previsão do tempo: Aplicativos consultam APIs meteorológicas</li>
+                    <li>Login com Google/Facebook: Usar APIs de autenticação</li>
+                    <li>Mapas: Google Maps API</li>
+                    <li>Pagamentos: APIs de bancos e cartões (PayPal, Stripe)</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>fetch()</h1>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            O que é fetch()?</h3>
+                            <p>No JavaScript moderno, a maneira mais comum e 
+                                recomendada de fazer requisições de rede é 
+                                usando a função <strong>fetch()</strong>.</p>
+                            <p>O <strong>fetch()</strong> é uma função nativa do 
+                                navegador que fornece uma interface para realizar
+                                requisições HTTP.</p>
+                            <p>Elas podem ser usadas para enviar requisições HTTP 
+                                (como o seu "pedido" no restaurante) e processar 
+                                as respostas.</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/fetch.jpg" class="imagem" height="200">
+                    </div>
+                </div>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Por que usar fetch()?</h3>
+                <ul>
+                    <li><strong>Simples e Direto</strong>: A sintaxe do fetch() 
+                        é fácil de entender e usar.</li>
+                    <li><strong>Baseado em Promises</strong>: Isso facilita o 
+                        tratamento de operações assíncronas.</li>
+                    <li><strong>Flexível</strong>: Permite configurar requisições 
+                        HTTP de várias maneiras (métodos, cabeçalhos, corpo, etc.).</li>
+                    <li><strong>Suporte Nativo</strong>: Não requer bibliotecas 
+                        externas, funciona diretamente no navegador.</li>
+                </ul>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Sintaxe Básica</h3>
+                <div class="exemplo">
+                    <h4>A sintaxe básica para uma requisição é:</h4>
+                    <div class="codigo">
+                        <pre>
+fetch(url)
+    .then(response => { 
+        // Processa a resposta
+    })
+    .catch(error => {
+        // Trata erros de rede
+    });
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <p>Além disso, o fetch() oferece várias vantagens importantes:</p>
+                <ul>
+                    <li><strong>Suporte a Diferentes Tipos de Resposta</strong>:
+                        Pode lidar com respostas em vários formatos, como JSON,
+                        texto, blobs, etc.</li>
+                    <li><strong>Controle Avançado</strong>: Permite configurar
+                        detalhes da requisição, como métodos HTTP, cabeçalhos,
+                        corpo da requisição, entre outros.</li>
+                    <li><strong>Integração com APIs Modernas</strong>: Funciona
+                        bem com outras APIs modernas do JavaScript, como
+                        Service Workers e WebSockets.</li>
+                </ul>
+                <div class="exemplo">
+                    <h4>Exemplo de uso do fetch() para obter dados de uma API:</h4>
+                    <div class="codigo">
+                        <pre>
+const cep = '01001000'; // Exemplo de CEP
+const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+fetch(url)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição: ' + response.status);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+    // Exemplo: Acessar o nome da rua e a cidade
+    console.log('Logradouro:', data.logradouro);
+    console.log('Localidade:', data.localidade);
+  })
+  .catch(error => {
+    console.error('Erro ao buscar CEP:', error);
+  });
+                        </pre>
+                    </div>
+                    <br>
+                    <p>Esse exemplo faz uma requisição para a API ViaCEP, que
+                        retorna informações sobre um CEP específico. O código trata
+                        erros de rede e exibe os dados retornados no console.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Requisições</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Requisições GET</h3>
+                <p>GET é o método HTTP mais comum. Ele busca (obtém) dados 
+                    de um servidor sem modificá-los.</p>
+                <p>O método GET é o tipo de requisição mais comum e é usado 
+                    geralmente para solicitar dados de um recurso específico. 
+                    Ele é o equivalente a "pedir o cardápio" ou "pedir o 
+                    prato" sem alterar nada na cozinha.</p>
+                <p>Ao usar fetch() , o método GET é o padrão, então você não 
+                    precisa especificá-lo. Basta passar a URL do recurso que 
+                    você deseja acessar.</p>
+                <br>
+                <img src="./imagens/get.png" class="imagem" width="100%">
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplo Básico de Requisição GET:</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+fetch('https://api.exemplo.com/dados')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 1</h3>
+                <p>Crie uma página HTML com um campo de input, onde se digita 
+                    um CEP e, depois de pesquisar em na API ViaCEP, exiba na 
+                    tela o nome da rua e a cidade correspondente.</p>
+                <p>Dica: Utilize como base o exemplo apresentado no slide 
+                    anterior.</p>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 2</h3>
+                <p>Crie uma página HTML que exiba fotos aleatórias de cães,
+                    a partir de busca na API Dog API.</p>
+                <p>Dica: Pequise na documentação fornecida pela API na URL 
+                    https://dog.ceo/dog-api/ para descobrir como usar a API.</p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Promises e Tratamento de Erros</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    O que são Promises?</h3>
+                <p>A chave para entender o fetch() é o conceito de Promise 
+                    (Promessa). Uma Promise é um objeto que representa a 
+                    eventual conclusão (ou falha) de uma operação assíncrona.</p>
+                <br><br>
+                <p>Em outras palavras, uma Promise representa um resultado 
+                    futuro que pode ser resolvido ou rejeitado.</p>
+                <br><br>
+                <p>Uma Promise pode estar em um de três estados:</p>
+                <ul>
+                    <li><strong>Pending (Pendente)</strong>: O estado inicial; 
+                        a operação ainda não foi concluída.</li>
+                    <li><strong>Fulfilled (Realizada)</strong>: A operação 
+                        foi concluída com sucesso.</li>
+                    <li><strong>Rejected (Rejeitada)</strong>: A operação 
+                        falhou.</li>
+                </ul>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Lidando com Promises</h3>
+                <p>O Fluxo de uma Requisição é o seguinte:</h3>
+                <ol>
+                    <li><strong>fetch(url)</strong> : Inicia a requisição e 
+                        retorna uma Promise.</li>
+                    <li><strong>.then(response => response.json())</strong> : 
+                        O primeiro .then recebe o objeto Response e o transforma 
+                        em uma nova Promise que resolve com os dados em formato 
+                        JSON.</li>
+                    <li><strong>.then(data => ...)</strong> : O segundo .then 
+                        recebe os dados em formato JSON prontos para uso.</li>
+                    <li><strong>.catch(error => ...)</strong> : Captura qualquer 
+                        erro de rede que tenha ocorrido durante o processo.</li>
+                </ol>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Tratamento de Erros</h3>
+                <p>O tratamento de erros é crucial para criar aplicações robustas. 
+                    Ao trabalhar com APIs e fetch() , é vital entender a diferença 
+                    entre:</p>
+                <ul>
+                    <li><strong>Erro de Rede</strong>: Capturado pelo .catch(), 
+                        ocorre quando a requisição não consegue ser enviada ou o 
+                        servidor não responde (ex: sem internet, URL malformada, 
+                        falha de DNS). Neste caso, a Promise é rejeitada e o .catch() 
+                        é acionado.</li>
+                    <li><strong>Erro de Resposta HTTP</strong>: Ocorre quando a 
+                        requisição é enviada e o servidor responde, mas com um 
+                        código de status que indica falha (ex: 404 Not Found , 
+                        500 Internal Server Error , 401 Unauthorized ). Neste caso, a
+                        Promise é realizada (sucesso), e o .catch() NÃO é acionado.
+                        Para tratar erros HTTP, você deve verificar a propriedade 
+                        response.ok ou response.status manualmente</li>
+                </ul>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 3</h3>
+                <p>Vamos praticar o encadeamento de .then() e .catch().</p>
+                <p>Usando a URL https://jsonplaceholder.typicode.com/posts execute
+                    as seguintes tarefas:
+                </p>
+                <ol>
+                    <li>Faça uma requisição para buscar todos os posts</li>
+                    <li>Filtre apenas os posts cujo userId seja igual a 1</li>
+                    <li>Exiba no console o título de cada post filtrado</li>
+                    <li>Adicione tratamento de erro com .catch()</li>
+                </ol>
+                <p>OBS: Experimente também informar uma URL incorreta e teste
+                    seu código para ver como ele se comporta ao ocorrer um erro.
+                    Tente identificar também o status da resposta e tratar os
+                    erros HTTP.</p>
+                </p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Criação de API com Python e Flask
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Criação de API com Python e Flask</h1>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Importante:</h3>
+                <p>Apesar do foco desta aula ser o consumo de uma API já pronta 
+                    para uso, faremos aqui uma breve demosntração de como criar uma 
+                    API simples usando Python e Flask, para que você entenda o 
+                    funcionamento básico de uma API.</p>
+                <br>
+                <p>É importante lembrar que o uso destas tecnologias não é a única
+                    maneira de criar APIs (há outras aternativas igualmente boas, como
+                    Django, Express.js, Node.js e mais).</p>
+                <br>
+                <p>A opção do autor deste curso
+                    pelo Flask é motivada simplesmente pela sua preferência pessoal,
+                    principalmente pela sua leveza, simplicidade e facilidade de uso.</p>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Criando sua própria API</h3>
+                <p>Agora vamos criar uma API simples do zero usando Python e Flask!</p>
+                <br><br>
+                <h4>Passo 1: Instalar o Flask</h4>
+                <div class="codigo">
+                    <pre>
+pip install flask flask-cors
+                    </pre>
+                </div>
+                <br><br>
+                <h4>Passo 2: Criar o arquivo da API</h4>
+                <p>Crie um arquivo chamado <strong>api.py</strong> e adicione 
+                    o seguinte código:</p>
+                <div class="codigo">
+                    <pre>
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+
+app = Flask(__name__)
+
+CORS(app) # Permite requisições de outros domínios
+
+# Dados de exemplo (banco de dados simulado)
+livros = [
+    {"id": 1, "titulo": "1984", "autor": "George Orwell", "ano": 1949},
+    {"id": 2, "titulo": "Dom Casmurro", "autor": "Machado de Assis", "ano": 1899},
+    {"id": 3, "titulo": "O Hobbit", "autor": "J.R.R. Tolkien", "ano": 1937},
+    {"id": 4, "titulo": "Cem Anos de Solidão", "autor": "Gabriel García Márquez", "ano": 1967},
+]
+
+# Rotas 
+@app.route('/')
+def home():
+    return jsonify({
+        "mensagem": "Bem-vindo à API de Livros!",
+        "rotas": {
+            "/livros": "Lista todos os livros",
+            "/livros/&lt;id&gt;": "Busca um livro por ID"
+            }
+        })
+
+# GET - Listar todos os livros
+@app.route('/livros', methods=['GET'])
+def listar_livros():
+    return jsonify(livros)
+
+# GET - Buscar livro por ID
+@app.route('/livros/&lt;int:id&gt;', methods=['GET'])
+def buscar_livro(id):
+    livro = next((l for l in livros if l['id'] == id), None)
+    if livro:
+        return jsonify(livro)
+    else:
+        return jsonify({"erro": "Livro não encontrado"}), 404
+
+# Iniciar o servidor
+print("API rodando na porta 5000")
+app.run(port=5000)
+                    </pre>    
+                </div>
+                <br><br>
+                <h4>Passo 3: Executar a API</h4>
+                <div class="codigo">
+                    <pre>
+python api.py
+                    </pre>
+                </div>
+                <br><br>
+                <h4>Agora crie um frontend usando HTML, CSS e JavaScript para 
+                    consumir essa API</h4>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 14</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Conceitos Aprendidos:</h3>
+                <ul>
+                    <li>✅ O que são APIs e como funcionam</li>
+                    <li>✅ Como usar para fazer requisições</li>
+                    <li>✅ Trabalhar com Promises ( e )</li>
+                    <li>✅ Exibir dados dinâmicos no HTML</li>
+                    <li>✅ Tratar erros de forma profissional</li>
+                    <li>✅ Criar sua própria API com Flask</li>
+                    <li>✅ Integrar frontend e backend</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Aprenda async/await: Forma moderna de trabalhar com Promises</li>
+                    <li>Outros tipos de requisições: POST, PUT, DELETE</li>              </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>

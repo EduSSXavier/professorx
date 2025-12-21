@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula - JavaScript</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .no-print { display: none; }
+            .page-break { page-break-after: always; }
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: #f5f5f5;
+        }
+        
+        .document {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #007bff;
+            margin: 10px 0;
+            font-size: 28px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .info-box h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        
+        .section {
+            margin: 30px 0;
+        }
+        
+        .section h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        .section h3 {
+            color: #0056b3;
+            margin-top: 20px;
+        }
+        
+        .timeline {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #e7f3ff;
+            border-radius: 5px;
+        }
+        
+        .timeline .time {
+            background: #007bff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+        
+        .timeline .content {
+            flex: 1;
+        }
+        
+        .code-block {
+            background: #f4f4f4;
+            border-left: 3px solid #007bff;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .objective-list {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .objective-list li {
+            margin: 8px 0;
+        }
+        
+        ul, ol {
+            margin: 10px 0;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .materials {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .material-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .tip-box::before {
+            content: "💡 Dica: ";
+            font-weight: bold;
+            color: #856404;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .download-btn {
+            background: #007bff;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .criteria-item {
+            background: #e7f3ff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .criteria-item::before {
+            content: "✅ ";
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #007bff;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container no-print">
+        <button class="download-btn" onclick="window.print()">📄 Gerar PDF / Imprimir</button>
+        <p style="color: #666; margin-top: 10px;">Use Ctrl+P ou Cmd+P e selecione "Salvar como PDF"</p>
+    </div>
+
+    <div class="document">
+        <div class="header">
+            <h1>📚 Plano de Aula</h1>
+            <div class="subtitle">Sistema de Registro de Visitantes com JavaScript</div>
+            <div class="subtitle" style="margin-top: 10px;">Duração: 150 minutos (2h30)</div>
+        </div>
+
+        <div class="info-box">
+            <h3>🎯 Informações Gerais</h3>
+            <p><strong>Disciplina:</strong> Linguagem JavaScript</p>
+            <p><strong>Tema:</strong> Desenvolvimento de aplicação web com JavaScript</p>
+            <p><strong>Objetivo Geral:</strong> Construir um sistema funcional de registro de visitantes integrando conceitos de arrays, objetos, funções e manipulação DOM</p>
+            <p><strong>Metodologia:</strong> Aula prática com desenvolvimento guiado em 4 etapas progressivas</p>
+        </div>
+
+        <div class="section">
+            <h2>📋 Estrutura da Aula</h2>
+            
+            <div class="timeline">
+                <div class="time">0-15 min</div>
+                <div class="content"><strong>Abertura e Contextualização</strong></div>
+            </div>
+
+            <div class="objective-list">
+                <strong>Objetivos:</strong>
+                <ul>
+                    <li>Apresentar o projeto e sua relevância prática</li>
+                    <li>Motivar os alunos com aplicação real</li>
+                    <li>Revisar brevemente conceitos essenciais</li>
+                </ul>
+            </div>
+
+            <h3>Atividades:</h3>
+            <ol>
+                <li><strong>Apresentação do cenário (5 min)</strong>
+                    <ul>
+                        <li>Demonstrar o sistema funcionando (versão pronta)</li>
+                        <li>Explicar o contexto: portarias de prédios comerciais precisam registrar visitantes, controlar acessos e gerar relatórios</li>
+                    </ul>
+                </li>
+                <li><strong>Visão geral técnica (5 min)</strong>
+                    <ul>
+                        <li>Mostrar arquitetura: dados → funções → interface</li>
+                        <li>Explicar que construirão o sistema do zero em etapas</li>
+                    </ul>
+                </li>
+                <li><strong>Revisão rápida (5 min)</strong>
+                    <ul>
+                        <li>Arrays e objetos: como armazenam dados</li>
+                        <li>Funções: reutilização de código</li>
+                        <li>DOM: conexão HTML-JavaScript</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="section">
+            <div class="timeline">
+                <div class="time">15-45 min</div>
+                <div class="content"><strong>Etapa 1: Modelagem de Dados</strong></div>
+            </div>
+
+            <div class="objective-list">
+                <strong>Objetivo:</strong> Estruturar dados usando arrays e objetos literais
+            </div>
+
+            <h3>Explicação Teórica (10 minutos)</h3>
+            <p>Apresentar no quadro/projetor os conceitos fundamentais:</p>
+            
+            <div class="code-block">// Objetos literais representam entidades
+const visitante = {
+    nome: "João Silva",
+    documento: "123.456.789-00",
+    empresa: "Tech Solutions"
+};
+
+// Arrays armazenam coleções
+const visitantes = [visitante1, visitante2, visitante3];</div>
+
+            <p><strong>Conceitos-chave:</strong></p>
+            <ul>
+                <li>Objetos: propriedades e valores (pares chave-valor)</li>
+                <li>Arrays: lista ordenada de elementos</li>
+                <li>Estruturas aninhadas: objetos dentro de arrays</li>
+            </ul>
+
+            <h3>Atividade Prática (20 minutos)</h3>
+            <p><strong>Tarefa:</strong> Criar a estrutura de dados do sistema</p>
+            
+            <p><strong>Instruções:</strong></p>
+            <ol>
+                <li>Criar arquivo <span class="highlight">dados.js</span></li>
+                <li>Definir array de proprietários de salas</li>
+                <li>Criar array vazio para registros de visitas</li>
+                <li>Planejar estrutura de um registro de visita (discutir em conjunto)</li>
+            </ol>
+
+            <div class="code-block">const proprietarios = [
+    { id: 1, nome: "Dr. Carlos Mendes", sala: "101", 
+      especialidade: "Advocacia" },
+    { id: 2, nome: "Dra. Ana Costa", sala: "205", 
+      especialidade: "Contabilidade" },
+    { id: 3, nome: "Eng. Pedro Santos", sala: "310", 
+      especialidade: "Engenharia" }
+];
+
+const registros = [];
+
+// Modelo de registro
+{
+    id: 1,
+    visitante: "Maria Oliveira",
+    documento: "987.654.321-00",
+    proprietarioId: 2,
+    data: "2025-10-28",
+    horaEntrada: "14:30",
+    horaSaida: null,
+    motivo: "Reunião contábil"
+}</div>
+
+            <div class="tip-box">
+                Verificar se todos os alunos criaram as estruturas corretamente antes de avançar
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="section">
+            <div class="timeline">
+                <div class="time">45-85 min</div>
+                <div class="content"><strong>Etapa 2: Funções de Lógica de Negócio</strong></div>
+            </div>
+
+            <div class="objective-list">
+                <strong>Objetivo:</strong> Implementar funções para manipular dados
+            </div>
+
+            <h3>Explicação Teórica (10 minutos)</h3>
+            <p>Revisar conceitos de funções:</p>
+            <ul>
+                <li>Funções como blocos reutilizáveis</li>
+                <li>Parâmetros e retorno</li>
+                <li>Manipulação de arrays: <span class="highlight">push()</span>, <span class="highlight">filter()</span>, <span class="highlight">find()</span></li>
+            </ul>
+
+            <h3>Atividade Prática (30 minutos)</h3>
+            <p><strong>Tarefa:</strong> Criar arquivo <span class="highlight">funcoes.js</span> com as seguintes funções:</p>
+
+            <table>
+                <tr>
+                    <th>Função</th>
+                    <th>Tempo</th>
+                    <th>Descrição</th>
+                </tr>
+                <tr>
+                    <td>registrarEntrada()</td>
+                    <td>10 min</td>
+                    <td>Cria novo registro de visita com data/hora atual</td>
+                </tr>
+                <tr>
+                    <td>registrarSaida()</td>
+                    <td>8 min</td>
+                    <td>Atualiza registro existente com horário de saída</td>
+                </tr>
+                <tr>
+                    <td>relatorioPorData()</td>
+                    <td>6 min</td>
+                    <td>Filtra registros por data específica</td>
+                </tr>
+                <tr>
+                    <td>relatorioPorProprietario()</td>
+                    <td>6 min</td>
+                    <td>Filtra registros por ID do proprietário</td>
+                </tr>
+            </table>
+
+            <div class="tip-box">
+                Construir cada função junto com os alunos, explicando linha por linha. Testar no console do navegador após cada implementação.
+            </div>
+
+            <h3>Exemplo de Implementação:</h3>
+            <div class="code-block">function registrarEntrada(nomeVisitante, documento, 
+                          proprietarioId, motivo) {
+    const novoRegistro = {
+        id: registros.length + 1,
+        visitante: nomeVisitante,
+        documento: documento,
+        proprietarioId: proprietarioId,
+        data: new Date().toISOString().split('T')[0],
+        horaEntrada: new Date().toTimeString().slice(0, 5),
+        horaSaida: null,
+        motivo: motivo
+    };
+    
+    registros.push(novoRegistro);
+    return novoRegistro;
+}</div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="section">
+            <div class="timeline">
+                <div class="time">85-95 min</div>
+                <div class="content"><strong>⏸️ Intervalo</strong></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="timeline">
+                <div class="time">95-140 min</div>
+                <div class="content"><strong>Etapa 3: Interface HTML e Integração</strong></div>
+            </div>
+
+            <div class="objective-list">
+                <strong>Objetivo:</strong> Criar interface funcional conectada às funções JavaScript
+            </div>
+
+            <h3>Explicação Teórica (10 minutos)</h3>
+            <p>Demonstrar conceitos de integração:</p>
+            <ul>
+                <li>Estrutura HTML básica</li>
+                <li>Eventos: <span class="highlight">onclick</span></li>
+                <li>Manipulação DOM: <span class="highlight">getElementById()</span>, <span class="highlight">innerHTML</span></li>
+                <li>Captura de valores: <span class="highlight">value</span></li>
+            </ul>
+
+            <div class="code-block">// Exemplo de integração
+document.getElementById('botao').onclick = function() {
+    const valor = document.getElementById('input').value;
+    document.getElementById('resultado').innerHTML = valor;
+};</div>
+
+            <h3>Atividade Prática (35 minutos)</h3>
+            <p><strong>Tarefa:</strong> Criar interface completa com três arquivos:</p>
+            
+            <ol>
+                <li><strong>index.html</strong> - Estrutura da interface com:
+                    <ul>
+                        <li>Seção de registro de entrada</li>
+                        <li>Seção de registro de saída</li>
+                        <li>Seção de relatórios</li>
+                        <li>Área de exibição de resultados</li>
+                    </ul>
+                </li>
+                <li><strong>interface.js</strong> - Funções de integração:
+                    <ul>
+                        <li>preencherSelects() - preenche dropdowns</li>
+                        <li>registrarNovaEntrada() - captura dados do formulário</li>
+                        <li>registrarNovaSaida() - processa saída</li>
+                        <li>gerarRelatorioPorData() - gera relatório por data</li>
+                        <li>gerarRelatorioPorProprietario() - gera relatório por proprietário</li>
+                        <li>exibirRelatorio() - exibe dados em tabela</li>
+                    </ul>
+                </li>
+                <li><strong>CSS inline</strong> - Estilização básica e responsiva</li>
+            </ol>
+
+            <div class="tip-box">
+                Enfatizar a importância de validar dados antes de processar e fornecer feedback visual ao usuário
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="section">
+            <div class="timeline">
+                <div class="time">140-150 min</div>
+                <div class="content"><strong>Testes e Demonstrações</strong></div>
+            </div>
+
+            <h3>Atividades (10 minutos):</h3>
+            <ol>
+                <li><strong>Testes individuais:</strong> Cada aluno testa seu sistema
+                    <ul>
+                        <li>Registrar 2-3 entradas</li>
+                        <li>Registrar 1 saída</li>
+                        <li>Gerar relatórios por data e por proprietário</li>
+                    </ul>
+                </li>
+                <li><strong>Suporte:</strong> Professor circula auxiliando</li>
+                <li><strong>Demonstrações:</strong> Voluntários apresentam para turma</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <div class="timeline">
+                <div class="time">150-160 min</div>
+                <div class="content"><strong>Fechamento e Discussão</strong></div>
+            </div>
+
+            <h3>Reflexões Guiadas:</h3>
+            
+            <p><strong>1. Revisão dos conceitos:</strong></p>
+            <ul>
+                <li>Como arrays e objetos organizaram nossos dados?</li>
+                <li>Por que separar funções ajuda na manutenção?</li>
+                <li>Como HTML e JavaScript se comunicam?</li>
+            </ul>
+
+            <p><strong>2. Melhorias possíveis:</strong></p>
+            <ul>
+                <li>Validação mais robusta de dados</li>
+                <li>Persistência de dados (localStorage)</li>
+                <li>Upload de fotos dos visitantes</li>
+                <li>Sistema de notificações para proprietários</li>
+                <li>Dashboard com estatísticas visuais</li>
+            </ul>
+
+            <p><strong>3. Aplicações reais:</strong></p>
+            <ul>
+                <li>Onde mais esse tipo de sistema é usado?</li>
+                <li>Que adaptações seriam necessárias para outros contextos?</li>
+            </ul>
+
+            <div class="info-box">
+                <h3>📝 Tarefa para Casa (Opcional)</h3>
+                <ul>
+                    <li>Adicionar campo "empresa" do visitante</li>
+                    <li>Criar função de busca por nome de visitante</li>
+                    <li>Melhorar CSS da interface com cores personalizadas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="section">
+            <h2>🎒 Materiais Necessários</h2>
+            <div class="materials">
+                <div class="material-item">
+                    <strong>💻 Hardware</strong>
+                    <ul>
+                        <li>Computadores com navegador web moderno</li>
+                        <li>Projetor para demonstrações</li>
+                    </ul>
+                </div>
+                <div class="material-item">
+                    <strong>📝 Software</strong>
+                    <ul>
+                        <li>Editor de código (VS Code, Sublime, etc.)</li>
+                        <li>Navegador com DevTools (Chrome, Firefox)</li>
+                    </ul>
+                </div>
+                <div class="material-item">
+                    <strong>📚 Materiais de Apoio</strong>
+                    <ul>
+                        <li>Slides com conceitos principais</li>
+                        <li>Código de exemplo pronto (backup)</li>
+                    </ul>
+                </div>
+                <div class="material-item">
+                    <strong>📄 Documentação</strong>
+                    <ul>
+                        <li>Folha de referência JavaScript</li>
+                        <li>Guia de métodos de array</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Avaliação</h2>
+            
+            <h3>Critérios de Avaliação:</h3>
+            <div class="criteria-grid">
+                <div class="criteria-item">Estruturas de dados corretas e bem organizadas</div>
+                <div class="criteria-item">Funções implementadas e funcionais</div>
+                <div class="criteria-item">Interface conectada às funções</div>
+                <div class="criteria-item">Sistema registra dados corretamente</div>
+                <div class="criteria-item">Sistema exibe informações adequadamente</div>
+                <div class="criteria-item">Código limpo e comentado</div>
+            </div>
+
+            <h3>Níveis de Desempenho:</h3>
+            <table>
+                <tr>
+                    <th>Nível</th>
+                    <th>Descrição</th>
+                </tr>
+                <tr>
+                    <td><strong>Excelente</strong></td>
+                    <td>Sistema completo, funcional, com código organizado e possíveis melhorias implementadas</td>
+                </tr>
+                <tr>
+                    <td><strong>Bom</strong></td>
+                    <td>Sistema funcional com todas as etapas implementadas corretamente</td>
+                </tr>
+                <tr>
+                    <td><strong>Satisfatório</strong></td>
+                    <td>Sistema funciona parcialmente, algumas funcionalidades precisam ajustes</td>
+                </tr>
+                <tr>
+                    <td><strong>Insuficiente</strong></td>
+                    <td>Sistema não funciona ou possui erros críticos nas etapas principais</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>💡 Dicas para o Professor</h2>
+            
+            <div class="tip-box">
+                <strong>Durante as atividades práticas:</strong><br>
+                Circule pela sala identificando dificuldades comuns. Agrupe alunos com problemas similares para explicações conjuntas.
+            </div>
+
+            <div class="tip-box">
+                <strong>Para debugging:</strong><br>
+                Use o console do navegador (F12) para debugar junto com os alunos. Ensine-os a ler mensagens de erro.
+            </div>
+
+            <div class="tip-box">
+                <strong>Motivação:</strong><br>
+                Celebre pequenas vitórias - quando uma função funcionar pela primeira vez, reconheça o progresso do aluno.
+            </div>
+
+            <div class="tip-box">
+                <strong>Gestão do tempo:</strong><br>
+                Tenha código backup pronto caso algum aluno perca muito tempo em erros. Adapte o ritmo conforme necessidade da turma.
+            </div>
+
+            <div class="tip-box">
+                <strong>Diferenciação:</strong><br>
+                Para alunos mais avançados, sugira desafios extras (validações complexas, funcionalidades adicionais). Para alunos com dificuldades, foque nas etapas essenciais.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔗 Recursos Complementares</h2>
+            <ul>
+                <li><strong>MDN Web Docs:</strong> Documentação completa de JavaScript</li>
+                <li><strong>JavaScript.info:</strong> Tutorial moderno e detalhado</li>
+                <li><strong>DevTools:</strong> Guia de uso das ferramentas de desenvolvedor</li>
+                <li><strong>W3Schools:</strong> Exemplos práticos e interativos</li>
+            </ul>
+        </div>
+
+        <div class="info-box" style="margin-top: 40px; text-align: center;">
+            <h3>✅ Checklist Final</h3>
+            <p>Antes da aula, verificar:</p>
+            <div style="text-align: left; display: inline-block;">
+                □ Computadores funcionando com navegadores atualizados<br>
+                □ Projetor testado<br>
+                □ Código de exemplo backup preparado<br>
+                □ Material de apoio impresso (se necessário)<br>
+                □ DevTools funcionando nos computadores<br>
+                □ Ambiente de desenvolvimento configurado
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #007bff; color: #666;">
+            <p><strong>Documento gerado em:</strong> 28 de outubro de 2025</p>
+            <p style="font-size: 20px; margin-top: 20px;">🚀 Boa aula!</p>
+        </div>
+    </div>
+</body>
+</html>

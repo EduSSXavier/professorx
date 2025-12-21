@@ -1,0 +1,10 @@
+Criar um tutorial chamado "Arrays: Criando e Acessando Listas" para a linguagem JavaScript em formato markdown explorando os seguintes itens:
+1- Introdução:  Apresentar o conceito de coleções de dados e manipulação valores agrupados.​
+2- O que são arrays e para que servem
+3- Criação, acesso e modificação de elementos
+4-​ Tamanho do array (length)
+5-​ Iteração com for e while
+6-​ Inserção, remoção e substituição básica
+Para cada item deve haver uma explicação teórica, e um exemplo simples.
+Após todos os itens serem explorados devem ser elaborados 5 exercícios de fixação com graus crescentes de dificuldade. Estes exercícios não deve fazer uso de funções avançadas como map, foreach, filter ou reduce em suas respostas.
+Incluir ao final do tutorial um desafio de encerramento criando uma aplicação de dificuldade intermediária/alta envolvendo um armazenamento de dados usando arrays e operações de manipulação de informações.

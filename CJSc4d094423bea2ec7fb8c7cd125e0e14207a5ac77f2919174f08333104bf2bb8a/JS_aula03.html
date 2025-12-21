@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação JavaScript</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./../../imagens/eu_pixar3d.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                    alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Programação JavaScript</h1>
+                <h2>Aula 03 - Laços de Repetição:<br>WHILE e DO WHILE</h2>
+
+                <p>
+                    Usando repetições condicionais para automação de tarefas.
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        <strong>Parte 1:</strong> Conceitos
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">exercise</span>
+                        <strong>Parte 2:</strong> Exercícios de Fixação
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        <strong>Parte 3:</strong> Projeto Prático
+                    </p>
+                </div>
+                <br>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Parte 1: Conceitos
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Comando WHILE</h1>
+                <h2>Apresentando o conceito de loops e o comando WHILE</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>Os laços de repetição são estruturas fundamentais na programação 
+                    que permitem executar um bloco de código repetidamente enquanto 
+                    uma condição específica for verdadeira.</p>
+                <h4>Criação de loops com WHILE</h4>
+                <p>O laço WHILE é uma estrutura de repetição que executa um bloco 
+                    de código enquanto uma condição for verdadeira. A condição é 
+                    verificada antes de cada execução do bloco de código.</p>
+                <h4>Sintaxe:</h4>
+                <div class="codigo">
+                    <pre>
+while (condição) {
+// código a ser executado
+}
+                    </pre>
+                </div>
+                <h4>Características:</h4>
+                <ul>
+                    <li>Executa o bloco de código enquanto a condição for verdadeira</li>
+                    <li>Verifica a condição ANTES de cada execução do bloco</li>
+                    <li>Se a condição for falsa, o bloco não é executado</li>
+                    <li>É necessário garantir que a condição eventualmente se torne falsa 
+                        para evitar loops infinitos</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo</h3>
+                <div class="codigo">
+                    <pre>
+// Contagem de 1 a 5
+
+let contador = 1;
+while (contador <= 5) {
+    console.log("Contagem: " + contador);
+    contador++; // Incrementa o contador para evitar loop infinito
+}
+console.log("Loop finalizado!");
+
+// Saída esperada:
+
+Contagem: 1
+Contagem: 2
+Contagem: 3
+Contagem: 4
+Contagem: 5
+Loop finalizado!
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Comando DO WHILE</h1>
+                <h2>E se testarmos depois?</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>O loop DO WHILE executa o bloco de código primeiro e só 
+                    depois verifica a condição. Isso garante que o código 
+                    será executado pelo menos uma vez, mesmo se a condição 
+                    for falsa desde o início.</p>
+                <h4>Sintaxe:</h4>
+                <div class="codigo">
+                    <pre>
+do {
+    // código a ser executado
+} while (condição);
+                    </pre>
+                </div>
+                <h4>Características:</h4>
+                <ul>
+                    <li>O código é executado antes da primeira verificação da condição</li>
+                    <li>Garante pelo menos uma execução do bloco de código</li>
+                    <li>A condição é verificada ANTES de cada execução</li>
+                    <li>Requer modificação de variáveis para evitar loops infinitos</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo</h3>
+                <div class="codigo">
+                    <pre>
+// Uma contagem regressiva:
+
+let numero = 10;
+do {
+    console.log("Número atual: " + numero);
+    numero--;
+} while (numero > 5);
+
+console.log("Loop finalizado!");
+
+// Saída:
+
+Número atual: 10
+Número atual: 9
+Número atual: 8
+Número atual: 7
+Número atual: 6
+Loop finalizado!
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Comparação entre WHILE e DO WHILE</h1>
+                <h2>Quando é indicado usar?</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <div class="exercise">
+                    <table>
+                        <tr>
+                            <th>Quando usar WHILE</th>
+                            <th>Quando usar DO WHILE</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li><strong>Validação prévia necessária:</strong> Quando 
+                                        você precisa verificar a condição antes de executar 
+                                        qualquer parte do código</li>
+                                    <li><strong>Pode não executar nenhuma vez:</strong> Quando 
+                                        você precisa verificar a condição antes de executar 
+                                        qualquer parte do código</li>                                    
+                                    <li><strong>Leitura de dados com condição de parada:</strong> 
+                                        Processamento de listas ou arrays onde você precisa 
+                                        verificar limites de iteração</li>                                         
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><strong>Pelo menos uma execução garantida:</strong> Quando 
+                                        você precisa executar o código pelo menos uma vez</li>
+                                    <li><strong>Menus e interfaces:</strong> Exibir opções ao usuário 
+                                        e aguardar escolha</li>
+                                    <li><strong>Validação de entrada:</strong> Solicitar dados do 
+                                        usuário até que sejam válidos</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo de uso ideal para uso de WHILE:</h3>
+                <div class="codigo">
+                    <pre>
+let idade = 15;
+while (idade &gt;= 18) {
+    console.log("Maior de idade, pode votar!");
+    break; // Este código nunca será executado pois 15 &gt; 18
+}
+console.log("Menor de idade");
+                    </pre>
+                </div>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo de uso ideal para uso de DO WHILE:</h3>
+                <div class="codigo">
+                    <pre>
+let opcao;
+do {
+    console.log("=== MENU ===");
+    console.log("1 - Cadastro de vendas");
+    console.log("2 - Relatório de vendas");
+    console.log("0 - Sair");
+
+    opcao = prompt("Escolha uma opção:"); // Entrada do usuário
+
+    if (opcao === "0") {
+        console.log("Você escolheu finalizar o programa.");
+    } else if (opcao === "1") {
+        console.log("Você escolheu a opção de cadastro de vendas.");
+    } else if (opcao === "2") {
+        console.log("Você escolheu a opção de relatório de vendas.");
+    } else {
+        console.log("Opção inválida.");
+    }
+} while (opcao !== "0");
+
+console.log("Programa finalizado!");
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Repetição Baseada em Perguntas</h1>
+                <h2>Repetindo até acertar</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceito</h3>
+                <p>A simulação de perguntas é um padrão comum onde o programa 
+                    continua fazendo perguntas ao usuário até que uma condição 
+                    específica seja atendida. Isso é muito útil para criar interfaces 
+                    interativas e validar entradas de dados.</p>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo com WHILE</h3>
+                <div class="codigo">
+                    <pre>
+// Exemplo com WHILE
+
+let continuar = "sim";
+let perguntasFeitas = 0;
+let resposta
+
+while (continuar === "sim") {
+    perguntasFeitas++;
+    resposta = prompt("Pergunta " + perguntasFeitas + ": Qual é a capital do Brasil?");
+
+    // Avaliando a resposta do usuário
+    if (perguntasFeitas >= 3) {
+        continuar = "nao";
+    }
+}
+
+console.log("Total de perguntas feitas: " + perguntasFeitas);
+                    </pre>
+                </div>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplo com DO WHILE</h3>
+                <div class="codigo">
+                    <pre>
+// Exemplo com DO WHILE 
+
+let semAcesso = false;
+let resposta;
+do {
+    resposta = prompt("Digite a senha (dica: é '123'): ");
+
+    // Avaliando a resposta do usuário
+    if (resposta !== "123") {
+        console.log("Senha incorreta! Tente novamente.");
+        semAcesso = true; // Sinaliza que o usuário ainda precisa de acesso
+    } else {
+        semAcesso = false; // Sinaliza que o acesso foi concedido
+    }
+} while (semAcesso);
+
+console.log("Acesso concedido!");
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Parte 2: Exercícios
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 1</h1>
+                <h2>Nível Básico</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Criar um contador regressivo de 10 até 1 
+                    usando WHILE.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
+                    <pre>
+let contador = 10;
+
+while (contador >= 1) {
+    console.log(contador);
+    contador--;
+}
+
+console.log("Decolagem!");
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 2</h1>
+                <h2>Nível Básico/Intermediário</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Criar um programa que soma todos os números 
+                    pares de 2 até 20 usando DO WHILE.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <pre>
+let numero = 2;
+let soma = 0;
+
+do {
+    if (numero % 2 === 0) {
+        soma = soma + numero;
+    }
+    numero++;
+} while (numero &lt;= 20);
+
+console.log("A soma dos números pares de 2 a 20 é: " + soma);
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 3</h1>
+                <h2>Nível Intermediário</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Criar um programa que encontre o primeiro 
+                    número maior que 100 que seja divisível por 7 usando WHILE.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
+                    <pre>
+let numero = 101;
+
+while (numero % 7 !== 0) {
+    numero++;
+}
+
+console.log("O primeiro número maior que 100 divisível por 7 é: " + numero);
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 4</h1>
+                <h2>Nível Intermediário/Avançado</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Criar um simulador de caixa eletrônico 
+                    que pergunta o valor do saque e verifica se há saldo suficiente. 
+                    Use DO WHILE para repetir até o usuário digitar 0.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio4');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio4">
+                    <pre>
+let saldo = 1000;
+let valorSaque;
+
+do {
+    console.log("\n=== CAIXA ELETRÔNICO ===");
+    console.log("Saldo atual: R$ " + saldo);
+    console.log("Digite 0 para sair ou informe o valor do saque.");
+
+    valorSaque = parseFloat(prompt("Digite o valor do saque: "));
+    
+    if (valorSaque > 0) {
+        if (valorSaque &lt;= saldo) {
+            saldo = saldo - valorSaque;
+            console.log("Saque de R$ " + valorSaque + " realizado com sucesso!");
+        } else {
+            console.log("Saldo insuficiente para saque de R$ " + valorSaque);
+        }
+    }
+} while (valorSaque !== 0);
+
+console.log("Obrigado por usar nosso caixa eletrônico!");
+                    </pre>
+                </div>
+                <div class="exemplo">
+                    Pergunta: Você consegue modificar o programa para:
+                    <ul>
+                        <li>Impedir que o usuário fique com o saldo negativo?</li>
+                        <li>Permitir que o usuário faça depósitos na conta?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício 5</h1>
+                <h2>Nível Avançado</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício</h3>
+                <p><strong>Objetivo:</strong> Criar um programa que calcule o fatorial 
+                    de um número usando WHILE e depois verifique se o resultado é maior 
+                    que 1000 usando DO WHILE. Em caso afirmativo, fala sucessivas divisões 
+                    do fatorial por 10 até que este seja menor ou igual a 1000 e informe 
+                    quantas divisões foram necessárias para conseguir isso.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio5');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio5">
+                    <pre>
+let numero = 5;
+let fatorial = 1;
+let contador = numero;
+
+// Calculando o fatorial usando WHILE
+while (contador > 0) {
+    fatorial = fatorial * contador;
+    contador--;
+}
+
+console.log("O fatorial de " + numero + " é: " + fatorial);
+
+// Verificando se é maior que 1000 usando DO WHILE
+let verificador = fatorial;
+let divisoes = 0;
+do {
+    if (verificador &gt; 1000) {
+        console.log("O fatorial é maior que 1000");
+        verificador = verificador / 10;
+        divisoes++;
+    }
+} while (verificador &gt; 1000);
+
+console.log("Foram necessárias " + divisoes + " divisões por 10 para ficar &lt;= 1000");
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+        
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Parte 3: Projeto Prático
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Projeto Prático</h1>
+                <h2>Adivinhe a senha</h2>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Jogo de Adivinhação de Senha Numérica</h3>
+                <p><strong>Descrição do Desafio:</strong> Criar um jogo onde o jogador 
+                    deve adivinhar uma senha numérica de 3 dígitos. A cada tentativa, 
+                    o programa deve informar:</p>
+                <ul>
+                    <li>Quantos dígitos estão nas posições corretas</li>
+                    <li>Quantos dígitos fazem parte da senha mas estão em posições erradas</li>
+                    <li>Quantos dígitos não fazem parte da senha</li>
+                </ul>
+
+                <h4>Como funciona o jogo:</h4>
+                <ol>
+                    <li>1. Inicialização: Define uma senha secreta de 3 dígitos</li>
+                    <li>2. Loop principal: Usa DO WHILE para garantir pelo menos uma tentativa</li>
+                    <li>3. Análise da tentativa: Para cada dígito da tentativa:</li>
+                    <ul>
+                        <li>Verifica se está na posição correta</li>
+                        <li>Se não estiver, verifica se existe na senha em outra posição</li>
+                        <li>Se não existir, conta como dígito inexistente</li>
+                    </ul>
+                    <li>4. Feedback: Informa ao jogador os resultados da análise</li>
+                    <li>5. Condições de parada: O jogo para quando o jogador acerta ou atinge 
+                        o limite de 10 tentativas</li>
+                </ol>
+
+                <div class="destaque">
+                    <p>Este desafio combina todos os conceitos aprendidos: loops WHILE e DO WHILE,
+                        estruturas condicionais, manipulação de strings e lógica de programação 
+                        complexa!</p>
+                </div>
+                    
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('projeto');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="projeto">
+                    <pre>
+// Senha secreta (3 dígitos)
+let senhaCorreta = "248";
+let tentativa;
+let numeroTentativas = 0;
+let acertou = false;
+let contadorPosicaoCorreta = 0;
+let contadorDigitoExiste = 0;
+let contadorDigitoNaoExiste = 0;
+
+console.log("=== JOGO DE ADIVINHAÇÃO DE SENHA ===");
+console.log("Adivinhe a senha numérica de 3 dígitos!");
+
+do {
+    numeroTentativas++;
+
+    tentativa = propmpt("Tentativa " + numeroTentativas + ":");
+
+    if (tentativa === senhaCorreta) {
+        acertou = true;
+        console.log("PARABÉNS! Você acertou a senha!");
+    } else {
+        // Análise da tentativa
+
+        // Verificar cada posição
+        let i = 0;
+        while (i &lt; 3) {
+            let digitoTentativa = tentativa[i];
+            let digitoSenha = senhaCorreta[i];
+            if (digitoTentativa === digitoSenha) {
+                // Posição correta
+                contadorPosicaoCorreta++;
+            } else {
+                // Verificar se o dígito existe na senha em outra posição
+                let j = 0;
+                let encontrou = false;
+
+                while (j lt; 3 && !encontrou) {
+                    if (digitoTentativa === senhaCorreta[j] && j !== i) {
+                        encontrou = true;
+                    }
+                    j++;
+                }
+
+                if (encontrou) {
+                    digitoExiste++;
+                } else {
+                    digitoNaoExiste++;
+                }
+            }
+    
+            i++;
+        }
+
+        // Feedback para o jogador - Resultados da análise
+        console.log("Resultado da análise:");
+        console.log("Dígitos na posição correta: " + posicaoCorreta);
+        console.log("Dígitos corretos em posição errada: " + digitoExiste);
+        console.log("Dígitos que não existem na senha: " + digitoNaoExiste);
+        if (numeroTentativas &gt;= 10) {
+            console.log("Você atingiu o limite de tentativas!");
+            console.log("A senha correta era: " + senhaCorreta);
+            break;
+        }
+    }
+} while (!(acertou && (numeroTentativas &lt; 10)));
+
+if (acertou) {
+    console.log("Você completou o desafio em " + numeroTentativas + " tentativas!");
+} else {
+console.log("Tente novamente na próxima vez!");
+}
+
+console.log("\n=== FIM DO JOGO ===");
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 3</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Conceitos Aprendidos:</h3>
+                <ul>
+                    <li>Estruturas de repetição WHILE e DO WHILE</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Estruturas de repetição FOR</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>

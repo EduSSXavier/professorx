@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Condicional em JavaScript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .presentation-container {
+            width: 90%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px;
+            min-height: 600px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+            padding: 10px;
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+        }
+
+        .theory {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .example {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .exercise {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .keyword {
+            color: #4fc3f7;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #81c784;
+        }
+
+        .number {
+            color: #ffb74d;
+        }
+
+        .comment {
+            color: #90a4ae;
+            font-style: italic;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .nav-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            color: #2c3e50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .intro-slide {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -40px;
+            padding: 40px;
+        }
+
+        .intro-slide h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            border: none;
+            padding-bottom: 0;
+        }
+
+        .intro-slide .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .topics-list {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .topics-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .topics-list li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <div class="intro-slide">
+                <div class="logo">⚡</div>
+                <h1>Controle Condicional em JavaScript</h1>
+                <p class="subtitle">Dominando a lógica de decisões no código</p>
+                <ul class="topics-list">
+                    <li>📊 Operadores Lógicos</li>
+                    <li>⚖️ Operadores de Comparação</li>
+                    <li>🔀 Comando IF</li>
+                    <li>🔄 Comando IF/ELSE</li>
+                    <li>🔗 Comando IF/ELSE IF/ELSE</li>
+                    <li>❓ Ternários Condicionais</li>
+                    <li>🎯 Comando SWITCH</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 2: Operadores Lógicos -->
+        <div class="slide">
+            <h2>📊 Operadores Lógicos</h2>
+            
+            <div class="theory">
+                <h3>💡 Teoria</h3>
+                <p>Os operadores lógicos são usados para combinar ou modificar expressões booleanas (verdadeiro/falso). São fundamentais para criar condições complexas.</p>
+                
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Resultado</th>
+                        </tr>
+                        <tr>
+                            <td><strong>&&</strong></td>
+                            <td>AND (E)</td>
+                            <td>Verdadeiro se ambas as condições forem verdadeiras</td>
+                            <td>true && true = true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>||</strong></td>
+                            <td>OR (OU)</td>
+                            <td>Verdadeiro se pelo menos uma condição for verdadeira</td>
+                            <td>false || true = true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>!</strong></td>
+                            <td>NOT (NÃO)</td>
+                            <td>Inverte o valor booleano</td>
+                            <td>!true = false</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>📝 Exemplo Prático</h3>
+                <div class="code">
+<span class="keyword">let</span> idade = <span class="number">25</span>;
+<span class="keyword">let</span> temCarteira = <span class="keyword">true</span>;
+<span class="keyword">let</span> temDinheiro = <span class="keyword">false</span>;
+
+<span class="comment">// AND (&&) - Todas as condições devem ser verdadeiras</span>
+<span class="keyword">let</span> podeDirigir = idade >= <span class="number">18</span> && temCarteira;
+console.log(podeDirigir); <span class="comment">// true</span>
+
+<span class="comment">// OR (||) - Pelo menos uma condição deve ser verdadeira</span>
+<span class="keyword">let</span> podeComprar = temDinheiro || temCarteira;
+console.log(podeComprar); <span class="comment">// true</span>
+
+<span class="comment">// NOT (!) - Inverte o valor</span>
+<span class="keyword">let</span> naoTemDinheiro = !temDinheiro;
+console.log(naoTemDinheiro); <span class="comment">// true</span>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💪 Exercício de Fixação</h3>
+                <p><strong>Desafio:</strong> Crie variáveis para um sistema de login que verifica se o usuário tem mais de 16 anos E possui email válido, OU se é administrador.</p>
+                <div class="code">
+                    <pre>
+// Suas variáveis aqui:
+let idade = 20;
+let emailValido = true;
+let isAdmin = false;
+
+// Complete a condição:
+console.log("Pode fazer login:", (idade > 16 && emailValido) || isAdmin);
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Operadores de Comparação -->
+        <div class="slide">
+
+<span class="comment">// Complete a condição:</span>
+<span class="keyword">let</span> podeLogar = (idade > <span class="number">16</span> && emailValido) || isAdmin;
+console.log(<span class="string">"Pode fazer login:"</span>, podeLogar);
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Operadores de Comparação -->
+        <div class="slide">
+            <h2>⚖️ Operadores de Comparação</h2>
+            
+            <div class="theory">
+                <h3>💡 Teoria</h3>
+                <p>Os operadores de comparação são usados para comparar dois valores e retornar um valor booleano (true ou false). São essenciais para tomada de decisões no código.</p>
+                
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Exemplo</th>
+                        </tr>
+                        <tr>
+                            <td><strong>==</strong></td>
+                            <td>Igualdade</td>
+                            <td>Compara valores (com conversão de tipo)</td>
+                            <td>5 == "5" → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>===</strong></td>
+                            <td>Igualdade Estrita</td>
+                            <td>Compara valor e tipo</td>
+                            <td>5 === "5" → false</td>
+                        </tr>
+                        <tr>
+                            <td><strong>!=</strong></td>
+                            <td>Diferença</td>
+                            <td>Valores diferentes (com conversão)</td>
+                            <td>5 != "3" → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>!==</strong></td>
+                            <td>Diferença Estrita</td>
+                            <td>Valor ou tipo diferentes</td>
+                            <td>5 !== "5" → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>></strong></td>
+                            <td>Maior que</td>
+                            <td>Primeiro valor maior</td>
+                            <td>10 > 5 → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong><</strong></td>
+                            <td>Menor que</td>
+                            <td>Primeiro valor menor</td>
+                            <td>3 < 7 → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong>>=</strong></td>
+                            <td>Maior ou igual</td>
+                            <td>Maior ou igual ao segundo</td>
+                            <td>5 >= 5 → true</td>
+                        </tr>
+                        <tr>
+                            <td><strong><=</strong></td>
+                            <td>Menor ou igual</td>
+                            <td>Menor ou igual ao segundo</td>
+                            <td>4 <= 6 → true</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>📝 Exemplo Prático</h3>
+                <div class="code">
+<span class="keyword">let</span> nota1 = <span class="number">85</span>;
+<span class="keyword">let</span> nota2 = <span class="string">"85"</span>;
+<span class="keyword">let</span> media = <span class="number">70</span>;
+
+<span class="comment">// Comparações de igualdade</span>
+console.log(nota1 == nota2);  <span class="comment">// true (conversão automática)</span>
+console.log(nota1 === nota2); <span class="comment">// false (tipos diferentes)</span>
+
+<span class="comment">// Comparações numéricas</span>
+console.log(nota1 > media);   <span class="comment">// true</span>
+console.log(nota1 >= <span class="number">85</span>);    <span class="comment">// true</span>
+console.log(media < <span class="number">60</span>);     <span class="comment">// false</span>
+
+<span class="comment">// Comparações com strings</span>
+<span class="keyword">let</span> nome1 = <span class="string">"Ana"</span>;
+<span class="keyword">let</span> nome2 = <span class="string">"Bruno"</span>;
+console.log(nome1 < nome2);   <span class="comment">// true (ordem alfabética)</span>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💪 Exercício de Fixação</h3>
+                <p><strong>Desafio:</strong> Crie um sistema que verifica se um produto está em promoção baseado no preço e na categoria.</p>
+                <div class="code">
+<span class="keyword">let</span> preco = <span class="number">50</span>;
+<span class="keyword">let</span> categoria = <span class="string">"eletrônicos"</span>;
+<span class="keyword">let</span> precoPromocao = <span class="number">100</span>;
+
+<span class="comment">// Complete as condições:</span>
+<span class="keyword">let</span> precoMenor = preco < precoPromocao;
+<span class="keyword">let</span> categoriaEletronicos = categoria === <span class="string">"eletrônicos"</span>;
+<span class="keyword">let</span> emPromocao = precoMenor && categoriaEletronicos;
+
+console.log(<span class="string">"Em promoção:"</span>, emPromocao);
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Comando IF -->
+        <div class="slide">
+            <h2>🔀 Comando IF</h2>
+            
+            <div class="theory">
+                <h3>💡 Teoria</h3>
+                <p>O comando <span class="highlight">if</span> é a estrutura condicional mais básica em JavaScript. Ele executa um bloco de código apenas se uma condição for verdadeira (true).</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="code">
+<span class="keyword">if</span> (condição) {
+    <span class="comment">// código executado se a condição for verdadeira</span>
+}
+                </div>
+                <ul>
+                    <li>A condição deve retornar um valor booleano</li>
+                    <li>Se a condição for true, o código dentro das chaves é executado</li>
+                    <li>Se a condição for false, o código é ignorado</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>📝 Exemplo Prático</h3>
+                <div class="code">
+<span class="keyword">let</span> temperatura = <span class="number">30</span>;
+<span class="keyword">let</span> idade = <span class="number">17</span>;
+<span class="keyword">let</span> dinheiro = <span class="number">50</span>;
+
+<span class="comment">// Exemplo 1: Verificar temperatura</span>
+<span class="keyword">if</span> (temperatura > <span class="number">25</span>) {
+    console.log(<span class="string">"Está calor! Use roupas leves."</span>);
+}
+
+<span class="comment">// Exemplo 2: Verificar maioridade</span>
+<span class="keyword">if</span> (idade >= <span class="number">18</span>) {
+    console.log(<span class="string">"Você é maior de idade."</span>);
+}
+
+<span class="comment">// Exemplo 3: Verificar se pode comprar</span>
+<span class="keyword">if</span> (dinheiro >= <span class="number">30</span>) {
+    console.log(<span class="string">"Você pode comprar o produto!"</span>);
+    dinheiro -= <span class="number">30</span>; <span class="comment">// Subtraindo o valor da compra</span>
+}
+
+console.log(<span class="string">"Dinheiro restante: R$"</span> + dinheiro);
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💪 Exercício de Fixação</h3>
+                <p><strong>Desafio:</strong> Crie um sistema que verifica diferentes situações de um estudante e dá feedback apropriado.</p>
+                <div class="code">
+<span class="keyword">let</span> nota = <span class="number">85</span>;
+<span class="keyword">let</span> frequencia = <span class="number">90</span>; <span class="comment">// em porcentagem</span>
+<span class="keyword">let</span> entregouTrabalho = <span class="keyword">true</span>;
+
+<span class="comment">// Complete os IFs:</span>
+<span class="keyword">if</span> (nota >= <span class="number">90</span>) {
+    console.log(<span class="string">"Excelente! Você tirou uma nota muito alta!"</span>);
+}
+
+<span class="keyword">if</span> (frequencia >= <span class="number">75</span>) {
+    console.log(<span class="string">"Boa frequência nas aulas!"</span>);
+}
+
+<span class="keyword">if</span> (entregouTrabalho) {
+    console.log(<span class="string">"Trabalho entregue em dia. Parabéns!"</span>);
+}
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Comando IF/ELSE -->
+        <div class="slide">
+            <h2>🔄 Comando IF/ELSE</h2>
+            
+            <div class="theory">
+                <h3>💡 Teoria</h3>
+                <p>O comando <span class="highlight">if/else</span> permite executar um bloco de código quando a condição é verdadeira e outro bloco quando é falsa. É uma escolha binária.</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="code">
+<span class="keyword">if</span> (condição) {
+    <span class="comment">// código executado se a condição for verdadeira</span>
+} <span class="keyword">else</span> {
+    <span class="comment">// código executado se a condição for falsa</span>
+}
+                </div>
+                <ul>
+                    <li>Sempre executa um dos dois blocos de código</li>
+                    <li>Útil para situações de "ou isso ou aquilo"</li>
+                    <li>O bloco else é opcional</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>📝 Exemplo Prático</h3>
+                <div class="code">
+<span class="keyword">let</span> idade = <span class="number">16</span>;
+<span class="keyword">let</span> saldo = <span class="number">150</span>;
+<span class="keyword">let</span> chuva = <span class="keyword">false</span>;
+
+<span class="comment">// Exemplo 1: Verificar se pode votar</span>
+<span class="keyword">if</span> (idade >= <span class="number">16</span>) {
+    console.log(<span class="string">"Você pode votar!"</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Ainda não pode votar. Aguarde completar 16 anos."</span>);
+}
+
+<span class="comment">// Exemplo 2: Verificar saldo bancário</span>
+<span class="keyword">if</span> (saldo > <span class="number">100</span>) {
+    console.log(<span class="string">"Você tem um bom saldo!"</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Cuidado com os gastos!"</span>);
+}
+
+<span class="comment">// Exemplo 3: Decidir atividade baseada no clima</span>
+<span class="keyword">if</span> (chuva) {
+    console.log(<span class="string">"Vou ficar em casa assistindo filme."</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Vou sair para caminhar no parque."</span>);
+}
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💪 Exercício de Fixação</h3>
+                <p><strong>Desafio:</strong> Crie um sistema de classificação de alunos baseado na nota final.</p>
+                <div class="code">
+<span class="keyword">let</span> notaFinal = <span class="number">72</span>;
+<span class="keyword">let</span> mediaMinima = <span class="number">60</span>;
+
+<span class="comment">// Complete o IF/ELSE:</span>
+<span class="keyword">if</span> (notaFinal >= mediaMinima) {
+    console.log(<span class="string">"Parabéns! Você foi aprovado!"</span>);
+    console.log(<span class="string">"Sua nota foi:"</span> + notaFinal);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Você foi reprovado."</span>);
+    console.log(<span class="string">"Precisa de mais"</span> + (mediaMinima - notaFinal) + <span class="string">" pontos."</span>);
+}
+
+<span class="comment">// Desafio extra: Crie outro exemplo com desconto</span>
+<span class="keyword">let</span> valorCompra = <span class="number">250</span>;
+<span class="keyword">if</span> (valorCompra >= <span class="number">200</span>) {
+    console.log(<span class="string">"Você ganhou 10% de desconto!"</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Compre mais R$"</span> + (<span class="number">200</span> - valorCompra) + <span class="string">" para ganhar desconto!"</span>);
+}
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Comando IF/ELSE IF/ELSE -->
+        <div class="slide">
+            <h2>🔗 Comando IF/ELSE IF/ELSE</h2>
+            
+            <div class="theory">
+                <h3>💡 Teoria</h3>
+                <p>O comando <span class="highlight">if/else if/else</span> permite testar múltiplas condições em sequência. É útil quando você tem mais de duas possibilidades.</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="code">
+<span class="keyword">if</span> (condição1) {
+    <span class="comment">// código para condição1</span>
+} <span class="keyword">else if</span> (condição2) {
+    <span class="comment">// código para condição2</span>
+} <span class="keyword">else if</span> (condição3) {
+    <span class="comment">// código para condição3</span>
+} <span class="keyword">else</span> {
+    <span class="comment">// código se nenhuma condição for verdadeira</span>
+}
+                </div>
+                <ul>
+                    <li>As condições são testadas em ordem</li>
+                    <li>Apenas o primeiro bloco verdadeiro é executado</li>
+                    <li>O else final é opcional, mas recomendado</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>📝 Exemplo Prático</h3>
+                <div class="code">
+<span class="keyword">let</span> nota = <span class="number">85</span>;
+<span class="keyword">let</span> temperatura = <span class="number">22</span>;
+
+<span class="comment">// Exemplo 1: Sistema de conceitos</span>
+<span class="keyword">if</span> (nota >= <span class="number">90</span>) {
+    console.log(<span class="string">"Conceito A - Excelente!"</span>);
+} <span class="keyword">else if</span> (nota >= <span class="number">80</span>) {
+    console.log(<span class="string">"Conceito B - Muito bom!"</span>);
+} <span class="keyword">else if</span> (nota >= <span class="number">70</span>) {
+    console.log(<span class="string">"Conceito C - Bom!"</span>);
+} <span class="keyword">else if</span> (nota >= <span class="number">60</span>) {
+    console.log(<span class="string">"Conceito D - Regular."</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Conceito F - Reprovado."</span>);
+}
+
+<span class="comment">// Exemplo 2: Sugestão de roupa por temperatura</span>
+<span class="keyword">if</span> (temperatura >= <span class="number">30</span>) {
+    console.log(<span class="string">"Use roupas bem leves e beba água!"</span>);
+} <span class="keyword">else if</span> (temperatura >= <span class="number">25</span>) {
+    console.log(<span class="string">"Use roupas leves."</span>);
+} <span class="keyword">else if</span> (temperatura >= <span class="number">15</span>) {
+    console.log(<span class="string">"Use uma blusa ou casaco leve."</span>);
+} <span class="keyword">else if</span> (temperatura >= <span class="number">5</span>) {
+    console.log(<span class="string">"Use casaco e agasalho!"</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Muito frio! Use roupas bem quentes!"</span>);
+}
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💪 Exercício de Fixação</h3>
+                <p><strong>Desafio:</strong> Crie um sistema de classificação de IMC (Índice de Massa Corporal).</p>
+                <div class="code">
+<span class="keyword">let</span> peso = <span class="number">70</span>; <span class="comment">// em kg</span>
+<span class="keyword">let</span> altura = <span class="number">1.75</span>; <span class="comment">// em metros</span>
+<span class="keyword">let</span> imc = peso / (altura * altura);
+
+console.log(<span class="string">"Seu IMC é:"</span> + imc.toFixed(<span class="number">2</span>));
+
+<span class="comment">// Complete a classificação:</span>
+<span class="keyword">if</span> (imc < <span class="number">18.5</span>) {
+    console.log(<span class="string">"Classificação: Abaixo do peso"</span>);
+} <span class="keyword">else if</span> (imc < <span class="number">25</span>) {
+    console.log(<span class="string">"Classificação: Peso normal"</span>);
+} <span class="keyword">else if</span> (imc < <span class="number">30</span>) {
+    console.log(<span class="string">"Classificação: Sobrepeso"</span>);
+} <span class="keyword">else if</span> (imc < <span class="number">35</span>) {
+    console.log(<span class="string">"Classificação: Obesidade grau I"</span>);
+} <span class="keyword">else if</span> (imc < <span class="number">40</span>) {
+    console.log(<span class="string">"Classificação: Obesidade grau II"</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Classificação: Obesidade grau III"</span>);
+}
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Ternários Condicionais -->
+        <div class="slide">
+            <h2>❓ Ternários Condicionais</h2>
+            
+            <div class="theory">
+                <h3>💡 Teoria</h3>
+                <p>O operador ternário é uma forma concisa de escrever uma estrutura if/else simples. É útil para atribuições condicionais ou expressões curtas.</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="code">
+condição ? valorSeVerdadeiro : valorSeFalso
+                </div>
+                <p><strong>Como funciona:</strong></p>
+                <ul>
+                    <li>Se a condição for true, retorna o primeiro valor</li>
+                    <li>Se a condição for false, retorna o segundo valor</li>
+                    <li>Muito útil para atribuições simples</li>
+                    <li>Pode ser aninhado, mas cuidado com a legibilidade</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>📝 Exemplo Prático</h3>
+                <div class="code">
+<span class="keyword">let</span> idade = <span class="number">20</span>;
+<span class="keyword">let</span> nota = <span class="number">75</span>;
+<span class="keyword">let</span> chuva = <span class="keyword">true</span>;
+
+<span class="comment">// Exemplo 1: Verificar maioridade</span>
+<span class="keyword">let</span> status = idade >= <span class="number">18</span> ? <span class="string">"maior de idade"</span> : <span class="string">"menor de idade"</span>;
+console.log(<span class="string">"Você é"</span> + status);
+
+<span class="comment">// Exemplo 2: Resultado da prova</span>
+<span class="keyword">let</span> resultado = nota >= <span class="number">60</span> ? <span class="string">"Aprovado"</span> : <span class="string">"Reprovado"</span>;
+console.log(<span class="string">"Resultado:"</span> + resultado);
+
+<span class="comment">// Exemplo 3: Atividade baseada no clima</span>
+<span class="keyword">let</span> atividade = chuva ? <span class="string">"ficar em casa"</span> : <span class="string">"sair para passear"</span>;
+console.log(<span class="string">"Hoje vou"</span> + atividade);
+
+<span class="comment">// Exemplo 4: Ternário aninhado (cuidado!)</span>
+<span class="keyword">let</span> conceito = nota >= <span class="number">90</span> ? <span class="string">"A"</span> : 
+               nota >= <span class="number">80</span> ? <span class="string">"B"</span> : 
+               nota >= <span class="number">70</span> ? <span class="string">"C"</span> : <span class="string">"D"</span>;
+console.log(<span class="string">"Conceito:"</span> + conceito);
+
+<span class="comment">// Exemplo 5: Uso em função</span>
+<span class="keyword">function</span> verificarDesconto(valor) {
+    <span class="keyword">return</span> valor > <span class="number">100</span> ? valor * <span class="number">0.9</span> : valor; <span class="comment">// 10% de desconto</span>
+}
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💪 Exercício de Fixação</h3>
+                <p><strong>Desafio:</strong> Use operadores ternários para criar um sistema de mensagens dinâmicas.</p>
+                <div class="code">
+<span class="keyword">let</span> temperatura = <span class="number">28</span>;
+<span class="keyword">let</span> dinheiro = <span class="number">45</span>;
+<span class="keyword">let</span> idade = <span class="number">17</span>;
+
+<span class="comment">// Complete com operadores ternários:</span>
+
+<span class="comment">// 1. Mensagem sobre o clima</span>
+<span class="keyword">let</span> climaMsg = temperatura > <span class="number">25</span> ? <span class="string">"Está quente!"</span> : <span class="string">"Está frio!"</span>;
+console.log(climaMsg);
+
+<span class="comment">// 2. Verificar se pode comprar (produto custa R$ 40)</span>
+<span class="keyword">let</span> podeComprar = dinheiro >= <span class="number">40</span> ? <span class="string">"Pode comprar"</span> : <span class="string">"Dinheiro insuficiente"</span>;
+console.log(podeComprar);
+
+<span class="comment">// 3. Categoria por idade</span>
+<span class="keyword">let</span> categoria = idade < <span class="number">18</span> ? <span class="string">"menor"</span> : <span class="string">"maior"</span>;
+console.log(<span class="string">"Categoria:"</span> + categoria);
+
+<span class="comment">// 4. Desconto baseado na idade (menor de idade ganha 20%)</span>
+<span class="keyword">let</span> precoFinal = idade < <span class="number">18</span> ? <span class="number">40</span> * <span class="number">0.8</span> : <span class="number">40</span>;
+console.log(<span class="string">"Preço final: R$"</span> + precoFinal);
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Comando SWITCH -->
+        <div class="slide">
+            <h2>🎯 Comando SWITCH</h2>
+            
+            <div class="theory">
+                <h3>💡 Teoria</h3>
+                <p>O comando <span class="highlight">switch</span> é usado quando você precisa comparar uma variável com múltiplos valores específicos. É uma alternativa mais limpa ao if/else if quando você tem muitas opções.</p>
+                <p><strong>Sintaxe:</strong></p>
+                <div class="code">
+<span class="keyword">switch</span> (variável) {
+    <span class="keyword">case</span> valor1:
+        <span class="comment">// código para valor1</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> valor2:
+        <span class="comment">// código para valor2</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        <span class="comment">// código padrão</span>
+}
+                </div>
+                <ul>
+                    <li><strong>case:</strong> cada possível valor da variável</li>
+                    <li><strong>break:</strong> evita que o código continue executando</li>
+                    <li><strong>default:</strong> executado se nenhum case corresponder</li>
+                    <li>Comparação usa igualdade estrita (===)</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>📝 Exemplo Prático</h3>
+                <div class="code">
+<span class="keyword">let</span> diaSemana = <span class="number">3</span>;
+<span class="keyword">let</span> mes = <span class="string">"janeiro"</span>;
+
+<span class="comment">// Exemplo 1: Dias da semana</span>
+<span class="keyword">switch</span> (diaSemana) {
+    <span class="keyword">case</span> <span class="number">1</span>:
+        console.log(<span class="string">"Domingo - Dia de descanso!"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">2</span>:
+        console.log(<span class="string">"Segunda-feira - Começou a semana!"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">3</span>:
+        console.log(<span class="string">"Terça-feira - Vamos com tudo!"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">4</span>:
+        console.log(<span class="string">"Quarta-feira - Meio da semana!"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">5</span>:
+        console.log(<span class="string">"Quinta-feira - Quase lá!"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">6</span>:
+        console.log(<span class="string">"Sexta-feira - SEXTOU!"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">7</span>:
+        console.log(<span class="string">"Sábado - Final de semana!"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        console.log(<span class="string">"Dia inválido!"</span>);
+}
+
+<span class="comment">// Exemplo 2: Meses e estações</span>
+<span class="keyword">switch</span> (mes.toLowerCase()) {
+    <span class="keyword">case</span> <span class="string">"dezembro"</span>:
+    <span class="keyword">case</span> <span class="string">"janeiro"</span>:
+    <span class="keyword">case</span> <span class="string">"fevereiro"</span>:
+        console.log(<span class="string">"Estação: Verão"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="string">"março"</span>:
+    <span class="keyword">case</span> <span class="string">"abril"</span>:
+    <span class="keyword">case</span> <span class="string">"maio"</span>:
+        console.log(<span class="string">"Estação: Outono"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="string">"junho"</span>:
+    <span class="keyword">case</span> <span class="string">"julho"</span>:
+    <span class="keyword">case</span> <span class="string">"agosto"</span>:
+        console.log(<span class="string">"Estação: Inverno"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        console.log(<span class="string">"Estação: Primavera"</span>);
+}
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💪 Exercício de Fixação</h3>
+                <p><strong>Desafio:</strong> Crie uma calculadora simples usando switch para as operações básicas.</p>
+                <div class="code">
+<span class="keyword">let</span> num1 = <span class="number">10</span>;
+<span class="keyword">let</span> num2 = <span class="number">5</span>;
+<span class="keyword">let</span> operacao = <span class="string">"+"</span>; <span class="comment">// pode ser +, -, *, /</span>
+<span class="keyword">let</span> resultado;
+
+<span class="comment">// Complete o switch:</span>
+<span class="keyword">switch</span> (operacao) {
+    <span class="keyword">case</span> <span class="string">"+"</span>:
+        resultado = num1 + num2;
+        console.log(<span class="string">`${num1} + ${num2} = ${resultado}`</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="string">"-"</span>:
+        resultado = num1 - num2;
+        console.log(<span class="string">`${num1} - ${num2} = ${resultado}`</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="string">"*"</span>:
+        resultado = num1 * num2;
+        console.log(<span class="string">`${num1} * ${num2} = ${resultado}`</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="string">"/"</span>:
+        <span class="keyword">if</span> (num2 !== <span class="number">0</span>) {
+            resultado = num1 / num2;
+            console.log(<span class="string">`${num1} / ${num2} = ${resultado}`</span>);
+        } <span class="keyword">else</span> {
+            console.log(<span class="string">"Erro: Divisão por zero!"</span>);
+        }
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        console.log(<span class="string">"Operação inválida! Use +, -, * ou /"</span>);
+}
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Resumo e Comparação -->
+        <div class="slide">
+            <h2>📊 Resumo e Comparação</h2>
+            
+            <div class="theory">
+                <h3>💡 Quando usar cada estrutura?</h3>
+                
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Estrutura</th>
+                            <th>Quando Usar</th>
+                            <th>Vantagens</th>
+                            <th>Exemplo de Uso</th>
+                        </tr>
+                        <tr>
+                            <td><strong>IF</strong></td>
+                            <td>Condição simples, uma ação</td>
+                            <td>Simples e direto</td>
+                            <td>Validar entrada de dados</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IF/ELSE</strong></td>
+                            <td>Duas opções mutuamente exclusivas</td>
+                            <td>Garante que uma ação aconteça</td>
+                            <td>Aprovar/Reprovar aluno</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IF/ELSE IF/ELSE</strong></td>
+                            <td>Múltiplas condições em sequência</td>
+                            <td>Flexível para condições complexas</td>
+                            <td>Sistema de notas A, B, C, D, F</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ternário</strong></td>
+                            <td>Atribuição simples com condição</td>
+                            <td>Código conciso em uma linha</td>
+                            <td>Definir status com base em idade</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SWITCH</strong></td>
+                            <td>Comparar uma variável com valores específicos</td>
+                            <td>Código limpo para muitos casos</td>
+                            <td>Menu de opções, dias da semana</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>📝 Exemplo Comparativo</h3>
+                <p>Vamos ver o mesmo problema resolvido de diferentes formas:</p>
+                <div class="code">
+<span class="keyword">let</span> nota = <span class="number">85</span>;
+
+<span class="comment">// 1. Usando IF/ELSE IF/ELSE</span>
+<span class="keyword">if</span> (nota >= <span class="number">90</span>) {
+    console.log(<span class="string">"A"</span>);
+} <span class="keyword">else if</span> (nota >= <span class="number">80</span>) {
+    console.log(<span class="string">"B"</span>);
+} <span class="keyword">else if</span> (nota >= <span class="number">70</span>) {
+    console.log(<span class="string">"C"</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"D"</span>);
+}
+
+<span class="comment">// 2. Usando Ternário Aninhado</span>
+<span class="keyword">let</span> conceito = nota >= <span class="number">90</span> ? <span class="string">"A"</span> : nota >= <span class="number">80</span> ? <span class="string">"B"</span> : nota >= <span class="number">70</span> ? <span class="string">"C"</span> : <span class="string">"D"</span>;
+
+<span class="comment">// 3. Usando função com SWITCH (para valores exatos)</span>
+<span class="keyword">function</span> getConceito(faixa) {
+    <span class="keyword">switch</span> (faixa) {
+        <span class="keyword">case</span> <span class="number">4</span>: <span class="keyword">return</span> <span class="string">"A"</span>;
+        <span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">return</span> <span class="string">"B"</span>;
+        <span class="keyword">case</span> <span class="number">2</span>: <span class="keyword">return</span> <span class="string">"C"</span>;
+        <span class="keyword">default</span>: <span class="keyword">return</span> <span class="string">"D"</span>;
+    }
+}
+<span class="keyword">let</span> faixa = Math.floor(nota / <span class="number">10</span>) - <span class="number">6</span>;
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>💪 Exercício Final</h3>
+                <p><strong>Mega Desafio:</strong> Crie um sistema completo que use todas as estruturas condicionais!</p>
+                <div class="code">
+<span class="comment">// Sistema de avaliação de restaurante</span>
+<span class="keyword">let</span> avaliacao = <span class="number">4</span>; <span class="comment">// 1 a 5 estrelas</span>
+<span class="keyword">let</span> preco = <span class="number">45</span>;
+<span class="keyword">let</span> tipoCozinha = <span class="string">"italiana"</span>;
+<span class="keyword">let</span> temEntrega = <span class="keyword">true</span>;
+
+<span class="comment">// 1. Use SWITCH para classificar por avaliação</span>
+<span class="keyword">switch</span> (avaliacao) {
+    <span class="keyword">case</span> <span class="number">5</span>: console.log(<span class="string">"⭐⭐⭐⭐⭐ Excelente!"</span>); <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">4</span>: console.log(<span class="string">"⭐⭐⭐⭐ Muito bom!"</span>); <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">3</span>: console.log(<span class="string">"⭐⭐⭐ Bom!"</span>); <span class="keyword">break</span>;
+    <span class="keyword">default</span>: console.log(<span class="string">"⭐⭐ Pode melhorar"</span>);
+}
+
+<span class="comment">// 2. Use IF/ELSE IF para categorizar preço</span>
+<span class="keyword">if</span> (preco > <span class="number">60</span>) {
+    console.log(<span class="string">"💰💰💰 Caro"</span>);
+} <span class="keyword">else if</span> (preco > <span class="number">30</span>) {
+    console.log(<span class="string">"💰💰 Médio"</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"💰 Barato"</span>);
+}
+
+<span class="comment">// 3. Use ternário para recomendar</span>
+<span class="keyword">let</span> recomenda = (avaliacao >= <span class="number">4</span> && preco <= <span class="number">50</span>) ? <span class="string">"Recomendo!"</span> : <span class="string">"Pesquise mais"</span>;
+console.log(recomenda);
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Conclusão -->
+        <div class="slide">
+            <div class="intro-slide">
+                <div class="logo">🎉</div>
+                <h1>Parabéns!</h1>
+                <p class="subtitle">Você dominou o Controle Condicional em JavaScript!</p>
+                
+                <div class="theory">
+                    <h3>🎯 O que você aprendeu:</h3>
+                    <ul class="topics-list" style="color: white;">
+                        <li>✅ <strong>Operadores Lógicos:</strong> &&, ||, ! para combinar condições</li>
+                        <li>✅ <strong>Operadores de Comparação:</strong> ==, ===, !=, !==, >, <, >=, <=</li>
+                        <li>✅ <strong>IF:</strong> Para executar código condicionalmente</li>
+                        <li>✅ <strong>IF/ELSE:</strong> Para escolhas binárias</li>
+                        <li>✅ <strong>IF/ELSE IF/ELSE:</strong> Para múltiplas condições</li>
+                        <li>✅ <strong>Ternário:</strong> Para atribuições condicionais concisas</li>
+                        <li>✅ <strong>SWITCH:</strong> Para múltiplas comparações exatas</li>
+                    </ul>
+                </div>
+
+                <div class="example" style="background: rgba(255,255,255,0.1); border-left: 4px solid white;">
+                    <h3 style="color: white;">🚀 Próximos Passos:</h3>
+                    <ul style="color: white;">
+                        <li>Pratique com exercícios mais complexos</li>
+                        <li>Combine estruturas condicionais</li>
+                        <li>Aprenda sobre loops (for, while)</li>
+                        <li>Explore funções em JavaScript</li>
+                        <li>Estude manipulação do DOM</li>
+                    </ul>
+                </div>
+
+                <p style="font-size: 1.1rem; margin-top: 30px;">
+                    <strong>Continue praticando e explorando!</strong><br>
+                    O domínio vem com a prática constante! 💪
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">10</span>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prev-btn" onclick="previousSlide()">◀ Anterior</button>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">Próximo ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

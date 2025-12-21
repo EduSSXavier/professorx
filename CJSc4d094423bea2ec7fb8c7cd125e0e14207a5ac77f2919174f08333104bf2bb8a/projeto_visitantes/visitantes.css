@@ -1,0 +1,58 @@
+body {
+    background-color: rgb(173, 175, 176);
+}
+.caixa_externa {
+    text-align: center;
+    color:black;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 10px;
+}
+.caixa_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(211, 211, 211, 0.929);
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 30%;
+    margin: 5px;
+    padding: 5px;
+}
+.emlinha {
+    background-color: rgb(220, 233, 250);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.emlinha label{
+    text-align: left;
+    width: 150px;
+}
+.emlinha input{
+    width: 200px;
+}
+.linha_relatorio{
+    background-color: rgb(178, 252, 118);
+    margin: 5px;
+    padding: 3px;
+    text-align: left;
+}
+.linha_relatorio .id{
+    font-weight: bold;
+    color: white;
+    background-color: darkgreen;
+}
+button {
+    background-color: darkblue;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 200px;
+}

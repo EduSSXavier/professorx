@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação JavaScript</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                    alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Programação JavaScript</h1>
+                <h2>Aula 08<br>Revisão de Arrays</h2>
+                <p>
+                    Vamos relembrar alguns tópicos importantes sobre Arrays
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Conceitos
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Exercícios de Fixação
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Projeto Prático
+                    </p>
+                </div>
+                <br>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Revisão de Comandos
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Introdução</h1>
+                <h2>Vamos relembrar alguns tópicos importantes</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Introdução</h3>
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">visibility</span>
+                            O que são Arrays?</h3>
+                        <p>Em JavaScript, um array é uma estrutura de dados que armazena 
+                            uma coleção ordenada de elementos, que podem ser de qualquer 
+                            tipo (números, strings, objetos, funções, etc.). Arrays são 
+                            usados para organizar e manipular dados de forma eficiente, 
+                            permitindo acesso aos elementos por meio de índices numéricos 
+                            (começando do 0).</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/arrays.jpg" class="imagem">
+                    </div>
+                </div>
+                <h4>Características:</h4>
+                <ul>
+                    <li>Os elementos são armazenados em uma ordem específica</li>
+                    <li>Os elementos podem ser acessados por meio de seus índices</li>
+                    <li>Os arrays podem conter elementos de diferentes tipos</li>
+                    <li>Os arrays são dinâmicos e podem ser redimensionados</li>
+                </ul>
+                <h4>Exemplo:</h4>
+                <div class="codigo">
+                    <pre>
+// Criando um array vazio
+let vazio = [];
+
+// Criando um array de números
+let numeros = [1, 2, 3, 4, 5];
+
+// Criando um array de strings
+let frutas = ["banana", "laranja", "maca"];
+
+// Criando um array misto
+let misto = [42, "texto", true, null];
+                    </pre>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 1</h3>
+                <p><strong>Objetivo:</strong> Você consegue criar um array com 
+                    alguns dados de pessoas (nomes, idades, cidades, etc.), ou 
+                    seja, um array composto de outros arrays?</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
+                    <pre>
+let pessoas = [
+    ["João", 30, "São Paulo"],
+    ["Maria", 25, "Rio de Janeiro"],
+    ["Pedro", 40, "Belo Horizonte"]
+];
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Arrays</h1>
+                <h2>Manipulação de Elementos</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Tamanho do Array (length)</h3>
+                <p>A propriedade <code>length</code> retorna o número de elementos presentes 
+                    no array.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+let numeros = [10, 20, 30, 40, 50];
+console.log(numeros.length); // 5
+
+let vazio = [];
+console.log(vazio.length); // 0
+
+// Usando length em condições
+if (numeros.length > 0) {
+    console.log("O array contém elementos");
+} else {
+    console.log("O array está vazio");
+}
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Inserção de Elementos</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+// ** Inserindo elementos no final do array (push):**
+
+let numeros = [1, 2, 3];
+
+numeros.push(4);
+console.log(numeros); // [1, 2, 3, 4]
+
+numeros.push(5, 6);
+console.log(numeros); // [1, 2, 3, 4, 5, 6]
+
+// ** Inserindo elementos no início do array (unshift):**
+
+let cores = ["verde", "azul"];
+
+cores.unshift("vermelho");
+console.log(cores); // ["vermelho", "verde", "azul"]
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Remoção de Elementos</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+// ** Removendo elementos do final do array (pop):**
+
+let frutas = ["maçã", "banana", "laranja"];
+
+let removida = frutas.pop();
+console.log(removida);  // "laranja"
+console.log(frutas);    // ["maçã", "banana"]
+
+// ** Removendo elementos do início do array (shift):**
+
+let animais = ["gato", "cachorro", "coelho"];
+
+let primeiro = animais.shift();
+console.log(primeiro); // "gato"
+console.log(animais);  // ["cachorro", "coelho"]
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 2</h3>
+                <p><strong>Objetivo:</strong> Crie um array vazio chamado fila . 
+                    Adicione 'João', 'Maria' e 'Pedro' no final da fila. Depois, 
+                    remova a primeira pessoa da fila e adicione 'Ana' no início.
+                    Qual o resultado final?</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <pre>
+// Cria um array vazio
+const fila = [ ];
+
+// Adiciona pessoas no final
+fila.push('João');
+fila.push('Maria');
+fila.push('Pedro');
+console.log(fila); // ['João', 'Maria', 'Pedro']
+
+// Remove o primeiro da fila
+const removido = fila.shift( );
+console.log(removido); // 'João'
+
+// Adiciona Ana no início
+fila.unshift('Ana');
+console.log(fila); // ['Ana', 'Maria', 'Pedro']
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Arrays</h1>
+                <h2>Manipulação Avançada</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    splice()</h3>
+                <p>O método <strong>splice()</strong> modifica o array original,
+                    podendo <strong>remover</strong>, <strong>adicionar</strong>
+                    ou <strong>substituir</strong> elementos.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Sintaxe</h3>
+                    <div class="codigo">
+                        <pre>
+array.splice(índiceInicial, quantidadeRemover, elemento1, elemento2, ...)
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>
+                    <div class="codigo">
+                        <pre>
+const animais = ['gato', 'cachorro', 'pássaro', 'peixe'];
+
+// Remove 2 elementos a partir do índice 1
+animais.splice(1, 2);
+console.log(animais); // ['gato', 'peixe']
+
+// Adiciona elementos no índice 1 sem remover nada
+const frutas = ['maçã', 'laranja'];
+frutas.splice(1, 0, 'banana', 'uva');
+console.log(frutas); // ['maçã', 'banana', 'uva', 'laranja']
+
+// Substitui elementos
+const numeros = [1, 2, 3, 4, 5];
+numeros.splice(2, 2, 10, 20);
+console.log(numeros); // [1, 2, 10, 20, 5]
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    slice()</h3>
+                <p>O método <strong>slice()</strong> retorna uma cópia de uma parte 
+                    específica do array, sem modificar o array original.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Sintaxe</h3>
+                    <div class="codigo">
+                        <pre>
+array.slice(índiceInicial, índiceFinal)
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>
+                    <div class="codigo">
+                        <pre>
+const cores = ['vermelho', 'verde', 'azul', 'amarelo', 'roxo'];
+
+const algumas = cores.slice(1, 3);
+console.log(algumas); // ['verde', 'azul']
+console.log(cores); // Array original permanece intacto
+
+const ultimas = cores.slice(-2);
+console.log(ultimas); // ['amarelo', 'roxo']
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    indexOf()</h3>
+                <p>O método <strong>indexOf()</strong> retorna o índice da primeira
+                    ocorrência de um elemento no array, ou -1 se não encontrado.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>
+                    <div class="codigo">
+                        <pre>
+const letras = ['a', 'b', 'c', 'b', 'd'];
+console.log(letras.indexOf('b')); // 1
+console.log(letras.indexOf('z')); // -1
+
+// Pode começar a busca de um índice específico
+console.log(letras.indexOf('b', 2)); // 3
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    includes()</h3>
+                <p>O método <strong>includes()</strong> verifica se um array contém 
+                    um determinado elemento, retornando true ou false.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>
+                    <div class="codigo">
+                        <pre>
+const letras = ['a', 'b', 'c', 'b', 'd'];
+console.log(letras.includes('b')); // true
+console.log(letras.includes('z')); // false
+
+const frutas = ['maçã', 'banana', 'laranja'];
+console.log(frutas.includes('banana')); // true
+console.log(frutas.includes('uva')); // false
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 3</h3>
+                <p><strong>Objetivo:</strong> Dado o array ['html', 'css', 'javascript', 
+                    'python', 'java'] , faça o seguinte:</p>
+                <ol>
+                    <li>Crie uma cópia com apenas os 3 primeiros elementos</li>
+                    <li>Verifique se 'python' está no array original</li>
+                    <li>Encontre o índice de 'javascript'</li>
+                    <li>Remova 'python' do array original e adicione 'typescript' 
+                        em seu lugar</li>
+                </ol>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
+                    <pre>
+const tecnologias = ['html', 'css', 'javascript', 'python', 'java'];
+
+// 1. Cópia dos 3 primeiros
+const primeiras = tecnologias.slice(0, 3);
+console.log(primeiras); // ['html', 'css', 'javascript']
+
+// 2. Verifica se python existe
+const temPython = tecnologias.includes('python');
+console.log(temPython); // true
+
+// 3. Índice de javascript
+const indiceJS = tecnologias.indexOf('javascript');
+console.log(indiceJS); // 2
+
+// 4. Remove python e adiciona typescript
+const indicePython = tecnologias.indexOf('python');
+tecnologias.splice(indicePython, 1, 'typescript');
+console.log(tecnologias); // ['html', 'css', 'javascript', 'typescript', 'java']
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Arrays</h1>
+                <h2>Manipulação de Elementos</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Tamanho do Array (length)</h3>
+                <p>A propriedade <code>length</code> retorna o número de elementos presentes 
+                    no array.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+let numeros = [10, 20, 30, 40, 50];
+console.log(numeros.length); // 5
+
+let vazio = [];
+console.log(vazio.length); // 0
+
+// Usando length em condições
+if (numeros.length > 0) {
+    console.log("O array contém elementos");
+} else {
+    console.log("O array está vazio");
+}
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Inserção de Elementos</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+// ** Inserindo elementos no final do array (push):**
+
+let numeros = [1, 2, 3];
+
+numeros.push(4);
+console.log(numeros); // [1, 2, 3, 4]
+
+numeros.push(5, 6);
+console.log(numeros); // [1, 2, 3, 4, 5, 6]
+
+// ** Inserindo elementos no início do array (unshift):**
+
+let cores = ["verde", "azul"];
+
+cores.unshift("vermelho");
+console.log(cores); // ["vermelho", "verde", "azul"]
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Remoção de Elementos</h3>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+// ** Removendo elementos do final do array (pop):**
+
+let frutas = ["maçã", "banana", "laranja"];
+
+let removida = frutas.pop();
+console.log(removida);  // "laranja"
+console.log(frutas);    // ["maçã", "banana"]
+
+// ** Removendo elementos do início do array (shift):**
+
+let animais = ["gato", "cachorro", "coelho"];
+
+let primeiro = animais.shift();
+console.log(primeiro); // "gato"
+console.log(animais);  // ["cachorro", "coelho"]
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 2</h3>
+                <p><strong>Objetivo:</strong> Crie um array vazio chamado fila . 
+                    Adicione 'João', 'Maria' e 'Pedro' no final da fila. Depois, 
+                    remova a primeira pessoa da fila e adicione 'Ana' no início.
+                    Qual o resultado final?</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <pre>
+// Cria um array vazio
+const fila = [ ];
+
+// Adiciona pessoas no final
+fila.push('João');
+fila.push('Maria');
+fila.push('Pedro');
+console.log(fila); // ['João', 'Maria', 'Pedro']
+
+// Remove o primeiro da fila
+const removido = fila.shift( );
+console.log(removido); // 'João'
+
+// Adiciona Ana no início
+fila.unshift('Ana');
+console.log(fila); // ['Ana', 'Maria', 'Pedro']
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Métodos de Alto Nível</h1>
+                <h2>forEach, map, filter e reduce</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    forEach()</h3>
+                <p>O método <strong>forEach()</strong> executa uma função para cada
+                    elemento do array.Não retorna nada (undefined).</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplo</h3>
+                    <div class="codigo">
+                        <pre>
+const letras = ['a', 'b', 'c', 'd'];
+
+letras.forEach((letra, indice) => {
+    console.log(`Índice ${indice}: ${letra}`);
+});
+
+// Saída:
+// Índice 0: a
+// Índice 1: b
+// Índice 2: c
+// Índice 3: d
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    map()</h3>
+                <p>O método <strong>map()</strong> cria um novo array com os resultados
+                    da chamada de uma função para cada elemento do array original.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>
+                    <div class="codigo">
+                        <pre>
+// Exemplo com numeros
+const numeros = [1, 2, 3, 4];
+
+const dobrados = numeros.map(num => num * 2);
+
+console.log(dobrados); // [2, 4, 6, 8]
+console.log(numeros); // [1, 2, 3, 4] - original intacto
+
+// Exemplo com strings
+const nomes = ['ana', 'joão', 'maria'];
+
+const maiusculas = nomes.map(nome => nome.toUpperCase( ));
+
+console.log(maiusculas); // ['ANA', 'JOÃO', 'MARIA']
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    filter()</h3>
+                <p>O método <strong>filter()</strong> cria um novo array contendo 
+                    apenas os elementos que passam em um teste (retornam true ).</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>
+                    <div class="codigo">
+                        <pre>
+// Exemplo com numeros
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const pares = numeros.filter(num => num % 2 === 0);
+
+console.log(pares); // [2, 4, 6, 8]
+
+// Exemplo com objetos
+const produtos = [
+    { nome: 'Notebook', preco: 3000 },
+    { nome: 'Mouse', preco: 50 },
+    { nome: 'Teclado', preco: 200 }
+];
+
+const produtosCaros = produtos.filter(
+    produto => produto.preco &gt; 1000
+    );
+
+console.log(produtosCaros);
+// [{ nome: 'Notebook', preco: 3000 }]
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    reduce()</h3>
+                <p>O método <strong>reduce()</strong> aplica uma função a um acumulador 
+                    e a cada elemento do array (da esquerda para a direita) para 
+                    reduzi-lo a um único valor.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Sintaxe</h3>
+                    <div class="codigo">
+                        <pre>
+array.reduce((acumulador, valorAtual) => { ... }, valorInicial)
+                        </pre>
+                    </div>
+                </div>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>
+                    <div class="codigo">
+                        <pre>
+const numeros = [1, 2, 3, 4, 5];
+const soma = numeros.reduce((acc, num) => acc + num, 0);
+console.log(soma); // 15
+
+// Encontrar o maior número
+const maiorNumero = numeros.reduce((maior, num) => {
+                        return num > maior ? num : maior;
+                    }, numeros[0]);
+console.log(maiorNumero); // 5
+
+// Contar ocorrências
+const frutas = ['maçã', 'banana', 'maçã', 'laranja', 'banana', 'maçã'];
+const contagem = frutas.reduce((acc, fruta) => {
+                        acc[fruta] = (acc[fruta] || 0) + 1;
+                        return acc;
+                    }, { });
+console.log(contagem); // { maçã: 3, banana: 2, laranja: 1 }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 4</h3>
+                <p><strong>Objetivo:</strong> Dado o array de objetos abaixo, 
+                    realize as seguintes operações:</p>
+                
+                <div class="codigo">
+                    <pre>
+const alunos = [
+    { nome: 'João', nota: 7.5 },
+    { nome: 'Maria', nota: 9.0 },
+    { nome: 'Pedro', nota: 5.5 },
+    { nome: 'Ana', nota: 8.5 }
+];
+                    </pre>
+                </div>                    
+                <ol>
+                    <li>Use forEach para imprimir o nome e nota de cada aluno</li>
+                    <li>Use map para criar um array apenas com os nomes</li>
+                    <li>Use filter para obter apenas os alunos aprovados (nota >= 7)</li>
+                    <li>Use reduce para calcular a média das notas dos alunos</li>
+                </ol>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio4');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio4">
+                    <pre>
+const alunos = [
+{ nome: 'João', nota: 7.5 },
+{ nome: 'Maria', nota: 9.0 },
+{ nome: 'Pedro', nota: 5.5 },
+{ nome: 'Ana', nota: 8.5 }
+];
+
+// 1. forEach - imprime informações
+console.log('=== Lista de Alunos ===');
+alunos.forEach(aluno => {
+console.log(`${aluno.nome}: ${aluno.nota}`);
+});
+
+// 2. map - array de nomes
+const nomes = alunos.map(aluno => aluno.nome);
+console.log('Nomes:', nomes); // ['João', 'Maria', 'Pedro', 'Ana']
+
+// 3. filter - apenas aprovados
+const aprovados = alunos.filter(aluno => aluno.nota >= 7);
+console.log('Aprovados:', aprovados);
+// [{ nome: 'João', nota: 7.5 }, { nome: 'Maria', nota: 9.0 }, { nome: 'Ana', nota: 8.5 }]
+
+// 4. reduce - média das notas
+const media = alunos.reduce((acc, aluno) => acc + aluno.nota, 0) / alunos.length;
+console.log('Média da turma:', media.toFixed(2)); // 7.62
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Desafios Práticos
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercícios</h1>
+                <h2>Vamos praticar?</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 5</h3>
+                <p><strong>Objetivo:</strong> Crie um sistema que gerencie um 
+                    carrinho de compras com as seguintes funcionalidades:</p>
+                <ul>
+                    <li>Adicionar produto ao carrinho</li>
+                    <li>Calcular o valor total</li>
+                    <li>Aplicar desconto de 10% para compras acima de R$ 100</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio5');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio5">
+                    <pre>
+const carrinho = [];
+
+function adicionarProduto(nome, preco) {
+    carrinho.push({ nome, preco });
+}
+
+function calcularTotal() {
+    return carrinho.reduce((acc, item) => acc + item.preco, 0);
+}
+
+function aplicarDesconto(total) {
+    if (total > 100) {
+        return total * 0.9;
+    }
+    return total;
+}
+
+// Exemplo de uso
+adicionarProduto('Camisa', 50);
+adicionarProduto('Calça', 70);
+adicionarProduto('Tênis', 120);
+let total = calcularTotal();
+console.log('Total sem desconto:', total); // Total sem desconto: 240
+total = aplicarDesconto(total);
+console.log('Total com desconto:', total); // Total com desconto: 216
+                    </pre>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 6</h3>
+                <p><strong>Objetivo:</strong> Crie um sistema de gerenciamento 
+                    de tarefas que filtre e organize por prioridade.</p>
+                <ul>
+                    <li>Adicionar tarefa</li>
+                    <li>Listar tarefas</li>
+                    <li>Filtrar tarefas por prioridade</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio6');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio6">
+                    <pre>
+const tarefas = [];
+
+function adicionarTarefa(descricao, prioridade) {
+    tarefas.push({ descricao, prioridade });
+}
+
+function listarTarefas() {
+    return tarefas; // Retorna todas as tarefas
+}
+
+function filtrarTarefasPorPrioridade(prioridade) {
+    return tarefas.filter(tarefa => tarefa.prioridade === prioridade);
+}
+
+// Exemplo de uso
+adicionarTarefa('Estudar JavaScript', 'alta');
+adicionarTarefa('Fazer compras', 'média');
+adicionarTarefa('Lavar o carro', 'baixa');  
+
+const todasTarefas = listarTarefas();
+console.log('Todas as tarefas:', todasTarefas); 
+// Todas as tarefas: [{...}, {...}, {...}]
+
+const tarefasAlta = filtrarTarefasPorPrioridade('alta');
+console.log('Tarefas de alta prioridade:', tarefasAlta); 
+// Tarefas de alta prioridade: [{...}, {...}]
+                    </pre>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 7</h3>
+                <p><strong>Objetivo:</strong> Analise dados de vendas para 
+                    encontrar o total de vendas, a média de vendas e o mês 
+                    com maior valor vendido.</p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio7');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio7">
+                    <pre>
+const vendas = [
+    { mes: 'Janeiro', valor: 15000 },
+    { mes: 'Fevereiro', valor: 18000 },
+    { mes: 'Março', valor: 22000 },
+    { mes: 'Abril', valor: 19000 },
+    { mes: 'Maio', valor: 25000 },
+    { mes: 'Junho', valor: 21000 }
+];
+
+function analisarVendas(vendas) {
+    const totalAnual = vendas.reduce((acc, venda) => acc + venda.valor, 0);
+    const mediaMensal = totalAnual / vendas.length;
+    const melhorMes = vendas.reduce((melhor, atual) => {
+        return atual.valor &gt; melhor.valor ? atual : melhor;
+    });
+    console.log('=== Análise de Vendas ===');
+    console.log(`Total Anual: R$ ${totalAnual}`);
+    console.log(`Média Mensal: R$ ${mediaMensal}`);
+    console.log(`Melhor Mês: ${melhorMes.mes} (R$ ${melhorMes.valor})`);
+}
+
+// Exemplo de uso
+analisarVendas(vendas);
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 8</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Conceitos Aprendidos:</h3>
+                <ul>
+                    <li>✅ Como modificar elementos de um array</li>
+                    <li>✅ Manipular arrays com métodos básicos e avançados</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Hora de construir uma aplicação real!</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>

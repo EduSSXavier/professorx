@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação JavaScript</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+                    alt="JavaScript" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Programação JavaScript</h1>
+                <h2>Aula 10<br>Projeto Prático</h2>
+                <p>
+                    Vamos construir algo com aquilo que já aprendemos
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Arrays, Objetos Literais e Estratégias de Modelagem
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">exercise</span>
+                        Regras de Negócio em Aplicações Simples
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Introdução a Interfces Gráficas
+                    </p>
+                </div>
+                <br>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Introdução</h1>
+                <h2>O que svamos fazer hoje?</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Objetivo</h3>
+                <div class="duas-colunas">
+                    <div>
+                        <p>Iremos construir um sistema funcional de registro de 
+                            visitantes em um prédio comercial integrando conceitos 
+                            de arrays, objetos, funções, loops e condicionais.</p>
+                        <br>
+                        <p>O sistema também vai construir uma interface gráfica 
+                            simples, manipulando elementos do DOM (hoje teremos 
+                            apenas uma introdução a este tópico, que será abordado 
+                            com mais profundidade em aulas futuras).</p>
+                        <br>
+                        <p>Ao final, teremos uma aplicação simples que pode ser 
+                            expandida para incluir mais funcionalidades.</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/funcao.png" class="imagem">
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                        Detalhes da Aplicação</h3>
+                <ul>
+                    <li>A aplicação registrará entradas e saídas de visitantes a um prédio comercial</li>
+                    <li>Também serão emitidos 3 tipos de relatórios:
+                        <ul>
+                            <li>Visitantes por data</li>
+                            <li>Visitantes por empresa</li>
+                            <li>Todas as visitas</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo de Tela</h3>
+                <img src="./imagens/tela_app_visitantes.png" class="imagem" width="90%">
+                <br><br>
+                <div class="exercicio">
+                    <h3><span class="material-symbols-outlined">exercise</span>
+                        Tarefa</h3>
+                    <p>Crie um um arquivo chamado <strong>index.html</strong>
+                    contendo as definições dos dados da aplicação.</p>
+                    <p>Opcionalmente, crie também um arquivo chamado 
+                        <strong>estilo.css</strong> contendo as definições de 
+                        estilo da aplicação (ou inclua isso no arquivo 
+                        <strong>index.html</strong>).</p>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Dados</h1>
+                <h2>Como vamos armazenar as informações?</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Proprietários</h3>
+                <p>Empresas e profissionais que possuem unidades no prédio para serem 
+                    visitados</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+const proprietarios = [ 
+    { id: 1, nome: "Dr. Carlos Mendes", sala: "101", especialidade: "Advocacia" }, 
+    { id: 2, nome: "Dra. Ana Costa", sala: "205", especialidade: "Contabilidade" }, 
+    { id: 3, nome: "Eng. Pedro Santos", sala: "310", especialidade: "Engenharia" } 
+]; 
+                        </pre>
+                    </div>
+                </div>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Visitantes</h3>
+                <p>Registros de visitas que o prédio recebe</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+// Modelo de registro de UMA visita
+const visita = {
+    id: 1, visitante: "Maria Oliveira", 
+    documento: "987.654.321-00", proprietarioId: 2, 
+    data: "2025-10-28", horaEntrada: "14:30", 
+    horaSaida: null, motivo: "Reunião contábil"
+}
+
+// Array para armazenar todas as visitas
+const visitas = [visita1, visita2, visita3, ...];
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <div class="exercicio">
+                    <h3><span class="material-symbols-outlined">exercise</span>
+                        Tarefa</h3>
+                    <p>Crie um um arquivo chamado <strong>dados.js</strong>
+                    contendo as definições dos dados da aplicação.</p>
+                    <p>Inclua a chamada a este arquivo no <strong>index.html</strong>.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Regras de Negócio</h1>
+                <h2>Como funciona a aplicação?</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Funções</h3>
+                <p>Sua aplicação precisa definir como cada procedimento deve ser 
+                    realizado.</p>
+                <p>Vamos criar funções para realizar as principais atividades.</p>
+                <br><br>
+                <table>
+                    <tr>
+                        <th>Função</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tr>
+                        <td>registrarEntrada(visitante, documento, proprietarioId, motivo)</td>
+                        <td>Registra a entrada de um visitante no prédio.</td>
+                    </tr>
+                    <tr>
+                        <td>registrarSaida(visitaId)</td>
+                        <td>Registra a saída de um visitante do prédio.</td>
+                    </tr>
+                    <tr>
+                        <td>gerarRelatorioPorData(data)</td>
+                        <td>Gera um relatório de todas as visitas em uma data específica.</td>
+                    </tr>
+                    <tr>
+                        <td>gerarRelatorioPorProprietario(proprietarioId)</td>
+                        <td>Gera um relatório de todas as visitas para um proprietário específico.</td>
+                    </tr>
+                    <tr>
+                        <td>gerarRelatorioCompleto()</td>
+                        <td>Gera um relatório completo de todas as visitas registradas.</td>
+                    </tr>
+                </table>
+                <br><br>
+                <div class="exercicio">
+                    <h3><span class="material-symbols-outlined">exercise</span>
+                        Tarefa</h3>
+                    <p>Crie um um arquivo chamado <strong>funcoes.js</strong>
+                    contendo as definições das funções da aplicação.</p>
+                    <p>Inclua a chamada a este arquivo no <strong>index.html</strong>.</p>
+                    <div class="destaque">
+                        <p><strong>Dica:</strong> Utilize o comando <code>filter</code> 
+                            para obter os dados de relatorios por data e por proprietário.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+         
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Unindo Regras e Interface</h1>
+                <h2>Hora de montar a aplicação.</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Gestão de Interface</h3>
+                <p>Agora vamos integrar as regras de negócio com a interface do usuário.</p>
+                <p>Utilizaremos comandos de manipulação do DOM para atualizar a interface 
+                    com as informações das visitas.</p>
+                <div class="destaque">
+                    <p><strong>Importante:</strong> Esta ainda não é uma aula completa
+                        sobre manipulação do DOM. Iremos abordar este tópico com mais
+                        profundidade em aulas futuras. Aqui faremos apenas uma introdução
+                        simples ao tema.</p>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Capturando Dados do Formulário</h3>
+                <div class="exemplo">
+                    <p>Para capturar os dados de um campo do formulário, utilizaremos
+                        o método <strong><code>getElementById</code></strong> da 
+                        seguinte maneira:</p>
+                    <div class="codigo">
+                        <pre>
+// No documento HTML o campo de entrada possui o id "campoDeEntrada"
+&lt;input type="text" id="campoDeEntrada" placeholder="Nome do visitante"&gt;
+
+// No script JavaScript o valor do campo de entrada é capturado em uma variável
+const valorCampo = document.getElementById("campoDeEntrada").value;
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Definindo comportamento de botões</h3>
+                <div class="exemplo">
+                    <p>Para definir o comportamento de um botão, utilizaremos
+                        o método <strong><code>onclick</code></strong> da 
+                        seguinte maneira:</p>
+                    <div class="codigo">
+                        <pre>
+// No documento HTML o botão define o comportamento do click
+&lt;button id="botao1" onclick="minhaFuncao()">Clique Aqui&lt;/button&gt;
+
+// No script JavaScript a função acionada pela ação do botão é definida
+function minhaFuncao() {
+    // Ação a ser executada quando o botão é clicado
+    console.log("Botão clicado!");
+}
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exibindo resultados na página</h3>
+                <div class="exemplo">
+                    <p>Para exibir resultados na página, podemos manipular o DOM
+                        utilizando o método <strong><code>innerHTML</code></strong> 
+                        da seguinte maneira:</p>
+                    <div class="codigo">
+                        <pre>
+// No documento HTML o campo de saída possui o id "campoDeSaida"
+&lt;div id="campoDeSaida"&gt;
+&lt;/div&gt;
+
+// No script JavaScript o campo de saída tem seu conteúdo HTML modificado
+const campoDeSaida = document.getElementById("campoDeSaida");
+campoDeSaida.innerHTML = "&lt;p&gt;Novo conteúdo adicionado!&lt;/p&gt;";
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="exercicio">
+                    <h3><span class="material-symbols-outlined">exercise</span>
+                        Tarefa</h3>
+                    <p>Crie um um arquivo chamado <strong>interface.js</strong>
+                    contendo os controles/funções de manipulação da tela.</p>
+                    <p>Inclua a chamada a este arquivo no <strong>index.html</strong>.</p>
+                    <p>Ainda no arquivo <strong>index.html</strong>, configure
+                        as ações em cada botão e nomeie os campos de entrada e saída
+                        com IDs apropriados para serem manipulados pelo script.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 10</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Conceitos Aprendidos:</h3>
+                <ul>
+                    <li>✅ Como criar e manipular objetos literias</li>
+                    <li>✅ Como criar aplicações simples usando o conceito de objetos</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Vamos trabalhar na interface!</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cep = '01001000'; // Exemplo de CEP
+        const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+        fetch(url)
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            // Exemplo: Acessar o nome da rua e a cidade
+            console.log('Logradouro:', data.logradouro);
+            console.log('Localidade:', data.localidade);
+        })
+        .catch(error => {
+            console.error('Erro ao buscar CEP:', error);
+        });
+    </script>
+</body>
+</html>
