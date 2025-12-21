@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python e Banco de Dados</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin8-EZFTd9XQyCOGn3Rx3a3fC3wfhIKn6iu2f68gwNqokzm3ZxqCue1y31QgxPQEjIrs" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Python + Banco de Dados
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5L1o6fnsZF1my1qkyrzxNfSJOtAp--RitQ&s" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">    
+                </h1>
+                <h2>Aula 12<br>Programação Orientada a Objetos - Parte 2</h2>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Herança e Polimorfismo
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Exercícios Práticos
+                    </p>
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Revisão de Classes e Objetos
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Revisão de Classes e Objetos</h1>
+                <h2>Programação Orientada a Objetos - Parte 2</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            O que são Classes?</h3>
+                        <p>Uma classe é como um molde ou modelo que define as 
+                            características (atributos) e comportamentos (métodos)
+                            que os objetos criados a partir dela terão.</p>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            O que são Objetos?</h3>
+                        <p>Um objeto é uma instância de uma classe. É a 
+                            concretização do molde definido pela classe.</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/poo2.jpg" class="imagem">                        
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplo Prático</h3>
+                <div class="codigo">
+                    <pre>
+# --- Definindo uma classe --------------
+class Carro:
+    # Método construtor (inicializador)
+    def __init__(self, marca, modelo, ano):
+        self.marca = marca# Atributo
+        self.modelo = modelo# Atributo
+        self.ano = ano# Atributo
+        self.velocidade = 0# Atributo
+    # Método
+    def acelerar(self, incremento):
+        self.velocidade += incremento
+        print(f"O {self.modelo} acelerou para {self.velocidade} km/h")
+    # Método
+    def frear(self):
+        self.velocidade = 0
+        print(f"O {self.modelo} freou completamente")
+    # Método para exibir informações
+    def exibir_info(self):
+        print(f"Carro: {self.marca} {self.modelo} ({self.ano})")
+
+# --- Criando objetos (instâncias da classe Carro) --------------
+carro1 = Carro("Toyota", "Corolla", 2022)
+carro2 = Carro("Honda", "Civic", 2023)
+
+# --- Usando os métodos --------------
+carro1.exibir_info()
+carro1.acelerar(50)
+carro1.acelerar(30)
+carro1.frear()
+                    </pre>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceitos importantes:</h3>
+                <ul>
+                    <li><strong>Classe:</strong> Molde que define atributos e métodos</li>
+                    <li><strong>Objeto:</strong> Instância concreta de uma classe</li>
+                    <li><strong>Atributos:</strong> Características do objeto (variáveis)</li>
+                    <li><strong>Métodos:</strong> Comportamentos do objeto (funções)</li>
+                    <li><strong>Instância:</strong> Objeto criado a partir de uma classe</li>
+                    <li><strong>__init__</strong>: método construtor que inicializa os atributos</li>
+                    <li><strong>self</strong>: referência à própria instância do objeto</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Herança
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Herança entre Classes</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    O que é Herança?</h3>
+                <p>A herança permite que uma classe (classe filha ou subclasse) 
+                    herde atributos e métodos de outra classe (classe mãe/pai ou 
+                    superclasse). Isso promove reutilização de código e estabelece 
+                    relações hierárquicas.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Sintaxe Básica:</h3>
+                    <div class="codigo">
+                        <pre>
+class ClassePai:
+    # código da classe pai
+    pass
+
+class ClasseFilha(ClassePai):
+    # código da classe filha
+    pass
+                        </pre>
+                    </div>
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo Prático:</h3>
+                    <div class="codigo">
+                        <pre>
+# --- Classe base (superclasse) ---
+class Animal:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def fazer_som(self):
+        print("O animal faz um som")
+
+    def apresentar(self):
+        print(f"Nome: {self.nome}, Idade: {self.idade} anos")
+
+# --- Classe derivada (subclasse) ---
+class Cachorro(Animal):
+    def __init__(self, nome, idade, raca):
+    # Chama o construtor da classe pai
+    Animal.__init__(self, nome, idade)
+    self.raca = raca
+
+    # Sobrescrevendo o método da classe pai
+    def fazer_som(self):
+        print(f"{self.nome} late: Au au!")
+
+    # Método específico da classe Cachorro
+    def buscar_bola(self):
+        print(f"{self.nome} está buscando a bola!")
+
+# --- Outra classe derivada ---
+class Gato(Animal):
+    def __init__(self, nome, idade, cor):
+        Animal.__init__(self, nome, idade)
+        self.cor = cor
+
+    def fazer_som(self):
+        print(f"{self.nome} mia: Miau!")
+    
+    # Método específico da classe Gato
+    def arranhar(self):
+        print(f"{self.nome} está arranhando o sofá!")
+
+# --- Testando as classes ---
+rex = Cachorro("Rex", 5, "Labrador")
+rex.apresentar()# Método herdado
+rex.fazer_som()# Método sobrescrito
+rex.buscar_bola()# Método próprio
+print()
+mimi = Gato("Mimi", 3, "Branco")
+mimi.apresentar()# Método herdado
+mimi.fazer_som()# Método sobrescrito
+mimi.arranhar()# Método próprio
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceitos importantes:</h3>
+                <ul>
+                    <li>A classe filha herda todos os atributos e métodos da classe pai</li>
+                    <li>A classe filha pode adicionar novos atributos e métodos</li>
+                    <li>A classe filha pode sobrescrever métodos da classe pai</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercícios de Fixação - Herança</h1>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 1:</h3>
+                <p><strong>Objetivo: </strong> Crie uma classe <strong>Veiculo</strong>
+                    com atributos marca e ano , e um método info() que exibe essas
+                    informações.</p>
+                <p>Em seguida, crie duas classes filhas: Moto e Caminhao , cada uma 
+                    com um atributo adicional próprio (cilindradas para Moto e 
+                    capacidade_carga para Caminhao).</p>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 2:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe <strong>Forma</strong>
+                    com um método calcular_area() que retorna 0.</p>
+                <p>Em seguida, crie classes filhas <strong>Retangulo</strong> e 
+                    <strong>Circulo</strong> que sobrescrevem esse método para 
+                    calcular a área corretamente (use base * altura para retângulo 
+                    e 3.14 * raio ** 2 para círculo).</p>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 3:</h3>
+                <p><strong>Objetivo:</strong> Crie uma hierarquia de classes: 
+                    <strong>ContaBancaria</strong> como classe base com atributos 
+                    titular e saldo , e métodos depositar() e sacar().</p>
+                <p>Em seguida, crie uma classe filha <strong>ContaPoupanca</strong>
+                    que adiciona um método render_juros() que aumenta o saldo em 1%.</p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Polimorfismo
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Polimorfismo</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    O que é Polimorfismo?</h3>
+                <p>Polimorfismo significa "muitas formas". Na POO, refere-se à 
+                    capacidade de objetos de diferentes classes responderem ao 
+                    mesmo método de maneiras diferentes.</p>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Polimorfismo em Python</h3>
+                <p>Python possui tipagem dinâmica (duck typing: "se anda como 
+                    um pato e faz quack como um pato, então é um pato"). Isso 
+                    significa que o Python não verifica o tipo do objeto em tempo 
+                    de compilação, apenas se o objeto possui o método chamado.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplos:</h3>
+                    <div class="codigo">
+                        <pre>
+class Passaro:
+    def voar(self):
+        print("O pássaro está voando no céu")
+    def emitir_som(self):
+        print("O pássaro canta")
+
+class Aviao:
+    def voar(self):
+        print("O avião está voando a 10.000 metros de altitude")
+    def emitir_som(self):
+        print("O avião faz: vrummmmm")
+
+class Pinguim:
+    def voar(self):
+        print("O pinguim não consegue voar, mas nada muito bem!")
+    def emitir_som(self):
+        print("O pinguim faz: wak wak")
+
+# Função que aceita qualquer objeto com método voar()
+def fazer_voar(objeto):
+    objeto.voar()
+    objeto.emitir_som()
+
+# Testando o polimorfismo
+passaro = Passaro()
+aviao = Aviao()
+pinguim = Pinguim()
+print("=== Polimorfismo em Ação ===")
+fazer_voar(passaro)
+print()
+fazer_voar(aviao)
+print()
+fazer_voar(pinguim)
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Limitações do Python</h3>
+                <h4>1. Ausência de Sobrecarga de Métodos Tradicional</h4>
+                <p>Em Python, a sobrecarga de métodos tradicional (overloading)
+                    não é suportada. Se você definir múltiplos métodos com o 
+                    mesmo nome, o último definido sobrescreverá os anteriores.</p>
+                <div class="codigo">
+                    <pre>
+class Calculadora:
+    # Em Java/C++, poderíamos ter múltiplos métodos soma()
+    # com diferentes assinaturas. Em Python, isso NÃO funciona:
+    def soma(self, a, b):
+        return a + b        
+    # Este método substitui o anterior!
+    def soma(self, a, b, c):
+        return a + b + c
+
+calc = Calculadora()
+# calc.soma(2, 3) # Retoarna um ERRO! Precisa de 3 argumentos
+print(calc.soma(2, 3, 4)) # Funciona
+
+# Solução em Python: usar argumentos padrão ou *args
+class CalculadoraMelhorada:
+    def soma(self, *numeros):
+        return sum(numeros)
+
+calc2 = CalculadoraMelhorada()
+print(calc2.soma(2, 3)) # Funciona
+print(calc2.soma(2, 3, 4, 5)) # Funciona também
+                    </pre>
+                </div>
+                <h4>2. Não há Verificação de Tipo em Tempo de Compilação</h4>
+                <p>Python permite passar qualquer objeto para qualquer função, 
+                    desde que o objeto tenha os métodos necessários. Isso é 
+                    muito flexível, mas pode causar erros em tempo de execução.</p>
+                <div class="codigo">
+                    <pre>
+def processar_pagamento(conta):
+    conta.debitar(100)  # Python só verifica se o método existe em runtime
+                        # Isso pode causar erro se conta não tiver o método debitar()
+                    </pre>
+                </div>
+                <h4>3. Não há Interfaces ou Classes Abstratas Nativas Estritas</h4>
+                <p>Embora Python tenha o módulo abc (Abstract Base Classes), o uso é 
+                    opcional e não é obrigatório como em Java.</p>
+                <div class="codigo">
+                    <pre>
+from abc import ABC, abstractmethod
+
+class FormaAbstrata(ABC):
+    @abstractmethod
+    def calcular_area(self):
+        pass
+
+class Quadrado(FormaAbstrata):
+    pass 
+    # ERRO: não implementou calcular_area()
+
+class Circulo(FormaAbstrata):
+    def __init__(self, raio):
+        self.raio = raio
+    def calcular_area(self):
+        return 3.14 * self.raio ** 2
+    # Funciona porque implementou o método abstrato
+
+c = Circulo(5)
+print(f"Área do círculo: {c.calcular_area()}")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercícios de Fixação - Polimorfismo</h1>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 4:</h3>
+                <p><strong>Objetivo: </strong> Crie três classes: <strong>Cachorro</strong>, 
+                    <strong>Gato</strong> e <strong>Passaro</strong>. Todas devem ter um 
+                    método fazer_som() que imprime o som característico do animal.</p>
+                <p>Em seguida, crie uma função orquestra_animal(animais) que recebe uma 
+                    lista de animais e, em seguida, percorre a lista de animais e faz 
+                    todos emitirem seus sons.</p>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 5:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe <strong>Documento</strong>
+                    com método abrir() . Crie classes filhas <strong>PDF</strong>, 
+                    <strong>Word</strong> e <strong>Excel</strong>, cada uma sobrescrevendo 
+                    o método abrir() com mensagens diferentes.</p>
+                <p>Em seguida, crie uma função que recebe uma lista de documentos e abre 
+                    todos eles.</p>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 3:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe abstrata 
+                    <strong>Pagamento</strong> com método abstrato processar() . 
+                    Crie classes concretas <strong>PagamentoCartao</strong>, 
+                    <strong>PagamentoPix</strong> e <strong>PagamentoDinheiro</strong> 
+                    que implementam o método.</p>
+                    <p>Em seguida, teste criando instâncias e processando diferentes 
+                        tipos de pagamento.</p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Uso de super()
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>super()</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    O que é super()?</h3>
+                <p>super() é uma função em Python que permite chamar métodos da 
+                    classe pai de uma forma segura e elegante.</p>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Por que usar super()?</h3>
+                <ul>
+                    <li><strong>Manutenibilidade:</strong> Se mudar o nome da classe 
+                        pai, nao precisa atualizar múltiplas referências</li>
+                    <li><strong>Herança Múltipla:</strong> super() funciona corretamente 
+                        com herança múltipla (um filho herdando de multiplos pais)</li>
+                    <li><strong>Código mais limpo:</strong> Torna o código mais legível 
+                        e profissional</li>
+                </ul>
+
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+        print(f"Construtor de Pessoa chamado para {nome}")
+
+    def apresentar(self):
+        print(f"Olá, meu nome é {self.nome} e tenho {self.idade} anos")
+
+class Estudante(Pessoa):
+    def __init__(self, nome, idade, matricula):
+        # Usando super() para chamar o construtor da classe pai
+        super().__init__(nome, idade)
+        self.matricula = matricula
+        print(f"Construtor de Estudante chamado")
+
+    def apresentar(self):
+        # Usando super() para chamar o método da classe pai
+        super().apresentar()
+        print(f"Minha matrícula é {self.matricula}")
+
+class Atleta(Pessoa):
+    def __init__(self, nome, idade, esporte):
+        super().__init__(nome, idade)
+        self.esporte = esporte
+
+    def apresentar(self):
+        super().apresentar()
+        print(f"Eu pratico {self.esporte}")
+
+# Testando as classes
+
+print("=== Criando Estudante ===")
+est = Estudante("Ana", 20, "2023001")
+est.apresentar()
+print("\n=== Criando Atleta ===")
+atl = Atleta("Carlos", 22, "Futebol")
+atl.apresentar()
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Herança Múltipla</h3>
+                <p>Herança múltipla é quando uma classe pode herdar atributos e 
+                    métodos de mais de uma classe pai ao mesmo tempo.</p>
+                <p>Python é uma das poucas linguagens populares que suportam 
+                    herança múltipla nativamente (junto com C++, por exemplo). 
+                    Em Java ou C#, isso é proibido diretamente, mas simulado com 
+                    interfaces.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+class Animal:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+        print(f">>> Animal.__init__ chamado -> {self.nome}, {self.idade} anos")
+
+class Voador:
+    def __init__(self, altitude_maxima):
+        self.altitude_maxima = altitude_maxima
+        print(f">>> Voador.__init__ chamado -> altitude máxima {self.altitude_maxima}m")
+
+class Nadador:
+    def __init__(self, profundidade_maxima):
+        self.profundidade_maxima = profundidade_maxima
+        print(f">>> Nadador.__init__ chamado -> profundidade máxima {self.profundidade_maxima}m")
+
+# Ordem das classes pai importa para o MRO!
+class Pato(Animal, Voador, Nadador):
+    def __init__(self, nome, idade, altitude_maxima=100, profundidade_maxima=5):
+        self.especie = "Pato"
+        print("Pato.__init__ começando...")
+        Animal.__init__(self, nome, idade)
+        Voador.__init__(self, altitude_maxima)
+        Nadador.__init__(self, profundidade_maxima)
+        print("Pato completamente inicializado!\n")
+
+# Testando
+pato1 = Pato(
+    nome="Donald",
+    idade=7,
+    altitude_maxima=150,
+    profundidade_maxima=8
+)
+
+print("Atributos do pato:")
+print(f"Nome: {pato1.nome}")
+print(f"Idade: {pato1.idade}")
+print(f"Altitude máxima: {pato1.altitude_maxima}m")
+print(f"Profundidade máxima: {pato1.profundidade_maxima}m")
+                        </pre>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Limitações do Python</h3>
+                <h4>1. Ausência de Sobrecarga de Métodos Tradicional</h4>
+                <p>Em Python, a sobrecarga de métodos tradicional (overloading)
+                    não é suportada. Se você definir múltiplos métodos com o 
+                    mesmo nome, o último definido sobrescreverá os anteriores.</p>
+                <div class="codigo">
+                    <pre>
+class Calculadora:
+    # Em Java/C++, poderíamos ter múltiplos métodos soma()
+    # com diferentes assinaturas. Em Python, isso NÃO funciona:
+    def soma(self, a, b):
+        return a + b        
+    # Este método substitui o anterior!
+    def soma(self, a, b, c):
+        return a + b + c
+
+calc = Calculadora()
+# calc.soma(2, 3) # Retoarna um ERRO! Precisa de 3 argumentos
+print(calc.soma(2, 3, 4)) # Funciona
+
+# Solução em Python: usar argumentos padrão ou *args
+class CalculadoraMelhorada:
+    def soma(self, *numeros):
+        return sum(numeros)
+
+calc2 = CalculadoraMelhorada()
+print(calc2.soma(2, 3)) # Funciona
+print(calc2.soma(2, 3, 4, 5)) # Funciona também
+                    </pre>
+                </div>
+                <h4>2. Não há Verificação de Tipo em Tempo de Compilação</h4>
+                <p>Python permite passar qualquer objeto para qualquer função, 
+                    desde que o objeto tenha os métodos necessários. Isso é 
+                    muito flexível, mas pode causar erros em tempo de execução.</p>
+                <div class="codigo">
+                    <pre>
+def processar_pagamento(conta):
+    conta.debitar(100)  # Python só verifica se o método existe em runtime
+                        # Isso pode causar erro se conta não tiver o método debitar()
+                    </pre>
+                </div>
+                <h4>3. Não há Interfaces ou Classes Abstratas Nativas Estritas</h4>
+                <p>Embora Python tenha o módulo abc (Abstract Base Classes), o uso é 
+                    opcional e não é obrigatório como em Java.</p>
+                <div class="codigo">
+                    <pre>
+from abc import ABC, abstractmethod
+
+class FormaAbstrata(ABC):
+    @abstractmethod
+    def calcular_area(self):
+        pass
+
+class Quadrado(FormaAbstrata):
+    pass 
+    # ERRO: não implementou calcular_area()
+
+class Circulo(FormaAbstrata):
+    def __init__(self, raio):
+        self.raio = raio
+    def calcular_area(self):
+        return 3.14 * self.raio ** 2
+    # Funciona porque implementou o método abstrato
+
+c = Circulo(5)
+print(f"Área do círculo: {c.calcular_area()}")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercícios de Fixação - super()</h1>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 7:</h3>
+                <p><strong>Objetivo: </strong> Crie uma classe <strong>Eletronico</strong>
+                    com atributos marca e preco , e um método ligar().</p>
+                <p>Em seguida, crie uma classe <strong>Smartphone</strong> que herda de
+                    Eletronico , adiciona o atributo sistema_operacional , e sobrescreve 
+                    o método ligar() chamando o método da classe pai com super() e 
+                    depois adicionando comportamento adicional.</p>
+            </div>
+            <br><br>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 8:</h3>
+                <p><strong>Objetivo:</strong> Crie uma hierarquia de três níveis: 
+                    <strong>SerVivi → Animal → Mamifero</strong> . Cada classe deve 
+                    ter um construtor que imprime uma mensagem e chama o construtor 
+                    da 'classe pai usando super(). Crie uma instância de Mamifero e 
+                    observe a ordem de chamada dos construtores.</p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Projeto Prático
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Projeto Prático</h1>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Projeto Pronto: Sistema de Funcionários</h3>
+                <p>Vamos observar um sistema de gerenciamento de funcionários 
+                    aplicando os conceitos aprendidos.</p>
+                <div class="codigo">
+                    <pre>
+class Funcionario:
+    """Classe base para todos os funcionários"""
+
+    contador_funcionarios = 0 # Atributo de classe (não das instâncias)
+
+    def __init__(self, nome, cpf, salario_base):
+        self.nome = nome
+        self.cpf = cpf
+        self.salario_base = salario_base
+        Funcionario.contador_funcionarios += 1
+        self.id = Funcionario.contador_funcionarios
+
+    def calcular_salario(self):
+        """Calcula o salário do funcionário"""
+        return self.salario_base
+
+    def exibir_info(self):
+        """Exibe informações básicas do funcionário"""
+        print(f"ID: {self.id}")
+        print(f"Nome: {self.nome}")
+        print(f"CPF: {self.cpf}")
+        print(f"Salário: R$ {self.calcular_salario():.2f}")
+
+    def __str__(self):
+        return f"{self.nome} (ID: {self.id})"
+
+class Professor(Funcionario):
+    """Classe para professores"""
+    def __init__(self, nome, cpf, salario_base, disciplina, nivel):
+        super().__init__(nome, cpf, salario_base)
+        self.disciplina = disciplina
+        self.nivel = nivel # "Fundamental", "Médio", "Superior"
+        self.bonus_nivel = {"Fundamental": 1.0, "Médio": 1.2, "Superior": 1.5}
+
+    def calcular_salario(self):
+        """Professores recebem bônus por nível de ensino"""
+        multiplicador = self.bonus_nivel.get(self.nivel, 1.0)
+        return self.salario_base * multiplicador
+
+    def exibir_info(self):
+        super().exibir_info()
+        print(f"Disciplina: {self.disciplina}")
+        print(f"Nível: {self.nivel}")
+
+    def dar_aula(self):
+        print(f"{self.nome} está ministrando aula de {self.disciplina}")
+
+class Coordenador(Funcionario):
+    """Classe para coordenadores"""
+    def __init__(self, nome, cpf, salario_base, setor, numero_funcionarios):
+        super().__init__(nome, cpf, salario_base)
+        self.setor = setor
+        self.numero_funcionarios = numero_funcionarios
+
+    def calcular_salario(self):
+        """Coordenadores recebem bônus por funcionário supervisionado"""
+        bonus = self.numero_funcionarios * 100
+        return self.salario_base + bonus
+        
+    def exibir_info(self):
+        super().exibir_info()
+        print(f"Setor: {self.setor}")
+        print(f"Funcionários sob supervisão: {self.numero_funcionarios}")
+
+    def organizar_reuniao(self):
+        print(f"{self.nome} está organizando reunião do setor {self.setor}")
+
+class Diretor(Coordenador):
+    """Classe para diretores (herda de Coordenador)"""
+    def __init__(self, nome, cpf, salario_base, setor, numero_funcionarios, bonus_anual):
+        super().__init__(nome, cpf, salario_base, setor, numero_funcionarios)
+        self.bonus_anual = bonus_anual
+
+    def calcular_salario(self):
+        """Diretores recebem salário de coordenador + bônus anual mensal"""
+        salario_coordenador = super().calcular_salario()
+        return salario_coordenador + (self.bonus_anual / 12)
+
+    def exibir_info(self):
+        super().exibir_info()
+        print(f"Bônus Anual: R$ {self.bonus_anual:.2f}")
+
+    def tomar_decisao_estrategica(self):
+        print(f"{self.nome} está tomando decisões estratégicas para a instituição")
+
+# Testando o sistema
+print("=== SISTEMA DE GERENCIAMENTO DE FUNCIONÁRIOS ===\n")
+
+# Criando funcionários
+prof1 = Professor("Maria Silva", "123.456.789-00", 3000, "Matemática", "Médio")
+prof2 = Professor("João Santos", "987.654.321-00", 3000, "Física", "Superior")
+coord1 = Coordenador("Ana Paula", "456.789.123-00", 5000, "Pedagógico", 15)
+diretor1 = Diretor("Carlos Eduardo", "789.123.456-00", 8000, "Geral", 50, 24000)
+
+# Lista de funcionários (polimorfismo)
+funcionarios = [prof1, prof2, coord1, diretor1]
+
+# Exibindo informações de todos
+for func in funcionarios:
+    print("="*50)
+    func.exibir_info()
+    print()
+
+# Demonstrando métodos específicos
+print("="*50)
+print("=== AÇÕES ESPECÍFICAS ===\n")
+prof1.dar_aula()
+coord1.organizar_reuniao()
+diretor1.tomar_decisao_estrategica()
+
+# Calculando folha de pagamento total
+print("\n" + "="*50)
+print("=== FOLHA DE PAGAMENTO ===\n")
+total_folha = sum(func.calcular_salario() for func in funcionarios)
+print(f"Total de funcionários: {len(funcionarios)}")
+print(f"Custo total da folha: R$ {total_folha:.2f}")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Projeto Prático</h1>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Projeto: Gerenciamento de Oficina</h3>
+                <p>Agora vamos colocar mãos à obra.</p>
+                <p>Você deve criar um sistema completo para gerenciar os 
+                    funcionários de uma oficina mecânica. O sistema deve
+                    incluir os seguintes requisitos:</p>
+                <ol>
+                    <li><strong>Classe Base: Funcionario</strong><br>
+                        Atributos: nome, cpf, salario_base, data_admissao<br>
+                        Métodos: calcular_salario(), bater_ponto(), exibir_info()</li>
+                    <li><strong>Classes Derivadas:</strong>
+                        <ul>
+                            <li><strong>Mecânico</strong>
+                                <ul>
+                                    <li>Atributos adicionais: especialidade (motor, 
+                                        suspensão, freios, etc.), quantidade_servicos_mes,
+                                        salário_base
+                                    </li>
+                                    <li>Métodos específicos: realizar_diagnostico(),
+                                        calcular_salario() (salario_base + (quantidade_servicos 
+                                        * 50))
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>Funileiro</strong>
+                                <ul>
+                                    <li>Atributos adicionais: nivel_experiencia 
+                                        (junior, pleno, senior), usa_equipamento_solda 
+                                        (boolean)
+                                    </li>
+                                    <li>Métodos específicos: reparar_lataria(), 
+                                        calcular_salario() (salario_base * 
+                                        multiplicador_nivel + bonus_equipamento)<br>
+                                        multiplicador:'Junior: 1.0, Pleno: 1.3, Senior: 1.6<br>
+                                        Bônus equipamento: R$ 200 se usa_equipamento_solda
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Funcionalidades do Sistema</strong>
+                        <ul>
+                            <li>Cadastro de funcionários: adicionar novos funcionários 
+                                ao sistema</li>
+                            <li>Listagem de funcionários: exibir todos os funcionários 
+                                cadastrados com suas informações</li>
+                            <li>Busca por tipo: listar apenas mecânicos, ou apenas 
+                                funileiros</li>
+                            <li>Cálculo de folha de pagamento: calcular o total de 
+                                folha de pagamento de todos os salários</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Desafios Extras (Opcional)</h3>
+                <ul>
+                    <li>Implemente um método para dar aumento percentual a todos os 
+                        funcionários</li>
+                    <li>Crie um método para promover um funcionário (ex: Mecânico Junior 
+                        para Mecânico Pleno)</li>
+                    <li>Crie um método para demitir funcionários (remover da lista)</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 11</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    O que aprendemos?</h3>
+                <ul>
+                    <li>✅ Conceitos fundamentais de classes e objetos</li>
+                    <li>✅ Como usar herança para reutilizar código</li>
+                    <li>✅ O poder do polimorfismo</li>
+                    <li>✅ As particularidades do Python em POO</li>
+                    <li>✅ Como usar super() efetivamente</li>
+                    <li>✅ Como criar sistemas completos orientados a objetos</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Associação em POO</li>
+                    <li>Encapsulamento: Proteger atributos e métodos</li>
+                    <li>Métodos especiais: __str__ , __repr__ , __len__ , etc.</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>

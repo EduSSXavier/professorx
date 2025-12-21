@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python e Banco de Dados</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin8-EZFTd9XQyCOGn3Rx3a3fC3wfhIKn6iu2f68gwNqokzm3ZxqCue1y31QgxPQEjIrs" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Python + Banco de Dados
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5L1o6fnsZF1my1qkyrzxNfSJOtAp--RitQ&s" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">    
+                </h1>
+                <h2>Aula 13<br>Programação Orientada a Objetos - Parte 3</h2>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Encapsulamento
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Associação entre Classes
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Projeto Prático
+                    </p>
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Encapsulamento
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Encapsulamento</h1>
+                <h2>Programação Orientada a Objetos - Parte 3</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            O Conceito de Encapsulamento</h3>
+                        <p>Encapsulamento é um dos pilares fundamentais da Programação 
+                            Orientada a Objetos (POO). Ele consiste em "esconder" os 
+                            detalhes internos de uma classe, protegendo os dados e 
+                            controlando como eles são acessados e modificados.</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/capsula.jpg" class="imagem">                        
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Por que encapsular?</h3>
+                <ul>
+                    <li><strong>Segurança:</strong> Proteger os dados internos da 
+                        classe, evitando que eles sejam acessados diretamente 
+                        ou modificados de fora dela</li>
+                    <li><strong>Manutenibilidade:</strong> Permitir que as 
+                        classes sejam modificadas sem afetar outras partes 
+                        do código</li>
+                    <li><strong>Controle de acesso:</strong> Define quem pode ler
+                        ou modificar os dados</li>
+                    <li><strong>Validação:</strong> Permite verificar dados antes 
+                        de armazená-los e evitar erros</li>
+                    <li><strong>Flexibilidade:</strong> Permite a adição de 
+                        novos comportamentos sem afetar o código existente</li>
+                </ul>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Níveis de visibilidade em Python</h3>
+                <p>Em Python, a visibilidade é indicada por convenção através 
+                    de underscores:</p>
+                <ul>
+                    <li><strong>Público: <code>atributo</code></strong> - pode ser 
+                        acessado de qualquer lugar</li>
+                    <li><strong>Privado: <code>_atributo</code></strong> - indica 
+                        visibilidade interna ou uso interno (convenção, não 
+                        bloqueio real)</li>
+                    <li><strong>Protegido: <code>__atributo</code></strong> - dificulta 
+                        o acesso externo através de name mangling (ou mutilação/confusão 
+                        de nomes)</li>
+                </ul>  
+                <br>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+class Pessoa:
+    def __init__(self, nome, email, fone):
+        self.nome = nome # Atributo público
+        self._email = email # Atributo privado
+        self.__fone = fone # Atributo protegido
+    def apresentar(self):
+        print("==============================")
+        print(f"Olá, meu nome é {self.nome}")
+        print(f"Meu email é {self._email}")
+        print(f"Meu telefone é {self.__fone}")
+        print("==============================")
+
+alguem = Pessoa("Maria", "maria@gmail.com", "9999-9999")
+print(alguem.nome)      # Isto funciona
+print(alguem._email)    # Isto também funciona, mas não deve ser usado
+print(alguem.__fone)    # Isto não funciona (erro)
+
+alguem.apresentar()
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Encapsulamento em Python:<br>Métodos Getter e Setter</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Como funciona?</h3>
+                <p>Podemos métodos "getter" e "setter" tradicionais. Essa é uma
+                    abordagem é mais explícita e comum em outras linguagens como 
+                    Java, podendo ser facilmente implementada em Python.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+class Produto:
+    def __init__(self, nome, preco):
+        self.__nome = nome # Atributo privado
+        self.__preco = preco
+    
+    # Getter para nome
+    def get_nome(self):
+        return self.__nome
+    
+    # Setter para nome
+    def set_nome(self, nome):
+        if not nome or len(nome) < 3:
+            raise ValueError("Nome deve ter pelo menos 3 caracteres")
+        self.__nome = nome
+
+    # Getter para preço
+    def get_preco(self):
+        return self.__preco
+
+    # Setter para preço
+    def set_preco(self, preco):
+        if preco &lt; 0:
+            raise ValueError("Preço não pode ser negativo")
+        self.__preco = preco
+
+    # Outros métodos da classe
+    def aplicar_desconto(self, percentual):
+        """Aplica desconto ao produto"""
+        if percentual &lt; 0 or percentual &gt; 100:
+            raise ValueError("Desconto deve estar entre 0 e 100%")
+        desconto = self.__preco * (percentual / 100)
+        self.__preco -= desconto
+        print(f"Desconto de {percentual}% aplicado!")
+
+# ----- Como usar -----
+
+# Criando produto
+produto = Produto("Notebook", 3000)
+
+# Usando getters
+print(f"Produto: {produto.get_nome()}")
+print(f"Preço: R$ {produto.get_preco():.2f}")
+
+# Usando setters
+produto.set_nome("Notebook Gamer")
+produto.set_preco(3500)
+
+# Aplicando desconto
+produto.aplicar_desconto(10)
+print(f"Novo preço: R$ {produto.get_preco():.2f}")
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercícios de Fixação</h1>
+            </div>
+            <div class="exercicio">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">exercise</span>
+                            Exercício 1: Funcionário</h3>
+                        <p><strong>Objetivo:</strong> Crie uma classe Funcionario 
+                            usando encapsulamento e métodos getter e setter tradicionais. 
+                            A classe deve ter os atributos nome, cargo e salario . O 
+                            salário mínimo permitido é R$ 1.320,00.</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/alunos.png" class="imagem">
+                    </div>
+                </div>                
+            </div>
+            <div class="exercicio">
+                <div class="duas-colunas">
+                    <div>
+                        <img src="./imagens/consultar.png" class="imagem">
+                    </div>
+                    <div>
+                        <h3><span class="material-symbols-outlined">exercise</span>
+                            Exercício 2: Conta Bancária</h3>
+                        <p><strong>Objetivo:</strong> Crie uma classe ContaBancaria que 
+                    encapsule os atributos titular e saldo . O saldo não pode ser 
+                    negativo e deve começar com valor zero. Implemente os métodos 
+                    depositar() para depositar dinheiro e sacar() para retirar. 
+                    Não deve haver um método setter para saldo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Encapsulamento em Python:<br>Usando Decorators</h1>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Como funciona?</h3>
+                        <p>O decorador @property é a forma mais "pythônica" de implementar 
+                            encapsulamento. Ele permite criar métodos que se comportam como 
+                            atributos.</p>
+                        <br>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Por que usar?</h3>
+                        <p>Quando queremos criar uma propriedade (atributo) que se comporta 
+                            como um metodo, o decorator @property é uma opção.</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/desafio.png" class="imagem">
+                    </div>
+                </div>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    O que é um decorator?</h3>
+                <p>Um decorator em Python é uma função que permite adicionar 
+                    novas funcionalidades ou modificar o comportamento de outras 
+                    funções ou métodos sem alterar seu código-fonte original, 
+                    "embrulhando-as" com uma lógica extra (como logging, controle 
+                    de acesso, ou medição de tempo) e retornando uma nova 
+                    função modificada, usando a sintaxe @nome_do_decorator.</p>
+                <br>
+                <div class="exemplo">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplo simples de decorator:</h3>
+                <div class="codigo">
+                    <pre>
+# Criando o decoratoe "prefixo"
+def prefixo(funcao):
+    def envelope(texto):
+        resultado = funcao(texto)
+        if len(resultado) > 5:
+            return f"STRING LONGA: {resultado}"
+        else:
+            return f"STRING CURTA: {resultado}"
+    return envelope
+
+@prefixo
+def processar_string(texto): # Esta e a função básica
+    return texto.upper()
+
+# Testando o decorator
+print(processar_string("Olá"))        # Saída: STRING CURTA: Olá
+print(processar_string("Olá, mundo")) # Saída: STRING LONGA: Olá, mundo
+                        </pre>
+                    </div>
+                </div>
+                <div class="destaque">
+                    <p>Você pode criar seus próprios decorators ou utilizar
+                        decorators já existentes para criar novos comportamentos.</p>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Aplicando um decorator @property em POO</h3>
+                <p>Agora vamos aplicar essa ideia para o nosso caso específico.
+                </p>
+                <p>O decorator @property (que já existe previamente) permite que 
+                    criemos um getter e um setter para um atributo privado.
+                </p>
+                <br>
+                <div class="exemplo">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplo @property:</h3>
+                <div class="codigo">
+                    <pre>
+class Produto:
+    def __init__(self, nome, preco):
+        self.__nome = nome # Atributo privado
+        self.__preco = preco
+    
+    @property
+    def nome(self):
+        """Getter para o nome"""
+        return self.__nome
+        # Setter para nome
+
+    @nome.setter
+    def nome(self, nome):
+        """Setter para o nome com validação"""
+        if not nome or len(nome) &lt; 3:
+            raise ValueError("Nome deve ter pelo menos 3 caracteres")
+        self.__nome = nome
+    
+    @property
+    def preco(self):
+        """Getter para o preço"""
+        return self.__preco
+    
+    @preco.setter
+    def set_preco(self, preco):
+        """Setter para o preço com validação"""
+        if preco &lt; 0:
+            raise ValueError("Preço não pode ser negativo")
+        self.__preco = preco
+
+# ----- Como usar -----
+
+# Criando objeto
+prod = Produto("Caneta", 10.0)
+
+# Acessando como se fossem atributos normais (usando o getter)
+print(prod.nome)    # Caneta
+print(prod.preco)   # 10.0
+
+# Modificando com validação automática (usando o setter)
+prod.nome = "Borracha"
+prod.preco = 3.5
+
+# Tentativa de atribuir valor inválido (gera erro)
+prod.preco = -5 # Vai gerar erro!
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Diferença entre @property e get/set</h3>
+                <table>
+                    <tr>
+                        <th>Decorator @property</th>
+                        <th>Métodos get/set</th>
+                    </tr>
+                    <tr>
+                        <td>Acesso como atributo: obj.nome</td>
+                        <td>Acesso como método: obj.get_nome()</td>
+                    </tr>
+                    <tr>
+                        <td>Mais "pythônico"</td>
+                        <td>Mais explícito</td>
+                    </tr>
+                    <tr>
+                        <td>Sintaxe limpa</td>
+                        <td>Mais verboso</td>
+                    </tr>
+                    <tr>
+                        <td>Recomendado em Python</td>
+                        <td>Usado em Java, C++<br>(também funciona em Python)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercícios de Fixação</h1>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Revisando as Soluções Anteriores</h3>
+                <p>Vamos recriar as classes "Funcionario" e "ContaBancária" cilindradas
+                    nos exercícios anteriores, porém, adotanto a impleentação de getters 
+                    e setters usando decorators @property e @nom.setter.</p>
+            </div>
+            <div class="exercicio">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">exercise</span>
+                            Exercício 3: Funcionário</h3>
+                        <p><strong>Objetivo:</strong> Crie uma classe Funcionario 
+                            usando encapsulamento e métodos getter e setter tradicionais. 
+                            A classe deve ter os atributos nome, cargo e salario . O cargo 
+                            não pode ser vazio.O salário mínimo permitido é R$ 1.320,00.</p>
+                    </div>
+                    <div>
+                        <img src="./imagens/alunos.png" class="imagem">
+                    </div>
+                </div>                
+            </div>
+            <div class="exercicio">
+                <div class="duas-colunas">
+                    <div>
+                        <img src="./imagens/consultar.png" class="imagem">
+                    </div>
+                    <div>
+                        <h3><span class="material-symbols-outlined">exercise</span>
+                            Exercício 4: Conta Bancária</h3>
+                        <p><strong>Objetivo:</strong> Crie uma classe ContaBancaria que 
+                            encapsule os atributos titular e saldo . O saldo não pode ser 
+                            negativo e deve começar com valor zero. Implemente os métodos 
+                            depositar() para depositar dinheiro e sacar() para retirar. 
+                            Não deve haver um método setter para saldo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Associação entre Objetos
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Associação entre Objetos</h1>
+                <h2>Programação Orientada a Objetos - Parte 3</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            O Conceito de Associação entre Objetos</h3>
+                        <p>Associação representa relacionamentos entre objetos de 
+                            diferentes classes. É quando um objeto "conhece" ou
+                            "usa" outro objeto.</p>                        
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Tipos de associação</h3>
+                        <ol>
+                            <li><strong>Agregação:</strong> 
+                                <ul>
+                                    <li>Relação "tem um" (has-a) fraca</li>
+                                    <li>Objetos podem existir independentemente</li>
+                                    <li>Exemplo: Departamento tem Funcionários</li>
+                                </ul>
+                            </li>
+                            <li><strong>Composição:</strong> 
+                                <ul>
+                                    <li>Relação "tem um" (has-a) forte</li>
+                                    <li>Um objeto não existe sem o outro</li>
+                                    <li>Exemplo: Casa tem Cômodos</li>
+                                </ul>
+                            </li>
+                            <li><strong>Associação simples:</strong> 
+                                <ul>
+                                    <li>Objetos se relacionam mas não há "propriedade"</li>
+                                    <li>Exemplo: Professor leciona Disciplinas</li>
+                                </ul>
+                            </li>
+                        </ol> 
+                    </div>
+                    <div>
+                        <img src="./imagens/associacao.jpg" class="imagem"> 
+                        <br><br><br>
+                        <img src="./imagens/associacao2.jpg" class="imagem">                        
+                    </div>
+                </div>
+                <br>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo de Associação:</h3>
+                    <div class="codigo">
+                        <pre>
+class Endereco:
+    def __init__(self, rua, numero, cidade):
+        self.rua = rua
+        self.numero = numero
+        self.cidade = cidade
+    def __str__(self):
+        return f"{self.rua}, {self.numero} - {self.cidade}"
+
+class Pessoa:
+    def __init__(self, nome, endereco):
+        self.nome = nome
+        self.endereco = endereco # Associação: Pessoa tem um Endereço
+    def exibir_info(self):
+        print(f"Nome: {self.nome}")
+        print(f"Endereço: {self.endereco}")
+
+# Criando objetos associados
+endereco = Endereco("Av. Paulista", 1000, "São Paulo")
+pessoa = Pessoa("João", endereco)
+pessoa.exibir_info()
+                        </pre>
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Cardinalidade</h3>
+                <ul>
+                    <li><strong>1:1</strong> (um para um): Uma pessoa tem 
+                        um CPF</li>
+                    <li><strong>1:N</strong> (um para muitos): Um autor 
+                        escreve vários livros</li>
+                    <li><strong>N:N</strong> (muitos para muitos): Alunos 
+                        cursam várias disciplinas, disciplinas têm vários 
+                        alunos</li>
+                </ul> 
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Exercício de Fixação</h1>
+            </div>
+            <div class="exercicio">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">exercise</span>
+                            Exercício 5: Autor e Livro</h3>
+                        <p><strong>Objetivo:</strong> Crie classes Autor e Livro com 
+                            associação 1:N (um autor pode ter vários livros). Implemente 
+                            métodos para adicionar livros ao autor e listar todos os 
+                            livros.</p>
+                        <br>
+                        <h4>Tente aplicar os seguintes conceitos:</h4>
+                        <ul>
+                            <li>Associação 1:N (Um autor possui múltiplos livros)</li>
+                            <li>Encapsulamento (Atributos protegidos com @property)</li>
+                            <li>Validação de dados (Verifica se o objeto adicionado é 
+                                realmente um Livro)</li>
+                            <li>Lista interna (A coleção de livros é gerenciada 
+                                internamente, sem manipulação externa direta)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="./imagens/livro.jpg" class="imagem">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Projeto Prático
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Projeto Prático</h1>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Projeto: Gerenciamento de Escola</h3>
+                <p>Vamos criar um sistema completo que demonstra encapsulamento 
+                    e associação entre três classes: Aluno, Turma e Disciplina. 
+                    O sistema permitirá consultar dados e visualizar os relacionamentos.</p>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Relacionamentos</h3>
+                <ul>
+                    <li>Uma Disciplina pode ter várias Turmas</li>
+                    <li>Uma Turma pertence a uma Disciplina e tem vários Alunos</li>
+                    <li>Um Aluno pode estar matriculado em várias Turmas</li>
+                </ul>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Sugestão:</h3>
+                <p>Além das classes Aluno, Turma e Disciplina, crie uma classe 
+                    SistemaEscolar que areha todas essas classes, além de todos
+                    os métodos necessários para o funcionamento do sistema 
+                    (exemplo: consultar dados de um aluno, matricular um aluno,
+                    etc).</p>
+                <br>
+                <p>Para ganhar tempo, não nos preocuparemos em criar interfaces
+                    gráficas para interagir com o sistema. Basta implementar 
+                    as classes e seus métodos.
+                </p>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('projeto');">
+                        Exibir/Ocultar Exemplo de Solução</button>
+                <div class="codigo oculto" id="projeto">
+                    <pre>
+class Aluno:
+    """Representa um aluno com dados encapsulados"""
+    def __init__(self, matricula, nome, idade):
+        self._matricula = matricula
+        self._nome = nome
+        self._idade = idade
+        self._turmas = [] # Lista de turmas em que está matriculado
+
+    @property
+    def matricula(self):
+        """Getter para o matrícula"""
+        return self._matricula
+    
+    @property
+    def nome(self):
+        """Getter para o nome"""
+        return self._nome
+
+    @nome.setter
+    def nome(self, valor):
+        """Setter para o nome"""
+        if not valor or not valor.strip():
+            raise ValueError("Nome não pode ser vazio")
+        self._nome = valor.strip()
+
+    @property
+    def idade(self):
+        """Getter para o idade"""
+        return self._idade
+
+    @idade.setter
+    def idade(self, valor):
+        """Setter para o idade"""
+        if valor < 5 or valor > 100:
+            raise ValueError("Idade deve estar entre 5 e 100 anos")
+        self._idade = valor
+
+    def adicionar_turma(self, turma):
+        """Matricula o aluno em uma turma"""
+        if turma not in self._turmas:
+            self._turmas.append(turma)
+
+    def listar_turmas(self):
+        """Retorna lista de turmas do aluno"""
+        return self._turmas.copy()
+
+    def __str__(self):
+        return f"{self._nome} (Mat: {self._matricula})"
+
+class Turma:
+    """Representa uma turma com alunos e disciplina"""
+    def __init__(self, codigo, periodo, disciplina):
+        self._codigo = codigo
+        self._periodo = periodo
+        self._disciplina = disciplina
+        self._alunos = []
+        self._disciplina.adicionar_turma(self) # Associação bidirecional
+
+    @property
+    def codigo(self):
+        '''Getter para o codigo'''
+        return self._codigo
+
+    @property
+    def periodo(self):
+        '''Getter para o periodo'''
+        return self._periodo
+
+    @property
+    def disciplina(self):
+        '''Getter para a disciplina'''
+        return self._disciplina
+
+    def matricular_aluno(self, aluno):
+        """Matricula um aluno na turma"""
+        if not isinstance(aluno, Aluno):
+            raise TypeError("Apenas objetos do tipo Aluno podem ser matriculados")
+        if aluno in self._alunos:
+            print(f"Aluno {aluno.nome} já está matriculado nesta turma.")
+            return
+        self._alunos.append(aluno)
+        aluno.adicionar_turma(self)
+        print(f"Aluno {aluno.nome} matriculado em {self._disciplina.nome} - {self._codigo}")
+
+    def remover_aluno(self, aluno):
+        """Remove um aluno da turma"""
+        if aluno in self._alunos:
+            self._alunos.remove(aluno)
+            print(f"Aluno {aluno.nome} removido da turma {self._codigo}")
+        else:
+            print(f"Aluno {aluno.nome} não está matriculado nesta turma.")
+    
+    def listar_alunos(self):
+        """Retorna lista de alunos da turma"""
+        return self._alunos.copy()
+
+    def quantidade_alunos(self):
+        """Retorna o número de alunos matriculados"""
+        return len(self._alunos)
+
+    def __str__(self):
+        return f"Turma {self._codigo} - {self._periodo}"
+
+class Disciplina:
+    """Representa uma disciplina com suas turmas"""
+    def __init__(self, codigo, nome, carga_horaria):
+        self._codigo = codigo
+        self._nome = nome
+        self._carga_horaria = carga_horaria
+        self._turmas = []
+
+    @property
+    def codigo(self):
+        '''Getter para o codigo'''
+        return self._codigo
+
+    @property
+    def nome(self):
+        '''Getter para o nome'''
+        return self._nome
+
+    @nome.setter
+    def nome(self, valor):
+        """Setter para o nome"""
+        if not valor or not valor.strip():
+            raise ValueError("Nome da disciplina não pode ser vazio")
+        self._nome = valor.strip()
+
+    @property
+    def carga_horaria(self):
+        '''Getter para a carga horaria'''
+        return self._carga_horaria
+
+    @carga_horaria.setter
+    def carga_horaria(self, valor):
+        """Setter para a carga horaria"""
+        if valor <= 0:
+            raise ValueError("Carga horária deve ser positiva")
+        self._carga_horaria = valor
+
+    def adicionar_turma(self, turma):
+        """Adiciona uma turma à disciplina"""
+        if turma not in self._turmas:
+        self._turmas.append(turma)
+
+    def listar_turmas(self):
+        """Retorna lista de turmas da disciplina"""
+        return self._turmas.copy()
+
+    def total_alunos(self):
+        """Calcula o total de alunos em todas as turmas"""
+        return sum(turma.quantidade_alunos() for turma in self._turmas)
+
+    def __str__(self):
+        return f"{self._nome} ({self._codigo}) - {self._carga_horaria}h"
+
+class SistemaEscolar:
+    """Sistema para gerenciar e consultar dados da escola"""
+    def __init__(self):
+        self._disciplinas = []
+        self._alunos = []
+
+    def adicionar_disciplina(self, disciplina):
+        """Adiciona uma disciplina ao sistema"""
+        self._disciplinas.append(disciplina)
+        print(f"Disciplina {disciplina.nome} adicionada ao sistema")
+
+    def adicionar_aluno(self, aluno):
+        """Adiciona um aluno ao sistema"""
+        self._alunos.append(aluno)
+        print(f"Aluno {aluno.nome} adicionado ao sistema")
+
+    def exibir_disciplina_completa(self, disciplina):
+        """Exibe informações completas de uma disciplina"""
+        print(f"\n{'='*60}")
+        print(f"DISCIPLINA: {disciplina.nome}")
+        print(f"Código: {disciplina.codigo} | Carga Horária: {disciplina.carga_horaria}h")
+        print(f"Total de turmas: {len(disciplina.listar_turmas())}")
+        print(f"Total de alunos: {disciplina.total_alunos()}")
+        print(f"{'='*60}")
+        for turma in disciplina.listar_turmas():
+            print(f"\n {turma} - {turma.quantidade_alunos()} alunos")
+        
+    def exibir_aluno_completo(self, aluno):
+        """Exibe informações completas de um aluno"""
+        print(f"\n{'='*60}")
+        print(f"ALUNO: {aluno.nome}")
+        print(f"Matrícula: {aluno.matricula} | Idade: {aluno.idade} anos")
+        print(f"Total de turmas: {len(aluno.listar_turmas())}")
+        print(f"{'='*60}")
+        if aluno.listar_turmas():
+            print("\nTurmas matriculadas:")
+            for i, turma in enumerate(aluno.listar_turmas(), 1):
+                print(f" {i}. {turma.disciplina.nome} - {turma.codigo} ({turma.periodo})")
+        else:
+            print("\nNenhuma turma matriculada ainda.")
+
+    def relatorio_geral(self):
+        """Exibe relatório geral do sistema"""
+        print(f"\n{'#'*60}")
+        print(f"{'RELATÓRIO GERAL DO SISTEMA ESCOLAR':^60}")
+        print(f"{'#'*60}")
+        print(f"\nTotal de disciplinas: {len(self._disciplinas)}")
+        print(f"Total de alunos: {len(self._alunos)}")
+        total_turmas = sum(len(d.listar_turmas()) for d in self._disciplinas)
+        print(f"Total de turmas: {total_turmas}")
+        total_matriculas = sum(len(a.listar_turmas()) for a in self._alunos)
+        print(f"Total de matrículas: {total_matriculas}")
+        print(f"\n{'#'*60}")
+
+# ========================================
+# PROGRAMA PRINCIPAL - DEMONSTRAÇÃO
+# ========================================
+def main():
+    # Criando o sistema
+    sistema = SistemaEscolar()
+    print("="*60)
+    print("SISTEMA DE GESTÃO ESCOLAR".center(60))
+    print("="*60)
+
+    # Criando disciplinas
+    print("\n--- CRIANDO DISCIPLINAS ---")
+    prog1 = Disciplina("INF101", "Programação I", 60)
+    prog2 = Disciplina("INF102", "Programação II", 60)
+    bd = Disciplina("INF201", "Banco de Dados", 80)
+    sistema.adicionar_disciplina(prog1)
+    sistema.adicionar_disciplina(prog2)
+    sistema.adicionar_disciplina(bd)
+
+    # Criando turmas
+    print("\n--- CRIANDO TURMAS ---")
+    turma_prog1_manha = Turma("A1", "Manhã", prog1)
+    turma_prog1_noite = Turma("A2", "Noite", prog1)
+    turma_prog2 = Turma("B1", "Tarde", prog2)
+    turma_bd = Turma("C1", "Manhã", bd)
+
+    # Criando alunos
+    print("\n--- CRIANDO ALUNOS ---")
+    aluno1 = Aluno("2024001", "Ana Silva", 20)
+    aluno2 = Aluno("2024002", "Bruno Santos", 22)
+    aluno3 = Aluno("2024003", "Carla Oliveira", 19)
+    aluno4 = Aluno("2024004", "Daniel Costa", 21)
+    sistema.adicionar_aluno(aluno1)
+    sistema.adicionar_aluno(aluno2)
+    sistema.adicionar_aluno(aluno3)
+    sistema.adicionar_aluno(aluno4)
+
+    # Matriculando alunos nas turmas
+    print("\n--- MATRICULANDO ALUNOS ---")
+    turma_prog1_manha.matricular_aluno(aluno1)
+    turma_prog1_manha.matricular_aluno(aluno2)
+    turma_prog1_noite.matricular_aluno(aluno3)
+    turma_prog1_noite.matricular_aluno(aluno4)
+    turma_prog2.matricular_aluno(aluno1)
+    turma_prog2.matricular_aluno(aluno3)
+    turma_bd.matricular_aluno(aluno2)
+    turma_bd.matricular_aluno(aluno4)
+
+    # Exibindo informações completas
+    print("\n" + "="*60)
+    print("CONSULTAS AO SISTEMA".center(60))
+    print("="*60)
+
+    sistema.exibir_info_aluno(aluno1)
+    sistema.exibir_info_aluno(aluno2)
+    sistema.exibir_info_aluno(aluno3)
+    sistema.exibir_info_aluno(aluno4)
+
+    sistema.exibir_info_turma(turma_prog1_manha)
+    sistema.exibir_info_turma(turma_prog1_noite)
+    sistema.exibir_info_turma(turma_prog2)
+    sistema.exibir_info_turma(turma_bd)
+
+    sistema.exibir_info_disciplina(prog1)
+    sistema.exibir_info_disciplina(prog2)
+    sistema.exibir_info_disciplina(bd)
+
+    sistema.relatorio_geral()
+
+    print("\n" + "="*60)
+    print("FIM DO SISTEMA".center(60))
+    print("="*60)
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 13</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    O que aprendemos?</h3>
+                <ul>
+                    <li>✅ Encapsulamento: Conceitos, níveis de visibilidade, benefícios</li>
+                    <li>✅ Métodos e atributos privados, protegidos e públicos</li>
+                    <li>✅ Associação entre objetos: Agregação, composição, cardinalidade</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Revisão e aplicação de conceitos</li>
+                    <li>Prática com exercícios</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>

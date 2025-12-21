@@ -1,17 +1,33 @@
+:root {
+    --bg-start:  #00039e;
+    --bg-end: #04052e;
+    --primary: #a7c6f4;
+    --teoria: #01337e;
+    --exercicio: #02380f;
+    --destaque: #ffff3b;
+    --accent: #553394;
+    --projeto: #5ebede;
+    --texto: #ffffff;
+    --texto-reverso: #040131;
+    --card: rgb(2, 65, 168);
+    --borda: rgb(20, 30, 44);
+    --glow: rgba(34, 211, 238, 0.4);
+}
+
 * {
     margin: 0;     
     padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    font-family: 'Orbitron','Roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 body {
+    font-family: 'Orbitron', sans-serif;
     height: 100vh;
-    /*
-    background: linear-gradient(160deg, rgba(5,0,90,1) 30%, rgba(107,117,117,1) 70%);
-    */
-    background: linear-gradient(245deg,#420375,#323faa,#023557,#035a20);
-    background-size: 240% 240%;
-    animation: gradient-animation 6s ease infinite;
+    background: linear-gradient(0deg, 
+                                var(--bg-start), 
+                                var(--bg-end));
+    animation: gradient-animation 4s ease infinite;
 }
 
 @keyframes gradient-animation {
@@ -33,6 +49,7 @@ header {
     justify-content: space-around;
     width: 100%;
     min-height: 100px;
+    color: var(--primary);
 }
 header div {
     display: flex;
@@ -43,7 +60,7 @@ header div {
 header img {
     height: 100px;
     margin: 5px;
-    border: 1px solid white;
+    border: 1px solid var(--borda);
     border-radius: 50%;
 }
 nav {
@@ -52,17 +69,17 @@ nav {
     flex-wrap: wrap;
 }
 button {
-    font-weight: bolder;
-    margin: 2px;
-    padding: 5px;
-    height: 30px;
-    border-radius: 7px;
-    background-color: rgb(2, 2, 73);
-    color: rgb(255, 255, 255);
+  border: var(--primary) solid 2px;
+  border-radius: 25px;
+  background: var(--bg-start);
+  color: var(--texto);
+  font-size: 14px;
+  height: 2rem;
+  padding: 6px 20px;
 }
 button:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(2, 2, 73);
+    background-color: var(--primary);
+    color: var(--texto-reverso);
 }
 section {
     display: flex;
@@ -70,16 +87,17 @@ section {
     width: 100%;
     font-size:x-large;
     text-align: center;
+    color: var(--primary);
 }
 #ini {
     justify-content: center;
 }
-#ini, #pes, #pro, #con, #atv {
+#ini, #pes, #pro, #con, #cur {
     display: none;
 }
 #ini img {
     max-width: 90%;
-    border-radius: 20%;
+    border-radius: 5%;
 }
 .titulo {
     text-align: center;
@@ -98,7 +116,7 @@ section {
     width: 100%;
 }
 .card {
-    color: black;
+    color: var(--texto);
     font-size: large;
     font-weight: bold;
     text-align: center;
@@ -106,8 +124,8 @@ section {
     width: 300px;
     min-height: 200px;
     padding: 10px;
-    border-radius: 10px;
-    background-color: rgb(192, 195, 197);
+    border-radius: 20px;
+    background-color: var(--card);
 }
 .card .icone {
     width: 70px;
@@ -123,11 +141,11 @@ section {
 }
 .card li, .card h4, .card a {
     text-align: left;
-    color: rgb(1, 1, 65);
+    color: var(--texto);
 }
-.card:hover {
-    color: navy;
-    background-color: lightblue;
+.card:hover, .card:hover a {
+    color: var(--texto-reverso);
+    background-color: var(--destaque);
 }
 
 #atividade {

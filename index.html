@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Pessoal - Eduardo xavier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./imagens/favicon.ico">
     <link rel="stylesheet" href="xavier.css">
 </head>
@@ -19,13 +21,15 @@
             <button onclick="mudar('pro')">PROFISSIONAL</button>
             <button onclick="mudar('aca')">FORMAÇÃO</button>
             <button onclick="mudar('con')">CONHECIMENTOS</button>
-            <button onclick="mudar('atv')">ATIVIDADES</button>
+            <button onclick="mudar('cur')">CURSOS</button>
         </nav>
+        <br>
     </header>
     <section id="ini">
         <div class="titulo">
             <h1>Início</h1>
         </div>
+        <br>
         <div class="conteudo">
             <div class="card">
                     Bem-vindo.<br><br>
@@ -44,6 +48,7 @@
         <div class="titulo">
             <h1>Dados Pessoais</h1>
         </div>
+        <br>
         <div class="conteudo">
             <div class="card">
                 <img src="./imagens/icone_pessoa.svg" class="icone"><br>
@@ -76,6 +81,7 @@
         <div class="titulo">
             <h1>Dados Profissionais</h1>
         </div>
+        <br>
         <div class="conteudo">
             <div class="card">
                 <img src="./imagens/icone_tech.png" class="icone"><br>
@@ -115,6 +121,7 @@
         <div class="titulo">
             <h1>Formação Acadêmica</h1>
         </div>
+        <br>
         <div class="conteudo">
             <div class="card">
                 <img src="./imagens/icone_prof.png" class="icone"><br>
@@ -154,6 +161,7 @@
         <div class="titulo">
             <h1>Conhecimentos Técnicos</h1>
         </div>
+        <br>
         <div class="conteudo">
             <div class="card">
                 <img src="./imagens/icone_tech.png" class="icone"><br>
@@ -190,6 +198,7 @@
                     <li>Sistemas Distribuídos</li>
                     <li>Interação Humano-Computador</li>
                     <li>Lógica de Programação</li>
+                    <li>Programação Básica</li>
                     <li>Estruturas de Dados</li>
                     <li>Estratégias Empresariais em TI</li>
                 </ul>
@@ -205,40 +214,41 @@
             </div>
         </div>
     </section>
-    <section id="atv">
+    <section id="cur">
         <div class="titulo">
             <h1>Links, Cursos e Atividades</h1>
         </div>
-        <!-- 
+        <br>
         <div class="conteudo">
             <div class="card">
-                <img src="./imagens/icone_prof.png" class="icone"><br>
-                UNIFACS<br>Responder Chamada<br>
-                <a href="./atividades/chamada/chamada.html">Clique AQUI</a>
-            </div>
-        </div>
-        -->
-        <div class="conteudo">
-            <div class="card">
-                <img src="./imagens/icone_prof.png" class="icone"><br>
-                Curso<br>Lógica de Programação<br>Usando Python<br><br>
-                <span style="color: rgb(195, 5, 5)">Atenção:<br>Curso temporariamente inativo</span>
-                <!-- <a href="./atividades/curso_lp/menu_aulas.html">Clique AQUI</a> -->
+                <a href="./hash.html?curso=LP">
+                    <img src="./imagens/icone_prof.png" class="icone"><br>
+                    Curso<br><br>Lógica de Programação<br>Usando Python
+                </a>
             </div>
             <div class="card">
-                <img src="./imagens/icone_prof.png" class="icone"><br>
-                Curso<br>Linguagem <br>Python<br>
-                <a href="./atividades/curso_py/menu_aulas.html">Clique AQUI</a>
+                <a href="./hash.html?curso=PY">
+                    <img src="./imagens/icone_prof.png" class="icone"><br>
+                    Curso<br><br>Linguagem Python
+                </a>
             </div>
             <div class="card">
-                <img src="./imagens/icone_prof.png" class="icone"><br>
-                Curso<br>Linguagem <br>Javascript<br>
-                <a href="./atividades/curso_js/menu_aulas.html">Clique AQUI</a>
+                <a href="./hash.html?curso=HT"">
+                    <img src="./imagens/icone_prof.png" class="icone"><br>
+                    Curso<br><br>HTML e CSS
+                </a>
             </div>
             <div class="card">
-                <img src="./imagens/icone_prof.png" class="icone"><br>
-                Palestras<br>e<br>Mini-Cursos<br>
-                <a href="./atividades/palestras/menu_aulas.html">Clique AQUI</a>
+                <a href="./hash.html?curso=JS"">
+                    <img src="./imagens/icone_prof.png" class="icone"><br>
+                    Curso<br><br>Linguagem Javascript
+                </a>
+            </div>
+            <div class="card">
+                <a href="./hash.html?curso=PL"">
+                    <img src="./imagens/icone_prof.png" class="icone"><br>
+                    Palestras<br>e<br>Mini-Cursos<br><br>
+                </a>
             </div>
         </div>
     </section>
@@ -255,8 +265,6 @@
         }
 
         mudar('ini');
-        //document.getElementById('ini').style.display = 'flex';
-
 </script>
 </body>
 </html>

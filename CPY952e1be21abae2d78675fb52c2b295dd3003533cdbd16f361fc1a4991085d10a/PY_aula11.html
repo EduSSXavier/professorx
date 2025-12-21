@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python e Banco de Dados</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin8-EZFTd9XQyCOGn3Rx3a3fC3wfhIKn6iu2f68gwNqokzm3ZxqCue1y31QgxPQEjIrs" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Python + Banco de Dados
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5L1o6fnsZF1my1qkyrzxNfSJOtAp--RitQ&s" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">    
+                </h1>
+                <h2>Aula 11<br>Programação Orientada a Objetos - Parte 1</h2>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Conceitos Básicos
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Exercícios Práticos
+                    </p>
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Conceitos Básicos de POO
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Introdução</h1>
+                <h2>Programação Orientada a Objetos - Parte 1</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            O que é um "Paradigma"?</h3>
+                        <p>Paradigma significa um modelo, um padrão, um exemplo ou uma 
+                            estrutura teórica que serve de referência e estabelece os 
+                            limites de como algo é compreendido ou feito.</p>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            E um Paradigma de Programação?</h3>
+                        <p>Um paradigma de programação é uma abordagem ou estilo fundamental 
+                            para escrever código, funcionando como uma "filosofia" ou 
+                            "modelo" para estruturar e organizar programas. <br>
+                            Em outras palavras, ele molda a abordagem e a maneira como os 
+                            programadores pensam e resolvem problemas, oferecendo um 
+                            conjunto de regras, técnicas e abstrações que determinam como 
+                            a lógica é construída e o software é executado.<br> 
+                            A escolha do paradigma impacta a eficiência, legibilidade e 
+                            manutenibilidade do código. 
+                        </p>
+                    </div>
+                    <div>
+                        <img src="./imagens/poo1.png" class="imagem">                        
+                    </div>
+                </div>
+                    
+                <div class="duas-colunas">
+                    <div>
+                        <img src="./imagens/poo2.jpg" class="imagem">                        
+                    </div>
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            O Paradigma de Programação Orientada a Objetos</h3>
+                        <p>A Programação Orientada a Objetos (POO) é um paradigma de 
+                            programação que organiza o código em torno de "objetos" 
+                            que representam entidades do mundo real.<br>
+                            Imagine que você está criando um sistema para gerenciar uma 
+                            biblioteca: você teria objetos como Livro, Usuário, Empréstimo, 
+                            Autor, Editora, etc.</p>
+                    </div>
+                </div>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Conceitos Fundamentais:</h3>
+                <ul>
+                    <li><stong>Classe</stong>: Uma classe define o comportamento e a 
+                        estrutura de um objeto. É como um "molde" ou "planta baixa" 
+                        que define as características e comportamentos de um objeto.</li>
+                    <li><stong>Objeto</stong>: É uma instância concreta de uma classe. 
+                        Se a classe é o molde, o objeto é o bolo feito com esse molde.</li>
+                    <li><stong>Atributos</stong>: São as características ou propriedades 
+                        de um objeto (ex: cor, tamanho, nome).</li>
+                    <li><stong>Métodos</stong>: São as ações ou comportamentos que um 
+                        objeto pode realizar (ex: andar, calcular, exibir).</li>
+                </ul>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo Conceitual:</h3>
+                    <div class="codigo">
+                        <pre>
+# Classe Cachorro - o molde
+class Cachorro:
+    def __init__(self, nome_cachorro, raca_cachorro):
+        self.nome = nome_cachorro
+        self.raca = raca_cachorro
+    def latir(self):
+        return f"{self.nome} diz: Au au!"
+
+# Objetos - cachorros específicos criados a partir do molde
+rex = Cachorro("Rex", "Labrador")
+bob = Cachorro("Bob", "Poodle")
+print(rex.latir()) # Rex diz: Au au!
+print(bob.latir()) # Bob diz: Au au!
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Diferença entre Programação Funcional e Orientada a Objetos</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Programação Funcional</h3>
+                <p>Na programação funcional, o código é organizado em funções 
+                    independentes que processam dados. Os dados e as funções 
+                    que os manipulam ficam separados.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+# Exemplo Funcional
+def calcular_area_retangulo(largura, altura):
+    return largura * altura
+
+def calcular_perimetro_retangulo(largura, altura):
+    return 2 * (largura + altura)
+
+# Dados separados das funções
+largura = 5
+altura = 3
+area = calcular_area_retangulo(largura, altura)
+perimetro = calcular_perimetro_retangulo(largura, altura)
+                        </pre>
+                    </div>
+                </div>            
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Programação Orientada a Objetos</h3>
+                <p>Na POO, dados e funções ficam juntos dentro de uma classe, formando 
+                    uma unidade coesa.</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo:</h3>
+                    <div class="codigo">
+                        <pre>
+# Exemplo Orientado a Objetos
+class Retangulo:
+    def __init__(self, largura, altura):
+        self.largura = largura
+        self.altura = altura
+    def calcular_area(self):
+        return self.largura * self.altura
+    def calcular_perimetro(self):
+        return 2 * (self.largura + self.altura)
+
+# Objeto que contém dados E comportamentos
+meu_retangulo = Retangulo(5, 3)
+area = meu_retangulo.calcular_area()
+perimetro = meu_retangulo.calcular_perimetro()
+                        </pre>
+                    </div>
+                </div> 
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Comparação:</h3>
+                <table>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Programação Funcional</th>
+                        <th>Programação Orientada a Objetos</th>
+                    </tr>
+                    <tr>
+                        <td>Organização</td>
+                        <td>Funções separadas</td>
+                        <td>Dados + Métodos juntos</td>
+                    </tr>
+                    <tr>
+                        <td>Reutilização</td>
+                        <td>Funções reutilizáveis</td>
+                        <td>Classes reutilizáveis</td>
+                    </tr>
+                    <tr>
+                        <td>Adequação</td>
+                        <td>Tarefas específicas</td>
+                        <td>Sistemas complexos</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Criando Classes e Instâncias</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Classes</h3>
+                <p>Uma classe é definida usando a palavra-chave class , seguida do nome 
+                    da classe (sempre com letra maiúscula, por convenção).</p>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplos:</h3>
+                    <div class="codigo">
+                        <pre>
+# Definindo uma classe
+class Carro:
+    pass # pass indica que a classe está vazia por enquanto
+
+# Criando instâncias (objetos) da classe
+carro1 = Carro()
+carro2 = Carro()
+print(type(carro1)) # &lt;class '__main__.Carro'&gt; ou &lt;class '__main__.Carro'&gt;
+print(carro1 == carro2) # False - são objetos diferentes
+                        </pre>
+                    </div>
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                        Exemplo com Atributos:</h3>
+                    <div class="codigo">
+                        <pre>
+# Definindo uma classe
+class Pessoa:
+    especie = "Homo sapiens" # Atributo de classe (compartilhado)
+
+# Criando instâncias
+pessoa1 = Pessoa()
+pessoa2 = Pessoa()
+print(pessoa1.especie) # Homo sapiens
+print(pessoa2.especie) # Homo sapiens
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 1:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe chamada Livro vazia 
+                    (use "pass") e crie duas instâncias dessa classe chamadas
+                    livro1 e livro2.</p>
+                <br><br>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 2:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe ContaBancaria com um 
+                    atributo de classe chamado "banco" com o valor "Banco Python". 
+                    Crie uma instância e imprima o nome do banco.</p>
+                <br><br>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 3:</h3>
+                <p><strong>Objetivo:</strong> Crie três instâncias da classe 
+                    Livro do exercício 1 e verifique se elas são objetos diferentes 
+                    usando o operador == .</p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Atributos e Métodos</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Atributos</h3>
+                <p>Atributos são variáveis que pertencem a um objeto. Existem 
+                    dois tipos:</p>
+                <ul>
+                    <li>Atributos de instância: Específicos de cada objeto</li>
+                    <li>Atributos de classe: Compartilhados por todos os objetos</li>
+                </ul>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+class Computador:
+    # Atributo de classe
+    tipo = "Desktop"
+
+    def criar_atributos(self, marca, processador, ram):
+        # Atributos de instância
+        self.marca = marca
+        self.processador = processador
+        self.ram = ram
+
+# Criando objetos
+pc1 = Computador()
+pc1.criar_atributos("Dell", "Intel i5", 8)
+pc2 = Computador()
+pc2.criar_atributos("HP", "AMD Ryzen 5", 16)
+print(pc1.marca) # Dell
+print(pc2.ram) 
+# 16
+    print(pc1.tipo) # Desktop (atributo de classe)
+                        </pre>    
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Métodos</h3>
+                <p>Métodos são funções definidas dentro de uma classe. O primeiro 
+                    parâmetro é sempre <strong>self</strong>, que representa a 
+                    própria instância.</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+class Calculadora:
+    def somar(self, a, b):
+        return a + b
+    def subtrair(self, a, b):
+        return a - b
+    def multiplicar(self, a, b):
+        return a * b
+
+calc = Calculadora()
+print(calc.somar(5, 3)) # 8
+print(calc.multiplicar(4, 7)) # 28
+                        </pre>    
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplo Completo:</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+        self.quantidade = 0
+    def adicionar_estoque(self, quantidade):
+        self.quantidade += quantidade
+        print(f"{quantidade} unidades adicionadas. Estoque atual: {self.quantidade}")
+    def vender(self, quantidade):
+        if quantidade &lt;= self.quantidade:
+            self.quantidade -= quantidade
+            total = quantidade * self.preco
+            print(f"Venda realizada! Total: R${total:.2f}")
+            return total
+        else:
+            print("Estoque insuficiente!")
+            return 0
+
+# Usando a classe
+notebook = Produto("Notebook Dell", 3500.00)
+notebook.adicionar_estoque(10) # 10 unidades adicionadas. Estoque atual: 10
+notebook.vender(3) # Venda realizada! Total: R$10500.00
+                        </pre>    
+                    </div>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 4:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe Circulo com um atributo 
+                    raio . Adicione métodos para calcular a área (π × raio²) e o 
+                    perímetro (2 × π × raio). Use 3.14 para π.</p>
+                <br><br>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 5:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe ContadorDePalavras com um 
+                    método contar que recebe uma frase e retorna o número de palavras 
+                    nela.</p>
+                <br><br>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 6:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe Pessoa com atributos de 
+                    instância nome, idade e altura . Crie um método calcular_idade que 
+                    retorna a idade da pessoa em anos.</p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Construtor "init"</h1>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Construtor init</h3>
+                <p>O método __init__ é um construtor especial que é executado 
+                    automaticamente quando criamos uma nova instância. Ele é 
+                    geralmente usado para inicializar os atributos do objeto.</p>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Por que usar __init__ ?</h3>
+                <p>Sem o construtor, precisaríamos definir os atributos manualmente 
+                    após criar o objeto:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+# SEM __init__ (trabalhoso)
+class Pessoa:
+    pass
+
+p = Pessoa()
+p.nome = "João"
+p.idade = 25
+                        </pre>    
+                    </div>
+                </div>
+                <br><br>
+                <p>Com o construtor, inicializamos tudo de uma vez:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+# COM __init__ (prático)
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+p = Pessoa("João", 25) # Atributos já definidos!
+                        </pre>    
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplo Detalhado:</h3>
+                <p>Sem o construtor, precisaríamos definir os atributos manualmente 
+                    após criar o objeto:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+class Estudante:
+    def __init__(self, nome, matricula, curso):
+        self.nome = nome
+        self.matricula = matricula
+        self.curso = curso
+        self.notas = [] # Inicializa com lista vazia
+    def adicionar_nota(self, nota):
+        self.notas.append(nota)
+    def calcular_media(self):
+        if len(self.notas) == 0:
+            return 0
+        return sum(self.notas) / len(self.notas)
+    def exibir_info(self):
+        print(f"Estudante: {self.nome}")
+        print(f"Matrícula: {self.matricula}")
+        print(f"Curso: {self.curso}")
+        print(f"Média: {self.calcular_media():.2f}")
+
+# Criando estudantes
+aluno1 = Estudante("Maria Silva", "2023001", "Engenharia")
+aluno1.adicionar_nota(8.5)
+aluno1.adicionar_nota(9.0)
+aluno1.adicionar_nota(7.5)
+aluno1.exibir_info()
+                        </pre>    
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Parâmetros Opcionais no init:</h3>
+                <p>Sem o construtor, precisaríamos definir os atributos manualmente 
+                    após criar o objeto:</p>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+class Livro:
+    def __init__(self, titulo, autor, ano=2024, disponivel=True):
+        self.titulo = titulo
+        self.autor = autor
+        self.ano = ano
+        self.disponivel = disponivel
+
+# Diferentes formas de criar objetos
+livro1 = Livro("1984", "George Orwell", 1949)
+livro2 = Livro("Python Básico", "João Silva") # ano = 2024 (padrão)
+livro3 = Livro("Dom Casmurro", "Machado de Assis", disponivel=False)
+                        </pre>    
+                    </div>
+                </div>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 7:</h3>
+                <p><strong>Objetivo:</strong> Crie uma classe ContaBancaria com um
+                    construtor que recebe titular e saldo_inicial (padrão 0).
+                    Adicione métodos depositar e sacar .</p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Projetos Práticos
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Projeto Prático 1</h1>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Projeto: Sistema de Gerenciamento de Alunos</h3>
+                <p>Crie uma classe Aluno que represente um aluno de uma escola. 
+                    Essa classe deve ter:
+                </p>
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Atributos:</h3>
+                        <ul>
+                            <li>nome (string)</li>
+                            <li>matricula (string)</li>
+                            <li>turma (string)</li>
+                            <li>notas (lista de números)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Métodos:</h3>
+                        <ul>
+                            <li>adicionar_nota(nota)</li>
+                            <li>calcular_media()</li>
+                            <li>verificar_aprovacao()</li>
+                            <li>mudar_turma(nova_turma)</li>
+                            <li>exibir_boletim() - imprime todas as informações<br>
+                                do aluno, incluindo notas e status</li>
+                        </ul>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplo de uso experado:</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+# Criar aluno
+aluno1 = Aluno("Pedro Santos", "2024001", "3A")
+
+# Adicionar notas
+aluno1.adicionar_nota(8.5)
+aluno1.adicionar_nota(7.0)
+aluno1.adicionar_nota(9.0)
+aluno1.adicionar_nota(6.5)
+
+# Verificar situação
+print(aluno1.calcular_media()) # 7.75
+print(aluno1.verificar_aprovacao()) # Aprovado
+
+# Mudar de turma
+aluno1.mudar_turma("3B")
+
+# Exibir boletim completo
+aluno1.exibir_boletim()
+                        </pre>    
+                    </div>
+                </div>
+                <div class="destaque">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                    Desafio Extra:</h3>
+                    <p>Adicione um método melhor_nota() e pior_nota() que retornam 
+                        respectivamente a maior e menor nota do aluno.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Projeto Prático 2</h1>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Projeto: Catálogo de Filmes para Streaming</h3>
+                <p>Crie uma classe Filme que represente um filme em uma plataforma 
+                    de streaming. A classe deve ter:
+                </p>
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Atributos:</h3>
+                        <ul>
+                            <li>titulo (string)</li>
+                            <li>ano (int)</li>
+                            <li>diretor (string)</li>
+                            <li>genero (string)</li>
+                            <li>duracao (int, em minutos)</li>
+                            <li>avaliacao (float, de 0 a 5)</li>
+                            <li>visualizacoes (int, inicia em 0)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Métodos:</h3>
+                        <ul>
+                            <li>reproduzir() - incrementa o contador de visualizações<br>
+                                e exibe mensagem</li>
+                            <li>avaliar(nota) - atualiza a avaliação média (deve aceitar<br>
+                                notas de 0 a 5)</li>
+                            <li>exibir_informacoes() - imprime todos os dados do filme<br>
+                                formatados</li>
+                            <li>eh_lancamento() - retorna True se o filme foi lançado<br>
+                                há menos de 2 anos, False caso contrário</li>
+                            <li>duracao_formatada() - retorna a duração no formato<br>
+                                "Xh Ymin"</li>
+                        </ul>
+                    </div>
+                </div>
+                <br><br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Exemplo de uso experado:</h3>
+                <div class="exemplo">
+                    <div class="codigo">
+                        <pre>
+# Criar filme
+filme1 = Filme("A Origem", "Christopher Nolan", 2010, "Ficção Científica", 148, 4.8)
+
+# Reproduzir
+filme1.reproduzir() # "Reproduzindo: A Origem"
+
+# Avaliar
+filme1.avaliar(5.0)
+
+# Verificar se é lançamento
+print(filme1.eh_lancamento()) # False (filme de 2010)
+
+# Exibir duração formatada
+print(filme1.duracao_formatada()) # "2h 28min"
+
+# Exibir informações completas
+filme1.exibir_informacoes()
+                        </pre>    
+                    </div>
+                </div>
+                <div class="destaque">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                    Desafio Extra 1:</h3>
+                    <p>Adicione um atributo atores (lista) e um método 
+                        adicionar_ator(nome) que permite adicionar atores ao 
+                        elenco. No método exibir_informacoes(), mostre também 
+                        a lista dos atores.</p>
+                </div>
+                <div class="destaque">
+                    <h3><span class="material-symbols-outlined">book_2</span>
+                    Desafio Extra 2:</h3>
+                    <p>Que tal criar uma interface gráfica com Streamlit 
+                        para interagir com o catálogo de filmes?</p>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 11</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    O que aprendemos?</h3>
+                <ul>
+                    <li>O que é Programação Orientada a Objetos</li>
+                    <li>Diferenças entre paradigmas de programação</li>
+                    <li>Como criar classes e instâncias</li>
+                    <li>Como trabalhar com atributos e métodos</li>
+                    <li>Como usar o construtor</li>
+                    <li>Como aplicar POO em projetos práticos</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Herança: Criar classes que herdam de outras</li>
+                    <li>Abstração: Criar classes abstratas</li>
+                    <li>Encapsulamento: Proteger atributos e métodos</li>
+                    <li>Polimorfismo: Métodos que se comportam diferente 
+                        em classes diferentes</li>
+                    <li>Métodos especiais: __str__ , __repr__ , __len__ , etc.</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+:root {
+    --bg-start:  #00039e;
+    --bg-end: #04052e;
+    --primary: #a7c6f4;
+    --teoria: #01337e;
+    --exercicio: #02380f;
+    --destaque: #ffff3b;
+    --accent: #553394;
+    --projeto: #5ebede;
+    --texto: #ffffff;
+    --texto-reverso: #040131;
+    --card: rgb(2, 65, 168);
+    --borda: rgb(20, 30, 44);
+    --glow: rgba(34, 211, 238, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: "Saira", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: large;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  background-attachment: fixed;
+  transition: padding-left 0.4s ease;
+}
+/* ========== Camada superior com icone e botão ========== */
+.logo {
+  z-index: 1;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.logo img{
+  border: var(--glow) solid 2px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+.logo button{
+  border: var(--primary) solid 2px;
+  border-radius: 25px;
+  background: var(--bg-start);
+  color: var(--texto);
+  font-size: 14px;
+  height: 2rem;
+  padding: 6px 20px;
+}
+/* ========== Card de aula (menu de aulas) ========== */
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 2rem;
+  margin: 1rem 3rem;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 25px;
+}
+.card {
+  background: var(--bg-start);
+  color: var(--text);
+  border: var(--primary) solid 2px;
+  border-radius: 20px;
+  position: relative;
+  padding: 1rem;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 1rem 0 var(--glow);
+}
+.card-header {
+  border: var(--primary) solid 1px;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background: var(--card);
+  color: var(--texto);
+  padding: 0.5rem;
+}
+.card-input {
+  padding: 0.5rem;
+  border: var(--primary) solid 1px;
+  border-radius: 20px;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.card-mensagem {
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: var(--destaque);
+}
+.card-rodape {
+  padding: 0.5rem;
+}
+.card-rodape button {
+  font-family: 'Orbitron', sans-serif;
+  border: var(--primary) solid 1px;
+  border-radius: 15px;
+  background: var(--bg-start);
+  color: var(--texto);
+  font-size: medium;
+  padding: 0.5rem;
+}
+.card-rodape button:hover {
+  background: var(--primary);
+  color: var(--bg-start);
+}
+.card-rodape button:active {
+  background: var(--accent);
+  color: var(--bg-start);
+}

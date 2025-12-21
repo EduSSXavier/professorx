@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Treinamentos e Palestras - Prof. Eduardo Xavier</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./hash.css">
+</head>
+<body>
+    <div class="logo">
+        <button class="escola" onclick="window.location.assign('../../index.html')">
+        INÍCIO
+        </button>
+        <img src="../imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+
+    <!-- Entrada de Senha -->
+    <div class="container">
+        <div class="card" width="50%">
+            <div class="card-header">
+                <h3>Informe a Senha</h1>
+                <input class="card-input" id="senha"
+                    type="password" placeholder="password"/>
+            </div>
+            <div class="card-mensagem" id="mensagem">
+                Solicite a senha ao professor
+            </div>
+            <div class="card-rodape">
+                <button id="botao">CONTINUAR</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="hash.js"></script>
+</body>
+</html>
