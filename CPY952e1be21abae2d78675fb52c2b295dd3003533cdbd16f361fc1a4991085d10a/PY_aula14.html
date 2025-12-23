@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python e Banco de Dados</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin8-EZFTd9XQyCOGn3Rx3a3fC3wfhIKn6iu2f68gwNqokzm3ZxqCue1y31QgxPQEjIrs" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Python + Banco de Dados
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5L1o6fnsZF1my1qkyrzxNfSJOtAp--RitQ&s" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">    
+                </h1>
+                <h2>Aula 14<br>Revisão</h2>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        CRUD
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Programação Orientada a Objetos
+                    </p>
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Projeto Prático</h1>
+                <h2>Gerenciamento de Receitas</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Introdução</h3>
+                        <p>Esta proposta descreve o desenvolvimento de uma aplicação 
+                            CRUD (Create, Read, Update, Delete) em Python, utilizando 
+                            princípios de Programação Orientada a Objetos (POO), para 
+                            gerenciar receitas culinárias e itens de cozinha. 
+                            A aplicação permitirá aos usuários cadastrar, visualizar, 
+                            editar e excluir receitas (incluindo ingredientes e passos 
+                            de preparo).</p>
+                        <br>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Objetivos principais:</h3>
+                        <ul>
+                            <li>Facilitar o planejamento de refeições através de receitas 
+                                personalizadas.</li>
+                            <li>Utilizar POO para modelar entidades reais (ex.: Receita 
+                                como uma classe com atributos e métodos).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="./imagens/cozinheiro.jpg" class="imagem" width="100%">                        
+                    </div>
+                </div>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Modelagem Orientada a Objetos</h3>
+                <p>A aplicação será estruturada em classes para representar as 
+                    diferentes entidades. Usaremos herança, encapsulamento, 
+                    polimorfismo e associação para uma arquitetura robusta.</p>
+                <ul>
+                    <li><strong>Classe: Ingrediente</strong>
+                        <ul>
+                            <li>Ingrediente que pode ser usado em uma receita</li>
+                            <li>Atributos: nome (str), quantidade (float), unidade 
+                                (str, ex.: "kg", "unidades")</li>
+                            <li>Métodos:
+                                <ul>
+                                    <li>__init__(self, nome, quantidade, unidade)</li>
+                                    <li>atualizar_quantidade(self, nova_quantidade)</li>
+                                    <li>descricao(self): Retorna uma string formatada
+                                        com informações do ingrediente</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Classe: Receita</strong>
+                        <ul>
+                            <li>Representa uma receita completa</li>
+                            <li>Atributos: titulo (str), ingredientes (lista de objetos 
+                                Ingrediente), passos (lista de str descrevendo cada passo
+                                da receita), tempo_preparo (int, em minutos), porcoes 
+                                (int).</li>
+                            <li>Métodos:
+                                <ul>
+                                    <li>__init__(self, titulo, tempo_preparo, porcoes)</li>
+                                    <li>adicionar_ingrediente(self, ingrediente): 
+                                        Adiciona um objeto Ingrediente à lista </li>
+                                    <li>descricao_completa(self): Retorna uma string formatada 
+                                        com todos os detalhes da receita</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Classe: GerenciadorCozinha</strong>
+                        <ul>
+                            <li>Gerencia as coleções de receitas e itens de cozinha</li>
+                            <li>Atributos: receitas (dicionário {id: Receita,...})</li>
+                            <li>Métodos:
+                                <ul>
+                                    <li>__init__(self): menu principal</li>
+                                    <li>criar_receita(self, titulo, tempo_preparo, porcoes): 
+                                        Cria e adiciona uma nova Receita, retorna ID.</li>
+                                    <li>ler_receita(self, id): Retorna a Receita ou None.</li>
+                                    <li>deletar_receita(self, id): Remove a Receita.</li>
+                                    <li>criar_ingrediente(self, nome, quantidade, unidade): 
+                                        Cria e adiciona um novo Ingrediente, retorna ID.</li>
+                                    <li>ler_ingrediente(self, id): Retorna o Ingrediente 
+                                        ou None.</li>
+                                    <li>deletar_ingrediente(self, id): Remove o Ingrediente</li>
+                                    <li>buscar_receitas_por_ingrediente(self, 
+                                        nome_ingrediente): Retorna lista de receitas que 
+                                        usam o ingrediente.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Próximos Passos / Desafios:</h3>
+                <ul>
+                    <li>Incluir a validação de informações nos métodos</li>
+                    <li>Implementar métodos de alteração de receitas e ingredientes</li>
+                    <li>Implementar a interface gráfica com Streamlit</li>
+                    <li>Acrescentar uma classe para gerenciamento de itens 
+                        de cozinha usados nas receitas (panelas, fornos, etc.)</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 14</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    O que aprendemos?</h3>
+                <ul>
+                    <li>✅ Encapsulamento: Conceitos, níveis de visibilidade, benefícios</li>
+                    <li>✅ Métodos e atributos privados, protegidos e públicos</li>
+                    <li>✅ Associação entre objetos: Agregação, composição, cardinalidade</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Projeto Prático</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>
