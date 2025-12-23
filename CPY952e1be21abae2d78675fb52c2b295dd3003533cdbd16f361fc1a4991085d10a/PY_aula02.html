@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python e Banco de Dados</title>
+    <link rel="stylesheet" href="./aula.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="logo">
+        <img src="./imagens/eu_pixar3d_dir.png" class="icone">
+    </div>
+    <div class="container_apresentacao">
+
+        <!-- Slide Inicial ----------------------------------------------->
+        <div class="slide ativo">
+            <div class="caixa_intro">
+                <br>
+                <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin8-EZFTd9XQyCOGn3Rx3a3fC3wfhIKn6iu2f68gwNqokzm3ZxqCue1y31QgxPQEjIrs" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">
+                    Python + Banco de Dados
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb5L1o6fnsZF1my1qkyrzxNfSJOtAp--RitQ&s" 
+                    alt="Python" style="height: 30px; margin: 3px ; vertical-align: middle; margin-right: 8px;">    
+                </h1>
+                <h2>Aula 2<br>Dicionários e Sets</h2>
+
+                <p>
+                    Mais duas estruturaas de dados que armanezam coleções sequenciais.
+                </p>
+                <div class="card">
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Dicionários
+                    </p>
+                    <p>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Sets
+                    </p>
+                    <!-- Projeto Incremental 
+                    -->
+                    <p>
+                        <span class="material-symbols-outlined">engineering</span>
+                        Mini-Projeto Prático
+                    </p>
+                </div>
+                <div class="link-externo">
+                    <a href="./menu_aulas.html">Retornar ao Menu de Aulas</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide Inicial ----------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Dicionários
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Dicionário</h1>
+                <h2>Um estrutura de dados baseada em chaves</h2>
+            </div>
+            <div class="conceito">
+                <div class="duas-colunas">
+                    <div>
+                        <h3><span class="material-symbols-outlined">book_2</span>
+                            Definição</h3>
+                        <p>Um <strong>dicionário</strong> em Python é uma estrutura de dados que 
+                            armazena pares chave-valor (key-value). É uma coleção ordenada (a partir 
+                            da versão do Python 3.7), mutável e que não permite chaves duplicadas.</p>
+                    </div>
+                    <img src="./imagens/dicionario.png" style="width: 200px;">
+                </div>
+                <h4>Características principais:</h4>
+                <ul>
+                    <li><strong>Chaves únicas:</strong> Cada chave pode aparecer apenas uma 
+                        vez no dicionário.</li>
+                    <li><strong>Mutável:</strong> Pode ser modificado depois da criação.</li>
+                    <li><strong>Indexação por chave:</strong> Acesso aos valores aoss chaves.</li>
+                    <li><strong>Tipos de dados heterogêneo:</strong> Pode armazenar diferentes 
+                        tipos de dados.</li>
+                </ul>
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Sintaxe</h3>                 
+                    <div class="codigo">
+                        <pre>
+# Criação de dicionário
+dicionario = {chave1: valor1, chave2: valor2, chave3: valor3}
+
+# Dicionário vazio# Dicionário vazio
+dicionario_vazio = {}
+
+# ou
+dicionario_vazio = dict()
+                        </pre>
+                    </div>
+                </div>
+            </div> 
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplos de Uso de Dicionários</h3>                 
+                <div class="codigo">
+                    <pre>
+# Exemplo 1: Informações de uma pessoa ----------------------------
+pessoa pessoa = {
+    "nome": "João Silva",
+    "idade": 30,
+    "cidade": "São Paulo",
+    "profissao": "Programador"
+}
+
+# Acessando valores
+print(pessoa["nome"])    # João Silva
+print(pessoa["idade"])   # 30
+print(pessoa["cidade"])  # São Paulo
+print(pessoa["profissao"])  # Programador
+
+# Adicionando novo par chave-valor
+pessoa["email"] = "joao@email.com"
+
+# Modificando um valor existente
+pessoa["idade"] = 31
+
+# Removendo um item
+del pessoa["cidade"]
+
+
+# Exemplo 2: Estoque de produtos ----------------------------
+estoque =  {
+    "notebook": 1515,
+    "mouse": 5050,
+    "teclado": 3030,
+    "monitor": 88
+}
+
+# Iterando sobre o Dicionário
+for chave in estoque:
+    print(f"{chave}: {estoque[chve]} unidades")
+# ou
+for produto, quantidade in estoque.items():
+    print(f"{produto}: {quantidade} unidades")
+
+# Verificando se uma chave existe
+if "notebook" in estoque:
+    print("Notebook disponível em estoque")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Dicionários - Exercício</h1>
+                <h2>Vamos praticar?</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 1: Armazenando dados em um dicionário</h3>
+                <p><strong>Objetivo:</strong> Vamos criar dois dicionários: pessoa e deposito,
+                    O dicionário "pessoa" vai conter o nome, o email e o telefone de uma pessoa 
+                    e o dicionário "deposito" vai conter o número de uma sala e uma lista de 
+                    objetos que estão na sala.</p>
+                <p>Depois de criar os dicionários, vamos executar as seguintes tarefas:</p>
+                <ul>
+                    <li>Incluir o nome da cidade que a pessoa mora</li>
+                    <li>Alterar o email da pessoa</li>
+                    <li>Remover o telefone da pessoa</li>
+                    <li>Adicionar dois novos objetos à sala</li>
+                    <li>Adicionar uma nova sala sem objetos</li>
+                    <li>Acrescentar um objeto à nova sala</li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio1');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio1">
+                    <pre>
+# Criando os dicionários
+pessoa = {
+    "nome":"Fulano de Tal",
+    "email":"fulano@fakemail.com",
+    "telefone":"(11) 99999-9999"
+}
+
+deposito = {
+    1:["mesa", "cadeira", "computador", "livro"]
+}
+
+# Incluindo o nome da cidade que a pessoa mora
+pessoa["cidade"] = "Sao Paulo"
+
+# Alterando o email da pessoa   
+pessoa["email"] = "fulanodetal@novomail.com.br"
+
+# Removendo o telefone da pessoa
+del pessoa["telefone"]  
+
+# Adicionando dois novos objetos à sala
+deposito[1].append("caneta")
+deposito[1].append("lapis")
+
+# Adicionando uma nova sala sem objetos
+deposito[2] = []
+
+# Acrescentando um objeto à nova sala
+deposito[2].append("caderno")
+                    </pre>
+                </div>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Desafio</h3>
+                <p>Você consegue exibir cada objeto de cada sala em uma linha separada?<br>
+                    (Dica: o comando FOR pode ajudar)</p>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Dicionários</h1>
+                <h2>Alguns métodos úteis</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Métodos</h3>
+                <p>Eis aqui alguns métodos úteis para trabalhar com dicionários:</p>
+
+                <table>
+                    <tr>
+                        <th>Método</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tr>
+                        <td>copy()</td>
+                        <td>Devolve uma cópia do dicionário</td>
+                    </tr>
+                    <tr>
+                        <td>get()</td>
+                        <td>Devolve o valor de uma determinada chave</td>
+                    </tr>    
+                    <tr>
+                        <td>items()</td>
+                        <td>Devolve uma lista contendo tuplas de chaves e valores</td>
+                    </tr>    
+                    <tr>
+                        <td>keys()</td>
+                        <td>Devolve uma lista contendo as chaves do dicionário</td>
+                    </tr>    
+                    <tr>
+                        <td>values()</td>
+                        <td>Devolve uma lista contendo os valores do dicionário</td>
+                    </tr>    
+                    <tr>
+                        <td>pop()</td>
+                        <td>Remove o elemento com a chave informada do dicionário, mas
+                            devolve o valor</td>
+                    </tr>
+                    <tr>
+                        <td>clear()</td>
+                        <td>Remove todos os elementos do dicionário</td>    
+                    </tr>    
+                </table>
+                <br>
+                
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Exemplos</h3>                 
+                    <div class="codigo">
+                        <pre>
+# Dicionário de exemplo ----------------------------
+
+dicionario = {'fruta': 'banana', 'animal': 'gato', 'numero': 2, 'status': True}
+
+# Exemplo de uso dos métodos -----------------------
+
+# copy()
+
+dicionario_copia = dicionario.copy()
+print(dicionario_copia)  # {'fruta': 'banana', 'animal': 'gato', 'numero': 2, 'status': True}
+
+# get()
+
+valor = dicionario.get('fruta')
+print(valor)  # banana
+
+# items()
+
+itens = dicionario.items()
+print(itens)  # dict_items([('fruta', 'banana'), ('animal', 'gato'), ('numero', 2), ('status', True)])
+
+# keys()
+
+chaves = dicionario.keys()
+print(chaves)  # dict_keys(['fruta', 'animal', 'numero', 'status'])
+
+# values()
+
+valores = dicionario.values()
+print(valores)  # dict_values(['banana', 'gato', 2, True])
+
+# pop()
+
+elemento = dicionario.pop('fruta')
+print(elemento)    # banana
+print(dicionario)  # {'animal': 'gato', 'numero': 2, 'status': True}
+
+# clear()
+
+dicionario.clear()
+print(dicionario)  # {}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Dicionários - Exercícios</h1>
+                <h2>Vamos praticar mais um pouco?</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 2: Cadastro de Alunos</h3>
+                <p><strong>Objetivo:</strong> Vamos criar um cadastro de alunos
+                    e notas para uma escola.</p>                
+                <br>
+                <p><strong>Requisitos:</strong></p>
+                <ul>
+                    <li>Os alunos devem ser armazenados em um dicionário</li>
+                    <li>Cada aluno deve ter seu nome como chave e um lista com 3 notas como valor</li>
+                    <li>Exemplo:
+                        <strong>
+                            <pre>
+{
+    "Fulano": [9, 8, 7],
+    "Beltrano": [8, 5, 3]
+}
+                            </pre>
+                        </strong>
+                    </li>
+                    <li>Usando um loop WHILE, cadastre 4 ou mais alunos diferentes</li>
+                    <li>Ao final do cadastramento, exiba os nomes de todos os alunos 
+                        cadastrados e indique, ao lado de cada um, sua média de notas 
+                        e sua avaliação de desempenho (Aprovado: média &ge; 7; 
+                        Reprovado: média &lt; 7)
+                    </li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio2');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio2">
+                    <pre>
+# Cadastro de Alunos
+
+cadastro = {}  # Dicionário vazio para armazenar os alunos
+
+while True:
+    # Solicitando informações de um aluno
+    nome = input("Digite o nome do aluno (ou 'fim' para encerrar): ")
+
+    if nome == "fim":
+        break
+
+    nota1 = float(input("Digite a primeira nota: "))
+    nota2 = float(input("Digite a segunda nota: "))
+    nota3 = float(input("Digite a terceira nota: "))
+
+    # Armazenando o aluno no dicionário
+    cadastro[nome] = [nota1, nota2, nota3]
+
+# Exibindo o catálogo de alunos
+print("\n=== CADASTRO DE ALUNOS ===")
+for chave in cadastro:
+    print(f"Nome: {chave}")
+    media = sum(cadastro[chave]) / 3
+    if media >= 7:
+        situacao = "Aprovado"
+    else:       
+        situacao = "Reprovado"
+    print(f"Média: {media} - Situação: {situacao}")
+    print("-" * 30)
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Sets
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Set</h1>
+                <h2>Um conjunto de dados</h2>
+            </div>
+            <div class="conceito">
+                <h3><span class="material-symbols-outlined">book_2</span>
+                    Definição</h3>
+                <p>Um <strong>set</strong> em Python é uma coleção desordenada 
+                    de elementos únicos. É mutável, mas não permite elementos 
+                    duplicados e não possui indexação.</p>
+            
+                <h4>Características principais:</h4>
+                <ul>
+                    <li><strong>Elementos únicos:</strong> Não permite duplicatas.</li>
+                    <li><strong>Desordenado:</strong> Não mantém ordem de inserção.</li>
+                    <li><strong>Mutável:</strong> Pode ser modificado depois da criação.</li>
+                    <li><strong>Sem indexação:</strong> Não é possivel acessar por índice.</li>
+                    <li><strong>Operações matemáticas:</strong> Suporta união, interseção, diferença.</li>
+                </ul>
+                
+                <div class="exemplo">
+                    <h3><span class="material-symbols-outlined">visibility</span>
+                        Sintaxe</h3>                 
+                    <div class="codigo">
+                                                                                                                                                                                                                     <pre>
+# Criação de set
+meu_set =  {elemento1, elemento2, elemento3}
+
+# Set vazio
+set_vazio = set() # Note: {} cria um dicionário vazio, não um set
+                       </pre>
+                    </div>
+                </div>
+            </div> 
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">visibility</span>
+                    Exemplos de Uso de Sets</h3>                 
+                <div class="codigo">
+                    <pre>
+# Exemplo 1: Removendo duplicatas de uma lista ----------------------------
+numeros_com_duplicatas = [1, 2, 3, 2, 4, 1, 5, 3]
+numeros_unicos = set(numeros_com_duplicatas)
+print(numeros_unicos)    # {1, 2, 3, 4, 5}
+
+# Convertendo de volta para lista
+lista_sem_duplicatas = list(numeros_unicos)
+print(lista_sem_duplicatas)  # [1, 2, 3, 4, 5]
+
+# Exemplo 2: Operações com Sets ----------------------------
+frutas_joao =  {"maçã", "banana", "laranja", "uva"}
+frutas_maria =  {"banana" , "kiwi", "laranja", "manga"}
+
+# União (frutas que pelo menos uma pessoa gosta)
+todas_frutas = frutas_joao | frutas_maria
+# ou 
+todas_frutas = frutas_joao.union(frutas_maria)
+
+# Interseção (frutas que ambos gostam)
+frutas_comuns = frutas_joao & frutas_maria
+# ou 
+frutas_comuns = frutas_joao.intersection(frutas_maria)
+
+# Diferença (frutas que apenas João gosta)
+frutas_so_joao = frutas_joao - frutas_maria
+# ou 
+frutas_so_joao = frutas_joao.difference(frutas_maria)
+
+
+print(f"Todas as frutas: {todas_frutas}")
+print(f"Frutas em comum: {frutas_comuns}")
+print(f"Frutas só do João: {frutas_so_joao}")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Sets - Exercícios</h1>
+                <h2>Vamos praticar?</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Exercício 2: Controle de Recados</h3>
+                <p><strong>Objetivo:</strong> Vamos criar um aplicação de cadastro de recados 
+                    usando listas e sets.</p>                
+                <br><br>
+                <p><strong>Requisitos da aplicação:</strong></p>
+                <ul>
+                    <li>Exibir um menu simples com as opções
+                        <ul>
+                            <li>1 - Cadastrar um novo recado</li>
+                            <li>2 - Exibir os recados cadastrados para uma pessoa</li>
+                            <li>3 - Sair da aplicação</li>
+                        </ul>
+                    </li>
+                    <li>Cada recado deve ser armazenado em um set contendo as seguintes 
+                        informações:
+                        <ul>
+                            <li>Remetente<br>
+                                (deve ser uma string no formato: "de NOME_do_REMETENTE")</li>
+                            <li>Destinatário<br>
+                                (deve ser uma string no formato: "para NOME_do_DESTINATARIO")</li>
+                            <li>Data<br>
+                                (deve ser uma string no formato: "dia/mes/ano")</li>
+                            <li>Mensagem<br>
+                                (deve ser uma string contendo o recado deixado pelo remetente)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br><br>
+                <button class="botao_exercicio" onclick="exibirRespostaExercicio('exercicio3');">
+                        Exibir/Ocultar Solução</button>
+                <div class="codigo oculto" id="exercicio3">
+                    <pre>
+# Sistema de Controle de Recado
+
+lista_recados = []
+
+while True:
+    print("\n=== CADASTRO DE RECADOS ===")
+    print("1. Adicionar um novo recado")
+    print("2. Listar recados para uma pessoa")
+    print("3. Sair")
+    
+    opcao =  input("Escolha uma opção: ")
+
+    if opcao == "1":
+        # Solicitando informações
+        remetente = input("Remetente (nome de quem mandou o recado): ")
+        destinatario = input("Destinatário (nome de quem recebe o recado): ")
+        data = input("Data (dia/mês/ano): ")
+        mensagem = input("Mensagem: ")
+
+        # Armazenando o recado em um set
+        recado = {"de "+remetente, "para "+destinatario, data, mensagem}
+        # Adicionando o recado na lista
+        lista_recados.append(recado)
+
+        print("\nRecado cadastrado com sucesso!")
+
+    elif opcao == "2":
+        # Exibindo os recados para uma pessoa
+
+        # Solicitando o nome do destinatario
+        destinatario_busca = input("Digite o nome do destinatário: ")
+
+        # Buscando os recados da pessoa informada
+        for recado in lista_recados:
+            if "para "+destinatario_busca in recado:
+                print(f"Recado: {recado}")
+        
+        print(f"---Fim dos recados para {destinatario_busca}")
+
+    elif opcao == "3":
+        # Saindo da aplicação
+        print("Encerrando aplicação.")
+        break
+        
+    else:
+        print("Opção inválida! Tente novamente.")
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="caixa_intro">
+                <div class="card"">
+                    <h1>
+                        <span class="material-symbols-outlined">book_2</span>
+                        Mini-projeto
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide -------------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Mini-projeto</h1>
+                <h2>Coloque seus conhecimentoa em prática</h2>
+            </div>
+            <div class="exercicio">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Controle de acessos</h3>
+                <p><strong>Objetivo:</strong> Crie um programa que controla o 
+                    acesso de usuários a um sistema qualquer.</p>
+                <p><strong>Requisitos:</strong></p>
+                <ol>
+                    <li>Crie um dicionário onde estarão definidos os usuários e suas senhas</li>
+                    <li>Crie um loop que solicite o nome de um usuário e a sua senha. O loop 
+                        deve continuar até que um usuário e senha corretos sejam digitados ou 
+                        seja informado "fim" no usuario</li>
+                    <li>Se o usuário e senha forem corretos, exiba uma mensagem dizendo que o 
+                        acesso foi permitido e encerre o programa</li>
+                    <li>Se o usuário e senha forem incorretos, exiba uma mensagem dizendo que o 
+                        acesso foi negado e volte ao inicio do loop para uma nova tentativa</li>
+                </ol>
+            </div>
+        </div>
+        <!-- Fim do Slide ------------------------------------------------->
+
+        <!-- Slide Final--------------------------------------------------->
+        <div class="slide">
+            <div class="cabecalho">
+                <h1>Resumo da Aula</h1>
+            </div>
+            <div class="conceito">
+                <h1><span class="material-symbols-outlined">heart_smile</span>
+                    PARABÉNS!</h1>
+                <h2>Você concluiu a aula 1</h2>
+            </div>
+            <div class="destaque">
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    O que aprendemos?</h3>
+                <ul>
+                        <li>Dicionário</li>
+                        <li>Sets</li>
+                </ul>
+                <h3><span class="material-symbols-outlined">heart_smile</span>
+                    Próximos Passos:</h3>
+                <ul>
+                    <li>Projeto Prático para revisão de conhecimentos</li>
+                </ul>
+            </div>
+            <div class="exemplo">
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    Continue praticando e explorando o mundo do JavaScript!</h3>
+                <h3><span class="material-symbols-outlined">exercise</span>
+                    💻 Happy Coding! 💻</h3>
+            </div>
+        </div>
+        <!-- Fim do Slide -Final ------------------------------------------>
+
+        <!-- Navegação ---------------------------------------------------->
+        <div class="navegador">
+            <button class="botao_navegador" onclick="previousSlide()" id="prevBtn">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">18</span>
+            </span>
+            <button class="botao_navegador" onclick="nextSlide()" id="nextBtn">Próximo →</button>
+        </div>
+        <!-- FIM da Navegação ---------------------------------------->
+    </div>
+
+    <!-- Scripts ----------------------------------------------->
+    <script src="./aula.js"></script>
+</body>
+</html>
