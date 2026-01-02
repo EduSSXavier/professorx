@@ -112,7 +112,7 @@ button:disabled {
 
 button:hover:not(:disabled) {
       background-color: var(--primary);
-      color: var(--text-reverso);
+      color: var(--texto-reverso);
 }
 
 .theme-button {
