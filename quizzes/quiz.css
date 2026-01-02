@@ -1,18 +1,18 @@
 :root {
-    --bg-start:  #030442; /* #0f172a; */
-    --bg-end: #000000;
+    --bg-start:  #00039e;
+    --bg-end: #04052e;
     --bg-correto: #42fd03;
     --bg-errado: #fd2403;
-    --primary: #93bbf7;
+    --primary: #a7c6f4;
     --teoria: #01337e;
     --exercicio: #02380f;
-    --destaque: #ffff98;
-    --accent: #5015bd;
-    --projeto: #bb9bfa;
+    --destaque: #ffff3b;
+    --accent: #553394;
+    --projeto: #5ebede;
     --texto: #ffffff;
-    --text-reverso: #000000;
-    --card: rgb(1, 55, 141);
-    --border: rgba(14, 165, 233, 0.3);
+    --texto-reverso: #040131;
+    --card: rgb(2, 65, 168);
+    --borda: rgb(20, 30, 44);
     --glow: rgba(34, 211, 238, 0.4);
 }
 
@@ -84,7 +84,7 @@ body {
 /* ========= Formatação exclusiva do Quiz ========= */
 
 #quiz-container {
-    background: var(--bg-start);
+    background: var(--bg-end);
     padding: 20px;
     border: var(--primary) solid 2px;
     border-radius: 25px;
@@ -94,7 +94,7 @@ body {
 }
 
 button {
-    border: var(--primary) solid 2px;
+    border: var(--card) solid 2px;
     border-radius: 25px;
     background: var(--bg-start);
     color: var(--texto);
@@ -132,7 +132,7 @@ button:hover:not(:disabled) {
 
 .option.selected {
     background: var(--primary);
-    color: var(--texto);
+    color: var(--text-reverso);
 }
 
 .option.correct {
