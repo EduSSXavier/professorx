@@ -1,6 +1,8 @@
 :root {
     --bg-start:  #030442; /* #0f172a; */
     --bg-end: #000000;
+    --bg-correto: #42fd03;
+    --bg-errado: #fd2403;
     --primary: #93bbf7;
     --teoria: #01337e;
     --exercicio: #02380f;
@@ -23,7 +25,7 @@ body {
     height: 100vh;
     margin: auto;
     /* font-family: 'Roboto', sans-serif; */
-    font-family: "Saira", sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -129,16 +131,16 @@ button:hover:not(:disabled) {
 }
 
 .option.selected {
-    background: #007bff;
-    color: white;
+    background: var(--primary);
+    color: var(--texto);
 }
 
 .option.correct {
-    background: #28a745;
-    color: white;
+    background: var(--bg-correto);
+    color: var(--text-reverso);
 }
 
 .option.incorrect {
-    background: #dc3545;
-    color: white;
+    background: var(--bg-errado);
+    color: var(--text);
 }
