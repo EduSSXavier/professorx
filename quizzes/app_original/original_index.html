@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Múltiplos Temas</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Quiz App</h1>
+
+        <!-- Tela de seleção de tema -->
+        <div id="theme-selection">
+            <h2>Escolha um tema para o quiz:</h2>
+            <div id="themes-list"></div>
+        </div>
+
+        <!-- Tela do quiz (mesma de antes) -->
+        <div id="quiz" style="display: none;">
+            <h2 id="question"></h2>
+            <div id="options"></div>
+            <button id="next-btn" disabled>Próxima</button>
+        </div>
+
+        <!-- Tela de resultado -->
+        <div id="result" style="display: none;">
+            <h2>Resultado</h2>
+            <p id="score"></p>
+            <button id="restart-btn">Escolher outro tema</button>
+        </div>
+    </div>
+
+    <script type="module" src="quiz.js"></script>
+</body>
+</html>

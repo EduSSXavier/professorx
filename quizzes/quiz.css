@@ -1,0 +1,144 @@
+:root {
+    --bg-start:  #030442; /* #0f172a; */
+    --bg-end: #000000;
+    --primary: #93bbf7;
+    --teoria: #01337e;
+    --exercicio: #02380f;
+    --destaque: #ffff98;
+    --accent: #5015bd;
+    --projeto: #bb9bfa;
+    --texto: #ffffff;
+    --text-reverso: #000000;
+    --card: rgb(1, 55, 141);
+    --border: rgba(14, 165, 233, 0.3);
+    --glow: rgba(34, 211, 238, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: auto;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: "Saira", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+    color: var(--texto);
+    line-height: 1.6;
+    transition: padding-left 0.4s ease;
+}
+
+/* ========== Camada superior com icone e botão ========== */
+.logo {
+    z-index: 1;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0rem 1rem;
+}
+
+.logo img{
+    border: var(--primary) solid 2px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.logo button{
+    border: var(--primary) solid 2px;
+    border-radius: 25px;
+    background: var(--bg-start);
+    color: var(--texto);
+    font-size: 14px;
+    padding: 3px 15px;
+}
+
+/* ========== Adaptação responsiva ========== */
+@media (max-width: 992px) {
+    nav.sidebar { width: 80px; padding: 2rem 0.5rem; }
+    nav.sidebar h2, nav.sidebar span { display: none; }
+    nav.sidebar a { justify-content: center; }
+    main { margin-left: 80px; }
+}
+@media (max-width: 600px) {
+    nav.sidebar { width: 100%; height: auto; position: relative; padding: 1rem; border-bottom: 1px solid var(--border); }
+    nav.sidebar.closed { transform: translateY(-100%) !important; }
+    main { margin-left: 0; margin-top: 80px; }
+    nav.sidebar ul { display: flex; overflow-x: auto; gap: 1rem; }
+    nav.sidebar a { min-width: 120px; text-align: center; flex-direction: column; }
+    #toggle-sidebar { display: none; }
+}
+
+/* ========= Formatação exclusiva do Quiz ========= */
+
+#quiz-container {
+    background: var(--bg-start);
+    padding: 20px;
+    border: var(--primary) solid 2px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: center;
+}
+
+button {
+    border: var(--primary) solid 2px;
+    border-radius: 25px;
+    background: var(--bg-start);
+    color: var(--texto);
+    font-size: large;
+    width: 90%;
+    height: 2.5rem;
+    margin: 3px 15px;
+    padding: 3px 15px;
+}
+
+button:disabled {
+    background-color: var(--projeto);
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+      background-color: var(--primary);
+      color: var(--text-reverso);
+}
+
+.theme-button {
+    margin: 10px;
+}
+
+.option {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    background: var(--bg-start);
+    border: var(--primary) solid 2px;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 80%;
+}
+
+.option.selected {
+    background: #007bff;
+    color: white;
+}
+
+.option.correct {
+    background: #28a745;
+    color: white;
+}
+
+.option.incorrect {
+    background: #dc3545;
+    color: white;
+}
