@@ -132,12 +132,12 @@ button:hover:not(:disabled) {
 
 .option.selected {
     background: var(--primary);
-    color: var(--text-reverso);
+    color: var(--texto-reverso);
 }
 
 .option.correct {
     background: var(--bg-correto);
-    color: var(--text-reverso);
+    color: var(--texto-reverso);
 }
 
 .option.incorrect {
