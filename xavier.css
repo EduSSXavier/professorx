@@ -145,7 +145,7 @@ section {
 }
 .card:hover, .card:hover a, .card:hover h4, .card:hover li {
     color: var(--texto-reverso);
-    background-color: var(--destaque);
+    background-color: var(--primary);
 }
 
 #atividade {
