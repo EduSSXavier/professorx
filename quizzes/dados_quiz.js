@@ -67,68 +67,68 @@ export const dados = {
       ]
     },
     {
-      "id": "geografia",
-      "name": "Geografia",
+      "id": "python-oop",
+      "name": "Programação Orientada a Objetos em Python",
       "questions": [
         {
           "id": 1,
-          "question": "Qual é a capital da França?",
-          "options": ["Madrid", "Paris", "Roma", "Berlim"],
-          "correct": 1
+          "question": "Qual palavra-chave é usada para criar uma classe em Python?",
+          "options": ["class", "Class", "define", "object"],
+          "correct": 0
         },
         {
           "id": 2,
-          "question": "Qual o maior país do mundo em área territorial?",
-          "options": ["China", "Canadá", "Rússia", "Estados Unidos"],
+          "question": "Qual método é automaticamente chamado quando um objeto é criado?",
+          "options": ["__init__", "__start__", "__create__", "__new__"],
+          "correct": 0
+        },
+        {
+          "id": 3,
+          "question": "O que representa o parâmetro 'self' em métodos de classe?",
+          "options": ["A classe pai", "A instância atual do objeto", "Um método estático", "O construtor"],
+          "correct": 1
+        },
+        {
+          "id": 4,
+          "question": "Como se define um método privado em Python?",
+          "options": ["private def metodo()", "def _metodo()", "def __metodo()", "def metodo_private()"],
           "correct": 2
         },
         {
-          "id": 3,
-          "question": "Qual oceano é o maior do planeta?",
-          "options": ["Atlântico", "Índico", "Ártico", "Pacífico"],
-          "correct": 3
-        }
-      ]
-    },
-    {
-      "id": "matematica",
-      "name": "Matemática",
-      "questions": [
+          "id": 5,
+          "question": "Qual conceito permite que uma classe herde características de outra?",
+          "options": ["Polimorfismo", "Encapsulamento", "Herança", "Abstração"],
+          "correct": 2
+        },
         {
-          "id": 1,
-          "question": "Quanto é 7 × 8?",
-          "options": ["54", "56", "64", "48"],
+          "id": 6,
+          "question": "Como se cria uma classe que herda de outra chamada 'Animal'?",
+          "options": ["class Cachorro extends Animal:", "class Cachorro(Animal):", "class Cachorro inherits Animal:", "class Cachorro -> Animal:"],
           "correct": 1
         },
         {
-          "id": 2,
-          "question": "Qual o valor de π aproximado?",
-          "options": ["2.14", "3.14", "4.14", "3.41"],
+          "id": 7,
+          "question": "Qual decorador é usado para criar um método de classe?",
+          "options": ["@staticmethod", "@classmethod", "@property", "@method"],
           "correct": 1
         },
         {
-          "id": 3,
-          "question": "Raiz quadrada de 144 é?",
-          "options": ["10", "12", "14", "16"],
-          "correct": 1
-        }
-      ]
-    },
-    {
-      "id": "historia",
-      "name": "História do Brasil",
-      "questions": [
-        {
-          "id": 1,
-          "question": "Em que ano o Brasil foi descoberto?",
-          "options": ["1492", "1500", "1520", "1530"],
-          "correct": 1
+          "id": 8,
+          "question": "O que é polimorfismo em POO?",
+          "options": ["Ocultar dados internos", "Criar múltiplas classes", "Mesma interface com comportamentos diferentes", "Herdar de várias classes"],
+          "correct": 2
         },
         {
-          "id": 2,
-          "question": "Quem proclamou a Independência do Brasil?",
-          "options": ["Dom Pedro I", "Dom Pedro II", "Tiradentes", "Zumbi"],
+          "id": 9,
+          "question": "Qual decorador transforma um método em uma propriedade?",
+          "options": ["@property", "@attribute", "@getter", "@field"],
           "correct": 0
+        },
+        {
+          "id": 10,
+          "question": "Como se chama o método pai dentro de uma classe filha?",
+          "options": ["parent()", "base()", "super()", "inherit()"],
+          "correct": 2
         }
       ]
     }
