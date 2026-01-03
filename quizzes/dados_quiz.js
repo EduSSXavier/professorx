@@ -68,7 +68,7 @@ export const dados = {
     },
     {
       "id": "python-oop",
-      "name": "Programação Orientada a Objetos em Python",
+      "name": "Prog. Orientada a Objetos em Python",
       "questions": [
         {
           "id": 1,
