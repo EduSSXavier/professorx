@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planilha de Despesas Pessoais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-card {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .summary-card.receitas {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .summary-card.despesas {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .summary-card.saldo {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .summary-card h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .summary-card .value {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .input-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input, select {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .btn-delete {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        
+        .btn-export {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            margin-right: 10px;
+        }
+        
+        .actions {
+            text-align: center;
+        }
+        
+        .receita {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .despesa {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .status-pago {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-pendente {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .filter-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            align-items: end;
+        }
+        
+        .btn-filter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px 20px;
+        }
+        
+        .btn-clear-filter {
+            background: linear-gradient(135deg, #a8a8a8 0%, #6c757d 100%);
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Controle Financeiro Pessoal</h1>
+        <p class="subtitle">Gerencie suas receitas e despesas</p>
+        
+        <div class="summary">
+            <div class="summary-card receitas">
+                <h3>Total de Receitas</h3>
+                <div class="value" id="totalReceitas">R$ 0,00</div>
+            </div>
+            <div class="summary-card despesas">
+                <h3>Despesas Pagas</h3>
+                <div class="value" id="despesasPagas">R$ 0,00</div>
+            </div>
+            <div class="summary-card" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); color: white;">
+                <h3>Despesas Pendentes</h3>
+                <div class="value" id="despesasPendentes">R$ 0,00</div>
+            </div>
+            <div class="summary-card" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); color: white;">
+                <h3>Total de Despesas</h3>
+                <div class="value" id="totalDespesas">R$ 0,00</div>
+            </div>
+            <div class="summary-card saldo">
+                <h3>Saldo</h3>
+                <div class="value" id="saldo">R$ 0,00</div>
+            </div>
+        </div>
+        
+        <div class="input-section">
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Data</label>
+                    <input type="date" id="data">
+                </div>
+                <div class="input-group">
+                    <label>Descrição</label>
+                    <input type="text" id="descricao" placeholder="Ex: Salário">
+                </div>
+                <div class="input-group">
+                    <label>Categoria</label>
+                    <select id="categoria">
+                        <option value="Salário">Salário</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Investimentos">Investimentos</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Moradia">Moradia</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Tipo</label>
+                    <select id="tipo">
+                        <option value="Receita">Receita</option>
+                        <option value="Despesa">Despesa</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Valor (R$)</label>
+                    <input type="number" id="valor" step="0.01" placeholder="0,00">
+                </div>
+                <div class="input-group">
+                    <label>Status</label>
+                    <select id="status">
+                        <option value="Pago">Pago</option>
+                        <option value="Pendente">Pendente</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="adicionarTransacao()">➕ Adicionar Transação</button>
+        </div>
+        
+        <div class="filter-section">
+            <h3 style="margin-bottom: 15px; color: #333;">🔍 Filtros de Exibição</h3>
+            <div class="filter-grid">
+                <div class="input-group">
+                    <label>Data Inicial</label>
+                    <input type="date" id="filtroDataInicial">
+                </div>
+                <div class="input-group">
+                    <label>Data Final</label>
+                    <input type="date" id="filtroDataFinal">
+                </div>
+                <div class="input-group">
+                    <label>Categoria</label>
+                    <select id="filtroCategoria">
+                        <option value="">Todas</option>
+                        <option value="Salário">Salário</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Investimentos">Investimentos</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Moradia">Moradia</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Status</label>
+                    <select id="filtroStatus">
+                        <option value="">Todos</option>
+                        <option value="Pago">Pago</option>
+                        <option value="Pendente">Pendente</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <button class="btn-filter" onclick="aplicarFiltros()">🔍 Aplicar Filtros</button>
+                </div>
+                <div class="input-group">
+                    <button class="btn-clear-filter" onclick="limparFiltros()">🔄 Limpar Filtros</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="transacoes">
+                    <tr>
+                        <td colspan="7" style="text-align: center; color: #999;">Nenhuma transação registrada</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="actions">
+            <button class="btn-export" onclick="exportarCSV()">📊 Exportar CSV para LibreOffice</button>
+            <button class="btn-export" onclick="document.getElementById('fileInput').click()">📁 Importar CSV</button>
+            <button class="btn-export" onclick="limparDados()">🗑️ Limpar Todos os Dados</button>
+            <input type="file" id="fileInput" accept=".csv" style="display: none;" onchange="importarCSV(event)">
+        </div>
+    </div>
+
+    <script>
+        let transacoes = [];
+        let filtrosAtivos = {
+            dataInicial: null,
+            dataFinal: null,
+            categoria: '',
+            status: ''
+        };
+        
+        // Define data atual ao carregar
+        document.getElementById('data').valueAsDate = new Date();
+        
+        function adicionarTransacao() {
+            const data = document.getElementById('data').value;
+            const descricao = document.getElementById('descricao').value;
+            const categoria = document.getElementById('categoria').value;
+            const tipo = document.getElementById('tipo').value;
+            const valor = parseFloat(document.getElementById('valor').value);
+            const status = document.getElementById('status').value;
+            
+            if (!data || !descricao || !valor) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+            
+            const transacao = {
+                id: Date.now(),
+                data,
+                descricao,
+                categoria,
+                tipo,
+                valor,
+                status
+            };
+            
+            transacoes.push(transacao);
+            atualizarTabela();
+            atualizarResumo();
+            limparFormulario();
+        }
+        
+        function atualizarTabela() {
+            const tbody = document.getElementById('transacoes');
+            
+            if (transacoes.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #999;">Nenhuma transação registrada</td></tr>';
+                return;
+            }
+            
+            // Aplica filtros
+            let transacoesFiltradas = transacoes.filter(t => {
+                let passa = true;
+                
+                // Filtro de data inicial
+                if (filtrosAtivos.dataInicial) {
+                    passa = passa && new Date(t.data) >= new Date(filtrosAtivos.dataInicial);
+                }
+                
+                // Filtro de data final
+                if (filtrosAtivos.dataFinal) {
+                    passa = passa && new Date(t.data) <= new Date(filtrosAtivos.dataFinal);
+                }
+                
+                // Filtro de categoria
+                if (filtrosAtivos.categoria) {
+                    passa = passa && t.categoria === filtrosAtivos.categoria;
+                }
+                
+                // Filtro de status
+                if (filtrosAtivos.status) {
+                    passa = passa && t.status === filtrosAtivos.status;
+                }
+                
+                return passa;
+            });
+            
+            if (transacoesFiltradas.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #999;">Nenhuma transação encontrada com os filtros aplicados</td></tr>';
+                return;
+            }
+            
+            // Ordena as transações por data crescente
+            const transacoesOrdenadas = [...transacoesFiltradas].sort((a, b) => {
+                return new Date(a.data) - new Date(b.data);
+            });
+            
+            tbody.innerHTML = transacoesOrdenadas.map(t => `
+                <tr>
+                    <td>${new Date(t.data + 'T00:00:00').toLocaleDateString('pt-BR')}</td>
+                    <td>${t.descricao}</td>
+                    <td>${t.categoria}</td>
+                    <td class="${t.tipo.toLowerCase()}">${t.tipo}</td>
+                    <td class="${t.tipo.toLowerCase()}">R$ ${t.valor.toFixed(2).replace('.', ',')}</td>
+                    <td><span class="status-badge status-${t.status.toLowerCase()}">${t.status}</span></td>
+                    <td>
+                        <button class="btn-delete" onclick="alternarStatus(${t.id})" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); margin-right: 5px;">🔄</button>
+                        <button class="btn-delete" onclick="removerTransacao(${t.id})">❌</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function atualizarResumo() {
+            const receitas = transacoes.filter(t => t.tipo === 'Receita').reduce((sum, t) => sum + t.valor, 0);
+            const despesasPagas = transacoes.filter(t => t.tipo === 'Despesa' && t.status === 'Pago').reduce((sum, t) => sum + t.valor, 0);
+            const despesasPendentes = transacoes.filter(t => t.tipo === 'Despesa' && t.status === 'Pendente').reduce((sum, t) => sum + t.valor, 0);
+            const despesasTotal = despesasPagas + despesasPendentes;
+            const saldo = receitas - despesasTotal;
+            
+            document.getElementById('totalReceitas').textContent = `R$ ${receitas.toFixed(2).replace('.', ',')}`;
+            document.getElementById('despesasPagas').textContent = `R$ ${despesasPagas.toFixed(2).replace('.', ',')}`;
+            document.getElementById('despesasPendentes').textContent = `R$ ${despesasPendentes.toFixed(2).replace('.', ',')}`;
+            document.getElementById('totalDespesas').textContent = `R$ ${despesasTotal.toFixed(2).replace('.', ',')}`;
+            document.getElementById('saldo').textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;
+        }
+        
+        function removerTransacao(id) {
+            transacoes = transacoes.filter(t => t.id !== id);
+            atualizarTabela();
+            atualizarResumo();
+        }
+        
+        function alternarStatus(id) {
+            const transacao = transacoes.find(t => t.id === id);
+            if (transacao) {
+                transacao.status = transacao.status === 'Pago' ? 'Pendente' : 'Pago';
+                atualizarTabela();
+            }
+        }
+        
+        function limparFormulario() {
+            document.getElementById('descricao').value = '';
+            document.getElementById('valor').value = '';
+            document.getElementById('data').valueAsDate = new Date();
+        }
+        
+        function exportarCSV() {
+            if (transacoes.length === 0) {
+                alert('Nenhuma transação para exportar!');
+                return;
+            }
+            
+            let csv = 'Data,Descrição,Categoria,Tipo,Valor,Status\n';
+            transacoes.forEach(t => {
+                csv += `${new Date(t.data + 'T00:00:00').toLocaleDateString('pt-BR')};${t.descricao};${t.categoria};${t.tipo};${t.valor.toFixed(2).replace('.', ',')};${t.status}\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'despesas_pessoais.csv';
+            link.click();
+        }
+        
+        function limparDados() {
+            if (confirm('Tem certeza que deseja limpar todos os dados?')) {
+                transacoes = [];
+                atualizarTabela();
+                atualizarResumo();
+            }
+        }
+        
+        function importarCSV(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const texto = e.target.result;
+                    const linhas = texto.split('\n');
+                    
+                    // Pula o cabeçalho (primeira linha)
+                    for (let i = 1; i < linhas.length; i++) {
+                        const linha = linhas[i].trim();
+                        if (!linha) continue;
+                        
+                        const campos = linha.split(';');
+                        if (campos.length < 5) continue;
+                        
+                        // Converte data de DD/MM/YYYY para YYYY-MM-DD
+                        const dataPartes = campos[0].trim().split('/');
+                        let dataFormatada;
+                        if (dataPartes.length === 3) {
+                            dataFormatada = `${dataPartes[2]}-${dataPartes[1].padStart(2, '0')}-${dataPartes[0].padStart(2, '0')}`;
+                        } else {
+                            dataFormatada = new Date().toISOString().split('T')[0];
+                        }
+                        
+                        const descricao = campos[1].trim();
+                        const categoria = campos[2].trim();
+                        const tipo = campos[3].trim();
+                        const valorStr = campos[4].trim().replace(',', '.');
+                        const valor = parseFloat(valorStr);
+                        const status = campos[5] ? campos[5].trim() : 'Pago';
+                        
+                        if (descricao && !isNaN(valor)) {
+                            const transacao = {
+                                id: Date.now() + i,
+                                data: dataFormatada,
+                                descricao,
+                                categoria,
+                                tipo,
+                                valor,
+                                status
+                            };
+                            transacoes.push(transacao);
+                        }
+                    }
+                    
+                    atualizarTabela();
+                    atualizarResumo();
+                    alert(`${linhas.length - 1} transações importadas com sucesso!`);
+                    
+                } catch (erro) {
+                    alert('Erro ao importar arquivo. Verifique se o formato está correto.');
+                    console.error(erro);
+                }
+            };
+            
+            reader.readAsText(file, 'UTF-8');
+            event.target.value = ''; // Limpa o input para permitir importar o mesmo arquivo novamente
+        }
+        
+        function aplicarFiltros() {
+            filtrosAtivos.dataInicial = document.getElementById('filtroDataInicial').value;
+            filtrosAtivos.dataFinal = document.getElementById('filtroDataFinal').value;
+            filtrosAtivos.categoria = document.getElementById('filtroCategoria').value;
+            filtrosAtivos.status = document.getElementById('filtroStatus').value;
+            
+            atualizarTabela();
+        }
+        
+        function limparFiltros() {
+            filtrosAtivos = {
+                dataInicial: null,
+                dataFinal: null,
+                categoria: '',
+                status: ''
+            };
+            
+            document.getElementById('filtroDataInicial').value = '';
+            document.getElementById('filtroDataFinal').value = '';
+            document.getElementById('filtroCategoria').value = '';
+            document.getElementById('filtroStatus').value = '';
+            
+            atualizarTabela();
+        }
+    </script>
+</body>
+</html>
