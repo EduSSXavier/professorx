@@ -83,12 +83,11 @@
                     <li><strong>Classe: Ingrediente</strong>
                         <ul>
                             <li>Ingrediente que pode ser usado em uma receita</li>
-                            <li>Atributos: nome (str), quantidade (float), unidade 
-                                (str, ex.: "kg", "unidades")</li>
+                            <li>Atributos: nome (str), unidade (str, ex.: "kg", 
+                                "ml", "unidades")</li>
                             <li>Métodos:
                                 <ul>
-                                    <li>__init__(self, nome, quantidade, unidade)</li>
-                                    <li>atualizar_quantidade(self, nova_quantidade)</li>
+                                    <li>__init__(self, nome, unidade)</li>
                                     <li>descricao(self): Retorna uma string formatada
                                         com informações do ingrediente</li>
                                 </ul>
@@ -98,14 +97,15 @@
                     <li><strong>Classe: Receita</strong>
                         <ul>
                             <li>Representa uma receita completa</li>
-                            <li>Atributos: titulo (str), ingredientes (lista de objetos 
-                                Ingrediente), passos (lista de str descrevendo cada passo
+                            <li>Atributos: titulo (str), ingredientes (lista de tuplas 
+                                (ingrediente, quantidade), onde ingrediente é um objeto), 
+                                passos (lista de str descrevendo cada passo de preparo
                                 da receita), tempo_preparo (int, em minutos), porcoes 
                                 (int).</li>
                             <li>Métodos:
                                 <ul>
                                     <li>__init__(self, titulo, tempo_preparo, porcoes)</li>
-                                    <li>adicionar_ingrediente(self, ingrediente): 
+                                    <li>adicionar_ingrediente(self, ingrediente, quantidade):
                                         Adiciona um objeto Ingrediente à lista </li>
                                     <li>descricao_completa(self): Retorna uma string formatada 
                                         com todos os detalhes da receita</li>
