@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio: Sistema de Gestão Escolar</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-header: #ffffff;
+            --accent: #58a6ff;
+            --success: #2ea043;
+            --bonus: #d2a8ff;
+            --code-bg: #0d1117;
+            --border: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            color: var(--text-header);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            margin: 40px 0;
+        }
+
+        h2 {
+            color: var(--text-header);
+            border-left: 4px solid var(--success);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background-color: #1f6feb;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Requirements List */
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li::before {
+            content: "✔";
+            color: var(--success);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Code/Architecture Block */
+        .code-block {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #8b949e;
+            overflow-x: auto;
+        }
+
+        .dir-struct {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .file-name {
+            color: #e3b341;
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            border: 1px solid var(--bonus);
+            background: linear-gradient(45deg, #161b22, #220a3d);
+        }
+
+        .bonus-title {
+            color: var(--bonus);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #8b949e;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #2ea043;
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Desafio: Sistema de Gestão Escolar</h1>
+            <p class="subtitle">Construindo uma aplicação do zero</p>
+            <div class="tech-stack">
+                <span class="badge">Python</span>
+                <span class="badge">Streamlit</span>
+                <span class="badge">SQLite</span>
+                <span class="badge">CRUD</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Contexto -->
+        <section id="context">
+            <h2>O Desafio</h2>
+            <div class="card">
+                <p>Crie uma aplicação web completa para o cadastro e gerenciamento de alunos de uma escola. O objetivo é praticar a construção de interfaces rápidas com o <strong>Streamlit</strong> e a manipulação de dados com <strong>SQLite</strong>.</p>
+                <p style="margin-top: 10px;">O diferencial deste desafio está na <strong>Arquitetura de Software</strong>: você deve separar claramente a lógica de interface da lógica de acesso a dados.</p>
+            </div>
+        </section>
+
+        <!-- Requisitos -->
+        <section id="requirements">
+            <h2>Funcionalidades Obrigatórias</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>1. Cadastro de Alunos:</strong> Criar um formulário para inserir nome, data de nascimento, CPF e email. Os dados devem ser salvos no banco SQLite.</li>
+                    <li><strong>2. Consultas com Filtros:</strong> Exibir uma tabela com todos os alunos. Implementar uma barra de busca ou filtros (ex: buscar por nome ou filtrar por faixa etária).</li>
+                    <li><strong>3. Edição de Dados:</strong> Capacidade de selecionar um aluno existente e atualizar suas informações (ex: correção de nome ou email).</li>
+                    <li><strong>4. Exclusão de Registros:</strong> Implementar a função de remover um aluno do banco de dados.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Arquitetura -->
+        <section id="architecture">
+            <h2>Arquitetura Sugerida</h2>
+            <p style="margin-bottom: 15px;">Para ser um bom desenvolvedor, evite colocar todo o código em um único arquivo. Separe as responsabilidades:</p>
+            
+            <div class="code-block">
+                <pre>
+<span class="dir-struct">projeto_escola/</span>
+│
+├── <span class="file-name">database.py</span>        <span style="color: #8b949e;"># Módulo de Banco de Dados</span>
+│   ├── Criar conexão
+│   ├── Criar tabela (se não existir)
+│   ├── Funções: adicionar_aluno(), buscar_alunos(), atualizar_aluno(), deletar_aluno()
+│
+├── <span class="file-name">app.py</span>             <strong># Interface (Streamlit)</strong>
+│   ├── Aba Cadastro (Formulário)
+│   ├── Aba Lista (DataFrame + Filtros)
+│   ├── Lógica de Update/Delete
+│
+└── <span class="file-name">escola.db</span>         <span style="color: #8b949e;"># Arquivo SQLite gerado automaticamente</span>
+                </pre>
+            </div>
+        </section>
+
+        <!-- Desafio Bônus -->
+        <section id="bonus">
+            <div class="card bonus-section">
+                <h2 class="bonus-title">🚀 Desafio Extra: Gerenciamento de Turmas</h2>
+                <p>Para os desenvolvedores que terminaram a tarefa inicial, aqui está o próximo nível:</p>
+                <br>
+                <ul>
+                    <li><strong>Criar Tabela de Turmas:</strong> Além de alunos, crie uma tabela para turmas (ex: "3º Ano A", "2º Ano B") contendo o ano letivo.</li>
+                    <li><strong>Relacionamento:</strong> Adicione uma coluna na tabela de alunos chamada <code>id_turma</code> (Foreign Key). [OBS:pesquise como usar o comando SQL ALTER TABLE]</li>
+                    <li><strong>Alocação:</strong> No momento do cadastro ou edição do aluno, permita selecionar em qual turma ele pertence.</li>
+                    <li><strong>Dashboard:</strong> Crie uma aba que mostre quantos alunos existem em cada turma.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Desafio proposto para prática de desenvolvimento Python.</p>
+        <p>Bons códigos!</p>
+    </footer>
+
+</body>
+</html>
