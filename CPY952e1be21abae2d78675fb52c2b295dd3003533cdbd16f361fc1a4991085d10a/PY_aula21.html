@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio: Sistema de Gestão Escolar</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-header: #ffffff;
+            --accent: #58a6ff;
+            --success: #2ea043;
+            --bonus: #d2a8ff;
+            --code-bg: #0d1117;
+            --border: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            color: var(--text-header);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            margin: 40px 0;
+        }
+
+        h2 {
+            color: var(--text-header);
+            border-left: 4px solid var(--success);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background-color: #1f6feb;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Requirements List */
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li::before {
+            content: "✔";
+            color: var(--success);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Code/Architecture Block */
+        .code-block {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #8b949e;
+            overflow-x: auto;
+        }
+
+        .dir-struct {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .file-name {
+            color: #e3b341;
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            border: 1px solid var(--bonus);
+            background: linear-gradient(45deg, #161b22, #220a3d);
+        }
+
+        .bonus-title {
+            color: var(--bonus);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #8b949e;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #2ea043;
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Encerramento:<br>Sistema de Cadastro de Clientes</h1>
+            <p class="subtitle">Construindo uma aplicação do zero</p>
+            <div class="tech-stack">
+                <span class="badge">Python</span>
+                <span class="badge">Streamlit</span>
+                <span class="badge">SQLite</span>
+                <span class="badge">CRUD</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Contexto -->
+        <section id="context">
+            <h2>A Despedida</h2>
+            <div class="card">
+                <p>Para comemorar o encerramento deste módulo vamos criar uma aplicação web completa para o cadastro 
+                    e gerenciamento de clientes. O objetivo é praticar a construção de aplicações usando os conceitos 
+                    aprendidos ao longo do curso.</p>
+                <p style="margin-top: 10px;">Manteremos a ideia de separar o tratamento dos dados em um módulo dedicado
+                    (database.py) e a interface gráfica em outro arquivo (app.py). Assim, além de praticar o CRUD, 
+                    você também terá a oportunidade de organizar o código de forma mais profissional.</p>
+            </div>
+
+            <div class="destaque">
+                <h2>Material didático da aula:</h2>
+                <p>Para executar o tutorial passo a passo e criar a aplicação revista, acesse 
+                    o arquivo com instruções 
+                    <a href="./Aula21_tutorial_streamlit_sqlite.pdf">clicando aqui</a>.
+                </p>
+                <br>
+                <h2>E se contruirmos uma API para isso?</h2>
+                <p>Para criar uma solução baseada em API-REST (sem interface gráfica), acesse 
+                    o arquivo tutorial com instruções 
+                    <a href="./Aula21_tutorial_flask_sqlite.pdf">clicando aqui</a>.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Bons códigos!</p>
+    </footer>
+
+</body>
+</html>
