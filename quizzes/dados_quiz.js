@@ -131,6 +131,188 @@ export const dados = {
           "correct": 2
         }
       ]
+    },
+    {
+      "id": "python-modulos",
+      "name": "Módulos em Python",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Qual palavra-chave é usada para importar um módulo em Python?",
+          "options": ["include", "require", "import", "using"],
+          "correct": 2
+        },
+        {
+          "id": 2,
+          "question": "Como importar apenas a função 'sqrt' do módulo math?",
+          "options": ["import sqrt from math", "from math import sqrt", "import math.sqrt", "using math import sqrt"],
+          "correct": 1
+        },
+        {
+          "id": 3,
+          "question": "Qual comando importa todas as funções de um módulo?",
+          "options": ["import math.*", "from math import all", "from math import *", "import * from math"],
+          "correct": 2
+        },
+        {
+          "id": 4,
+          "question": "Como dar um apelido ao importar um módulo?",
+          "options": ["import numpy as np", "import numpy alias np", "import numpy -> np", "from numpy use np"],
+          "correct": 0
+        },
+        {
+          "id": 5,
+          "question": "Qual módulo é usado para trabalhar com datas e horas?",
+          "options": ["time", "datetime", "date", "calendar"],
+          "correct": 1
+        },
+        {
+          "id": 6,
+          "question": "Qual módulo fornece funções matemáticas como sqrt e sin?",
+          "options": ["mathematics", "calc", "math", "numpy"],
+          "correct": 2
+        },
+        {
+          "id": 7,
+          "question": "Como criar um módulo personalizado em Python?",
+          "options": ["Criar um arquivo .mod", "Criar um arquivo .py", "Criar um arquivo .module", "Usar o comando module"],
+          "correct": 1
+        },
+        {
+          "id": 8,
+          "question": "Qual módulo é usado para gerar números aleatórios?",
+          "options": ["rand", "random", "numbers", "generator"],
+          "correct": 1
+        },
+        {
+          "id": 9,
+          "question": "O que a variável __name__ contém quando um módulo é executado diretamente?",
+          "options": ["O nome do arquivo", "None", "'__main__'", "'__module__'"],
+          "correct": 2
+        },
+        {
+          "id": 10,
+          "question": "Qual comando instala módulos externos via pip?",
+          "options": ["pip download", "pip get", "pip install", "pip add"],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "eng-social",
+      "name": "Segurança - Engenharia Social",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Você recebe um e-mail aparentemente do departamento de TI da sua empresa solicitando que você clique em um link para atualizar sua senha corporativa com urgência, pois sua conta será bloqueada em 24 horas. O remetente é 'ti-suporte@empresa-corp.net'. Qual é o melhor curso de ação?",
+          "options": [
+            "Clicar no link e alterar a senha imediatamente para evitar o bloqueio.",
+            "Encaminhar o e-mail para colegas para ver se eles também receberam.",
+            "Não clicar no link; acessar o portal de TI diretamente pelo navegador e reportar o e-mail como phishing ao time de segurança.",
+            "Responder ao e-mail pedindo mais informações antes de agir."
+          ],
+          "correct": 2
+        },
+        {
+          "id": 2,
+          "question": "Ao navegar na internet, um pop-up avisa que seu computador está infectado com vírus e oferece um botão 'Remover Agora' que baixará um software de segurança gratuito. O que você deve fazer?",
+          "options": [
+            "Clicar em 'Remover Agora', pois o software gratuito irá limpar o vírus.",
+            "Fechar o pop-up imediatamente pelo gerenciador de tarefas se necessário, e verificar seu computador com o antivírus corporativo oficial.",
+            "Reiniciar o computador e clicar no link na próxima vez que aparecer.",
+            "Compartilhar o link com colegas para que todos possam instalar a proteção."
+          ],
+          "correct": 1,
+        },
+        {
+          "id": 3,
+          "question": "Um colega lhe envia por mensagem um arquivo chamado 'relatorio_q3_final.pdf.exe' dizendo ser um relatório urgente. Ao passar o mouse, você percebe a extensão dupla. O que você faz?",
+          "options": [
+            "Abrir o arquivo pois veio de um colega conhecido e é urgente.",
+            "Salvar na área de trabalho e abrir amanhã.",
+            "Não abrir o arquivo; contactar o colega por outro canal para confirmar se ele realmente enviou e reportar ao time de TI.",
+            "Renomear o arquivo removendo o '.exe' antes de abrir."
+          ],
+          "correct": 2
+        },
+        {
+          "id": 4,
+          "question": "Ao ligar seu computador pela manhã, você vê uma mensagem em tela cheia dizendo que seus arquivos foram criptografados e que você deve pagar R$5.000 em criptomoeda em 48 horas para recuperá-los. Qual a ação correta?",
+          "options": [
+            "Pagar o resgate imediatamente para recuperar os arquivos antes do prazo.",
+            "Desligar o computador imediatamente, isolar o dispositivo da rede, não pagar o resgate e acionar a equipe de segurança e TI para iniciar o protocolo de resposta a incidentes.",
+            "Continuar usando o computador para trabalhar enquanto decide o que fazer.",
+            "Formatar o computador sozinho antes de chamar o suporte."
+          ],
+          "correct": 1
+        },
+        {
+          "id": 5,
+          "question": "Você percebe que um colega que pediu demissão está copiando grandes volumes de dados da empresa para um pendrive pessoal fora do horário habitual. O que você deve fazer?",
+          "options": [
+            "Ignorar, pois ele ainda está empregado e pode usar os dados.",
+            "Confrontar o colega diretamente e pedir que ele pare.",
+            "Reportar o comportamento suspeito ao gestor e ao time de segurança da informação imediatamente, sem confrontar o colega.",
+            "Esperar para ver se ele realmente vai embora antes de fazer algo."
+          ],
+          "correct": 2
+        },
+        {
+          "id": 6,
+          "question": "Você recebe uma mensagem no WhatsApp de um número desconhecido dizendo ser do RH e pedindo que você confirme CPF e dados bancários para receber o 14º salário oferecido pela empresa. O que fazer?",
+          "options": [
+            "Enviar os dados, pois um 14º salário seria muito bem-vindo.",
+            "Ligar para o número que enviou a mensagem para confirmar.",
+            "Não fornecer nenhum dado; contactar o RH pelos canais oficiais da empresa para verificar a informação e reportar a tentativa de golpe.",
+            "Pedir ao remetente mais provas de que é do RH antes de enviar."
+          ],
+          "correct": 2
+        },
+        {
+          "id": 7,
+          "question": "Você encontra um pendrive sem identificação no estacionamento da empresa com a etiqueta 'SALÁRIOS 2025'. O que você deve fazer?",
+          "options": [
+            "Conectar ao computador para identificar o dono do pendrive.",
+            "Levar para casa e verificar no computador pessoal.",
+            "Não conectar o pendrive em nenhum dispositivo e entregá-lo ao time de segurança da informação para análise forense.",
+            "Jogar fora, pois não tem identificação."
+          ],
+          "correct": 2
+        },
+        {
+          "id": 8,
+          "question": "Você precisa enviar um contrato com dados pessoais de clientes para um parceiro externo. Qual é a forma mais segura de fazer isso?",
+          "options": [
+            "Enviar por e-mail normal, pois o parceiro é confiável.",
+            "Postar o arquivo no grupo de WhatsApp da empresa.",
+            "Utilizar uma plataforma aprovada pela empresa com criptografia, enviar o arquivo protegido por senha e comunicar a senha por um canal separado.",
+            "Imprimir e enviar por correio sem rastreamento."
+          ],
+          "correct": 2
+        },
+        {
+          "id": 9,
+          "question": "Para prevenir ataques de ransomware na sua empresa, qual das práticas abaixo representa a camada de defesa mais eficaz?",
+          "options": [
+            "Pagar antecipadamente por chaves de descriptografia.",
+            "Manter backups regulares e testados em local isolado (offline ou imutável), combinados com atualizações de sistema e treinamento de usuários.",
+            "Desabilitar completamente o acesso à internet.",
+            "Confiar apenas no antivírus para bloquear todos os ataques."
+          ],
+          "correct": 1
+        },
+        {
+          "id": 10,
+          "question": "A empresa está implementando um novo sistema e percebe que um funcionário com acesso privilegiado está acessando bancos de dados de outros departamentos sem justificativa de negócio. Qual é a melhor abordagem?",
+          "options": [
+            "Não fazer nada para não criar conflito com o funcionário.",
+            "Dar mais permissões ao funcionário para que ele entenda melhor os sistemas.",
+            "Aplicar o princípio do menor privilégio, revisar e revogar acessos desnecessários, ativar logs de auditoria detalhados e investigar o comportamento com o time de segurança.",
+            "Enviar um e-mail para o funcionário perguntando por que ele está acessando esses dados."
+          ],
+          "correct": 2
+        }
+      ]
     }
   ]
 }

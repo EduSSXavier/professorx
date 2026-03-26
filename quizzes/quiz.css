@@ -89,8 +89,11 @@ body {
     border: var(--primary) solid 2px;
     border-radius: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 600px;
+    width: 800px;
     text-align: center;
+    font-weight: 300;
+    font-style: normal;
+    font-size: medium;
 }
 
 button {
@@ -111,8 +114,8 @@ button:disabled {
 }
 
 button:hover:not(:disabled) {
-      background-color: var(--primary);
-      color: var(--texto-reverso);
+    background-color: var(--primary);
+    color: var(--texto-reverso);
 }
 
 .theme-button {
