@@ -313,6 +313,122 @@ export const dados = {
           "correct": 2
         }
       ]
+    },
+    {
+      "id": "compil-lexer",
+      "name": "Compiladores - Analise Léxica",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Qual é a principal tarefa do analisador léxico na primeira fase de um compilador?",
+          "options": [
+            "Ler os caracteres de entrada e produzir uma sequência de tokens.",
+            "Agrupar os tokens em coleções aninhadas com significado coletivo.",
+            "Verificar se os componentes de um programa se combinam de forma significativa.",
+            "Traduzir o código intermediário para a linguagem de máquina alvo."
+          ],
+          "correct": 0
+        },
+        {
+          "id": 2,
+          "question": "Como é definida a sequência de caracteres do programa fonte que forma um token?",
+          "options": [
+            "Atributo léxico",
+            "Lexema",
+            "Expressão regular",
+            "Símbolo terminal"
+          ],
+          "correct": 1
+        },
+        {
+          "id": 3,
+          "question": "O que um 'token' representa no contexto da análise léxica?",
+          "options": [
+            "Uma unidade lógica com um significado coletivo.",
+            "O endereço de memória de uma variável.",
+            "Uma regra de produção da gramática livre de contexto.",
+            "Um erro de sintaxe detectado no código-fonte."
+          ],
+          "correct": 0
+        },
+        {
+          "id": 4,
+          "question": "Qual das seguintes tarefas NÃO é comumente realizada por um analisador léxico?",
+          "options": [
+            "Remoção de espaços em branco e comentários.",
+            "Identificação de palavras-chave e operadores.",
+            "Verificação da compatibilidade de tipos em expressões aritméticas.",
+            "Inserção de identificadores na tabela de símbolos."
+          ],
+          "correct": 2
+        },
+        {
+          "id": 5,
+          "question": "Qual notação é mais apropriada e comumente usada para especificar os padrões de tokens?",
+          "options": [
+            "BNF (Backus-Naur Form)",
+            "Expressões Regulares",
+            "Diagramas Sintáticos",
+            "Árvores de Derivação"
+          ],
+          "correct": 1
+        },
+        {
+          "id": 6,
+          "question": "Qual modelo matemático é utilizado como base para implementar o reconhecimento de tokens em um analisador léxico?",
+          "options": [
+            "Máquina de Turing",
+            "Autômato de Pilha",
+            "Autômato Finito",
+            "Grafo de Fluxo de Controle"
+          ],
+          "correct": 2
+        },
+        {
+          "id": 7,
+          "question": "Por que o analisador léxico tem uma capacidade limitada de detectar erros no programa?",
+          "options": [
+            "Porque ele não tem acesso à tabela de símbolos.",
+            "Porque ele possui uma visão extremamente local do programa fonte.",
+            "Porque ele só analisa linguagens regulares (Tipo 3).",
+            "Porque ele é a última fase do processo de compilação."
+          ],
+          "correct": 1
+        },
+        {
+          "id": 8,
+          "question": "Qual é o objetivo técnico de utilizar 'pares de buffers' e 'sentinelas' na análise léxica?",
+          "options": [
+            "Facilitar a recuperação de erros sintáticos.",
+            "Reduzir o tempo de compilação na fase de síntese.",
+            "Acelerar a leitura de caracteres e o reconhecimento de padrões que exigem lookahead.",
+            "Garantir que a gramática da linguagem seja livre de contexto."
+          ],
+          "correct": 2
+        },
+        {
+          "id": 9,
+          "question": "Qual ferramenta é amplamente utilizada para gerar automaticamente analisadores léxicos a partir de expressões regulares?",
+          "options": [
+            "Yacc",
+            "Bison",
+            "Lex (ou Flex)",
+            "Gcc"
+          ],
+          "correct": 2
+        },
+        {
+          "id": 10,
+          "question": "Na interação com outras fases, para onde o analisador léxico envia o fluxo de tokens?",
+          "options": [
+            "Para o Gerador de Código Intermediário.",
+            "Para o Analisador Sintático (Parser).",
+            "Diretamente para a Tabela de Símbolos.",
+            "Para o Otimizador de Código."
+          ],
+          "correct": 1
+        }
+      ]
     }
   ]
 }
